@@ -15,13 +15,23 @@ jQuery Validation Engine v2.6.2
 API 接口验证控件均使用 "validate"，移除 "validateField"；
 API 接口隐藏提示均使用 "hide" 移除 "hidePrompt"，保留 "hideAll"。
 ##文档目录##
+1. [使用方法](#use)
+1. 验证类型
+1. 参数说明
+1. HTML5 属性
+1. API 接口
+1. 自定义事件
+1. 相关信息
+
 	CSS    
 	<link rel="stylesheet" href="css/validationEngine.jquery.css">
 	asdf
 asd
 asd
 
-##使用方法 ##
+<a name="use" id="use"></a>
+##使用方法##
+
 
 
 ###载入 CSS 文件###
