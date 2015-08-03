@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="http://res.hzins.com/web/public/webuploader/webuploader.css">
+<link rel="stylesheet" type="text/css" href="webuploader/webuploader.css">
 <style>
 body,ul,li,p { padding:0; margin: 0;}
 ul, li { list-style: none;}
@@ -40,7 +40,8 @@ ul, li { list-style: none;}
 </div>
 
 <script type="text/javascript" src="http://res.hzins.com/long/public/framework/jquery/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="http://res.hzins.com/web/public/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="/md5.min.js"></script>
+<script type="text/javascript" src="webuploader/webuploader.js"></script>
 <script type="text/javascript">
 (function() {
 var blockUplated = {};
@@ -52,16 +53,22 @@ WebUploader.Uploader.register({
     'before-send': function(block) {
         var deferred = WebUploader.Base.Deferred();
 
+        // 分片md5，可用于校验分片完整性
+        var md5Def = uploader.md5File( block.file, block.start, block.end )
+        .then(function(val) {
+            block.md5chunk = val;
+        });
+
         // 服务器所有分片都存在, 重传最后一片触发合并操作
         if ( block.chunks >0 && block.chunks === block.chunk && isAllPartUploaded( block ) ) {
-            deferred.resolve();
+            md5Def.then( deferred.resolve, deferred.reject );
         }
         // 如果已经上传，则忽略
         else if ( isUploaded(block) ) {
             deferred.reject();
         }
         else {
-            deferred.resolve();
+            md5Def.then( deferred.resolve, deferred.reject );
         }
 
         return deferred.promise();
@@ -72,7 +79,8 @@ WebUploader.Uploader.register({
             owner = this.owner,
             server = me.options.server,
             deferred = WebUploader.Deferred();
-
+        
+        //file.md5='fdf996041fdc5c2782c4d8e1b2eeabfa';
         if (file.md5) {// 文件已经校验过
             md5Done(file.md5);
         }
@@ -117,14 +125,16 @@ WebUploader.Uploader.register({
 
 // uploader配置
 var uploader = WebUploader.create({
-    swf: 'http://res.hzins.com/web/public/webuploader/Uploader.swf',
+    swf: '/webuploader/Uploader.swf',
     server: '/upload',
     pick: '#picker', // 选择文件的按钮。可选。内部根据当前运行是创建，可能是input元素，也可能是flash.
     resize: false,// 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+    compress: false,
     chunked: true, // 是否分片
     chunkSize: 52428*100, // 分片大小， 5M
 
-    dnd: '#uploader' // 拖拽
+    dnd: '#uploader', // 拖拽
+    paste: document.body
 });
 
 // 当有文件被添加进队列的时候
@@ -134,8 +144,11 @@ uploader.on( 'fileQueued', function( file ) {
         '<span class="state">(等待上传...)</span>' +
     '</li>' );
 })
-.on( 'uploadBeforeSend', function( a, data, c ) {
-    data.md5 = a.file.md5;
+.on( 'uploadBeforeSend', function( block, data, c ) {
+    var file = block.file;
+    data.md5 = file.md5;
+    data.md5chunk = block.md5chunk;
+    data.md5meta = fileMetaMd5(file);
 })
 .on( 'uploadSuccess', function( file, re ) {
     $('#'+file.id).find(' .state').html('(完成)');
@@ -175,6 +188,11 @@ function isAllPartUploaded( block ) {
         }
     }
     return true;
+}
+
+// 根据文件元信息获取hash key， 文件名、大小、修改时间
+function fileMetaMd5( file ) {
+    return md5(file.name+file.size+file.lastModifiedDate)
 }
 
 })();

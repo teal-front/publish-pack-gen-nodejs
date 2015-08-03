@@ -10,9 +10,11 @@ var express = require('express'),
 
 var bodyParser = require('body-parser');
 var Busboy = require('busboy');
+var md5File = require('md5-file');
 
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // 查询已经上传的分片文件，客户端将跳过这些分片
 app.get('/checkfile', function(req, res) {
@@ -54,7 +56,8 @@ app.post('/upload', function(req, res){
     // POST数据全部解析完成
     busboy.on('finish', function(err) {
         
-        var retry = 0;
+        var retry = 0,
+            RETRY_LIMIT=5;
 
         // 不分片的文件
         if ( !params.chunk ) {
@@ -71,12 +74,11 @@ app.post('/upload', function(req, res){
                 if ( err ) {
                     console.log('生成part文件出错');
                     console.log(err);
-                    if ( retry++ < 5 ) { // 重命名失败时再尝试几次
-                        setTimeout( rename, 50 );
+                    if ( retry++ < RETRY_LIMIT ) { // 重命名失败时再尝试几次
+                        setTimeout( rename, 500 );
                     }
                     else {
-                        res.writeHead(500, { 'Connection': 'close' });
-                        res.end("0");
+                        res.status(500).send('');
                     }
                     return;
                 }
@@ -99,14 +101,17 @@ app.post('/upload', function(req, res){
             }
 
             if (done) {
-                mergeFile(params, function(filePath) {
-                    res.writeHead(200, { 'Connection': 'close' });
-                    res.end(filePath);
+                mergeFile(params, function(err, filePath) {
+                    if (err) {
+                        res.status(500).send('');
+                    }
+                    else {
+                        res.status(200).send(filePath);
+                    }
                 });
             }
             else {
-                res.writeHead(200, { 'Connection': 'close' });
-                res.end("");
+                res.status(200).send('');
             }
         }
     });
@@ -128,15 +133,34 @@ function mergeFile(params, callback) {
     
     var chunk = Number(params.chunk);
     var chunks = Number(params.chunks);
+    var curRs = null;
 
-    // 清理文件
+    // 校验，清理分片文件
     fileWriteStream.on('close',function(){
-      callback(targetFile);
-      for (var chunk=0;chunk<chunks; chunk++) {
-        fs.unlink( getPartPah(params, chunk) );
-      }
+        md5File(targetFile, function(err, md5){
+            if ( err ) callback(err);
+            if (md5 === params.md5) {
+                callback(null, targetFile);
+                for (var chunk=0;chunk<chunks; chunk++) {
+                    fs.unlink( getPartPah(params, chunk) );
+                }
+            }
+            else {
+                console.log('校验失败'+md5);
+                callback('校验失败'+md5);
+            }
+        });
     });
 
+    fileWriteStream.on('error', function(err){
+        callback(err);
+        console.log(err);
+    });
+
+    // 文件写入太快时会读取暂停，写入完成恢复
+    fileWriteStream.on('drain', function() {
+        curRs && curRs.resume();
+    });
 
     // 依次合并文件
     function doWrite(chunk) {
@@ -146,22 +170,20 @@ function mergeFile(params, callback) {
         }
 
         var rs = fs.createReadStream( getPartPah(params, chunk) );
+        curRs = rs;
+
         rs.on('data', function( data ) {
             if ( fileWriteStream.write(data) === false ) { // 如果没有写完，暂停读取流
-                //rs.pause();
+                rs.pause();
             }
-        });
-
-        rs.on('drain', function() { // 写完后，继续读取
-            //readStream.resume();
-        });
+        });        
 
         rs.on('end',function(){
             doWrite(++chunk);
         });
 
-        rs.on('err',function(err){
-            // doWrite(++chunk);
+        rs.on('error', function(err){
+            callback(err);
             console.log(err);
         });
     }
