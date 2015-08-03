@@ -22,6 +22,7 @@ app.get('/checkfile', function(req, res) {
     var files=fs.readdirSync(TEMP_DIR); 
     var re = [];
 
+    // 查询指定文件的分片
     if ( md5 ) {
         for(fn in files)  {  
             var fname = files[fn];
@@ -34,6 +35,7 @@ app.get('/checkfile', function(req, res) {
     else {
         re = files;
     }
+
     res.send(re);
 });
 
@@ -57,7 +59,7 @@ app.post('/upload', function(req, res){
     busboy.on('finish', function(err) {
         
         var retry = 0,
-            RETRY_LIMIT=5;
+            RETRY_LIMIT=5;// 重命名失败时的重试次数
 
         // 不分片的文件
         if ( !params.chunk ) {
@@ -116,8 +118,6 @@ app.post('/upload', function(req, res){
         }
     });
 
-
-
     return req.pipe(busboy);
 });
 
@@ -128,11 +128,10 @@ function getPartPah(params, chunk) {
 
 // 合并part文件
 function mergeFile(params, callback) {
-    var targetFile = './upload/' + params.name;
-    var fileWriteStream = fs.createWriteStream(targetFile);
-    
-    var chunk = Number(params.chunk);
-    var chunks = Number(params.chunks);
+    var targetFile = './upload/' + params.name,
+        fileWriteStream = fs.createWriteStream(targetFile);
+    var chunk = Number(params.chunk),
+        chunks = Number(params.chunks);
     var curRs = null;
 
     // 校验，清理分片文件
@@ -169,9 +168,11 @@ function mergeFile(params, callback) {
             return;
         }
 
+        // 读取分片
         var rs = fs.createReadStream( getPartPah(params, chunk) );
         curRs = rs;
 
+        // 写入数据到最终文件
         rs.on('data', function( data ) {
             if ( fileWriteStream.write(data) === false ) { // 如果没有写完，暂停读取流
                 rs.pause();

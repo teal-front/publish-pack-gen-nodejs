@@ -85,6 +85,7 @@ WebUploader.Uploader.register({
             md5Done(file.md5);
         }
         else {
+            // 校验文件，大文件很耗时，如果需要文件标志可使用md5meta方法生成
             owner.md5File( file.source )
             .fail(function() {
                 deferred.reject();
@@ -113,7 +114,7 @@ WebUploader.Uploader.register({
                         deferred.resolve(); // 延迟对象resolve，则继续上传流程
                     },
                     error: function() {
-                        deferred.reject(); // 失败
+                        deferred.reject(); // 失败，直接显示重试
                     }
                 });
             }
@@ -128,8 +129,8 @@ WebUploader.Uploader.register({
 
 // uploader配置
 var uploader = WebUploader.create({
-    swf: '/webuploader/Uploader.swf',
-    server: '/upload',
+    swf: '/webuploader/Uploader.swf',// 旧浏览器使用flash的路径
+    server: '/upload', // 服务器接口
     pick: '#picker', // 选择文件的按钮。可选。内部根据当前运行是创建，可能是input元素，也可能是flash.
     resize: false,// 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
     compress: false,
@@ -137,7 +138,8 @@ var uploader = WebUploader.create({
     chunkSize: 52428*100, // 分片大小， 5M
 
     dnd: '#uploader', // 拖拽
-    paste: document.body
+    paste: document.body, // 粘贴
+    prepareNextFile: true // 预处理，上传文件时可预先校验下一个文件
 });
 
 // 当有文件被添加进队列的时候
@@ -148,6 +150,7 @@ uploader.on( 'fileQueued', function( file ) {
     '</li>' );
 })
 .on( 'uploadBeforeSend', function( block, data, c ) {
+    // 提交前附加校验参数
     var file = block.file;
     data.md5 = file.md5;
     data.md5chunk = block.md5chunk;
