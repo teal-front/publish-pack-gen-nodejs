@@ -111,6 +111,9 @@ WebUploader.Uploader.register({
                         }*/
                         blockUplated = re;
                         deferred.resolve(); // 延迟对象resolve，则继续上传流程
+                    },
+                    error: function() {
+                        deferred.reject(); // 失败
                     }
                 });
             }
