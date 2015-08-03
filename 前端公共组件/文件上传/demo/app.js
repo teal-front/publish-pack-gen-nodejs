@@ -54,21 +54,40 @@ app.post('/upload', function(req, res){
     // POST数据全部解析完成
     busboy.on('finish', function(err) {
         
+        var retry = 0;
+
         // 不分片的文件
         if ( !params.chunk ) {
             params.chunk = 0;
             params.chunks = 1;
         }
 
+        rename();
+
         // 将临时文件命名为part文件
-        fs.rename(tmpPath, TEMP_DIR + params.md5 + '-'+params.chunk+'.part', function(err) {
-            if ( err ) {
-                console.log('生成part文件出错');
-                console.log(err);
-                res.writeHead(500, { 'Connection': 'close' });
-                res.end("0");
-                return;
-            }
+        function rename () {
+            fs.rename(tmpPath, TEMP_DIR + params.md5 + '-'+params.chunk+'.part', function(err){
+
+                if ( err ) {
+                    console.log('生成part文件出错');
+                    console.log(err);
+                    if ( retry++ < 5 ) { // 重命名失败时再尝试几次
+                        setTimeout( rename, 50 );
+                    }
+                    else {
+                        res.writeHead(500, { 'Connection': 'close' });
+                        res.end("0");
+                    }
+                    return;
+                }
+                else {
+                    renameDone();
+                }
+
+            } );
+        }
+
+        function renameDone() {
 
             // 判断chunks是否全部传完
             var done = true;
@@ -89,8 +108,10 @@ app.post('/upload', function(req, res){
                 res.writeHead(200, { 'Connection': 'close' });
                 res.end("");
             }
-        });
+        }
     });
+
+
 
     return req.pipe(busboy);
 });
@@ -116,15 +137,23 @@ function mergeFile(params, callback) {
       }
     });
 
+
     // 依次合并文件
     function doWrite(chunk) {
         if ( chunk >= chunks ) {
             fileWriteStream.end();
             return;
         }
+
         var rs = fs.createReadStream( getPartPah(params, chunk) );
         rs.on('data', function( data ) {
-            fileWriteStream.write(data)
+            if ( fileWriteStream.write(data) === false ) { // 如果没有写完，暂停读取流
+                //rs.pause();
+            }
+        });
+
+        rs.on('drain', function() { // 写完后，继续读取
+            //readStream.resume();
         });
 
         rs.on('end',function(){
