@@ -1019,18 +1019,19 @@ body .markdown-body
 <h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>一、方法如何调用：</h3>
 <h4 id="1ios"><a name="user-content-1ios" href="#1ios" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1、iOS</h4>
 <ul>
-<li>由H5调用此方法<br />
-<pre><code>var dataStr = JSON.stringify({test:123});
+<li>由H5调用此方法</li>
+</ul>
+<p><pre><code>var dataStr = JSON.stringify({test:123});
 location.href = &quot;objc://recommendDetail//&quot; + dataStr;
-</code></pre></li>
-<li>由iOS端调用此方法<br />
+</code></pre><br />
++ 由iOS端调用此方法</p>
 <pre><code>var shareDataStr = JSON.stringify({name:&quot;tom&quot;});
 window.getShareData = function(args){
     console.log(args);      //args为ios调用时候传递的参数
     return shareDataStr;    //shareDataStr此时应该为全局变量或者闭包参数
 }
-</code></pre></li>
-</ul>
+</code></pre>
+
 <h4 id="2android"><a name="user-content-2android" href="#2android" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2、android</h4>
 <pre><code>var dataStr = JSON.stringify({test:123});
 WebviewAndJsMutual.callProDetail(dataStr);

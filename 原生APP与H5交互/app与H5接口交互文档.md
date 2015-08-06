@@ -4,11 +4,13 @@
 #### 1、iOS
 
 + 由H5调用此方法
+
 ```
 var dataStr = JSON.stringify({test:123});
 location.href = "objc://recommendDetail//" + dataStr;
 ```
 + 由iOS端调用此方法
+
 ```
 var shareDataStr = JSON.stringify({name:"tom"});
 window.getShareData = function(args){
