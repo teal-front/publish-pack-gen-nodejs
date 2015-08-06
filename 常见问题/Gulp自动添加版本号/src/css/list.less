@@ -1,0 +1,724 @@
+/* list 样式模块 */
+
+.ui-list {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    list-style: none; 
+}
+.ui-list-one{
+    padding: .2rem 0 .2rem 1rem;
+}
+.ui-list-item {
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ui-list-item:last-child,
+.ui-list li:last-child{
+    border-bottom: none;
+}
+.ui-list-item a {
+    display: block;
+    padding: .7rem 0;
+    line-height: 2rem;
+    text-decoration: none;
+    color: #333;    
+}
+
+
+.ui-list-item a,
+.ui-list-item span.ui-list-item-text {
+    font-size: 1.2rem;
+    vertical-align: middle;    
+}
+
+.ui-list-item a:hover {
+    text-decoration: none;    
+}
+.ui-list-item-title{
+    padding: .8rem 0 .8rem 1rem;
+    margin-left: -1rem;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ui-list-item-title img{
+    width: 6rem;
+    height: 3rem;
+}
+.ui-list-item-select{
+    position: relative;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;
+}
+.ui-list-item-select.iconfont:after{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: .8rem;
+    content: "\F027";
+    color: #ccc;
+}
+.ui-list-item-select label{
+    display: block;
+    color: #999;
+    width: 100%;
+}
+.ui-list-item-select select{
+    position: absolute;
+    top: .8rem;
+    right: 2.2rem;
+    box-sizing: border-box;
+    text-align: right;
+    background: none;
+    border: none;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.ui-list-item-select option{
+    text-align: right;
+}
+.ui-list-item-tal label{
+    color: #333;
+}
+.ui-list-item-tal select{
+    width: 100%;
+    left: 0;
+    padding-left: 11rem;
+}
+
+
+.ui-list-item-inputtext{
+    position: relative;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;    
+}
+.ui-list-item-inputtext label{
+
+}
+.ui-list-item-inputtext input{
+    position: absolute;
+    left: 0;
+    padding-left: 11rem;
+    background: none;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+.ui-list-item-inputtext.iconfont:after{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    content: "\F027";
+    color: #ccc;
+}
+.ui-list-item a.iconfont:after{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: .7rem;
+    content: "\F027";
+    color: #ccc;
+}
+.ui-list-item-text{
+    display: inline-block;
+    position: relative;
+    margin: -1rem 0 .4rem;
+    color: #999;
+}
+
+// 文本展示
+.ui-list-text{
+    position: relative;
+    padding: .9rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ui-list-text-tit{
+    position: absolute; 
+    color: #666;
+}
+.ui-list-text-det{
+    padding-left: 11rem;   
+}
+.ui-list-text-misc .ui-list-text-tit{
+    position: relative;
+}
+.ui-list-text-misc .ui-list-text-det{
+    font-size: 1.1rem;
+    color: #999;
+    padding: .3rem 0 0 0;
+}
+.ui-list-textr .ui-list-text-det{
+    text-align: right;
+}
+.ui-list-text-info{
+    padding-top: .4rem;
+}
+
+
+// List ui-list-group
+.ui-list-group{
+    padding: 1rem 1rem;
+}
+.ui-list-group li{
+    padding: .5rem 0;
+    border-bottom: none;
+}
+.ui-list-group .ui-list-item-title{
+    padding-left: 1rem;
+}
+
+
+.ui-list-item-wide{
+    margin-left: -1rem;
+    padding-left: 1rem;
+}
+.ui-list-item-nobor{
+    border-bottom: none;
+}
+
+
+/* ui-dlist */
+
+.ui-dlist {
+    display: inline-block;
+    font-size: 1.2rem;
+    line-height: 2.2;
+    width: 100%;
+    box-sizing: border-box;
+}
+.ui-dlist-tit,
+.ui-dlist-det{
+    border-bottom: 1px solid #ccc;
+    padding: .6rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.ui-dlist .ui-dlist-nobor,
+.ui-dlist-det:last-child{
+    border-bottom: none;
+}
+.ui-dlist-tit {
+    float: left;
+    width: 30%; /* 默认值, 具体根据视觉可改 */
+    text-align: left;
+    margin: 0;
+}
+.ui-dlist-tit,
+.ui-dlist-tit a{
+    color: #666;
+}
+
+.ui-dlist-det {
+    float: left;
+    width: 70%; /* 默认值，具体根据视觉可改 */
+    text-align: right;
+    margin: 0;
+    color: #333;
+}
+.ui-icon-dlist-item:after{
+    content: "\F008";
+    color: #999;
+    padding-left: .5rem;
+}
+li.selected .ui-icon-dlist-item:after {
+    content: "\F009";
+}
+
+/* 标题：描述 */
+.ui-dlist-des .ui-dlist-det,
+.ui-dlist-des .ui-dlist-tit{
+    border-bottom: none;
+    padding: 0;
+    line-height: 1.6;
+}
+.ui-dlist-des .ui-dlist-tit{
+    width: 21%;
+}
+.ui-dlist-des .ui-dlist-det{
+    width: 79%;
+    text-align: left;
+}
+
+/* 50% */
+.ui-hlist{
+    float: left;
+    width: 50%;
+    padding: .6rem 1rem 0;
+    box-sizing: border-box;
+    border-right: 1px solid #e5e5e5;
+}
+.ui-hlist:last-child{
+    margin-left: -1px;
+    border-left: 1px solid #e5e5e5;
+}
+
+
+/* filter list */
+.ui-flist {
+    display: inline-block;
+    line-height: 2.2;
+    width: 100%;
+    box-sizing: border-box;
+     background: #f8f8f8;
+     float: left;
+}
+.ui-flist-tit,
+.ui-flist-det{
+    border-bottom: 1px solid #ccc;
+    padding: .4rem 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%;
+}
+.ui-flist-tit a,
+.ui-flist-det a{
+    display: block;
+}
+.ui-flist-tit{
+    border-top: 1px solid #ccc;
+    position: relative;
+    margin-top: -2px;
+    font-size: 1.4rem;
+    color: #333;
+    background: #fff;
+}
+.ui-flist-tit-icon{
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: #999;
+}
+.ui-flist-tit-icon:after{
+    padding-left: .2rem;
+}
+.ui-flist-det{
+    display: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 1rem;
+    border-bottom-color: #e5e5e5;
+}
+.ui-flist-det:last-child{
+    border-bottom: none;
+}
+.ui-flist-det,
+.ui-flist-det a{
+    color: #666;
+}
+.ui-flist-current .ui-flist-det,.ui-flist-unfold .ui-flist-det{
+    display: block;
+}
+.ui-flist-current .ui-flist-tit-icon:after{
+    content: "\F009";
+}
+
+.ui-flist-unfold{
+    overflow: hidden;
+    background: none;
+}
+
+
+.ui-dlist-2 .ui-dlist-tit{
+    width: 20%;
+}
+.ui-dlist-2 .ui-dlist-det{
+    width: 30%;
+}
+
+
+/* 多元素混排 */
+.ui-dlist-misc-item{
+    overflow: hidden;
+    border-bottom: 1px solid #E5E5E5;
+}
+.ui-dlist-misc .ui-dlist-tit,
+.ui-dlist-misc .ui-dlist-det{
+    padding: .9rem 0 .6rem;
+    /*min-height: 3.6rem;*/
+    overflow: visible;
+    border-bottom: none;
+    position: relative;
+    z-index: 9;
+    word-break:break-all;
+    word-wrap:break-word;
+    white-space: normal;
+    line-height: 2.4rem;
+    vertical-align: middle;
+}
+.ui-dlist-misc .ui-dlist-tit{
+    width: 55%;
+}
+.ui-dlist-misc .ui-dlist-det{
+    box-sizing: border-box;
+    width: 45%;
+    padding-left: 1rem;
+}
+.ui-dlist-misc-item .ui-tiptext-container{
+    margin: 0 0 1rem 0;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+.ui-dlist-misc-total{
+    text-align: right;
+    padding: .5rem 0;
+}
+
+
+
+
+/* 滑动时间 */
+.ui-list-date-container{
+    position: relative;
+}
+.ui-list-date{
+    padding: 0 1rem;
+    float: left; 
+    width: 33.333333%; 
+    height: 12rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+}
+.ui-list-date-items{
+    width: 100%;
+    /*margin-top: -1px;*/
+}
+.ui-list-date-item{
+    height: 4rem;
+    line-height: 4rem;
+    border-top: 1px solid #FFF;
+    text-align: center;
+    color: #ccc;
+    font-size: 1.4rem;
+    overflow: hidden;
+/*    text-overflow: ellipsis;
+    white-space: nowrap;*/
+}
+.ui-list-date-icurrent{
+    color: #333;
+}
+
+
+
+.ui-list-date-line{
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 200;
+}
+.ui-list-date-line .ui-list-date-items{
+    display: -moz-box; 
+    display: -webkit-box; 
+    display: box; 
+/*     display: -webkit-flex;
+display: flex;
+-webkit-flex: 1;
+flex: 1; */
+}
+.ui-list-date-line .ui-list-date-item{
+    -moz-box-flex: 1; 
+    -webkit-box-flex: 1; 
+    box-flex: 1;
+    padding: 0 1rem;
+/*     display: -webkit-flex;
+display: flex;
+flex-flow: column; */
+}
+.ui-list-date-line .ui-list-date-item i{
+    border-top: 1px solid #ccc;
+    display: block;
+    width: 100%;
+}
+.ui-list-date-line .ui-list-date-nobor i{
+    border-top-color: #FFF;
+}
+
+
+
+/* 滑动地址 */
+.ui-list-address{
+    padding: 1rem;
+}
+.ui-list-address .ui-list-date{
+    padding: 0 .2rem;  
+}
+.ui-list-address .ui-list-date-item{
+    font-size: 1.2rem;
+}
+
+/* 我的慧择 */
+.ui-ulist{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.ui-ulist-item{
+    padding-left: 1rem;
+    position: relative;
+    background: #fff;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ededed;
+}
+.ui-ulist-item:before{
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+.tequan-list .ui-ulist-item:before { top: .9rem;}
+.ui-ulist-item-text{
+    display: block;
+    padding:  1.2rem 0;
+    font-size: 1.4rem;
+    margin-left: 3rem;
+/*    border-bottom: 1px solid #ededed;*/
+    box-sizing: border-box;
+}
+.ui-ulist-item-text span.ui-small-font { 
+    float: right;
+    padding-right: 3rem;
+    line-height: 1.8;
+}
+a.ui-ulist-item-text:after{
+    position: absolute;
+    right: 1rem;
+    content: "\F036";
+    color: #ccc;
+}
+.ui-ulist .ui-ulist-item:last-child .ui-ulist-item-text{
+    border-bottom: none;
+}
+
+
+/* ui-listtip */
+.ui-listtip{
+    padding: 0;
+}
+.ui-listtip-item{
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+    color: #666;
+}
+.ui-listtip-item-other{
+    float: right;
+    color: #999;
+}
+
+
+/* 左边换行 */
+.ui-list-break .ui-dlist-tit,
+.ui-list-break .ui-dlist-det{
+    padding: .3rem 0;
+}
+.ui-list-break .ui-dlist-tit{
+    width: 40%;
+    box-sizing: border-box;
+    word-break:break-all;
+    word-wrap:break-word;
+    white-space: inherit;
+    border-bottom: none;
+    padding-right: 1.5rem;
+}
+.ui-list-break .ui-dlist-det{
+    width: 60%;
+    text-align: left;
+}
+.ui-list-break-item{
+    overflow: hidden;
+}
+.ui-list-break .ui-dlist-det .ui-big-font{
+    position: relative;
+    top: 0;
+}
+
+
+
+/*  */
+.ui-list-normal .ui-dlist-tit{
+    padding: 0 1rem 0 0;
+    color: #666;
+    width: auto;
+}
+.ui-list-normal .ui-list-break-item{
+    padding: .4rem 0;
+}
+
+/* ui-dlist-des link */
+
+.ui-list-lra-item{
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+}
+.ui-list-lra-item .ui-dlist-det a{
+    position: relative;
+    display: block;
+}
+.ui-list-lra-item .ui-dlist-det .ui-icon-rarrow:after{
+    position: absolute;
+    right: 0;
+    color: #ccc;
+}
+.ui-list-lra .ui-list-lra-item:last-child{
+    border-bottom: none;
+}
+
+/* 单行list */
+.ui-plist{
+    overflow: hidden;
+}
+.ui-plist-item{
+    padding: 1rem 0;
+    float: left;
+    width: 25%;
+    text-align: center;
+    box-sizing: border-box;
+    background: #fff;
+}
+.ui-plist .ui-plist-item:last-child{
+    border-right: none;
+}
+
+/*  by学勇 */
+.ui-tab-list .ui-list-ab{
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  background: #fff;
+  transition: background-color 0.4s ease-out, color 0.4s ease-out;
+  box-sizing: border-box;
+
+}
+.ui-tab-list .ui-list-ab:hover{
+  background: #f6f6f6
+}
+.ui-tab-list .ui-list-bb{
+  height: 3.5rem;
+  border-bottom: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  margin-left:1.2rem;
+}
+.ui-tab-list .ui-list-bb span{
+  display: block;
+  height: 3.5rem;
+  float: left;
+  box-sizing: border-box;
+  line-height: 3.5rem;
+}
+.ui-list-bb .ui-list-bbs{
+  width: 30%;
+}
+.ui-list-bb .ui-list-bbb{
+  width: 70%;
+}
+.ui-list-bb:after{
+  position: absolute;
+  right: 0;
+  padding-right: 1.2rem;
+  content: "\F036";
+  color: #666;
+}
+
+/* ui-dl-list */
+.ui-dl-list{
+    padding: 0 1rem;
+}
+.ui-dl-list:after{
+    content: ' ';
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    clear:both;
+    height:5rem;
+
+}
+.ui-dl-title{
+    font-size: 1.6rem;
+    color: #333;
+}
+.ui-dl-item{
+    font-size: 1.4rem;
+    color: #666;
+    overflow: hidden;
+    position: relative;
+}
+.ui-dl-title,
+.ui-dl-item{
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #EAEAEA;
+}
+.ui-dl-item .ui-label{
+    display: inline-block;
+    width: 90%;
+    box-sizing: border-box;
+    padding-left: 1.8rem;
+}
+.ui-dl-item input{
+    position: absolute;
+    left: 0;
+    top: 2.16rem;
+}
+
+
+/* select-ABC */
+.select-ABC{
+    position: fixed;
+    right: 1rem;
+    top: 0;
+    height: 100%;
+    width: 2rem;
+    box-sizing: border-box;
+    padding: 5rem 0 7rem;
+}
+.select-ABC li{
+    height: 3.84615%;
+    text-align: center;
+}
+.select-ABC li a{
+    color: #999;
+}
+.select-ABC li.current a{
+    color: #333;
+    font-weight: bold;
+}
+
+
+
+// Rule list
+.ui-rule-list{
+
+}
+.ui-rule-item{
+    position: relative;
+    padding: .3rem 0 .3rem 2rem;
+}
+.ui-rule-item-num{
+    position: absolute;
+    left: 0;  
+}
+
+.ui-rule-list-more .ui-rule-item{
+    padding-left: 4rem;
+}
