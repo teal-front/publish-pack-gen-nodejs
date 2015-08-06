@@ -2,12 +2,13 @@
 
 ### 一、方法如何调用：
 #### 1、iOS
-1. 由H5调用此方法
+
++ 由H5调用此方法
 ```
 var dataStr = JSON.stringify({test:123});
 location.href = "objc://recommendDetail//" + dataStr;
 ```
-2. 由iOS端调用此方法
++ 由iOS端调用此方法
 ```
 var shareDataStr = JSON.stringify({name:"tom"});
 window.getShareData = function(args){
@@ -37,6 +38,7 @@ WebviewAndJsMutual.callProDetail(dataStr);
 #### 2、`JSToHome`  关闭当前页并跳转到首页
 > 调用方法同`JSClose`一样
 案例：产品详情找不到产品，出现404页面，H5点击按钮回到H5首页，APP点击回到APP主界面
+
 #### 3、`JSRefresh`  刷新数据
 ```
 if(core.app.isIos){
@@ -58,12 +60,11 @@ else{
 
 
 ### 三、安卓私有方法
+
 #### 1、拨打电话
->
 ```
 //android src
 void callPhone(String phoneNumber);
-
 //H5调用
 WebviewAndJsMutual.callPhone('10086');
 ```
