@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+    <title>bigpipe demo</title>
+    <style>
+
+        header,nav, section, footer {
+            height:100px;
+            width:500px;
+            border:1px solid blue;
+            margin-bottom:5px;
+            text-align:center;
+            vertical-align:middle;
+            color:green;
+        }
+    </style>
+    <script>
+        var Bigpipe = function () {
+            this.callbacks = {};
+        }
+
+        Bigpipe.prototype.ready = function (id, callback) {
+            if (Object.prototype.toString.apply(id) === "[object Array]") {
+                for (var i = 0; i < id.length; i++) {
+                    arguments.callee.call(this,id[i],callback);
+                }
+            }
+            
+            if (!this.callbacks[id]) {
+                this.callbacks[id] = [];
+            }
+            this.callbacks[id].push(callback);
+        }
+
+        Bigpipe.prototype.set = function (id, data) {
+            var callbacks = this.callbacks[id] || [];
+            for (var i = 0; i < callbacks.length; i++) {
+                callbacks[i].call(this, data);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header id="header">head loading...</header>
+
+    <nav id="nav">nav loading...</nav>
+
+    <section id="section">section loading...</section>
+    
+    <footer id="footer">footer  loading...</footer>
+    
+    <script>
+        var bigPipe = new Bigpipe();
+
+        bigPipe.ready(["header"], function (data) {
+            get("header").innerHTML = data;
+        });
+        bigPipe.ready("nav", function (data) {
+            get("nav").innerHTML = data;
+        });
+        bigPipe.ready("section", function (data) {
+            get("section").innerHTML = data;
+        });
+        bigPipe.ready("footer", function (data) {
+            get("footer").innerHTML = data;
+        });
+
+
+        function get(id) {
+            return document.getElementById(id);
+        }
+
+    </script>
+</body>
+</html>
