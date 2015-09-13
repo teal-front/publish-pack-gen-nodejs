@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="webuploader/webuploader.css">
+<style>
+body,ul,li,p { padding:0; margin: 0;}
+ul, li { list-style: none;}
+.uploader { border: dashed 5px #ccc; margin:50px; width: 500px; padding:10px;  text-align: center;}
+.item { background: #eee; padding:10px; margin-bottom: 10px; }
+.uploader-list { height: 300px; overflow: auto;}
+.btn-picker, .btn-default { float: left;;}
+.btn-default {
+    background: #e0e0e0;
+    border: 0;
+    padding:12px 20px;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.btn-default:hover { background: #ccc;}
+</style>
+</head>
+
+<body>
+
+<div id="uploader" class="uploader">
+    
+    <ul id="file-list" class="uploader-list">
+    </ul>
+
+    <div class="btns">
+        <span id="picker" class="btn-picker">选择文件</span>
+        <button id="doUplaod" class="btn btn-default">开始上传</button>
+    </div>
+
+    <div style="clear:both;"></div>
+
+</div>
+
+<script type="text/javascript" src="http://res.hzins.com/long/public/framework/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/md5.min.js"></script>
+<script type="text/javascript" src="webuploader/webuploader.js"></script>
+<script type="text/javascript">
+(function() {
+var blockUplated = {};
+var gChecked = false; // 标记，批量上传时只查询一次服务器分片文件
+
+// hook
+WebUploader.Uploader.register({
+    // 分片上传前的处理
+    'before-send': function(block) {
+        var deferred = WebUploader.Base.Deferred();
+
+        // 分片md5，可用于校验分片完整性
+        var md5Def = uploader.md5File( block.file, block.start, block.end )
+        .then(function(val) {
+            block.md5chunk = val;
+        });
+
+        // 服务器所有分片都存在, 重传最后一片触发合并操作
+        if ( block.chunks >0 && block.chunks === block.chunk && isAllPartUploaded( block ) ) {
+            md5Def.then( deferred.resolve, deferred.reject );
+        }
+        // 如果已经上传，则忽略
+        else if ( isUploaded(block) ) {
+            deferred.reject();
+        }
+        else {
+            md5Def.then( deferred.resolve, deferred.reject );
+        }
+
+        return deferred.promise();
+    },
+    // 文件上传前的处理
+    'before-send-file': function( file ) {
+        var me = this,
+            owner = this.owner,
+            server = me.options.server,
+            deferred = WebUploader.Deferred();
+        
+        //file.md5='fdf996041fdc5c2782c4d8e1b2eeabfa';
+        if (file.md5) {// 文件已经校验过
+            md5Done(file.md5);
+        }
+        else {
+            // 校验文件，大文件很耗时，如果需要文件标志可使用md5meta方法生成
+            owner.md5File( file.source )
+            .fail(function() {
+                deferred.reject();
+            })
+            .then(md5Done);
+        }
+
+        $('#'+file.id).find(' .state').html('(校验中..)');
+
+        function md5Done( md5 ) {
+            file.md5 = md5;
+
+            if ( !gChecked ) {
+                gChecked = true;// 一次上传多个文件时， 只检查一次，直到再次点击上传
+                $.ajax('/checkfile', {
+                    dataType: 'json',
+                    cache: false,
+                    data: {
+                        // md5: md5
+                    },
+                    success: function( re ) {
+                        /*if ( re.exist ) {
+                            owner.skipFile( file ); // 跳过文件
+                        }*/
+                        blockUplated = re;
+                        deferred.resolve(); // 延迟对象resolve，则继续上传流程
+                    },
+                    error: function() {
+                        deferred.reject(); // 失败，直接显示重试
+                    }
+                });
+            }
+            else {
+                deferred.resolve();
+            }
+        }
+
+        return deferred.promise();
+    }
+});
+
+// uploader配置
+var uploader = WebUploader.create({
+    swf: '/webuploader/Uploader.swf',// 旧浏览器使用flash的路径
+    server: '/upload', // 服务器接口
+    pick: '#picker', // 选择文件的按钮。可选。内部根据当前运行是创建，可能是input元素，也可能是flash.
+    resize: false,// 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+    compress: false,
+    chunked: true, // 是否分片
+    chunkSize: 52428*100, // 分片大小， 5M
+
+    dnd: '#uploader', // 拖拽
+    paste: document.body, // 粘贴
+    prepareNextFile: true // 预处理，上传文件时可预先校验下一个文件
+});
+
+// 当有文件被添加进队列的时候
+uploader.on( 'fileQueued', function( file ) {
+    $('#file-list').append( '<li id="' + file.id + '" class="item">' +
+        '<span class="info">' + file.name + '</span>' +
+        '<span class="state">(等待上传...)</span>' +
+    '</li>' );
+})
+.on( 'uploadBeforeSend', function( block, data, c ) {
+    // 提交前附加校验参数
+    var file = block.file;
+    data.md5 = file.md5;
+    data.md5chunk = block.md5chunk;
+    data.md5meta = fileMetaMd5(file);
+})
+.on( 'uploadSuccess', function( file, re ) {
+    $('#'+file.id).find(' .state').html('(完成)');
+})
+.on( 'uploadError', function( file, err ) {
+    $('#'+file.id).find(' .state').html('(上传错误，<span file-id="'+file.id+'" style="color:red; cursor:pointer" class="js_retry">重试</span>)');
+})
+.on( 'uploadProgress', function( file, percent ) {
+    $('#'+file.id).find(' .state').html('('+ Math.round(percent*100)+'%)');
+});
+
+// 开始上传、重试
+$('body').on('click', '#doUplaod', function () {
+    gChecked = false;
+    uploader.upload();
+})
+.on('click', '.js_retry', function(){
+    var id = $(this).attr('file-id');
+    $.each( uploader.getFiles(), function( i, file ) {
+        if ( file.id === id ) {
+            gChecked = false;
+            uploader.retry(file);
+        }
+    })
+});
+
+// 检查分片是否在服务器分片列表中
+function isUploaded( block ) {
+    return $.inArray( block.file.md5 + '-' + block.chunk + '.part', blockUplated ) > -1;
+}
+
+// 单个文件的所有分片都已经存在于服务器
+function isAllPartUploaded( block ) {
+    for ( var i = block.chunks; i>=0; i--) {
+        if( !( $.inArray( block.file.md5 + '-' + block.chunk + '.part', blockUplated ) > -1 ) ) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// 根据文件元信息获取hash key， 文件名、大小、修改时间
+function fileMetaMd5( file ) {
+    return md5(file.name+file.size+file.lastModifiedDate)
+}
+
+})();
+
+</script>
+</body>
+</html>

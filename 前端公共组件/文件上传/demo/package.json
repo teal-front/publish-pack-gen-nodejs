@@ -6,6 +6,7 @@
     "cookie-parser": "*",
     "body-parser": "*",
     "busboy":"*",
-    "multiparty":"*"
+    "multiparty":"*",
+    "md5-file":"*"
   }
 }

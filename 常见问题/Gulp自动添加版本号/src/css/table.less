@@ -1,0 +1,81 @@
+/* table 样式模块 */
+.ui-table {
+    border-collapse:collapse;
+    border:1px solid #e5e5e5;
+    width:100%;
+    text-align: left;
+}
+
+.ui-table-layout-fixed {
+    table-layout:fixed;
+}
+
+.ui-table tr:nth-child(even),
+.ui-table-split, /* 隔行换色效果 */
+.ui-table-hover /* 用作表格行hover效果 */ {
+    background-color:#FBFBFB;
+}
+
+.ui-table tr {
+    
+}
+
+.ui-table thead tr {
+   
+}
+
+.ui-table thead {
+    background-color: #F6F6F6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#F2F2F2));
+    background: -moz-linear-gradient(top, #F8F8F8, #F2F2F2);
+    background: -o-linear-gradient(top, #F8F8F8, #F2F2F2);
+    background: linear-gradient(top, #F8F8F8, #F2F2F2);
+}
+
+.ui-table th {
+    padding:.7rem .9rem;
+    border-bottom:1px solid #e5e5e5;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ui-table td {
+    padding: .8rem .9rem .7rem;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.ui-table th {
+    padding:.7rem .9rem;
+}
+
+.ui-table tfoot td {
+    border-bottom:none;
+}
+
+/* 无边框table加上ui-table-noborder */
+.ui-table-noborder, .ui-table-noborder td, .ui-table-noborder tr, .ui-table-noborder th {
+    border:none;
+    outline:none;
+}
+
+.ui-table-noborder .ui-table-split, .ui-table-noborder .ui-table-hover {
+    background-color:#f7f7f7;
+}
+
+/* 当table放在一个有边框的容器中时，比如ui-box，需要添加类名ui-table-inbox去掉本身的外框 */
+.ui-table-inbox {
+    border:none;
+    outline:none;
+}
+
+.ui-table-nobghead thead{
+    background: none;
+}
+
+.ui-stalbe th,
+.ui-stable td{
+    padding: .4rem .9rem;
+}
+.ui-stable td{
+    background-color: #f8f8f8;
+}
