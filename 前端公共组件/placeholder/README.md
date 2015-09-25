@@ -2,9 +2,11 @@
 
 前端目录结构
    
+> http://static.huizecdn.com/js/libs/jquery/1.8.0/jquery.min.js
 
 > http://static.huizecdn.com/js/plugins/placeholder/jquery-placeholder.js
-
+	
+##使用例子
 	
 	<!DOCTYPE html>
 	<html lang="en">
