@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>placeholder demo</title>
+		<script src="http://static.huizecdn.com/js/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script src="../jquery-placeholder.js"></script>
+		<style>
+		body{
+			font-size: 14px;
+			margin: 'auto'
+		}
+		input{
+			border:1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test">
+			<input type="text" name="" id="test1"  />
+			<input type="text" name="" id="test2" placeholder-text="请输入关键字" placeholder-left="10" placeholder-width=""  placeholder-height="18"  placeholder-color="#666" placeholder-size="12"  placeholder-zindex="5" />
+		</div>
+		
+		<script>
+		$('#test1').placeholder({
+			blankCharacter: false,//输入空格是否消失,默认消失
+			text:'请输入姓名',
+			left:10,
+			top:0,
+			wrapTagName:false,//默认为span,是否创建包裹它的父元素；可以是任何合法标签,div,p,a等,如果为false，则不创建
+			width:200,
+			color:'red'
+		});
+		$('#test2').placeholder({
+			blankCharacter: false,//输入空格是否消失,默认消失,
+			wrapTagName:false,//默认为span,是否创建包裹它的父元素；可以是任何合法标签,div,p,a等,如果为false，则不创建
+		});
+		</script>
+	</body>
+</html>
