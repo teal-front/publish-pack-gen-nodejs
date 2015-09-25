@@ -1,13 +1,17 @@
 # Placeholder plugins Version1.0
 
-前端目录结构
+### 【说明】解决低版本不支持placeholder问题，支持IE6+，Chorme，Firefox，Opera,Safari等
+#### 本插件基础jQuery v1.8.0
    
 > http://static.huizecdn.com/js/libs/jquery/1.8.0/jquery.min.js
 
 > http://static.huizecdn.com/js/plugins/placeholder/jquery-placeholder.js
 	
-##使用例子
+### 【使用例子】
+
+>$(selector).placeholder(options);
 	
+### 【HTML Code】
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -49,7 +53,7 @@
 	</body>
 	</html>
 
-### Javascript code
+### 【Javascript Code】
 
 	(function($) {
 	/*
@@ -59,7 +63,7 @@
 		Version:1.0;
 	*/
 
-	$.fn.jqPlaceholder = function(options) {
+	$.fn.placeholder = function(options) {
 		var style = '.placeholder-wrap{position: relative;display: inline-block;}.placeholder-text{position: absolute; }.placeholder-input{position: relative;background: transparent url(http://img.huizecdn.com/com/opacity_0.gif) repeat 0 0;z-index: 1;}';
 		var ops = $.fn.extend({
 			left: 0,
@@ -77,7 +81,7 @@
 
 		return this.each(function() {
 			var _this = this,
-				text = $(_this).attr('placeholder-text') || '',
+				text = ops.text || $(_this).attr('placeholder-text') || '',
 				$text,
 				$input,
 				timeout,
