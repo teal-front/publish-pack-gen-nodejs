@@ -5,7 +5,17 @@
 		Date:2015-09-25;
 		Version:1.0;
 	*/
-
+	//存放绑定元素，用于重置显示状态；
+	$.placeholder = {
+		input: [],
+		resetStatus: function() {
+			var len = this.input.length;
+			$.each(this.input, function(i, ele) {
+				$(ele).blur();
+			});
+			return len ? '\u91cd\u7f6e\u6210\u529f' + len + '\u4e2a' : '\u60a8\u6ca1\u6709\u7ed1\u5b9a\u4efb\u4f55\u5143\u7d20';
+		}
+	};
 	$.fn.placeholder = function(options) {
 		var style = '.placeholder-wrap{position: relative;display: inline-block;}.placeholder-text{position: absolute; }.placeholder-input{position: relative;background: transparent url(http://img.huizecdn.com/com/opacity_0.gif) repeat 0 0;z-index: 1;}';
 		var ops = $.fn.extend({
@@ -23,8 +33,14 @@
 		}
 
 		return this.each(function() {
-			var _this = this,
-				text = ops.text || $(_this).attr('placeholder-text') || '',
+			var _this = this;
+			//避免多次绑定
+			if ($(_this).data('status')) {
+				return;
+			}
+			$(_this).data('status', true);
+			$.placeholder.input.push(_this);
+			var text = ops.text || $(_this).attr('placeholder-text') || '',
 				$text,
 				$input,
 				timeout,
