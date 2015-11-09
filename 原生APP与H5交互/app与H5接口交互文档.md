@@ -93,6 +93,31 @@ getProductInfo(function(detailStr){
 })
 ```
 
+#### 6、分享数据给APP
+```
+shareData={
+    url:window.location.href,
+    title:data.title || '微分享详情',
+    summary:summary || '',
+    pic:data.smallImage || ''
+};
+shareDataStr = JSON.stringify(shareData);
+
+//若是ANDROID
+if(core.app.isAndroid){
+    WebviewAndJsMutual.setShareData(shareDataStr);
+}
+//若是IOS
+else if(core.app.isIos){
+    window.getShareData = function(){
+        return shareDataStr;
+    }
+}
+//若是H5
+else{
+    share.init(shareData);
+}
+```
 
 ### 三、安卓私有方法
 
