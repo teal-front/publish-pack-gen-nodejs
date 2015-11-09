@@ -54,6 +54,39 @@ else{
     },1000);
 }
 ```
+
+#### 4、`JSBuyJumiCard`  关闭当前页并跳转到聚米卡
+> 调用方法同`JSBuyJumiCard`一样
+
+#### 5、跳转到APP的产品详情页面
+
+```
+function getProductInfo(callback){
+    var data;
+    $.post("/ActivityMillionaire/GetProductInfo",{productid:ProductId,planid:PlanId},function(result){
+        if(result && result.code === 0){
+            if (typeof result.data != 'object') {
+                data = JSON.parse(result.data);
+            }
+            data.introduction = data.introduction.replace(/<.*?>/g, "");
+            detailStr = JSON.stringify(data);
+        }
+        callback && callback(detailStr);
+    });
+}
+
+getProductInfo(function(detailStr){
+    if(core.app.isIos){
+        window.location.href = "objc://recommendDetail//" + detailStr;
+    }
+    else if(core.app.isAndroid){
+        WebviewAndJsMutual.callProDetail(detailStr);
+    }else{
+        window.location.href = "/u/" + PartnerId + "/product/detail-" + ProductId + "?planId=" + PlanId;
+    }
+})
+```
+
 > 案例：    
 1、webview嵌入编辑微名片页面    
 2、修改微名片的`姓名`    
@@ -69,4 +102,31 @@ else{
 void callPhone(String phoneNumber);
 //H5调用
 WebviewAndJsMutual.callPhone('10086');
+```
+
+#### 2、显示、隐藏 android自带的loading
+```
+//参数 false:隐藏,true:显示
+WebviewAndJsMutual.showProgress(false);
+```
+
+#### 3、上传图片
+```
+WebviewAndJsMutual.getPicData(JSON.stringify({
+    functionName:'setPicData',
+    maxSize:1024 * 1024 * 5,
+    maxMsg:'上传图片不能大于5M'
+}),'upload');
+
+//获取android回调的数据
+window.setPicData = function(imageData, id){
+    if(typeof WebviewAndJsMutual != 'undefined'){
+        //关闭android自带的loading
+        WebviewAndJsMutual.showProgress(false);
+    }
+    
+    //imageData  android传回的base64编码的图片数据
+    //id 由getPicData传递的参数，原样传回，在上传多张图片的时候，用于区分标识
+    console.log(imageData,id);
+}
 ```
