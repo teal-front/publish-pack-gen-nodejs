@@ -27,4 +27,7 @@
 #### 9、webview下嵌入的H5页面无法区分是浏览器还是webview
 >解决: 使用useragent来判断，默认会在最后追加`jumi/1.6.0`    
 android:  `Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; GT-S5660 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 jumi/1.6.0`    
-iOS:  `Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 jumi/1.6.0`    
+iOS:  `Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 jumi/1.6.0`
+
+#### 10、webview下android无法上传图片
+>解决: 使用android私用定制方法，详情查看《app与H5接口交互文档.md》
