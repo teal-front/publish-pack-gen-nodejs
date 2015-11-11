@@ -119,22 +119,6 @@ else{
 }
 ```
 
-#### 7、【车险】跳转到APP投保界面
-
-```
-if(core.app.isIos){
-    window.location.href = "objc://carInsure//" + JSON.stringify(insureData);
-    return;
-}
-else if(core.app.isAndroid){
-    WebviewAndJsMutual.callCarInsure(JSON.stringify(insureData));
-    return;
-}else{
-    //console.log(JSON.stringify(insureData));
-}
-```
-
-
 ### 三、安卓私有方法
 
 #### 1、拨打电话
