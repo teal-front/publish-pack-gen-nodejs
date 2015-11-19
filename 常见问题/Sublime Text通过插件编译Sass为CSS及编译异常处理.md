@@ -32,8 +32,6 @@
 更多详细见官方：[https://github.com/jaumefontal/SASS-Build-SublimeText2](https://github.com/jaumefontal/SASS-Build-SublimeText2)
 
 
->最后，如果编译失败，或许就是`中文`目录的问题,改成英文目录再试下。
-
 
 ## 编译异常处理
 
