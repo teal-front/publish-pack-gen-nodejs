@@ -151,3 +151,43 @@
 		btnTitle:"确认"
 	}
 	JMWebHelp.JSInvokeAlertView(JSON.stringify(data1));
+#### 15、测试强制升级提示框【IOS】
+	var data1= {
+		title:"按钮标题",
+		message:"这是H5发给APP的一条消息",
+		sureTitle:"确定按钮文字",
+		cancelTitle:"取消按钮文字",
+		appStoreUrlStr:"https://itunes.apple.com/cn/app/id951996145"
+	}
+	JMWebHelp.JSAlertToUpdateWithData(JSON.stringify(data1));
+#### 16、右上角显示分享按钮
+	if(core.app.isAndroid){
+		WebviewAndJsMutual.JSSetTitleShareState(true);	//true:显示 false:隐藏
+	}else{
+		JMWebHelp.JSSetTitleShareState(true);	//true:显示 false:隐藏
+	}
+
+
+	//详细代码
+	if(core.app.isApp){
+        shareData = {
+            url: window.location.href,
+            title: document.title,
+            summary: '聚米网，专业的保险代理人推广平台。1分钱i 米新春大回馈！',
+            pic: $('#share-img').val()
+        };
+        shareDataStr = JSON.stringify(shareData);
+
+        //若是IOS
+        if(core.app.isIos){
+            JMWebHelp.JSSetTitleShareState(true);
+            window.getShareData = function(){
+                return shareDataStr;
+            }
+        }
+        //若是Android
+        else if(core.app.isAndroid){
+            WebviewAndJsMutual.JSSetTitleShareState(true);
+            WebviewAndJsMutual.setShareData(shareDataStr);
+        }
+    }
