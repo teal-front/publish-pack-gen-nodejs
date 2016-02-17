@@ -1,7 +1,6 @@
 ##hybird交互API
 
 
-
 ###1、显示loading等提示
 
 >1.等待提示  
@@ -18,14 +17,19 @@
 
 	widget.confirm(title, 3, function(){});
 ###2、跳转页面（每一个APP原生页面都有一个唯一的标识）
+
 	widget.go('app123', {productId:1,planId:2});  
 	objc://go?app123&productId=1&planId=2
+
 ###3、关闭当前webview
 	widget.close();
+
 ###4、关闭当前webview并跳转到指定页面
 	widget.closeGo('app123', {});
+
 ###5、刷新当前页面
 	widget.refresh();
+
 ###6、定义导航
 	widget.menu({
 		title:'标题',
@@ -37,12 +41,16 @@
 ###7、隐藏显示导航
 	widget.hideMenu();
 	widget.showMenu();
+
 ###8、重新渲染某个页面的数据
     widget.reload('app');
+
 ###9、上传图片
     widget.upload(function(){});
+
 ###10、拨打电话
     widget.call(function(){});
+
 ###11、获取当前登录用户信息
     widget.user();
 	{
@@ -52,6 +60,7 @@
 		city:'',
 		userPhone:''
 	}
+
 ###12、获取当前手机设备信息
     widget.device();
 	{
@@ -62,11 +71,6 @@
 		网络类型:'2G/WIFI',
 		
 	}
+
 ###13、打开登录界面
 	widget.login(function(){})
-
-
-
-
-
-
