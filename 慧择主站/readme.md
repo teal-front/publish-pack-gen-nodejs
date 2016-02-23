@@ -19,7 +19,7 @@
     3. CSS Sprite通过Compass自动合成；
 
 ### 目录规范 ###
-![text](/images/InsertPic_BEED(02-02-09-17-36).jpg)
+![text](images/InsertPic_BEED(02-02-09-17-36).jpg)
 
 ### 静态资源 ###
 
