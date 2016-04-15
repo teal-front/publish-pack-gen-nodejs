@@ -1,0 +1,15 @@
+/*
+** ========== Padding Margin ==========
+*/
+@for $i from 0 through 5 {
+  .m-t-#{$i*5} { margin-top: 5px * $i; }
+  .m-r-#{$i*5} { margin-right: 5px * $i; }
+  .m-b-#{$i*5} { margin-bottom: 5px * $i; }
+  .m-l-#{$i*5} { margin-left: 5px * $i; }  
+
+  .p-t-#{$i*5} { padding-top: 5px * $i; }
+  .p-r-#{$i*5} { padding-right: 5px * $i; }
+  .p-b-#{$i*5} { padding-bottom: 5px * $i; }
+  .p-l-#{$i*5} { padding-left: 5px * $i; }  
+ 
+}

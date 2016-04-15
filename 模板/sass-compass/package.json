@@ -1,0 +1,17 @@
+{
+    "name": "huize.com",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+
+    },
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-zip": "^0.17.1",
+        "grunt-cachebuster": "*",
+        "grunt-contrib-clean": "*"
+    }
+}
