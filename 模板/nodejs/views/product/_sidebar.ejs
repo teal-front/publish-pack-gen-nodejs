@@ -1,0 +1,62 @@
+<div class="detail-sidebar" id="silderbar">
+	<div class="detail-sidebar-container">
+		<table width="100%" class="sidebar-level lh22 f18  tac">
+			<col width="50%"/>
+			<col width="50%"/>
+			<tr>
+				<td>
+					<p class="count-title f14 pt5">累计销量</p>
+					<p class="count-item fc6"><%=data.right.totalSV%></p>
+				</td>
+				<td class="last-item">
+					<p class="count-title f14 pt5">满意度</p>
+					<p class="count-item fc6"><%=data.right.satisfaction%></p>
+				</td>
+			</tr>
+		</table>
+		<div class="detail-sidebar-info mt35">
+			<div class="sidebar-post-tag  mb30">
+				<h3 class="f14 mb5 fc6 fb">买家印象</h3>
+				<% (data.right.impressionList||[]).forEach(function(item){%>
+				<p><span class="post-tag"><%=item.title%>（<%=item.count%>）</span></p>
+				<%});%>
+			</div>
+			<!--sidebar-post-tag end-->
+			<div class="sidebar-service mb30">
+				<h3 class="f14 mb5 fc6 fb">服务与承诺</h3>
+				<ul class="sidebar-service-list">
+					<% (data.right.promiseList||[]).forEach(function(item){%>
+					<li class="sidebar-service-item"><i class="iconfont primary-color f22 mr10">&#xe625;</i><%=item%></li>
+					<%});%>
+				</ul>
+			</div>
+			<!--sidebar-service end-->
+			<div class="sidebar-billing">
+				<img src="http://images.hzins.com/short/www/2015huodong/gzwxlj10yzn/activity_1.png" width="120" alt="">
+				<p class="mt10">扫一下，APP投保更优惠</p>
+			</div>
+			<!--sidebar-billing end-->
+		</div>
+		<!--detail-sidebar-info end-->
+		<!--置顶显示-->
+		<div class="sidebar-product-info">
+			<p><strong>保费</strong></p>
+			<div class="mt15 mb15 f18" preminum></div>
+			<div salepromotionlist></div>
+			<!-- <div class="mb10">
+				<span class="hz-badge hz-badge-primary hz-radius">满减</span>
+				<span class="fc9">产品全场每满99元减9元</span>
+			</div>
+			<div class="mb10">
+				<span class="hz-badge hz-badge-primary hz-radius">金豆</span>
+				<span class="primary-color">23金豆</span>
+			</div> -->
+			<div class="mt20">
+				<p><a class="hz-button hz-button-primary hz-button-large hz-button-block" href="javascript:;">立即投保</a></p>
+				<p class="mt20"><a class="hz-button hz-button-secondary hz-button-large hz-button-block" href="javascript:;">加入购物车</a></p>
+				<p class="tac mt10"><a class="primary-link" href="javascript:;">预约顾问</a></p>
+			</div>
+		</div>
+		<!--sidebar-product-info end-->
+	</div>
+</div>

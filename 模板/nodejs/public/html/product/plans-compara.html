@@ -1,0 +1,62 @@
+<div class="diolog-plan pl20 pr5" id="tabgen">
+    <dl class="mt20 mb20 clearfix">
+        <dt class="fl lh28">请选择需要对比的计划：</dt>
+        <dd id="planList">
+            <% _.each(plans,function(item,index){%>
+            <a href="javascript:;" planId="<%=item.planId%>" class="filter-tag ml5 <%if(index<3){%>filter-active-tag<%}%>"><%=item.planName%></a>
+            <%})%>
+        </dd>
+    </dl>
+    <table class="hz-table plan-head" style="width: 800px;" id="planHead">
+        <colgroup>
+            <col width="200px">
+            <% _.each(plans,function(item,index){%>
+            <col width="200px">
+            <%})%>
+        </colgroup><thead>
+    <tr>
+        <th></th>
+        <% _.each(plans,function(item,index){%>
+        <th planId="<%=item.planId%>" class="<%if(index>=3){%>fn-hide<%}%>"><%=item.planName%></th>
+        <%})%>
+    </tr>
+    </thead>
+    </table>
+
+    <table class="hz-table hz-table-bordered plan-table f14"  style="width: 800px">
+        <colgroup><col width="200px">
+            <% _.each(plans,function(item,index){%>
+            <col width="200px" planId="<%=item.planId%>" class="<%if(index>3){%>fn-hide<%}%>">
+            <%})%>
+        </colgroup><tbody>
+    <%
+        var keyList={};
+    var itemIndex=0;
+        _.each(gens,function(item,pindex){
+            var optList=item.restrictRuleOperList[0].restrictGenes;
+            _.each(optList,function(opitem,index){
+                if(!keyList[opitem.key]){
+                    keyList[opitem.key]={name:opitem.name};
+                    keyList[opitem.key][""+plans[pindex].planId]=opitem.defaultValue;
+                    itemIndex=itemIndex+1;
+                }else{
+                    keyList[opitem.key][""+plans[pindex].planId]=opitem.defaultValue;
+                }
+            });
+        });
+    var keyIndex=0;
+        for(var item in keyList){
+            %>
+    <tr class="<% if(itemIndex==0){%>first-row<%} else if(keyIndex==itemIndex){%>last-row<%}%>">
+        <th class="tar"><%=item.split(",")[0]%></th>
+        <% _.each(plans,function(pitem,index){%>
+            <td  planId="<%=pitem.planId%>"  class="<%if(index>=3){%>fn-hide<%}%>"><% if(keyList[item][pitem.planId]){%><%=keyList[item][pitem.planId]%><%}%></td>
+        <%})%>
+    </tr>
+    <%
+    keyIndex=keyIndex+1;
+        }
+    %>
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,87 @@
+<div class="layout pb40 clearfix">
+    <div class="hz-breadcrumb mb20">
+        <a href="#">健康保险</a>
+        <i class="arrow-right">&gt;</i>
+        <a href="#">重大疾病险</a>
+        <i class="arrow-right">&gt;</i>
+        <h1 class="hz-breadcrumb-active">提交评论</h1>
+    </div>
+    <!--breadcrumb end-->
+
+
+    <div class="all-comment-page p30 bgfw">
+        <div class="all-comment-head">
+            <div class="fr"><img src="http://files.hzins.com/images/short/public/product/d/da/dae/dae0/6f5c36835910b8b07df257908b95.gif" height="45"></div>
+            <h2 class="f30 product-title"><a href="#"><%=data.productName%> <%=(data&&data.planlist&&data.planlist[0].planName)||''%></a></h2>
+        </div>
+        <input type="hidden" id="productId" value="<%=data.productId%>">
+        <input type="hidden" id="planId" value="<%=(data&&data.planList&&data.planList.basePlanId)||''%>">
+        <input type="hidden" id="insureNum" value="<%=data.insuranceSlipsId%>">
+        <div class="detail-product-comment">
+            <div class="product-comment-meta  mb20 mt30 clearfix" style="min-height: 70px">
+                <div class="comment-meta-left tac">
+                    <p class="score"><%=data.feedback.satisfaction%></p>
+                    <p>满意度</p>
+                </div>
+                <div class="comment-meta-middle" style="width: 900px;border: none;">
+                    <!--已评论状态-->
+                    <div class="user-tag">
+                        <% (data.feedback.impressionList||[]).forEach(function(item){%>
+                        <span class="post-tag"><%=item.title%>（<%=item.count%>）</span>
+                        <%});%>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt30">
+                <strong>累计评论 <span><%=data.counts.allCount%></span></strong>
+                <span class="f12 fc6 ml10">其他用户对本产品的整体评价</span>
+            </div>
+
+            <ul class="rate-opt-list mt20" id="ratestar">
+                <li class="rate-opt-item" id="server">
+                    <span class="fl mr5 fc6">服务态度：</span>
+                    <div class="hz-star inline-block f24">
+                        <i class="hz-star-icon hz-star-icon-selected iconfont"></i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont"></i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont"></i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont"></i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont"></i>
+                    </div>
+                </li>
+                <li class="rate-opt-item" id="speed">
+                    <span class="fl mr5 fc6">出单速度：</span>
+                    <div class="hz-star inline-block f24">
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                    </div>
+                </li>
+                <li class="rate-opt-item" id="descri">
+                    <span class="fl mr5 fc6">产品描述：</span>
+                    <div class="hz-star inline-block f24">
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                        <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe603;</i>
+                    </div>
+                </li>
+            </ul>
+
+
+            </ul>
+
+            <div class="entry-comment mt40">
+
+                <textarea class="comment-area" placeholder="其他用户需要您的评论作为参考哦！~" id="commentText"></textarea>
+                <p class="tac mt30"><a class="hz-button hz-button-primary comment-action-button" href="javascript:;" id="postcomment">提交评论</a></p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

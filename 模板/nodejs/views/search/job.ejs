@@ -1,0 +1,96 @@
+<!--职业查询页面标识-->
+<%
+//计算每一个大类应该占据多少行
+data.forEach(function(v){
+	v.length = 0;
+	v.childList.forEach(function(vv){
+		vv.length = vv.childList.length;
+		v.length += vv.length;
+	});
+});
+%>
+<div class="detail-job-search pt20 pb20 f14 bgf0">
+	<style>
+		.complete-item-current{background-color: #efefef}
+	</style>
+	<div class="layout pb40 clearfix">
+		<div class="hz-breadcrumb mb20">
+			<a href="#">健康保险</a>
+			<i class="arrow-right">&gt;</i>
+			<a href="#">重大疾病险</a>
+			<i class="arrow-right">&gt;</i>
+			<h1 class="hz-breadcrumb-active">史带财险</h1>
+			</div><!--breadcrumb end-->
+			<div class="job-search-content p30 bgfw">
+				<div class="job-search-head">
+					<div class="fr"><img src="http://files.hzins.com/images/short/public/product/d/da/dae/dae0/6f5c36835910b8b07df257908b95.gif" height="45"></div>
+					<h2 class="f30 product-title"><a href="#">慧择白领健康保险 计划B</a></h2>
+				</div>
+				<div class="pt25 pb20 bor-bottom">
+					<h3 class="fb">职业类别</h3>
+				</div>
+
+				<div class="job-search-form mb30 mt20">
+					<input placeholder="快速查看我的职业是否可承保" type="text" class="job-search-input input-text" id="searchJob"/>
+					<a class="job-search-button hz-button hz-button-primary " href="javascript:;" id="jobSearchBtn">搜索</a>
+				</div>
+				<p class="fc6 f12 mb20">
+					共查询到<span class="jobs-count">0</span>个与产品相关的职业，如下：
+				</p>
+				<table class="hz-table hz-table-bordered" id="jobDetails">
+					<thead>
+						<tr>
+							<th class="tal">职业大类</th>
+							<th class="tal">职业小类</th>
+							<th class="tal">职业名称</th>
+							<th>风险级别</th>
+							<th>是否承保</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% data.forEach(function(v,i){
+							v.childList.forEach(function(vv,ii){
+								vv.childList.forEach(function(vvv,iii){;
+										if(iii === 0 && ii === 0){%>
+											<tr>
+												<td rowspan="<%= v.length%>"><%= v.name%></td>
+												<td rowspan="<%= vv.length%>"><%= vv.name%></td>
+												<td><%= vvv.name%></td>
+												<td style="text-align: center"><%= vvv.level%></td>
+												<td style="text-align: center"><%= vvv.isInsure%></td>
+											</tr>
+										<% } else{
+											if(iii === 0 && ii !== 0){%>
+												<tr>
+													<td rowspan="<%= vv.length%>"><%= vv.name%></td>
+													<td><%= vvv.name%></td>
+													<td style="text-align: center"><%= vvv.level%></td>
+													<td style="text-align: center"><%= vvv.isInsure%></td>
+												</tr>
+											<% } else { %>
+												<tr>
+													<td><%= vvv.name%></td>
+													<td style="text-align: center"><%= vvv.level%></td>
+													<td style="text-align: center"><%= vvv.isInsure%></td>
+												</tr>
+											<%}
+										}
+									})
+								})
+					})%>
+					</tbody>
+				</table>
+			</div>
+			</div><!--layout end-->
+			</div><!--detail-page end-->
+<script>
+	var jobs = "";
+	try {
+		 jobs = '<%= JSON.stringify(data)%>'.replace(/&#34;/g,"\"");
+	}
+	catch (e){
+	}
+
+</script>
+<script>
+</script>

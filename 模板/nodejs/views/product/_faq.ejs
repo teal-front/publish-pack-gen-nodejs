@@ -1,0 +1,19 @@
+<!--常见问题-->
+<div class="detail-product-faq pr30">
+	<div class="detail-product-faq-meta mb20 fc6">
+		<strong>有任何问题您都可立即</strong><a class="hz-button hz-button-primary ml5" href="javascript:;">联系您的专属顾问</a>
+		<strong class="ml5 mr5">或</strong> <a class="hz-button bgf8" href="javascript:;">在线咨询</a>
+	</div>
+	<dl class="detail-product-faq-list ml30">
+		<% var faqs=data.faq||[]; faqs.forEach(function(item){%>
+		<dt class="product-faq-qution fb">
+		<i class="ico">Q</i><%=item.question%>
+		</dt>
+		<dd class="product-faq-reply">
+		<i class="ico">A</i><%=item.answer%>
+		</dd>
+		<%});%>
+	</dl>
+	<!--detail-product-faq-list end-->
+</div>
+<!--detail-product-faq end -->

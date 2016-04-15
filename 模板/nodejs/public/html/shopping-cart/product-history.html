@@ -1,0 +1,9 @@
+<ul class="view-history-list clearfix slider4" style="position: relative; left: 0px; width: 1320px;" id="viewWraper" index="1">
+    <% _.each(datas,function(item){%>
+    <li class="view-history-item fl">
+        <img src="<%=item.planBigImg%>" alt="">
+        <h4 class="view-history-item-title mt20 mb10"><a href="#"><%=item.productName%></a></h4>
+        <p class="view-history-item-price fb">￥<%=item.price%></p>
+    </li>
+    <%});%>
+</ul>

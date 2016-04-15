@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="w1350" lang="zh-cmn">
+	<head>
+		<% include ../_meta %>
+		<%locals.stylesheets=[
+			cssHost+'css/hz/www/page/detail.css',
+			jsHost+'js/plugins/my-calendar/stylesheets/calendar.css'
+		]%>
+		<% include ../_stylesheets %>
+	</head>
+	<body>
+		<% include ../header/_header %>
+		<%- body %>
+		<% include ../footer/_footer %>
+		<!--下拉分类-->
+		<%include ../header/_product-categories%>
+		<!--product-category-box end-->
+		<script src="http://static.huizecdn.com/js/hz/www/src/product/data.js"></script>
+		<%include ../scripts/_scripts%>
+	</body>
+</html>

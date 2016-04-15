@@ -1,0 +1,74 @@
+<div class="diolog-login-content">
+
+    <div class="diolog-login-tab-container">
+        <div class="login-form login-form-tab">
+            <div class="error-msg fn-hide" id="logininfo"></div>
+            <div><input class="username-input-text input-text" id="accountUsername" placeholder="会员名/手机/邮箱" type="text"></div>
+            <div><input class="pw-input-text input-text" placeholder="密码" id="accountPassport" type="password"></div>
+            <div id="imgCode" class="<%=isshowcode%>"><input class="pw-input-text input-text" placeholder="图片验证码" style="width:187px" id="verifycode"> <img alt="验证码" class="verifyImg" title="换一张" width="78" height="30" style="cursor: pointer;" src="http://passport.hzins.com/SignIn/VerifyCode?0.61758165480569"></div>
+
+            <!--check-item-hover -->
+            <div class="hz-check-item mb20">
+                <i class="hz-check-icon" id="accountName"></i><span class="hz-check-text">记住账号</span>
+            </div>
+
+            <div><a class="hz-button hz-button-primary hz-button-block action-button fb" href="javascript:;" id="accountLogin">立即登录</a></div>
+            <div class="login-meta mt20 tar">
+                <a href="//passport.huize.com/retrieve/" class="forget-link" target="_blank">忘了密码 </a>
+                <span>｜</span>
+                <a href="javascript:;" class="primary-link regnew-link" target="_blank">注册新账号</a>
+            </div>
+        </div><!--login-form-tab1 end-->
+
+    </div><!--diolog-login-tab-container end-->
+
+</div>
+<div class="dialog-login-foot tac">
+    <span class="fc9">使用合作网站账号登录</span>
+    <div class="others-login-box">
+
+        <a href='javascript:;' class='share-icon share-wx-icon ml10'>微信</a>
+        <a href='javascript:;' class='share-icon share-qq-icon ml10'>qq</a>
+        <a href='javascript:;' class='share-icon share-sina-icon ml10'>新浪</a>
+
+    </div>
+</div>
+
+
+<area>
+
+
+
+    <!--弹窗内容开始-->
+    <div class="diolog-login-content">
+        <div class="login-form">
+            <div class="error-msg" style="visibility: hidden; height: 24px" id="registerinfo"></div>
+            <div class="field-item"><input class="input-text" placeholder="手机号" type="text" id="mobilePhone"></div>
+            <div id="registCode"><input class="pw-input-text input-text" placeholder="图片验证码" style="width:190px" id="registerVerifycode"> <img alt="验证码" class="verifyImg" id="verifyImg" title="换一张" width="78" height="30" style="cursor: pointer;" src="http://passport.huize.com/SignIn/VerifyCode?0.61758165480569"></div>
+            <div class="field-item">
+                <input class="message-input-text input-text" id="shortMessageCode" placeholder="短信验证码" type="text">
+                <a class="hz-button get-code-button" href="javascript:;" id="getMsgCode">获取验证码</a>
+                <!-- <a class="hz-button get-code-button disabled fn-hide" href="javascript:;">29秒后重新获取</a>-->
+            </div>
+
+            <div class="passworld-item field-item"><input class="input-text" placeholder="密码" id="userPassword" type="password"></div>
+            <div><input class="pw-input-text input-text" placeholder="确认密码" id="comfirmPassport" type="password"></div>
+
+            <div class="action-item">
+                <a class="hz-button hz-button-primary hz-button-block action-button fb" href="javascript:;" id="registerBtn">立即注册</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="dialog-login-foot tac">
+        <span class="fc9">使用合作网站账号登录</span>
+        <div class="others-login-box">
+
+            <a href='javascript:;' class='share-icon share-wx-icon ml10'>微信</a>
+            <a href='javascript:;' class='share-icon share-qq-icon ml10'>qq</a>
+            <a href='javascript:;' class='share-icon share-sina-icon ml10'>新浪</a>
+
+        </div>
+    </div>
+    <!--弹窗内容结束-->
+

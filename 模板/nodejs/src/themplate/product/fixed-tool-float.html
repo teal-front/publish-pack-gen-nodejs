@@ -1,0 +1,270 @@
+<div class="fixed-side-tool" id="fixedsidetool">
+
+    <!--侧边导航-->
+    <div class="side-tool-control">
+        <div class="side-tool-function">
+
+            <!--鼠标移上或点击加上 side-tool-current-->
+
+            <!--在线客服 跳转-->
+            <div class="mb5 tool-function-item" >
+                <a href="javascript:;" target="_blank" class="side-tool-icon side-tool-serveic"></a>
+                <i class="arrow"></i> <p class="side-hover-title side-hover-serveic">在线客服</p>
+            </div>
+
+
+            <!--购物车 展开-->
+            <div class="pt10 pb10 tool-function-item tool-function-cart" id="showCarBtn">
+                <a href="javascript:;" class="side-tool-icon side-tool-cart"></a>
+                <div class="side-tool-cart-txt">购物车 <span class="num-txt">6</span></div>
+                <div class="side-tool-cart-border"></div>
+            </div>
+
+
+            <!--产品对比 展开-->
+            <div class="pt5 pb5 tool-function-item" id="showProductBtn">
+                <a href="javascript:;" class="side-tool-icon side-tool-comparer"></a>
+                <div class="side-tool-comparer-txt">3/4</div>
+                <p class="side-hover-title side-hover-comparer">
+                    产品对比
+                </p>
+            </div>
+        </div>
+
+        <div class="side-tool-other">
+
+
+            <!--二维码 鼠标移上去tool-function-item加上 side-tool-current-->
+            <div class="tool-function-item " id="QRcode">
+                <a href="javascript:;" target="_blank" class="side-tool-icon side-tool-qdcode"></a>
+
+                <div class="side-hover-title side-hover-qdcode p20">
+                    <div class="side-tool-qdcode-hd">
+                        <img src="//images.hzins.com/short/www/2015huodong/gzwxlj10yzn/activity_1.png">
+                    </div>
+                    <div class="side-tool-qdcode-bd">
+                        <p class="f16"><strong>扫码下载慧择APP</strong></p>
+                        <p class="f12">领取价值 <strong>99元</strong>大礼包</p>
+                    </div>
+                    <div class="side-tool-qdcode-arrow">◆</div>
+                </div>
+
+            </div>
+
+
+            <!--意见反馈 跳转-->
+            <div class="tool-function-item">
+                <a href="javascript:;" target="_blank" class="side-tool-icon side-tool-feedback" id="feedBtn">
+                </a>
+                <p class="side-hover-title side-hover-feedback">
+                    意见反馈
+                </p>
+
+            </div>
+
+
+            <!--回到顶部-->
+            <div class="tool-function-item">
+                <a href="javascript:window.scrollTo(0,0);" class="side-tool-icon side-tool-top">
+                </a>
+                <p class="side-hover-title side-hover-top">
+                    返回顶部
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--状态-->
+    <div class="side-tool-masker" style="display:none;"></div>
+
+    <!--
+    <div class="side-tool-alert-pop" style="display:none;">
+        <p class="alert-tips">
+            您确定要清空看过的内容吗？
+        </p>
+        <button type="button" class="side-tool-btn-ok">
+            确定
+        </button>
+        <button type="button" class="side-tool-btn-cannel">
+            取消
+        </button>
+    </div>
+    -->
+
+    <div class="side-tool-loading-pop" style="display:none;">
+        <img src="//pic.c-ctrip.com/common/icon_sidetool_loading.png" alt="">
+        <strong>
+            清除中...
+        </strong>
+    </div>
+
+
+    <div class="side-tool-waring-pop" style="display: none;">
+        <img src="//pic.c-ctrip.com/common/icon_youyou_said.png" alt="">
+        <strong>
+            清除失败，
+            <br>
+            请稍后再试
+        </strong>
+    </div>
+
+    <!--侧边导航-展开的面板-->
+    <div class="side-tool-cont-wrap side-tool-history" id="toolPanel" style="display: none; width: 285px;">
+
+
+        <div class="side-tool-cont-hd">
+            <h3 class="title" id="panelTitle">
+                产品对比
+            </h3>
+            <a href="javascript:;" title="收起" class="side-tool-back"> &gt;&gt; </a>
+        </div>
+
+        <div class="side-tool-cont-m">
+
+            <div class="side-tool-feedback-content fn-hide" id="feedCallback">
+                <p>您对当前的页面满意吗？</p>
+                <div class="mt15 mb15">
+                    <div class="radio-item radio-item-checked inline-block">
+                        <i class="radio-icon"></i><span class="radio-text">满意</span>
+                    </div>
+
+                    <div class="radio-item inline-block ml30">
+                        <i class="radio-icon"></i><span class="radio-text">不满意</span>
+                    </div>
+                </div>
+
+                <textarea class="side-tool-feedback-area" placeholder="您留下的每个建议都是慧择改进的动力！产品和保险咨询请移步在线客服或拨打4006-366-366。"></textarea>
+                <p class="error-msg fn-hide">请填写您对当前页面的意见或建议</p> <!--错误提示-->
+                <p>0<span class="fc6">/500</span></p>
+
+                <a class="button button-block button-primary mt15" href="javascript:;">提交</a>
+                <!--意见反馈结束-->
+            </div>
+
+            <div class="side-tool-item-list">
+
+
+                <!--未登录-->
+                <div class="default-msg warning-msg fn-hide car-item">
+                    还没有登录，登录后商品将被保存<a class="button button-primary button-small ml10" href="javascript:;">登录</a>
+                </div>
+
+
+                <div class="side-tool-tips-no-list tac fn-hide">您的购物车还是空的~</div>
+                <div class="side-tool-tips-no-list tac fn-hide">您还没有添加对比产品~</div>
+
+                <!--有对比产品的时候-->
+                <div class="comparer-product-box comparer-item fn-hide">
+                    <h3 class="fc6 pb10 pl20">最多可选 <span>4</span>款产品（1）</h3>
+
+                    <ul class="product-list comparer-product-list">
+                        <li class="product-item comparer-product-item">
+                            <div class="fl mr10"><input type="checkbox" name="" id=""></div>
+                            <div class="product-content">
+                                <a class="product-title comparer-product-title" href="#">慧择白领健康保险保障 计划A 不含救援服务</a>
+                                <div class="fcc mt10">
+                                    <span class="fr">￥15.00</span>
+                                    <span>太平人寿</span>
+                                </div>
+                            </div>
+
+                            <a class="iconfont hz-close" href="javascript:;"></a>
+                        </li>
+
+                        <li class="product-item comparer-product-item">
+                            <div class="fl mr10"><input type="checkbox" name="" id=""></div>
+                            <div class="product-content">
+                                <a class="product-title comparer-product-title" href="#">慧择白领健康保险保障慧择白领健康保险保障 计划A 不含救援服务</a>
+                                <div class="fcc mt10">
+                                    <span class="fr">￥15.00</span>
+                                    <span>太平人寿</span>
+                                </div>
+                            </div>
+                            <a class="iconfont hz-close" title="删除" href="javascript:;"></a>
+                        </li>
+                    </ul>
+
+                    <div class="tac"><a href="javascript:;" class="delete-all">清空产品</a></div>
+                </div>
+
+                <!--购物车有产品的时候-->
+                <div class="cart-product-box car-item">
+                    <ul class=" product-list lh20">
+                        <li class="product-item">
+                            <div class="fl mr15">
+                                <a class="pic-item" href="http://www.hzins.com/brand/detail/40">
+                                    <img src="http://files.hzins.com/images/short/public/product/e/e0/e0c/e0c4/3c8f24cf60a6ada0f9f92e1fdc87.gif" width="80">
+                                </a>
+                            </div>
+
+                            <div class="product-content">
+                                <a href="#" class="product-title ">慧择白领健康保险 计划A不含救援服务</a>
+                                <p class="product-price fb">￥22.20</p>
+                            </div>
+                            <a class="iconfont hz-close" href="javascript:;"></a>
+                        </li>
+                        <li class="product-item">
+                            <div class="fl mr15">
+                                <a class="pic-item" href="http://www.hzins.com/brand/detail/40">
+                                    <img src="http://files.hzins.com/images/short/public/product/e/e0/e0c/e0c4/3c8f24cf60a6ada0f9f92e1fdc87.gif" width="80">
+                                </a>
+                            </div>
+
+                            <div class="product-content">
+                                <a href="#" class="product-title">慧择白领健康保险 计划A不含救援服务</a>
+                                <p class="product-price fb">￥22.20</p>
+                            </div>
+                            <a class="iconfont hz-close" title="删除" href="javascript:;"></a>
+                        </li>
+                    </ul>
+
+                    <div class="mt10">
+                        <h3 class="fc6 pb10 pl20">失败产品（1）</h3>
+                        <ul class="product-list lh20">
+                            <li class="product-item invalid-product-item">
+
+                                <div class="fl mr15">
+                                    <a class="pic-item" href="http://www.hzins.com/brand/detail/40">
+                                        <img src="http://files.hzins.com/images/short/public/product/e/e0/e0c/e0c4/3c8f24cf60a6ada0f9f92e1fdc87.gif" width="80">
+                                    </a>
+                                    <p class="mt10 tac"><span class="hz-badge hz-badge-secondary hz-radius">下架</span></p>
+                                </div>
+
+
+                                <div class="product-content">
+                                    <span class="product-title">慧择白领健康保险 计划A不含救援服务</span>
+                                    <p class="product-price fb">￥22.20</p>
+                                </div>
+                                <a class="iconfont hz-close" title="删除" href="javascript:;"></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="site-tool-item-footer">
+                <div class="default-msg warning-msg mb10 comparer-item fn-hide">
+                    请选择要对比的产品
+                </div>
+
+                <div class="tool-item-footer-meta pb10 pl15 pr15 car-item">
+                    <p class="fr">共计<span class="num-item">￥358.00</span></p>
+                    <p><span class="num-item">5</span>个产品</p>
+                </div>
+
+                <div class="action-box pl15 pr15">
+                    <a class="button button-block  button-large disabled fn-hide" href="javascript:;">开始对比</a>
+                    <a class="button button-block  button-large disabled fn-hide" href="javascript:;">去购物车结算</a>
+                    <a class="button button-block button-primary button-large car-item" href="javascript:;" id="toPay">去购物车结算</a>
+                    <a class="button button-block button-primary button-large comparer-item" href="javascript:;"  id="startCompara">开始对比</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
