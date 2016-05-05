@@ -36,6 +36,7 @@
         "should": "^8.2.2",
         "grunt-contrib-jshint": "*",
         "grunt-contrib-watch": "*",
+        "grunt-contrib-uglify": "*",
         "grunt-jsdoc": "*",
         "grunt-zip": "^0.17.1",
         "grunt-cachebuster": "*",
