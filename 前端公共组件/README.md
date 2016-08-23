@@ -29,7 +29,7 @@ webuploader
 
 >目录结构
 
->![目录结构](images/webuploader.png)
+>![目录结构](../images/webuploader.png)
 
 
 
