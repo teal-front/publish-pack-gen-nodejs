@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;;;AAcE,2CAAoB,GAClB,KAAK,EAAE,IAAI,EACX,OAAO,EAAE,MAAM;AAGjB,2CAAoB,GAClB,aAAa,EAAE,GAAG,EAClB,SAAS,EAAE,IAAI",
+"sources": ["../../../sass/detail/recommend.scss"],
+"names": [],
+"file": "recommend.css"
+}

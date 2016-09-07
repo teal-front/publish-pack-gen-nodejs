@@ -1,0 +1,95 @@
+<%
+	var guihua  = homeData.guihua || [];
+%>
+<div class="hot-categories-wrap layout">
+	<div class="hot-categories">
+		<ul class="categories-tab-menu">
+			<%guihua.forEach(function(item,index){%>
+			<%
+				var style ='';
+				if(0===index){
+					style =' selected ';
+				}else if(6===index){
+					style =' last-item ';
+				}
+			%>
+			<li class="categories-tab-item <%=style%>" data-tab="tab-<%=index%>"><a href="javascript:;"><%=item.name%></a></li>
+			<%});%>
+		</ul>
+		<%guihua.forEach(function(item,index){%>
+		<%
+//			var content = item.content || {};
+			var list = item.list || [];
+			var recommendItem = item.recommend || [];
+			var hotTagList = item.tagList || [];
+
+			var outIndex = 'out-'+index;
+		%>
+		<div class="tab-container <%=(index===0) ? ' ' : ' fn-hide '%>"  data-tab="tab-<%=index%>">
+			<div class="categories-pane">
+				<dl class="categories-title">
+					<dt class="fc9 f14">
+					<%=item.purpose%>：
+					</dt>
+					<dd>
+					<%list.forEach(function(sortItem,index){%>
+						<a href="<%=sortItem.href%>" class="categories-tag" target="_blank" title="<%=item.name+'-'+sortItem.name%>" data-tab="tab-type-<%=index%>-<%=outIndex%>"><%=sortItem.name%></a>
+
+					<%});%>
+					</dd>
+				</dl>
+
+                <%if(hotTagList.length>0){%>
+                <div class="f14 mt10">
+                    <h4 class="fc9 " style="margin-bottom: 6px;">
+                        热门标签：
+                    </h4>
+
+                    <ul class="clearfix hot-tag-list" style="margin-right: -5px;">
+                        <%hotTagList.forEach(function(tagItem,index){%>
+                            <li class="fl mr15 mt5"><a href="<%=tagItem.href%>" target="_blank"><%=tagItem.name%></a></li>
+                        <%});%>
+
+                    </ul>
+                </div>
+                <%}%>
+
+				<div class="recommend-product">
+
+                    <%if(index===6) {%>
+                    <a href="http://www.huize.com/product/car/" target="_blank" title="汽车保险"><img src="<%=recommendItem.imgUrl%>" alt=""/></a>
+                    <%}else {%>
+
+                    <h4 class="fc9 f14 mb15">
+                        特别推荐：
+                    </h4>
+                    <div class="hz-media-box">
+                        <div class="hz-media-pic mr20" style="width: 165px;">
+                            <a href="<%=recommendItem.href%>" target="_blank"><img height="90" src="<%=recommendItem.imgUrl%>"></a>
+                        </div>
+                        <div class="hz-media-content">
+                            <h3 class="product-title ell "><a class="f18" title="<%=recommendItem.name%>" target="_blank" href="<%=recommendItem.href%>"><%=recommendItem.name%></a></h3>
+
+
+                            <div class="product-summary f14 fc9 ">
+                                <%=recommendItem.summary%>
+                            </div>
+
+                            <div>
+                                <a class="hz-button  hz-button-small view-button fr" href="<%=recommendItem.href%>" target="_blank" title="查看与投保">查看与投保</a>
+                                <p class="f14" style="color: #f6ab1a;padding-top: 3px;">￥<span class="f18"><%=recommendItem.price%></span>起</p>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+
+
+				</div>
+			</div>
+		</div>
+		
+		<%});%>
+		
+		<!--tab-container end-->
+	</div>
+</div>

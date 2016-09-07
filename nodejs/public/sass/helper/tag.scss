@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 徽章 标签
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+
+//用户印象
+
+.post-tag {
+  @include inlineBlock;
+  vertical-align: middle;
+  line-height: 28px;
+  padding: 0 10px;
+  margin: 10px 0;
+//  text-align: center;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: 12px;
+  box-shadow: 1px 2px 0px 1px rgba(10, 2, 4, 0.05);
+}

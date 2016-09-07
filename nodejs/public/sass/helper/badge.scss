@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 徽章 标签
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+
+.hz-badge {
+  @include inlineBlock;
+  vertical-align: middle;
+  min-width: 10px;
+  padding: 0 8px;
+  line-height: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+  background-color: #fff;
+
+  &.hz-radius {
+    border-radius: 4px;
+  }
+}
+
+.hz-badge-primary {
+  background-color: #ff5400;
+  color: #fff;
+}
+
+.hz-badge-secondary {
+  background-color: #ccc;
+  color: #fff;
+}
+
+

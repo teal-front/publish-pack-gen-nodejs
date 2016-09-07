@@ -1,0 +1,200 @@
+<!-- banner图 -->
+<% var subjects = locals.data || [] %>
+<div class="pt30 bgf7 pb30">
+	<div class="special-banner-wrap">
+		<div class="jq-slide">
+			<ul class="jq-slide-ul">
+				<li>
+					<a href="/zhuanti/<%= (subjects[0] && subjects[0].publishAddress) || '' %>/" title="<%= (subjects[0] && subjects[0].title) || '' %>" target="_blank" class="special-banner-con">
+						<img src="//img.huizecdn.com/hz/www/page/special/banner-1.jpg" alt="<%= (subjects[0] && subjects[0].title) || '' %>">
+						<div class="pos-r">
+							<h3 class="f36"><%= (subjects[0] && subjects[0].title) || '' %></h3>
+							<p class="mt10"><%= (subjects[0] && subjects[0].subtitle) || '' %></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/zhuanti/<%= (subjects[1] && subjects[1].publishAddress) || '' %>/" title="<%= (subjects[1] && subjects[1].title) || '' %>" target="_blank" class="special-banner-con">
+						<img src="//img.huizecdn.com/hz/www/page/special/banner-2.jpg" alt="<%= (subjects[1] && subjects[1].title) || '' %>">
+						<div class="pos-r">
+							<h3 class="f36"><%= (subjects[1] && subjects[1].title) || '' %></h3>
+							<p class="mt10"><%= (subjects[1] && subjects[1].subtitle) || '' %></p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/zhuanti/<%= (subjects[2] && subjects[2].publishAddress) || '' %>/" title="<%= (subjects[2] && subjects[2].title) || '' %>" target="_blank" class="special-banner-con">
+						<img src="//img.huizecdn.com/hz/www/page/special/banner-3.jpg" alt="<%= (subjects[2] && subjects[2].title) || '' %>">
+						<div class="pos-r">
+							<h3 class="f36"><%= (subjects[2] && subjects[2].title) || '' %></h3>
+							<p class="mt10"><%= (subjects[2] && subjects[2].subtitle) || '' %></p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="slider-page">
+                <a href="javascript:;" class="pre-arrow iconfont"></a>
+                <div class="num"><span class="f36">3</span>/3</div>
+                <a href="javascript:;" class="next-arrow iconfont"></a>
+            </div>
+		</div>
+	</div>
+
+	<div class="layout pt30">
+			<div class="special-type clearfix">
+				<div class="special-type-sidebar bg-b">
+					<h3 class="f36 pl20">职业/人群 </h3>
+					<h4 class="special-type-txt">CROWD</h4>
+					<p class="f16 pl20 pt10">全面的生活保障<br>贴心的健康守护</p>
+					<i class="special-type-img special-type-img1"></i>
+					<div class="special-type-s-list">
+						<% for(var i = 8; i < 14; i++) { %>
+							<a href="/zhuanti/<%= (subjects[i] && subjects[i].publishAddress) || '' %>/" title="<%= (subjects[i] && subjects[i].name) || '' %>" target="_blank" class="special-type-bn">
+								<%= (subjects[i] && subjects[i].name) || '' %>
+							</a>
+						<% } %>
+					</div>
+				</div>
+				<a href="/zhuanti/<%= (subjects[3] && subjects[3].publishAddress) || '' %>/" title="<%= (subjects[3] && subjects[3].title) || '' %>" target="_blank" class="special-type-center">
+					<h3 class="f32 pt25 fb"><%= (subjects[3] && subjects[3].title) || '' %></h3>
+					<p class="f20 fc9 pt10">
+						<%= (subjects[3] && subjects[3].subtitle) || '' %>
+					</p>
+					<img src="//img.huizecdn.com/hz/www/page/special/pic10.jpg" alt="白领们的健康保障">
+				</a>
+				<div class="special-type-colum">
+					<a href="/zhuanti/<%= (subjects[4] && subjects[4].publishAddress) || '' %>/" title="<%= (subjects[4] && subjects[4].title) || '' %>" target="_blank" class="special-type-list special-type-1">
+						<span class="f18 fc3"><%= (subjects[4] && subjects[4].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[4] && subjects[4].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[5] && subjects[5].publishAddress) || '' %>/" title="<%= (subjects[5] && subjects[5].title) || '' %>" target="_blank" class="special-type-list special-type-2">
+						<span class="f18 fc3"><%= (subjects[5] && subjects[5].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[5] && subjects[5].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[6] && subjects[6].publishAddress) || '' %>/" title="<%= (subjects[6] && subjects[6].title) || '' %>" target="_blank" class="special-type-list special-type-3">
+						<span class="f18 fc3"><%= (subjects[6] && subjects[6].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[6] && subjects[6].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[7] && subjects[7].publishAddress) || '' %>/" title="<%= (subjects[7] && subjects[7].title) || '' %>" target="_blank" class="special-type-list special-type-4">
+						<span class="f18 fc3"><%= (subjects[7] && subjects[7].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[7] && subjects[7].subtitle) || '' %></span>
+					</a>
+				</div>
+			</div>
+			<div class="special-type clearfix mt30">
+				<div class="special-type-sidebar bg-g">
+					<h3 class="f36 pl20">户外/旅行 </h3>
+					<h4 class="special-type-txt">JOURNEY</h4>
+					<p class="f16 pl20 pt10">邂逅完美假期<br>保障一路随行</p>
+					<i class="special-type-img special-type-img2"></i>
+					<div class="special-type-s-list">
+						<% for(var i = 19; i < 24; i++) { %>
+							<a href="/zhuanti/<%= (subjects[i] && subjects[i].publishAddress) || '' %>/" title="<%= (subjects[i] && subjects[i].name) || '' %>" target="_blank" class="special-type-bn">
+								<%= (subjects[i] && subjects[i].name) || '' %>
+							</a>
+						<% } %>
+					</div>
+				</div>
+				<a href="/zhuanti/<%= (subjects[14] && subjects[14].publishAddress) || '' %>/" title="<%= (subjects[14] && subjects[14].title) || '' %>" target="_blank" class="special-type-center">
+					<h3 class="f32 pt25 fb"><%= (subjects[14] && subjects[14].title) || '' %></h3>
+					<p class="f20 fc9 pt10">
+						<%= (subjects[14] && subjects[14].subtitle) || '' %>
+					</p>
+					<img src="//img.huizecdn.com/hz/www/page/special/pic15.jpg" alt="<%= (subjects[14] && subjects[14].title) || '' %>">
+				</a>
+				<div class="special-type-colum">
+					<a href="/zhuanti/<%= (subjects[15] && subjects[15].publishAddress) || '' %>/" title="<%= (subjects[15] && subjects[15].title) || '' %>" target="_blank" class="special-type-list special-type-5">
+						<span class="f18 fc3"><%= (subjects[15] && subjects[15].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[15] && subjects[15].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[16] && subjects[16].publishAddress) || '' %>/" title="<%= (subjects[16] && subjects[16].title) || '' %>" target="_blank" class="special-type-list special-type-6">
+						<span class="f18 fc3"><%= (subjects[16] && subjects[16].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[16] && subjects[16].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[17] && subjects[17].publishAddress) || '' %>/" title="<%= (subjects[17] && subjects[17].title) || '' %>" target="_blank" class="special-type-list special-type-7">
+						<span class="f18 fc3"><%= (subjects[17] && subjects[17].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[17] && subjects[17].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[18] && subjects[18].publishAddress) || '' %>/" title="<%= (subjects[18] && subjects[18].title) || '' %>" target="_blank" class="special-type-list special-type-8">
+						<span class="f18 fc3"><%= (subjects[18] && subjects[18].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[18] && subjects[18].subtitle) || '' %></span>
+					</a>
+				</div>
+			</div>
+			<div class="special-type clearfix mt30">
+				<div class="special-type-sidebar bg-c">
+					<h3 class="f36 pl20">出行/交通 </h3>
+					<h4 class="special-type-txt">TRAFFIC</h4>
+					<p class="f16 pl20 pt10">说走就走不任性<br>保障在手才自信</p>
+					<i class="special-type-img special-type-img3"></i>
+					<div class="special-type-s-list">
+						<a href="/zhuanti/<%= (subjects[29] && subjects[29].publishAddress) || '' %>/" title="<%= (subjects[29] && subjects[29].name) || '' %>" target="_blank" class="special-type-bn">
+							<%= (subjects[29] && subjects[29].name) || '' %>
+						</a>
+					</div>
+				</div>
+				<a href="/zhuanti/<%= (subjects[24] && subjects[24].publishAddress) || '' %>/" title="<%= (subjects[24] && subjects[24].title) || '' %>" target="_blank" class="special-type-center">
+					<h3 class="f32 pt25 fb"><%= (subjects[24] && subjects[24].title) || '' %></h3>
+					<p class="f20 fc9 pt10">
+						<%= (subjects[24] && subjects[24].subtitle) || '' %>
+					</p>
+					<img src="//img.huizecdn.com/hz/www/page/special/pic20.jpg" alt="">
+				</a>
+				<div class="special-type-colum">
+					<a href="/zhuanti/<%= (subjects[25] && subjects[25].publishAddress) || '' %>/" title="<%= (subjects[25] && subjects[25].title) || '' %>" target="_blank" class="special-type-list special-type-9">
+						<span class="f18 fc3"><%= (subjects[25] && subjects[25].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[25] && subjects[25].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[26] && subjects[26].publishAddress) || '' %>/" title="<%= (subjects[26] && subjects[26].title) || '' %>" target="_blank" class="special-type-list special-type-10">
+						<span class="f18 fc3"><%= (subjects[26] && subjects[26].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[26] && subjects[26].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[27] && subjects[27].publishAddress) || '' %>/" title="<%= (subjects[27] && subjects[27].title) || '' %>" target="_blank" class="special-type-list special-type-11">
+						<span class="f18 fc3"><%= (subjects[27] && subjects[27].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[27] && subjects[27].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[28] && subjects[28].publishAddress) || '' %>/" title="<%= (subjects[28] && subjects[28].title) || '' %>" target="_blank" class="special-type-list special-type-12">
+						<span class="f18 fc3"><%= (subjects[28] && subjects[28].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[28] && subjects[28].subtitle) || '' %></span>
+					</a>
+				</div>
+			</div>
+			<div class="special-type clearfix mt30">
+				<div class="special-type-sidebar bg-p">
+					<h3 class="f36 pl20">居家/生活 </h3>
+					<h4 class="special-type-txt">LIFE</h4>
+					<p class="f16 pl20 pt10">生活小事琐碎<br>保障入微细致</p>
+					<i class="special-type-img special-type-img4"></i>
+					<div class="special-type-s-list">
+					</div>
+				</div>
+				<a href="/zhuanti/<%= (subjects[30] && subjects[30].publishAddress) || '' %>/" title="<%= (subjects[30] && subjects[30].title) || '' %>" target="_blank" class="special-type-center">
+					<h3 class="f32 pt25 fb"><%= (subjects[30] && subjects[30].title) || '' %></h3>
+					<p class="f20 fc9 pt10">
+						<%= (subjects[30] && subjects[30].subtitle) || '' %>
+					</p>
+					<img src="//img.huizecdn.com/hz/www/page/special/pic25.jpg" alt="">
+				</a>
+				<div class="special-type-colum">
+					<a href="/zhuanti/<%= (subjects[31] && subjects[31].publishAddress) || '' %>/" title="<%= (subjects[31] && subjects[31].title) || '' %>" target="_blank" class="special-type-list special-type-13">
+						<span class="f18 fc3"><%= (subjects[31] && subjects[31].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[31] && subjects[31].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[32] && subjects[32].publishAddress) || '' %>/" title="<%= (subjects[32] && subjects[32].title) || '' %>" target="_blank" class="special-type-list special-type-14">
+						<span class="f18 fc3"><%= (subjects[32] && subjects[32].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[32] && subjects[32].subtitle) || '' %></span>
+					</a>
+					<a href="/zhuanti/<%= (subjects[33] && subjects[33].publishAddress) || '' %>/" title="<%= (subjects[33] && subjects[33].title) || '' %>" target="_blank" class="special-type-list special-type-15">
+						<span class="f18 fc3"><%= (subjects[33] && subjects[33].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[33] && subjects[33].subtitle) || '' %></span>
+
+					</a>
+					<a href="/zhuanti/<%= (subjects[34] && subjects[34].publishAddress) || '' %>/" title="<%= (subjects[34] && subjects[34].title) || '' %>" target="_blank" class="special-type-list special-type-16">
+						<span class="f18 fc3"><%= (subjects[34] && subjects[34].title) || '' %></span>
+						<span class="f14 fc9"><%= (subjects[34] && subjects[34].subtitle) || '' %></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

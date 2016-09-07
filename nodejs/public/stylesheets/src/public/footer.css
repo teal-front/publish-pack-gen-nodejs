@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* 功能：huize.com - 底部 作者：huangyongsheng@hzins.com 时间：2016/02/29
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.hz-footer-wrap .hz-ensure-wrap { background: url("//img.huizecdn.com/hz/www/page/footer-wrap-bg.png") repeat-x 0 0; }
+.hz-footer-wrap .hz-ensure { zoom: 1; background: url("//img.huizecdn.com/hz/www/page/footer-bg.png") no-repeat 0 50%; }
+.hz-footer-wrap .hz-ensure:before, .hz-footer-wrap .hz-ensure:after { content: ""; display: table; }
+.hz-footer-wrap .hz-ensure:after { clear: both; }
+.hz-footer-wrap .hz-ensure-item05, .hz-footer-wrap .hz-ensure-item01 { width: 16%; }
+.hz-footer-wrap .hz-ensure-item02, .hz-footer-wrap .hz-ensure-item03, .hz-footer-wrap .hz-ensure-item04 { width: 22%; }
+.hz-footer-wrap .hz-ensure-item { float: left; }
+.hz-footer-wrap .hz-ensure-item a { display: block; line-height: 0; font-size: 0; height: 95px; overflow: hidden; }
+.hz-footer-wrap .hz-ensure-item a:hover { text-decoration: none; }
+.hz-footer-wrap .hz-foot-others { color: #696969; }
+
+.hz-server .footer-follow-info { color: #696969; }
+.hz-server .footer-follow-info dl { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; }
+
+.hz-friend-link { display: none; }
+
+.hz-friend-link-content { padding-left: 67px; }
+
+.hz-server { white-space: nowrap; }
+.hz-server .hz-server-content { padding-left: 67px; }
+.hz-server .hz-server-content a { color: #666; margin-right: 15px; line-height: 20px; }
+.hz-server .hz-server-content a:hover { color: #2150a2; text-decoration: none; }
+
+/*友情链接*/
+.hz-friend-link a { color: #666; line-height: 20px; }
+.hz-friend-link .friend-link-tab-list { zoom: 1; margin-bottom: 10px; }
+.hz-friend-link .friend-link-tab-list:before, .hz-friend-link .friend-link-tab-list:after { content: ""; display: table; }
+.hz-friend-link .friend-link-tab-list:after { clear: both; }
+.hz-friend-link .friend-link-tab-list .friend-link-tab-item { float: left; }
+.hz-friend-link .friend-link-tab-list .friend-link-tab-item a { display: block; margin-right: 10px; padding: 0 5px; }
+.hz-friend-link .friend-link-tab-list .friend-link-tab-item.active a, .hz-friend-link .friend-link-tab-list .friend-link-tab-item a:hover { background: #2151a3; color: #fff; text-decoration: none; }
+.hz-friend-link .friend-link-tab-pane a { display: inline-block; *display: inline; *zoom: 1; margin: 0 5px 5px 0; padding: 0 5px; transition: all 0.5s; }
+.hz-friend-link .friend-link-tab-pane a:hover { color: #2150a2; text-decoration: none; }
+
+.hz-copyright { padding: 25px 0; border-top: 1px solid #ececec; }
+
+.hz-copyright a a, .hz-copyright a { *padding: 0 5px; }
+.hz-copyright a a:after, .hz-copyright a:after { content: attr(data-content); padding: 0 3px 0 5px; color: #d3d3d3; }
+.hz-copyright a a:hover, .hz-copyright a:hover { color: #2150a2; text-decoration: none; }
+.hz-copyright a a:hover:after, .hz-copyright a:hover:after { text-decoration: none; }
+
+.hz-footer-style2 .hz-copyright { color: #666; background: #fff; }
+.hz-footer-style2 .hz-copyright a { color: #666; background: #fff; }
+.hz-footer-style2 .hz-copyright a a:after, .hz-footer-style2 .hz-copyright a:after { color: #666; }
+.hz-footer-style2 .hz-copyright a a:hover, .hz-footer-style2 .hz-copyright a:hover { color: #000; text-decoration: none; }
+
+/*# sourceMappingURL=footer.css.map */

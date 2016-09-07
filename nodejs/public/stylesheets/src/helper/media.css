@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 功能：huize.com - 左右图文排版 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.hz-media-box, .hz-media-content, .hz-media-box-content { overflow: hidden; zoom: 1; }
+
+.hz-media-box .hz-media-title, .hz-media-box .hz-media-pic { float: left; display: inline; }
+
+/*# sourceMappingURL=media.css.map */

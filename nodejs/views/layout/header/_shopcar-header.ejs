@@ -1,0 +1,33 @@
+<%include _top%>
+<div class="order-header-wrap">
+    <div class="order-header  clearfix layout">
+
+        <div class="order-header-logo fl">
+            <a href="<%= locals.mainHost %>" title="慧择保险网">
+                <img src="//img.huizecdn.com/hz/www/page/hz-logo.png" height="75" alt="慧择保险网"/>
+            </a>
+
+            <div class="inline-block ml20 hot-tel">
+                <div class="hot-tel-inner">
+                    24小时人工坐席
+                    <p class="f18 primary-color">4006 366  366</p>
+                </div>
+            </div>
+        </div>
+        <% var curStep = locals.curStep || 1%>
+        <div class="hz-step fr">
+            <div class="hz-step-box">
+                <ol class="hz-step-list">
+                    <li class="hz-step-item <% if(curStep >= 1){ %>hz-step-item-active<% } %>"><i class="dot">1</i><span class="hz-step-text" style="right: -1px;">购物车</span></li>
+                    <li class="hz-step-item <% if(curStep >= 2){ %>hz-step-item-active<% } %>"><i class="dot">2</i><span class="hz-step-text" style="right: -8px;">投保告知</span></li>
+                    <li class="hz-step-item <% if(curStep >= 3){ %>hz-step-item-active<% } %>"><i class="dot">3</i><span class="hz-step-text" style="right: -22px;">填写投保信息</span></li>
+                    <li class="hz-step-item <% if(curStep >= 4){ %>hz-step-item-active<% } %>"><i class="dot">4</i><span class="hz-step-text" style="right: -17px;">确认并支付</span></li>
+                    <li class="hz-step-item last-item <% if(curStep > 4){ %>hz-step-item-active<% } %>"></li>
+                </ol>
+            </div>
+        </div>
+        <!--step end-->
+
+    </div>
+    <!--order-header end-->
+</div>

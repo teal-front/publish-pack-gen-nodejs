@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>huize</title>
+</head>
+<body>
+<script>
+    var href = decodeURIComponent(window.location.href);
+    var callback = href.match(/callback\=([^=&]+)/i);
+    var otherLoginUrl = href.match(/otherLoginUrl\=([^=&]+)/i);
+    callback = callback ? callback[1] : "_loginCallback";
+    otherLoginUrl = otherLoginUrl ? otherLoginUrl[1] : "";
+    if(callback){
+        try{
+            window.parent[callback].call(window.parent,otherLoginUrl);
+        }
+        catch(e){
+            window.history.go(-1);
+        }
+    }
+
+</script>
+</body>
+</html>

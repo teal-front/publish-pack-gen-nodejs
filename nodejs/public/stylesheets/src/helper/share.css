@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* 功能：huize.com - 分享 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.share-icon { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; width: 30px; height: 30px; background: url(//img.huizecdn.com/hz/www/page/share-sprite.png) no-repeat 0 0; line-height: 0; font-size: 0; }
+
+.share-wx-icon { background-position: 0 0; }
+
+.share-qq-icon { background-position: 0 -30px; }
+
+.share-sina-icon { background-position: 0 -60px; }
+
+.share-qz-icon { background-position: 0 -90px; }
+
+/*# sourceMappingURL=share.css.map */

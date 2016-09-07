@@ -1,0 +1,46 @@
+<%
+    var categoryTree = locals.categoryTreeDTO||[];
+    var companyId =locals.companyId;
+    var categoryId =locals.categoryId;
+    var companySimpName=locals.companyPageInfo.simpName;
+    var allCompany=locals.allCompany||[];
+%>
+        <div class="layout-sidebar">
+            <div class="layout-inner-sidebar">
+
+                <div class="sidebar-company-category">
+                   <h3 class="pl20 pt10 pb10 pr10 f16 bgfb bor-bottom"><%=companySimpName%>分类</h3>
+                   <% categoryTree.forEach(function(item,i){
+                        var childrenList =item.childrenList||[];
+                        var style=i===(categoryTree.length-1)?"last-item":"";
+                        var currentStyle=~~item.id===~~categoryId?"item-selected":"";
+                    %>
+                        <dl class="<%=style%>">
+                            <dt><a class="<%=currentStyle%>"  href='/brand/detail/<%=companyId%>/<%=item.id%>'><%=item.name%></a></dt>
+                            <dd>
+                            <% childrenList.forEach(function(item1){
+                                var href ='/brand/detail/' +companyId+'/'+item1.id;
+                                    currentStyle=~~item1.id===~~categoryId?"item-selected":"";
+                            %>
+                                <a class="<%=currentStyle%>"  href="<%=href%>" title="<%=item1.name%>"><%=item1.name%>（<%=item1.productCount%>）</a>
+                           <% });%>
+                           </dd>
+                       </dl>
+                    <%});%>
+                </div>
+
+                <div class="mt20 others-company-box">
+
+                    <h3 class="p10 f16 bgfb bor-bottom">其他保险公司选择</h3>
+                    <div style="padding: 20px 20px 20px 0">
+                    <%allCompany.forEach(function(item){
+                         var href ='/brand/detail/' +item.id+'';
+                         var currentStyle=~~item.id===~~companyId?"item-selected":"";
+                         %>
+                        <a href="<%=href%>" class="<%=currentStyle%>"  target="_blank" title="<%=item.simpleName%>"><%=item.simpleName%></a>
+                    <%})%>
+                    </div>
+                </div>
+            </div>
+
+        </div>

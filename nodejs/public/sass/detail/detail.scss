@@ -1,0 +1,529 @@
+@charset "utf-8";
+
+
+/*
+ * 功能：huize.com - 详情页面-保障详情
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+.detail-tab-wrap .detail-hz-tab-box .hz-bgpic-9 {
+  background: url(//img.huizecdn.com/hz/www/page/detail-tab-ico.gif) no-repeat 0 0;
+  background-position: 0 0;
+}
+.detail-tab-wrap {
+  &,.hz-breadcrumb {
+    background: #2150a2;
+  }
+
+  .hz-breadcrumb,
+  .hz-breadcrumb a {
+    color: #cee1fa;
+  }
+
+  .detail-hz-tab-box {
+    position: relative;
+    _height:1px;
+
+    .hz-bgpic-sprite {
+      vertical-align: sub;
+    }
+  }
+  .detail-tab-others {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    color: #fff;
+    
+
+    
+    .iconfont {
+      @include inlineBlock;
+      vertical-align: baseline;
+      line-height: 1;
+      padding-right: 5px;
+    }
+    a {
+      display: block;
+      padding: 0 0 0 5px;
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .active i {
+      color: #f6ab1a;
+    }
+
+  }
+
+}
+
+.detail-tab-container .detail-ensure-info .trial-area,
+.detail-tab-container .detail-product-explain ,
+.detail-tab-container .detail-typical-case,
+.detail-tab-container .detail-product-claims,
+.detail-tab-container .detail-product-faq,
+.detail-tab-container .detail-product-comment {
+  border-right: 1px solid #f0f0f0;
+  @include minHeight(350px);
+  padding-right: 30px;
+}
+
+.fixed-detail-tab-wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2040;
+  .hz-breadcrumb { display: none;}
+}
+
+.detail-ensure-opt {
+
+  .golden-span {
+    color: #ff5400;
+  }
+
+  .ensure-opt-item {
+    margin-bottom: 5px;
+  }
+
+  .primary-link,
+  .plan-link {
+    @include inlineBlock;
+    vertical-align: top;
+  }
+  .warn-msg {
+    @include inlineBlock;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #666;
+    margin-left: 3px;
+    .iconfont {
+      float: left;
+      color: #cbdbf5;
+      font-weight: bold;
+    }
+  }
+
+  .product-price {
+    font-size: 18px;
+    font-family: $font-yahei;
+    color: $primary-color;
+    i {
+      font-size: 36px;
+      font-style: normal;
+      margin-left: 5px;
+    }
+  }
+
+  dd,dt { line-height: 30px;}
+  .ensure-opt-title {
+
+    width: 100px;
+    padding-right: 30px;
+    text-align: right;
+    color: #666;
+  }
+
+  .ensure-opt-content {
+    padding-left: 130px;
+    .hz-dropdown {
+      vertical-align: top;
+      margin-bottom:10px;
+
+      .hz-dropdown {
+        margin-bottom: 0;
+      }
+    }
+    .input-text {
+      width: 100px;
+      margin-bottom: 10px;
+      padding: 3px;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+
+    .product-amount-wrap,
+    .Wdate {
+      margin-bottom:10px;
+
+    }
+  }
+
+  .filter-tag {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .hz-dropdown:hover,
+  .hz-dropdown.filter-active-tag {
+    padding: 0;
+    border: none;
+    &>.input-select>.input-select-text {
+      border: 2px solid #f6ab1a;
+      height: 26px;
+      padding: 0 23px 0 7px;
+      line-height: 26px;
+    }
+
+  }
+
+  .ensure-opt-action {
+    clear: both;
+    padding: 15px 0 0 130px;
+    .primary-link {
+      vertical-align: middle;
+    }
+    .hz-button {
+      padding: 0 65px;
+      margin-right: 15px;
+    }
+
+  }
+}
+
+.detail-ensure-info {
+  .other-input-text {
+    padding: 3px;
+    height: 22px;
+    line-height: 22px;
+    box-shadow: 1px 1px 3px #DDDDDD inset;
+  }
+  .ensure-support-item {
+    @include inlineBlock;
+    vertical-align: middle;
+    @include ell;
+    width: 170px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 8px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: $font-yahei;
+    background: #f6f9fe;
+    border: 1px solid #dde9fd;border-radius: 5px;
+    .iconfont {
+      @include inlineBlock;
+      vertical-align: sub;
+      color: #0477b8;
+    }
+
+    &:before {
+      content: '';
+    }
+  }
+
+
+  .product-title {
+    padding-right: 130px;
+    font-family: $font-yahei;
+  }
+}
+
+
+.detail-ensure-protect {
+  .hz-table {
+    border: 1px solid #dde9fd;
+    &>thead>tr>td,
+    &>thead>tr>th {
+      padding: 5px 22px;
+      font-size: 12px;
+      border-top-color: #dde9fd;
+    }
+
+    .input-select input {
+      border: 2px solid #f6ab1a;
+      line-height: 26px;
+      padding: 0 7px;
+      &:focus {
+        border: 1px solid #dde9fd;
+        line-height: 28px;
+        padding: 0 8px;
+      }
+    }
+    .input-select b {
+      border-top-color: #f6ab1a;
+    }
+  }
+  .hz-table th {
+    background: #f6f9fe;
+    text-align: left;
+  }
+
+  .icon-protect {
+    padding-right: 20px;
+  }
+
+  .hz-dropdown-content {
+    width: 220px;
+  }
+
+  .ensure-protect-list {
+    margin-top: -1px;
+    border: 1px solid #dde9fd;
+    border-bottom: none;
+    .ensure-protect-item {
+      border-bottom: 1px solid #f0f0f0;
+      .row01,.row02,.row03,.row04 {
+        @include inlineBlock;
+        vertical-align: middle;
+      }
+      .row01 { width: 5%;}
+      .row02 { width: 20%;}
+      .row03 { width: 15%;}
+      .row04 { width: 58%;}
+
+      .protect-item-title {
+        background: #f6f9fe;
+        font-size: 12px;
+      }
+
+      .open-content {
+        margin: 10px 20px 10px 65px;
+        padding: 20px;
+        border: 1px solid #f0f0f0;
+      }
+
+      .protect-item-icon,
+      .protect-item-title,
+      .protect-item-name,
+      .protect-item-des,
+      .protect-item-amount {
+        padding: 19px 18px;
+      }
+
+      .protect-item-title,
+      .protect-item-icon {
+        padding-left: 20px;
+      }
+
+      .toggle-btn {
+        &:hover {
+          text-decoration: none;
+          color: #F6AB1A;
+        }
+      }
+    }
+
+    .ensure-protect-head {
+      .protect-item-title {
+        padding: 11px 20px;
+      }
+      border-bottom: none;
+    }
+  }
+
+
+
+}
+
+.detail-ensure-notice {
+  .notice-content {
+    padding: 25px;
+    border: 1px solid #f0f0f0;
+    line-height: 1.8;
+    a {
+      text-decoration: underline;
+      color: #333;
+      &:hover {
+        color: #2150a2;
+      }
+    }
+    li {
+      margin-bottom: 12px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+//救援服务
+.detail-ensure-right,
+.detail-ensure-rescue {
+  dt {
+    padding-top: 5px;
+  }
+  .iconfont,
+  .img-item {
+    @include inlineBlock;
+    vertical-align: top;
+    width: 58px;
+    height: 58px;
+    margin-right: 20px;
+    line-height: 58px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .rescue-service-item {
+    @include inlineBlock;
+    vertical-align: top;
+    width: 47%;
+    margin-right: 2%;
+    margin-bottom: 10px;
+
+  }
+  dl {
+    @include inlineBlock;
+    vertical-align: middle;
+    max-width: 75%;
+  }
+}
+
+/*保障详情推荐产品*/
+.recommended-products {
+  .recommended-products-tab {
+    @include clearfix;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+  .hz-tab-menu-item a {
+    color: #666;
+    padding: 0 20px;
+  }
+
+
+  .recommended-product-item {
+    @include inlineBlock;
+    vertical-align: top;
+    width: 190px;
+    height: 210px;
+    border: 1px solid #f0f0f0;
+    .content {
+      padding: 15px 10px 10px;
+      .product-price {
+        color: #f6ab1a;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+    .product-title {
+      height: 40px;
+      overflow: hidden;
+      a:hover {
+        color:#2150a2;
+        text-decoration: none;
+      }
+    }
+
+    .pic-item  {
+      a {
+        display: block;
+        width: 190px;
+        height: 110px;
+        overflow: hidden;
+      }
+      img {
+        height: 110px;
+        @include transition(all .5s ease-out);
+        &:hover {
+          @include transform(matrix(1.04,0,0,1.04,0,0))
+        }
+      }
+    }
+  }
+
+  .recommended-product-mark {
+    width: 25px;
+    height: 25px;
+    margin: 90px 4px 0;
+    border: none;
+  }
+
+  li.last-item {
+    position: relative;
+    border: 0;
+    .foot-action {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      .hz-button {
+        background: #f8f8f8;
+      }
+    }
+
+
+    .price-item {
+      font-family: $font-yahei;
+      line-height: 36px;
+      padding-top: 95px;
+      .current-price {
+        font-size: 18px;
+        color: #f6ab1a;
+      }
+    }
+  }
+
+  .recommended-product-des  {
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 25px;
+    background: #fff;
+    z-index: 500;
+    &:hover {
+      height: auto;
+    }
+  }
+
+}
+
+//下架弹窗
+
+.dialog-product-expired {
+  padding: 20px;
+  
+  .product-item {
+    border: 1px solid #eee;
+    margin-top: 15px;
+  }
+  
+  .marketing-info {
+    @include inlineBlock;
+    vertical-align: top;
+    padding-top: 8px;
+    margin-left: 10px;
+  }
+  .post-tag{
+    max-width: 100px;
+    *width: 100px;
+    margin: 5px 7px 5px 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .button-go-buy {
+    padding: 0 50px;
+  }
+}
+
+
+//所有评论页面
+.all-comment-page {
+
+  .product-title a {
+    &:hover {
+      color: #2150a2;
+      text-decoration: none;
+    }
+  }
+
+  .comment-tag-left {
+    width: 230px;
+  }
+  .comment-tag-content {
+    width: 875px;
+    border: none;
+  }
+}
+
+
+

@@ -1,0 +1,347 @@
+<%
+	var filterItems = data.filterItemList ||[];
+    var noFilterItems =[];  //未选中任何筛选项的筛选类
+    var companyList =data.companyList||[];
+    var count =data.productCount||0;
+    var queryKeys =locals.queryKeys.split('_')||[];
+    var queryKeysLength =queryKeys.length;
+    var companyId=locals.companyId;
+    var pageIndex=locals.pageIndex;
+    var pageCount=parseInt(data.productCount/10)+(data.productCount%10===0 ? 0 : 1);
+    var filter=locals.filter||0;
+    var sortType=locals.sortType||0;
+    var prePageHref="javascript:;";
+    var nextPageHref="javascript:;";
+    var isAgeGenes=locals.isAgeGenes;
+    var urlGenes=locals.genes === '0' ? '' : ('-' + locals.genes+(isAgeGenes?'?ageGenes=1':''));
+    var currenthref= '/product/ins-'+locals.subCategory+'-'+locals.companyId+'-'+locals.queryKeys+urlGenes;
+    if(pageIndex!==1){
+        prePageHref=currenthref +'?filter='+filter+'&sort='+sortType+'&page='+(~~pageIndex-1);
+    }
+    if(pageIndex<pageCount){
+        nextPageHref=currenthref +'?filter='+filter+'&sort='+sortType+'&page='+(~~(pageIndex)+1);
+    }
+    
+    var childrenCategories=[];
+    var pathNav=locals.pathNav||{};
+    var parentCategory =pathNav.parentCategory;
+    var botherCategory =pathNav.childrenCategories||[];
+    var currentCategory =pathNav.currentCategory; 
+    if(!parentCategory){
+        childrenCategories=pathNav.childrenCategories;
+    } 
+    var noShowDeadlineCategories =[2043,2059,2060];
+    var ageFilterList =['年龄','年　　龄'];
+    var deadlineFilterList=['保障期限','出行天数','旅行天数'];
+
+    var hasAgeGenes =true; //年龄是否参与试算
+    if(locals.genes.split('_').length>1){
+        if(~~locals.genes.split('_')[0]!==0||(~~locals.genes.split('_')[0]===0&&isAgeGenes)){
+            hasAgeGenes=true;
+        }else{
+            hasAgeGenes=false;
+        }
+    }else{
+        hasAgeGenes=false;
+    }
+
+%>
+    <div class="select-box">
+        <div style="border-right: 1px solid #f0f0f0;">
+        <div class="ml30  f14 fc6 pb5">
+            <span class="mr20"> <strong class="mr10">产品筛选</strong>共<%=count%>款产品</span>
+                <%if(parentCategory){ 
+                    var url ="/product/ins-"+parentCategory.id+"-0-0";
+                %>
+                    <div class="select-tag"  rel="dropdown" data-dropdown="filiterCategoriges" id="filiterCategoriges">
+                        <%=currentCategory.text%><a href="<%=url%>" class="select-close-btn iconfont pl10 f12">&#xe70a;</a>
+                            <div class="drop-item " data-dropdown-item="filiterCategoriges">
+                                <%botherCategory.forEach(function (item1){ 
+                                    var url1="/product/ins-"+item1.id+"-0-0";
+                                %> 
+                                    <a class="drop-link" href="<%=url1%>"><%=item1.text%></a>
+                                <%}) %>
+                            </div>
+                    </div>
+                <%
+                }%>
+                <%filterItems.forEach(function (item,i){
+                    var exist=false;
+                    for (var i =0; i<queryKeysLength; i=i+2) {
+                        if(~~queryKeys[i]===~~item.filterTypeId){
+                            exist =true;
+                            var filterItemList=item.filterItemList||[];
+                            filterItemList.forEach(function (item1) {
+                                if(~~item1.id===~~queryKeys[i+1]){
+                                    var noCurrentqueryKeys =queryKeys.slice(0,i).join('_');
+                                    if(queryKeysLength>i+2){
+                                        noCurrentqueryKeys =(noCurrentqueryKeys?noCurrentqueryKeys+'_':'')+queryKeys.slice(i+2,queryKeysLength).join('_');
+                                    }
+                                    if(!noCurrentqueryKeys){
+                                        noCurrentqueryKeys=0;
+                                    }
+                                    var  url = "/product/ins-"+ locals.subCategory+'-'+locals.companyId+'-'+noCurrentqueryKeys+urlGenes
+                                    %>
+                                <span class="select-tag">
+                                    <%=item1.name%><a href="<%=url%>" class="select-close-btn iconfont pl10 f12">&#xe70a;</a>
+                                </span>
+                                <%}
+                            });
+                        }
+                    }
+                    if(!exist){
+                        noFilterItems.push(item);
+                    }
+                });
+                if(locals.genes !== '0'){   //自定义
+                    var age= locals.genes.split('_')[0]||'0';
+                    var deadline=locals.genes.split('_')[1]||'0';
+                    var genesList =locals.genes.split('_')||[];
+                    genesList.forEach(function (item,i){
+                        var definedType=i===0?'age':'deadline';
+                        var url='';
+                        var text='';
+                        if(definedType==='age'&&hasAgeGenes){
+                            url = "/product/ins-"+ locals.subCategory+'-'+locals.companyId+'-'+locals.queryKeys+(deadline==='0'?'':('-'+'0_'+deadline));
+                            text = age+'周岁';
+                        }else if(deadline!=='0'&&definedType==='deadline'){
+                            url = "/product/ins-"+ locals.subCategory+'-'+locals.companyId+'-'+locals.queryKeys+(age==='0'?(isAgeGenes?'-0_0?ageGenes=1':''):('-'+age+'_0'));
+                            text = deadline+'天';
+                        }
+                        if(text){%>
+                            <span class="select-tag">
+                                    <%=text%><a href="<%=url%>" class="select-close-btn iconfont pl10 f12">&#xe70a;</a>
+                            </span>
+                        <%}
+                    });
+                }
+                if(~~companyId!==0){
+                    companyList.forEach(function (item1) {
+                        if(~~item1.companyId===~~companyId){
+                        var  url = "/product/ins-"+ locals.subCategory+'-'+0+'-'+locals.queryKeys+urlGenes
+                        %>
+                        <span class="select-tag">
+                        <%=item1.simpleName%><a href="<%=url%>" class="select-close-btn iconfont pl10 f12">&#xe70a;</a>
+                        </span>
+                        <%}
+                    });
+                }
+                %>
+        </div>
+        <%  var filterCount =0;
+            var filterIndex=1;
+            var moreFiliter=[];  
+        noFilterItems.forEach(function (item,i){
+            var deadline=locals.genes.split('_')[1]||'0';
+            var filterItemList=item.filterItemList||[];
+            var isAgeFilter=(ageFilterList.indexOf(item.filterTypeName)>-1)&&hasAgeGenes;
+            var isDeadlineGenes =(deadlineFilterList.indexOf(item.filterTypeName)>-1)&&deadline!=='0';
+            if(!isAgeFilter&&!isDeadlineGenes){
+            if(filterCount<3){
+                var filterObject={};
+                var filiterSortItemList=[];
+                    for (var i = 0, length = queryKeys.length; i < length; i++) {
+                        if (i % 2 !== 0) {
+                            filterObject[+queryKeys[i-1]]=~~queryKeys[i]
+                            filiterSortItemList.push(+queryKeys[i-1]);
+                        }
+                    }
+                    filiterSortItemList.push(item.filterTypeId);
+                    filiterSortItemList=filiterSortItemList.sort(function (a ,b){ return  a-b} );
+                    filterObject[item.filterTypeId]=0;
+            %>
+                <div class="select-column mt10">
+                    <span class="select-label">
+                        <%=item.filterTypeName%>：
+                    </span>
+                    <div class="select-list">
+                        <div class="js-select-content">
+                            <%filterItemList.forEach(function (item1) {
+                                var newqueryKeys ='';
+                                filterObject[item.filterTypeId]=item1.id;
+                                filiterSortItemList.forEach(function(sortItem,index){
+                                    newqueryKeys=(newqueryKeys?(newqueryKeys+'_'):'')+sortItem+'_'+filterObject[sortItem];
+                                })
+                            var  url = "/product/ins-"+ locals.subCategory+'-'+locals.companyId+'-'+newqueryKeys+urlGenes
+                            %>
+                            <a class="select-item " href="<%=url%>">
+                                <%=item1.name%>
+                            </a>
+                            <%}); 
+                            if(ageFilterList.indexOf(item.filterTypeName)>-1||(deadlineFilterList.indexOf(item.filterTypeName)>-1&&noShowDeadlineCategories.indexOf(~~locals.subCategory)<0)){ 
+                            var definedType=ageFilterList.indexOf(item.filterTypeName)>-1?'age':'deadline';
+                            var placeholderText= definedType==='age'?"请输入年龄":'请输入天数';
+                            var style= definedType==='age'?"input-calendar":"";
+                            %>
+                            <div class="inline-block">
+                                <span class="Wdate-wrap">
+                                    <input class="input-text self-define  placeholder-item  only-number <%=style%>" style="width:100px;height: 13px;line-height: 13px;vertical-align: middle;" placeholder-text="<%=placeholderText%>" type="text"/>
+                                    <%if(definedType==='age'){%>
+                                        <span class="Wdate" style="">&nbsp</span>
+                                        <span class="unit fn-hide">周岁</span>
+                                    <%}else{%>
+                                        <span class="unit fn-hide" style="right: 10px;">天</span>
+                                    <%}%>
+                                </span>
+                                <a href="javascript:;" definedType=<%=definedType%> class="user-defined hz-button hz-button-primary hz-button-small">确定</a>
+                            </div>
+                            <%} %>
+                        </div>
+                    </div>
+                </div>
+            <% 
+             filterIndex++;
+            }
+            else{
+                moreFiliter.push(item);
+            } 
+            filterCount++;
+        }} );
+        if(moreFiliter.length>0|| (filterCount===3&&~~companyId===0)){%>
+            <div class="select-column select-drop-column mt10">
+                <span class="select-label">
+                    更多筛选：
+                </span>
+                <div class="select-list">
+                <%moreFiliter.forEach(function (item) { //筛选项
+                    var filterItemList=item.filterItemList||[];
+                    var filterObject={};
+                    var filiterSortItemList=[];
+                    for (var i = 0, length = queryKeys.length; i < length; i++) {
+                        if (i % 2 !== 0) {
+                            filterObject[+queryKeys[i-1]]=~~queryKeys[i]
+                            filiterSortItemList.push(+queryKeys[i-1]);
+                        }
+                    }
+                    filiterSortItemList.push(item.filterTypeId);
+                    filiterSortItemList=filiterSortItemList.sort(function (a ,b){ return  a-b} );
+                    filterObject[item.filterTypeId]=0;%>
+                    <div class="hz-dropdown inline-block mr5 " data-dropdown="filter-dropdown-<%=item.filterTypeId%>">
+                        <div class="input-select">
+                            <span class="input-select-text more-tag"><%=item.filterTypeName%></span>
+                            <b class="iconfont">&#xe70b;</b>
+                        </div>
+                        <div class="hz-dropdown-content" style="display:none;width: 550px;"  data-dropdown-item="filter-dropdown-<%=item.filterTypeId%>">
+                            <div class="drop-tag-box">
+                                <%filterItemList.forEach(function (item1) {
+                                    var newqueryKeys ='';
+                                        filterObject[item.filterTypeId]=item1.id;
+                                        filiterSortItemList.forEach(function(sortItem,index){
+                                            newqueryKeys=(newqueryKeys?(newqueryKeys+'_'):'')+sortItem+'_'+filterObject[sortItem];
+                                        })
+                                    var  url = "/product/ins-"+ locals.subCategory+'-'+locals.companyId+'-'+newqueryKeys+urlGenes
+                                %>
+                                    <a class="drop-tag-item" href="<%=url%>"><%=item1.name%></a>
+                                <%});
+                                 if(ageFilterList.indexOf(item.filterTypeName)>-1||(deadlineFilterList.indexOf(item.filterTypeName)>-1&&noShowDeadlineCategories.indexOf(~~locals.subCategory)<0)){ 
+                                    var definedType=ageFilterList.indexOf(item.filterTypeName)>-1?'age':'deadline';
+                                    var placeholderText= definedType==='age'?"请输入年龄":"请输入天数";
+                                    var style= definedType==='age'?"input-calendar":"";
+                                    %>
+                                    <div class="inline-block">
+                                        <span class="Wdate-wrap">
+                                            <input class="input-text self-define  placeholder-item  only-number <%=style%>" style="width:100px;height: 13px;line-height: 13px;vertical-align: middle;" placeholder-text="<%=placeholderText%>" type="text"/>
+                                            <%if(definedType==='age'){%>
+                                                <span class="Wdate" style="">&nbsp</span>
+                                                <span class="unit fn-hide">周岁</span>
+                                            <%}else{%>
+                                                <span class="unit fn-hide" style="right: 10px;">天</span>
+                                            <%}%>
+                                        </span>
+                                        <a href="javascript:;" definedType=<%=definedType%> class="user-defined hz-button hz-button-primary hz-button-small">确定</a>
+                                    </div>
+                                    <%} %>
+                            </div>
+                        </div>
+                    </div>
+                <% filterIndex++;
+                });if(~~companyId===0&&companyList.length>0){  //未选中任何保险公司
+                    %>   
+                <div class="hz-dropdown inline-block mr5" data-dropdown="company-dropdown-1">
+                        <div class="input-select">
+                            <span class="input-select-text more-tag">保险公司</span>
+                            <b class="iconfont">&#xe70b;</b>
+                        </div>
+                        <div class="hz-dropdown-content" style="display:none;width: 550px;" data-dropdown-item="company-dropdown-1">
+                            <div class="drop-tag-box">
+                                <%companyList.forEach(function (item1) {
+                                    var  url = "/product/ins-"+ locals.subCategory+'-'+item1.companyId+'-'+locals.queryKeys+urlGenes
+                                %>
+                                    <a class="drop-tag-item" href="<%=url%>"><%=item1.simpleName%>(<%=item1.productCount%>)</a>
+                                <%});%>
+                            </div>
+                        </div>
+                </div>
+                <%}%>
+                </div>
+            </div>  
+        <%} if(filterCount<3&&~~companyId===0&&parentCategory&&companyList.length>0){%>
+             <div class="select-column mt10">
+                    <span class="select-label">
+                        保险公司：
+                    </span>
+                    <div class="select-list">
+                        <div class="js-select-content">
+                        <%companyList.forEach(function (item1) {
+                            var  url = "/product/ins-"+ locals.subCategory+'-'+item1.companyId+'-'+locals.queryKeys+urlGenes
+                            %>
+                            <a class="select-item " href="<%=url%>">
+                                <%=item1.simpleName%>(<%=item1.productCount%>)
+                            </a>
+                            <%}) %>
+                        </div>
+                    </div>
+                </div>   
+        <%}%>
+        </div>
+        <% if(!parentCategory&&childrenCategories.length>0){%>
+            <div class="select-column mt10">
+                    <span class="select-label">
+                        保险分类：
+                    </span>
+                    <div class="select-list">
+                        <%childrenCategories.forEach(function (item1) {
+                            var  url = "/product/ins-"+ item1.id+'-'+0+'-'+0
+                            %>
+                            <a class="select-item " href="<%=url%>">
+                                <%=item1.text%>
+                            </a>
+                            <%}) %>
+                    </div>
+            </div>
+        <%}%>   
+            <div class="sort-bar clearfix">
+                        <span class="fl fc6 f14 ml30 mr10">综合排序：</span>
+                        <div class="fl">
+                        <%  var upIcon ='&#xe766;';
+                            var downIcon='&#xe767;';
+                            var upStyle='sort-link-up';
+                            var downStyle='sort-link-down';
+                        %>
+                            <a class="sort-link  <%=(~~filter===0)?'sort-link-selected':''%>" href="javascript:;" sortId="0">默认</a>
+
+                            <a class="sort-link <%=(~~filter===1&&~~sortType===0)?upStyle:downStyle%>  <%=(~~filter===1)?'sort-link-selected':''%>" href="javascript:;" sortId="1">销量
+                                <i class="arrow-icon  iconfont"><%-(~~filter===1&&~~sortType===0)?upIcon:downIcon%></i>
+                            </a>
+                            <a class="sort-link <%=(~~filter===2&&~~sortType===1)?downStyle:upStyle%>  <%=(~~filter===2)?'sort-link-selected':''%>" href="javascript:;" sortId="2">价格
+                                <i class="arrow-icon  iconfont"><%-(~~filter===2&&~~sortType===1)?downIcon:upIcon%></i>
+                            </a>
+
+                            <a class="sort-link <%=(~~filter===3&&~~sortType===0)?upStyle:downStyle%>  <%=(~~filter===3)?'sort-link-selected':''%>" href="javascript:;" sortId="3">评分
+                                <i class="arrow-icon  iconfont"><%-(~~filter===3&&~~sortType===0)?upIcon:downIcon%></i>
+                            </a>
+
+                            <a class="sort-link <%=(~~filter===4&&~~sortType===0)?upStyle:downStyle%>  <%=(~~filter===4)?'sort-link-selected':''%>" href="javascript:;" sortId="4">上架时间
+                                <i class="arrow-icon  iconfont"><%-(~~filter===4&&~~sortType===0)?upIcon:downIcon%></i>
+                            </a>
+
+                        </div>
+                        <div class="fr mr20 select-page">
+                        <%if(pageCount>1){%>
+                            <span class="mr5"><%=locals.pageIndex%>/<%=pageCount%></span><a class="select-page-pre <%=(pageIndex>1?'':'select-page-disabled')%>" href="<%=(pageIndex>1?prePageHref:'javascript:;')%>"><i class="iconfont fb">&#xe706;</i></a><a class="select-page-next <%=(pageIndex<pageCount?'':'select-page-disabled')%> " href="<%=(pageIndex<pageCount?nextPageHref:'javascript:;')%>"><i class="iconfont fb">&#xe707;</i></a>
+                        <%}else{%>
+                            <span class="mr5 f14">共1页</span>
+                        <%}%>
+                        </div>
+                    </div>
+    </div>

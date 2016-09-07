@@ -1,0 +1,357 @@
+<input type="hidden" class="page-id" value="<%=pageId%>">
+<!-- 需要变更的产品ID，多个ID用,逗号分开 -->
+<input type="hidden" class="change-id" value="1000043,1633,1003" />
+<input type="hidden" class="change-date" data-id="1000043" data-unit="周岁" value="18-24,25-29,30-34,35-39,40-44,45-49,50" />
+
+<div class="fixed-plan">
+<div class="detail-tab-wrap">
+        <div class="layout">
+
+            <% include _fixed-head %>
+
+        </div>
+        <!--layout end-->
+    </div>
+    <div class="fix-plan-top">
+      <div class="layout">
+          <h3 class="f30 fl" id="planName" data-title="<%=planName%>"><%=planName%>
+              <span class="f18 primary-color">￥</span>
+              <span class="primary-color plan-top-price">3176.00</span><span class="f18 primary-color">起</span></h3>
+              <a href="javascript:;" class="hz-button hz-button-primary fr pl40 pr40 add-cart-btn add-cart-top">加入购物车</a>
+              <a href="http://www.huize.com/baoxianyuyue?oppName=<%=planName%>" target="_blank" class="fix-plan-bn">预约顾问</a>
+          </div>
+      </div>
+</div>
+
+
+
+<div class="top-location layout programs-content">
+        <div class="plan-banner plan-b9">
+                <div class="f36 fcw fb mb5">家庭支柱也需要的全面依靠</div>
+                <ul class="plan-listo fcw">
+                        <li><span class="mr5">&bull;</span>50万重疾保障</li>
+                        <li><span class="mr5">&bull;</span>30万轻症保障</li>
+                        <li><span class="mr5">&bull;</span>150万意外伤害保障</li>
+                        <li><span class="mr5">&bull;</span>100万疾病身故保障</li>
+                </ul>
+        </div>
+        <div class="plan-introduce">
+                <div class="plan-icon1"><i class="iconfont">&#xe753;</i></div>
+                <p class="ovh lh22 f14 ti2em"><%=planDesc%>其中“至尊计划”超过26岁，需要重疾保障可单独投保“<a href="//www.huize.com/product/detail-1633.html" class="base-color" target="_blank">华夏关爱宝一号重大疾病保险</a>”</p>
+        </div>
+            <!-- 推荐计划 -->
+    <ul class="plan-list-com plan-list-c1"><!-- 三种方案 -->
+            <li data-planid="1091" class="bdC4E8D6">
+                    <h3>初级计划</h3>
+                    <div class="pl30 pr30">
+                            <div class="plan-list-item clearfix">
+                                    <label class="fl" for="calendar-demo1">出生日期</label>
+                                    <p class="fr">
+                                            <input class="Wdate" type="text" data-max="40" data-maxunit="year" data-min="18" data-minunit="year" data-val="30" data-valunit="year" data-key="insurantDate" id="calendar-demo1">
+                                    </p>
+                            </div>
+                             <div class="plan-list-item clearfix">
+                                    <label class="fl" for="sex">性别</label>
+                                    <div class="plan-radio-wrap" data-val="男" data-key="sex">
+                                        <div class="plan-radio active fl" data-val="男">男<p><span>&bull;</span></p></div>
+                                        <div class="plan-radio fr" data-val="女">女<p><span>&bull;</span></p></div>
+                                    </div>
+
+                             </div>
+                             <div class="plan-list-item clearfix">
+                                <label class="fl" for="job">职业类别<a href="//www.huize.com/product/dialog/job-1000043-0.html" target="_blank" class="plan-list-item-link">？</a></label>
+                                <div class="hz-dropdown fr" data-val="1-2类" data-key="insurantJob">
+                                    <div class="input-select">
+                                        <span class="input-select-text">1-2类</span>
+                                        <b class="iconfont">&#xe70b;</b>
+                                    </div>
+
+                                    <div class="hz-dropdown-content" style="width:250px;">
+                                        <ul class="hz-dropdown-menu">
+                                            <li data-val="1-2" class="hz-select-option hz-select-option-selected">1-2类</li>
+                                            <li data-val="3" class="hz-select-option">3类</li>
+                                            <li data-val="4" class="hz-select-option">4类</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="plan-list-item clearfix">
+                                  <span class="fl">意重疾保险金（61种重疾）</span>
+                                  <p class="fr fb">10万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                  <span class="fl">轻症保险金（15种轻疾）</span>
+                                  <p class="fr fb">6万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                    <span class="fl">住院医疗</span>
+                                    <p class="fr fb">3万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">意外医疗</span>
+                                    <p class="fr fb">1万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">意外住院津贴</span>
+                                    <p class="fr fb">50元/天</p>
+                               </div>
+                               <div class="plan-list-item clearfix">
+                                    <span class="fl">意外身故/伤残</span>
+                                    <p class="fr fb">30万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">疾病身故保险金</span>
+                                    <p class="fr fb">20万元</p>
+                               </div>
+                    </div>
+                    <h4 class="mt10">价格<span class="fb ml10 plan-price">3176.00元</span></h4>
+                    <p  class="plan-triangle">
+                        <span class="triangle-a"></span>
+                        <i class="iconfont">&#xe72f;</i>
+                    </p>
+            </li>
+             <li data-planid="1092" class="bdF3FDFF ml30 mr30">
+                    <h3>升级计划</h3>
+                    <div class="pl30 pr30">
+                            <div class="plan-list-item clearfix">
+                                    <label class="fl" for="calendar-demo1">出生日期</label>
+                                    <p class="fr">
+                                            <input class="Wdate" type="text" data-max="40" data-maxunit="year" data-min="18" data-minunit="year" data-val="30" data-valunit="year" data-key="insurantDate" id="calendar-demo2">
+                                    </p>
+                            </div>
+                             <div class="plan-list-item clearfix">
+                                    <label class="fl" for="sex">性别</label>
+                                    <div class="plan-radio-wrap" data-val="男" data-key="sex">
+                                        <div class="plan-radio active fl" data-val="男">男<p><span>&bull;</span></p></div>
+                                        <div class="plan-radio fr" data-val="女">女<p><span>&bull;</span></p></div>
+                                    </div>
+
+                             </div>
+                             <div class="plan-list-item clearfix">
+                                <label class="fl" for="job">职业类别<a href="//www.huize.com/product/dialog/job-1000043-0.html" target="_blank" class="plan-list-item-link">？</a></label>
+                                <div class="hz-dropdown fr" data-val="1-2类" data-key="insurantJob">
+                                    <div class="input-select">
+                                        <span class="input-select-text">1-2类</span>
+                                        <b class="iconfont">&#xe70b;</b>
+                                    </div>
+
+                                    <div class="hz-dropdown-content" style="width:250px;">
+                                        <ul class="hz-dropdown-menu">
+                                            <li data-val="1-2" class="hz-select-option hz-select-option-selected">1-2类</li>
+                                            <li data-val="3" class="hz-select-option">3类</li>
+                                            <li data-val="4" class="hz-select-option">4类</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="plan-list-item clearfix">
+                                  <span class="fl">意重疾保险金（61种重疾）</span>
+                                  <p class="fr fb">30万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                  <span class="fl">轻症保险金（15种轻疾）</span>
+                                  <p class="fr fb">18万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                    <span class="fl">住院医疗</span>
+                                    <p class="fr fb">3万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">意外医疗</span>
+                                    <p class="fr fb">3万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">意外住院津贴</span>
+                                    <p class="fr fb">100元/天</p>
+                               </div>
+                               <div class="plan-list-item clearfix">
+                                    <span class="fl">意外身故/伤残</span>
+                                    <p class="fr fb">90万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">疾病身故保险金</span>
+                                    <p class="fr fb">60万元</p>
+                               </div>
+                    </div>
+                    <h4 class="mt10">价格<span class="fb ml10 plan-price">8598.00元</span></h4>
+                     <p  class="plan-triangle">
+                        <span class="triangle-a"></span>
+                        <i class="iconfont">&#xe72f;</i>
+                    </p>
+            </li>
+            <li data-planid="1093" class="bdDECFE8">
+                    <h3>至尊计划</h3>
+                    <div class="pl30 pr30">
+                            <div class="plan-list-item clearfix">
+                                    <label class="fl" for="calendar-demo1">出生日期</label>
+                                    <p class="fr">
+                                            <input class="Wdate" type="text" data-max="26" data-maxunit="year" data-min="18" data-minunit="year" data-step="0" data-val="26" data-valunit="year" data-key="insurantDate" id="calendar-demo3">
+                                    </p>
+                            </div>
+                             <div class="plan-list-item clearfix">
+                                    <label class="fl" for="sex">性别</label>
+                                    <div class="plan-radio-wrap" data-val="男" data-key="sex">
+                                        <div class="plan-radio active fl" data-val="男">男<p><span>&bull;</span></p></div>
+                                        <div class="plan-radio fr" data-val="女">女<p><span>&bull;</span></p></div>
+                                    </div>
+
+                             </div>
+                             <div class="plan-list-item clearfix">
+                                <label class="fl" for="job">职业类别<a href="//www.huize.com/product/dialog/job-1000043-0.html" target="_blank" class="plan-list-item-link">？</a></label>
+                                <div class="hz-dropdown fr" data-val="1-2类" data-key="insurantJob">
+                                    <div class="input-select">
+                                        <span class="input-select-text">1-2类</span>
+                                        <b class="iconfont">&#xe70b;</b>
+                                    </div>
+
+                                    <div class="hz-dropdown-content" style="width:250px;">
+                                        <ul class="hz-dropdown-menu">
+                                            <li data-val="1-2" class="hz-select-option hz-select-option-selected">1-2类</li>
+                                            <li data-val="3" class="hz-select-option">3类</li>
+                                            <li data-val="4" class="hz-select-option">4类</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="plan-list-item clearfix">
+                                  <span class="fl">意重疾保险金（61种重疾）</span>
+                                  <p class="fr fb">50万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                  <span class="fl">轻症保险金（15种轻疾）</span>
+                                  <p class="fr fb">30万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                    <span class="fl">住院医疗</span>
+                                    <p class="fr fb">3万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">意外医疗</span>
+                                    <p class="fr fb">3万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">意外住院津贴</span>
+                                    <p class="fr fb">100元/天</p>
+                               </div>
+                               <div class="plan-list-item clearfix">
+                                    <span class="fl">意外身故/伤残</span>
+                                    <p class="fr fb">150万元</p>
+                               </div>
+                                <div class="plan-list-item clearfix">
+                                    <span class="fl">疾病身故保险金</span>
+                                    <p class="fr fb">100万元</p>
+                               </div>
+                    </div>
+                    <h4 class="mt10">价格<span class="fb ml10 plan-price">11962.00元</span></h4>
+                     <p  class="plan-triangle">
+                        <span class="triangle-a"></span>
+                        <i class="iconfont">&#xe72f;</i>
+                    </p>
+            </li>
+    </ul>
+
+    <a href="javascript:;" class="hz-button hz-button-primary plan-bn add-cart-btn">加入购物车</a>
+
+
+</div>
+<!-- 风险解读 -->
+<div class="top-location plan-reading plan-reading-7">
+    <div class="layout">
+          <h3 class="f48  mb20">风险解读 </h3>
+          <p class="lh22">面对恶劣的环境、巨大的工作压力和随时可能遭遇的食品安全问题，中国人一生患重大疾病的几率已高达惊人的72.18%。
+而据调查显示目前国内重疾治疗费用在10—30万元，一般家庭都需花费全部积蓄甚至借债才能获得救治。与此同时一旦罹患重疾，患者往往还需要长时间的治疗与康复，将面临收入中断的问题，这又使得原本就很糟糕的家庭经济状况雪上加霜。面对这些，未雨绸缪才是最佳的解决途径。在重疾之外我们还要警惕无处不在的意外风险。在交通意外中，每5分钟就有一人丧身车轮，每1分钟会有一人因此致残。2012年因各类自然灾害共造成1388人死亡，192人失踪。而一旦不幸被重疾或意外夺取了生命，家人是否有足够的保障？需准备30万抚养孩子+20万赡养老人+50万偿还车房贷=100万，是选择依靠储蓄来一点点积累还是以最低的投入，以保险转化所有的风险？</p>
+          <ul class="plan-listw">
+                  <li class="plan-listw-li">
+                           <h4 class="f18"><span class="f60 fb">72.18</span>%</h4>
+                          <p>国人一生患重大疾病的几率高达72.18%</p>
+                  </li>
+                   <li class="plan-listw-li">
+                          <h4 class="f18"><span class="f60 fb">1388</span>人</h4>
+                          <p>2012年因各类自然灾害共造成1388人死亡，192人失踪</p>
+                  </li>
+                   <li>
+                          <h4 class="f18"><span class="f60 fb">100</span>万</h4>
+                          <p>需准备30万抚养孩子+20万赡养+50万偿还车房贷=100万</p>
+                  </li>
+          </ul>
+    </div>
+</div>
+<!-- 方案优势 -->
+<div class="top-location plan-advantage-com plan-advantage-10">
+    <div class="layout">
+            <div class="plan-advantage-box">
+                    <h2 class="f48 pt45 mb20">方案优势</h2>
+                    <p class="f16 fc6">“悦人生”成人全面保障方案囊括了重疾、意外/疾病住院、身故、伤残五大类保障，是适合家庭经济支柱投保的一个综合保障方案，特色在于性价比高、保障范围广：其中重疾保障高达50万，涵盖61种重疾+15种轻症保障，免体检保终身；疾病或意外住院享每年3万的医疗费用补偿；身故保障最高150万，可以为您承担起家庭的重任，给家人更多安心。其中“至尊计划”超过26岁，需要重疾保障可单独投保“华夏关爱宝一号重大疾病保险”</p>
+                    <ul class="plan-listh">
+                            <li class="plan-listh-1 mb35">
+                                    <h3 class="plan-advantage-tt">50万重疾终身保、一定赔</h3>
+                                    <p class="f14 fc9 pl25">61种重疾+15种轻症都能赔，免体检最高可投保50万。终身保障一定赔，有病治病、无病身故保额全数返还，留给子女一笔财富。</p>
+                            </li>
+                            <li class="plan-listh-2 mb35">
+                                    <h3 class="plan-advantage-tt">疾病、意外住院均享保障</h3>
+                                    <p class="f14 fc9 pl25">不论是疾病还是意外住院，均享受最高3万元/年的费用补偿，且与现有社保不冲突，社保报了还能报销，极大减轻了家庭的经济负担。</p>
+                            </li>
+                            <li class="plan-listh-3">
+                                    <h3 class="plan-advantage-tt">守护家人、让爱延续</h3>
+                                    <p class="f14 fc9 pl25">最高150万的身故保障，若您不幸因意外身故，也能为家人留下最后的爱与保障，守护一生。</p>
+                            </li>
+                    </ul>
+                </div>
+    </div>
+</div>
+<!-- 常见问题 -->
+<div class="top-location plan-question">
+        <div class="layout">
+                <h3 class="f48 mb25 tac">常见问题</h3>
+                <div class="pt35 pl30 pr30 bgfw">
+                        <h4 class="f18">Q : 该方案的产品组合是什么？</h4>
+                        <p class="f14 fc6 pb25"> A :  该方案的初级计划和升级计划由以下4款产品组成，“安心久久综合意外保险 1-2年计划” （保障期限为1年），“乐温馨综合住院补偿医疗保险-社保款”（保障期限为1年），“华夏关爱宝一号重大疾病保险”（保障期限为终身，年缴费为20年），“I 守护定期寿险”（保障期限为30年，年缴费为20年）；至尊计划由以下4款产品组成，“慧择智选综合意外保障计划” （保障期限为1年），“乐温馨综合住院补偿医疗保险-社保款”（保障期限为1年），“华夏关爱宝一号重大疾病保险”（保障期限为终身，年缴费为20年），“I 守护定期寿险”（保障期限为30年，年缴费为20年）。</p>
+                        <h4 class="f18">Q : 轻症保障有哪些具体内容？跟重疾保障有什么区别？</h4>
+                        <p class="f14 fc6 pb25"> A :  轻症是相较重疾来说病症较轻，更易治愈且相对花费较少的一些病症。该方案中包含15种轻症保障，累积可赔付三次，但每种轻症仅限赔付一次。</p>
+                         <h4 class="f18">Q : 轻症赔付了之后会影响重疾的赔付吗？</h4>
+                        <p class="f14 fc6 pb25">A :轻症的赔付是额外的，不影响重疾那块的赔付。且一旦诊断出患有15种轻症中的一种或多种，即可豁免自轻症确诊之日以后的保费。保费豁免后仍然能获得全部应保保障，十分贴心。</p>
+                         <h4 class="f18">Q : 对医院和医药有什么要求吗？</h4>
+                        <p class="f14 fc6 pb25">A : 在保险期间内，被保险人遭受意外伤害，并在中华人民共和国境内（不包括港、澳、台地区）二级或二级以上医院或保险公司认可的医疗机构进行治疗，同时符合本保险合同签发地基本医疗保险报销范围的医疗费用（非医保用药限额为1250元）。</p>
+                         <h4 class="f18">Q : 什么叫等待期？</h4>
+                        <p class="f14 fc6 pb25">A : 等待期又称观察期或免责期，指为了防范道德风险，从保险合同生效日计算起的一段时间内，被保险人因为非意外伤害的疾病原因导致的医疗费用、重大疾病、残疾或身故等保险责任范围的事故，保险公司不予赔付。</p>
+                         <h4 class="f18">Q :网上购买保险的电子保单有效吗？</h4>
+                        <p class="f14 fc6 pb25"> A :  在慧择网上购买保险的电子保单与传统保单是没有本质区别的，在理赔或满期给付时二者具有同样的法律效力。另外，在慧择网投保只要凭注册名或电子邮箱即可随时找回电子保单，方法简单、无需工本费。 </p>
+                        <h4 class="f18">Q :方案中多个保障产品需要分别申请理赔吗？</h4>
+                        <p class="f14 fc6 pb25"> A :  您可以直接拨打慧择网服务热线4006-366-366，由专人全程协助指引报案和申请理赔，或联系您在慧择网的专属顾问为您服务，节约您宝贵的时间。 </p>
+                </div>
+
+        </div>
+</div>
+<!-- 用户点评 -->
+<div class="top-location plan-review pt45 pb30">
+       <div class="layout">
+            <h2 class="f48 tac ">用户点评</h2>
+           <ul class="plan-listf">
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head1.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">郝苏婉**</h3>
+                           <p class="f14 pt10">找了很多保险，这款是性价比最高的。我和老公都买了 普通家庭最适合这种定寿+重疾+意外+住院的保障，很多人考虑收益，但是我想提醒大家，考虑风险一定要在考虑收益之前。</p>
+                   </li>
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head2.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">balala**</h3>
+                           <p class="f14 pt10">年纪轻的时候从来没考虑过买保险，有了孩子之后意识到了家庭责任，才想起来买保险。给孩子买保险的时候，顾问建议先给家里的经济支柱买一份保障，这样也是对孩子的一份保障，我觉得挺有道理的。</p>
+                   </li>
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head3.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">kowei0**</h3>
+                           <p class="f14 pt10">感谢推荐，性价比很好的产品，保障项目也相对全面，家中领导也很满意！重疾用不上就当作寿险，还涵盖了意外和住院保障，保费也很划算，这次买到很符合我们的需要。</p>
+                   </li>
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head4.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">赵晓**</h3>
+                           <p class="f14 pt10">听朋友说，要买到称心的产品，可以上慧择网看看，我前后了解了10多个产品，后来看到这款方案觉得太好了，一个方案就可以解决所有的问题，重疾的保额可以买到50万还是挺高的，当然希望以后不要用到！</p>
+                   </li>
+           </ul>
+          <div class="tac pb20">
+              <a href="http://www.huize.com/guihua/comment/p<%=pageId%>" target="_blank" class="f16" title="<%=planName%>用户评论">查看全部用户评论 ></a>
+          </div>
+       </div>
+</div>
+<!-- 精品方案 -->
+<% include ./_detail-foot %>

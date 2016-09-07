@@ -1,0 +1,80 @@
+<% 
+    var brands = locals.data || [];
+    var defaultCompanyLogo = '//images.hzins.com/short/hzh5/default-logo1.gif';
+    var chars = {
+        A: false,
+        B: false,
+        C: false,
+        D: false,
+        E: false,
+        F: false,
+        G: false,
+        H: false,
+        I: false,
+        J: false,
+        K: false,
+        L: false,
+        M: false,
+        N: false,
+        O: false,
+        P: false,
+        Q: false,
+        R: false,
+        S: false,
+        T: false,
+        U: false,
+        V: false,
+        W: false,
+        X: false,
+        Y: false,
+        Z: false  
+    };
+%>
+<div class="banner"></div>
+<div class="product-list-page">
+    <!--详情页面标识-->
+    <div class="layout clearfix  pb30">
+        <div class="search-bar">
+            <span id="btnShowAll" class="label selected">全部</span>
+
+            <div class="clearfix">
+				<% brands.forEach(function (brand) { 
+					brand.firstLetter = brand.firstLetter ? brand.firstLetter.toUpperCase() : '';
+					brand.text = brand.text?(brand.text.length > 60 ? brand.text.substr(0, 60) + '...' : brand.text):'';
+                    if(brand.firstLetter){
+                        chars[brand.firstLetter] = true;
+                    }
+				}) %>
+                <% for(var char in chars) {
+                    if (chars[char]) { %>
+                        <a class="word-link fl" href="javascript:void(0)"><%= char %></a>
+                    <% }
+                } %>
+            </div>
+        </div>
+
+        <ul class="brand-list clearfix">
+            <% brands.forEach(function (brand) { %>
+                <li class="brand-item">
+					<input type="hidden" value="<%= brand.firstLetter || '' %>" />
+                    <div class="brand-logo">
+                        <img  src="<%= brand.logo || defaultCompanyLogo %>" alt="<%= brand.simpleName || '' %>" />
+                        <span class="brand-title"><%= brand.simpleName %></span>
+                    </div>
+                    <% if (brand.isbought) { %>
+                        <span class="tag">购买过的品牌</span>
+                    <% } %>
+
+                    <div class="brand-summary">
+                        <div class="entry-content"><%= brand.text || '' %></div>
+                        <div class="tac mt20">
+                            <a class="hz-button hz-button-primary" href="/brand/detail/<%= brand.id %>" title="<%= brand.simpleName || '' %>" target="_blank">查看<%= brand.simpleName || '' %>产品</a>
+                        </div>
+                    </div>
+                </li>
+            <% }) %>            
+        </ul>
+    </div>
+    <!--layout end-->
+</div>
+<!--detail-page end-->

@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* 功能：huize.com - 徽章 标签 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.post-tag { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; line-height: 28px; padding: 0 10px; margin: 10px 0; margin-right: 5px; border: 1px solid #ddd; color: #666; font-size: 12px; box-shadow: 1px 2px 0px 1px rgba(10, 2, 4, 0.05); }
+
+/*# sourceMappingURL=tag.css.map */

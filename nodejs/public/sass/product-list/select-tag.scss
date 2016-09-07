@@ -1,0 +1,217 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 慧择产品列表-筛选项
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/03/15
+*/
+
+@import '../config';
+
+.product-list-page {
+
+//  筛选
+  .select-tag {
+    position: relative;
+    z-index: 200;
+    @include inlineBlock;
+    padding: 0 15px;
+    line-height: 25px;
+    border: 2px solid #f6ab1a;
+    margin-right: 10px;
+    .select-close-btn { color: #999;}
+    .select-close-btn:hover {
+      color: #f6ab1a;
+      text-decoration: none;
+    }
+
+    .drop-item {
+      position: absolute;
+      left: -1px;
+      border: 1px solid #ddd;
+      padding: 10px 5px;
+      background: #fff;
+      width: 400px;
+      top: 29px;
+      font-size: 14px;
+      display: none;
+    }
+    .drop-link {
+      @include inlineBlock;
+      vertical-align: middle;
+      padding: 0 5px;
+      &:hover{
+        color: #2150A2;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .select-column {
+    position: relative;
+    padding: 0 100px 0 85px;
+    line-height: 30px;
+    font-size: 14px;
+  }
+
+  .select-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #666;
+    padding-left: 30px;
+  }
+
+  .select-list {
+    margin-left: 20px;
+    height: 34px;
+    overflow: hidden;
+  }
+  .select-list-open {
+    height: auto;
+    overflow: inherit;
+  }
+
+  .select-drop-column .select-list {
+    height: auto;
+    overflow: inherit;
+  }
+  
+
+  .select-item {
+    @include inlineBlock;
+    vertical-align: middle;
+    padding: 0 10px;
+    margin-bottom: 3px;
+    &:hover {
+      text-decoration: none;
+      border: 2px solid #f6ab1a;
+      padding: 0 8px;
+      line-height: 26px;
+    }
+  }
+  
+  .select-item-active {
+    border: 2px solid #f6ab1a;
+    padding: 0 8px;
+    line-height: 26px;
+  }
+
+  .select-drop-column {
+    .drop-tag-box {
+      padding: 10px;
+    }
+    .drop-tag-item{
+      @include inlineBlock;
+      line-height: 30px;
+      padding: 0 10px;
+      font-size: 12px;
+      &:hover {
+        text-decoration: none;
+        background: #f6ab1a;
+        color: #fff;
+      }
+    }
+    
+    .drop-tag-item-active {
+      background: #f6ab1a;
+      color: #fff;
+    }
+  }
+
+  .select-toggle {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    line-height: 1;
+    .iconfont {
+      @include inlineBlock;
+      @include transition(all, 0.25s, linear 0.25s);
+    }
+
+    &.show-more .iconfont {
+      @include transform(rotate(180deg));
+    }
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  .sort-bar {
+    line-height: 30px;
+    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
+    background: #fbfbfb;
+    padding: 10px 0;
+    margin: 20px 0 0;
+  }
+
+  .sort-link {
+    float: left;
+    border: 1px solid #ddd;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    margin-left: -1px;
+    background: #fff;
+    font-size: 14px;
+    .arrow-icon {
+      @include inlineBlock;
+      vertical-align: top;
+      margin-left: 3px;
+      font-size: 14px;
+      color: #ddd;
+    }
+    &.sort-link-selected,
+    &:hover {
+      border: 2px solid #f6ab1a;
+      height: 26px;
+      line-height: 26px;
+      padding: 0 9px;
+      margin-right: 1px;
+      text-decoration: none;
+    }
+  }
+
+  .sort-link-selected {
+    .arrow-icon {
+      color: #f6ab1a;
+    }
+  }
+
+  .select-page {
+    .select-page-pre,
+    .select-page-next {
+      @include inlineBlock;
+      border: 1px solid #ddd;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 15px;
+      margin-left: -1px;
+      background: #fff;
+      color: #999;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .select-page-disabled {
+      cursor: not-allowed;
+      background: #f0f0f0;
+      color: #ccc;
+    }
+  }
+
+  .product-seach-list-box .select-page .select-page-pre {
+    margin-right: -3px;
+  }
+
+}
+
+
+
+
+
+

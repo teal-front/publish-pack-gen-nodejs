@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 慧择主站-品牌（http://www.huize.com/brand/list/）
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/04/27
+*/
+
+@import 'common/base';
+
+@import 'helper/layout';
+@import 'public/topnav';
+@import 'public/header';
+@import 'helper/iconfont';
+@import 'helper/buttons';
+@import 'helper/media';
+
+@import 'public/footer';
+
+.banner {
+  height: 473px;
+  background: url(http://img.huizecdn.com/hz/www/page/brand-banner.png) no-repeat 50% 0;
+}
+
+.brand-list {
+  margin-right: -60px;
+}
+.brand-item {
+  position: relative;
+  float: left;
+  border: 1px solid #f0f0f0;
+  width: 250px;
+  height: 198px;
+  margin: 0 60px 20px 0;
+  text-align: center;
+}
+.brand-item .tag {
+  position: absolute;
+  top:10px;
+  right: 10px;
+  line-height: 20px;
+  border: 1px solid #f6ab1a;
+  padding: 0 10px;
+  color: #f6ab1a;
+}
+.brand-item .brand-logo {
+  padding-top: 70px;
+  display: block;
+  img {
+    max-width: 160px;
+    max-height: 62px;
+  }
+}
+.brand-title {
+  display: block;
+  color: #666;
+  font-size: 14px;
+  padding-top: 20px;
+}
+
+.brand-summary {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  padding: 30px 20px;
+  text-align: left;
+  line-height: 2;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #f6ab1a;
+  @include opacity(0);
+  @include transition(all 0.3s ease-out);
+
+  .entry-content {
+    height: 96px;
+    overflow: hidden;
+  }
+}
+.brand-item:hover .brand-summary {
+  @include opacity(1);
+}
+
+
+
+.search-bar {
+  position: relative;
+  margin: 20px 0;
+  padding: 10px 0 10px 70px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  line-height: 30px;
+}
+
+.search-bar .label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.word-link {
+  padding: 0 20px;
+  font-size: 14px;
+  margin-right: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.word-link:hover {
+  text-decoration: none;
+  background: #f6ab1a;
+  color: #fff;
+}
+
+.search-bar .selected {
+  background: #f6ab1a;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

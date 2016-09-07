@@ -1,0 +1,130 @@
+<%
+ function formatDate(strTime,showHours){
+     if(!strTime){
+         return  "";
+     }
+     var
+         reg = /(\d{4}(?:-\d{2}){2})(?=T([\d\:]+)\.)/,
+         matchTime = reg.exec(strTime);
+     return matchTime[1] + (showHours ? " " + matchTime[2] : "");
+ }
+  %>
+<div class="all-comment-page pt20 pb20 f14 bgf0">
+    <div class="layout pb40 clearfix">
+        <div class="hz-breadcrumb mb20">
+            <a href="/">首页</a>
+            <i class="arrow-right">&gt;</i>
+            <a href="/guihua/" target="_blank">保险规划</a>
+            <i class="arrow-right">&gt;</i>
+            <h1 class="hz-breadcrumb-active"><%=data.projectName%></h1>
+        </div>
+        <div class="all-comment-page p30 bgfw">
+            <div class="all-comment-head">
+
+                <h2 class="f30 product-title"><a href="/guihua/<%=data.projectId%>" target="_blank"><%=data.projectName%></a></h2>
+            </div>
+
+            <div class="detail-product-comment">
+
+                <div class="border clearfix mt40">
+                    <div class="booking-comment-l">
+                        <div class="clearfix bor-bottom pb15">
+                            <span class="fl mr20">适用人群</span>
+                            <p class="ovh"><%=data.projectScope%></p>
+                        </div>
+                        <div class="clearfix pt15">
+                            <span class="fl mr20">设计理念</span>
+                            <p class="ovh"><%=data.projectDesc%></p>
+                        </div>
+                    </div>
+                    <div class="booking-comment-r">
+                        <p class="pb20">已有<%=(data.paginaion || {}).total || 0%>人点评 </p>
+                        <a href="/guihua/<%=data.projectId%>" target="_blank" class="hz-button hz-button-primary">返回购买</a>
+                    </div>
+
+                </div>
+
+                <div class="product-comment-tab mt15">
+                    <ul class="product-comment-tab-menu hz-tab-menu hz-tab-style02 mb30">
+                        <li class="hz-tab-menu-item active"><a href="javascript:;">全部评论 <span><%=(data.paginaion || {}).total || 0%></span></a></li>
+                    </ul>
+                </div>
+                <!--product-comment-tab-->
+
+                <div class="product-comment-tab-container">
+                    <div class="comment-tab-pane">
+                        <ul class="hz-comments-list">
+                            <%((data.paginaion || {}).data || []).forEach(function(item){%>
+                                <li class="hz-comment"> <!-- 评论容器 -->
+                                    <span class="hz-comment-avatar">
+                                        <i class="bg hz-bgpic-sprite hz-bgpic-2"></i>
+                                        <img src="<%=item.userImg || "//img.huizecdn.com/hz/www/page/default-avatar.png"%>"/> <!-- 评论者头像 -->
+                                    </span>
+
+                                <div class="hz-comment-main"> <!-- 评论内容容器 -->
+                                    <div class="hz-comment-head">
+                                        <%
+                                            var userName = item.name.replace(/<[^>]+>/g,"");
+                                            userName = userName.length <= 3 ? userName.substr(0,1) + "**" : userName.substr(0,3) + "***";
+                                        %>
+                                        <div class="hz-comment-meta"> <!-- 评论元数据 -->
+                                            <span class="hz-comment-author"><%=userName%></span> <!-- 评论者 -->
+                                            <div class="ml5 mr5 hz-star inline-block">
+                                                <i class="hz-star-icon <%= item.averageLevel > 0 ? "hz-star-icon-selected" : ""%> iconfont">&#xe703;</i>
+                                                <i class="hz-star-icon <%= item.averageLevel > 1 ? "hz-star-icon-selected" : ""%> iconfont">&#xe703;</i>
+                                                <i class="hz-star-icon <%= item.averageLevel > 2 ? "hz-star-icon-selected" : ""%> iconfont">&#xe703;</i>
+                                                <i class="hz-star-icon <%= item.averageLevel > 3 ? "hz-star-icon-selected" : ""%> iconfont">&#xe703;</i>
+                                                <i class="hz-star-icon <%= item.averageLevel > 4 ? "hz-star-icon-selected" : ""%> iconfont">&#xe703;</i>
+                                            </div>
+                                            <span class="fc6 f12"><%= formatDate(item.updatetime || item.createtime,true)%></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hz-comment-body">
+                                        <div class="hz-comment-content"><%-item.content%></div>
+                                        <%if(item.answer){%>
+                                            <div class="hz-comment-reply popover bottom">
+
+                                                    <div class="popover-content">
+                                                        <%=item.answer%>
+                                                    </div>
+                                                <div class="arrow"></div>
+                                                <div class="arrow2"></div>
+                                            </div>
+                                        <%}%>
+                                    </div> <!-- 评论内容 -->
+                                </div>
+                            </li>
+                            <%})%>
+                        </ul><!--hz-comment-list end-->
+                    </div>
+
+                    <div class="comment-tab-pane">
+
+                    </div>
+
+                    <div class="comment-tab-pane">
+
+                    </div>
+                </div><!--product-comment-tab-container-->
+
+                <div class="hz-pagination" id="kkpager">
+                    <!--<a href="#" class="hz-page-item  hz-pageprv hz-page-disabled">上一页</a>
+                    <a href="#" class="hz-page-item">1</a>
+                    <a href="#" class="hz-page-item active">2</a>
+                    <a href="#" class="hz-page-item">3</a>
+                    <a href="#" class="hz-page-item">4</a>
+                    <a class="hz-page-item hz-dot-item">...</a>
+                    <a href="#" class="hz-page-item">10</a>
+                    <a href="#" class="hz-page-item hz-pagenxt">下一页</a>-->
+                </div><!--pagination end-->
+            </div><!--detail-product-comment end-->
+        </div>
+
+
+    </div><!--layout end-->
+
+</div>
+<script>
+    var paginationData = <%- JSON.stringify(data)%>
+</script>

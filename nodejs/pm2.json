@@ -1,0 +1,37 @@
+{
+    "apps": [{
+        "name": "hz-refactor-server-dev",
+        "cwd": "/opt/server/dev",
+        "script": "bin/www",
+        "args": ["--enable-logs", "-n", "15"],
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "watch": false,
+        "merge_logs": false,
+        "env": {
+            "NODE_ENV": "development",
+            "PORT": "3000",
+            "REDIS_HOST": "192.168.10.61",
+            "REDIS_PORT": "6379",
+            "RABBITMQ_QUEUE": "Rpc_portal-pc-service",
+            "PASSPORT_HOST": "http://passport.huize.com",
+            "REDIS_SESSION_PREFIX": "nodejs_dev_sess:"
+        }
+    }, {
+        "name": "hz-refactor-server-test",
+        "cwd": "/opt/server/test",
+        "script": "bin/www",
+        "args": ["--enable-logs", "-n", "15"],
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "watch": false,
+        "merge_logs": false,
+        "env": {
+            "NODE_ENV": "test",
+            "PORT": "80",
+            "REDIS_HOST": "192.168.10.61",
+            "REDIS_PORT": "6379",
+            "RABBITMQ_QUEUE": "Rpc_portal-pc-service-test",
+            "PASSPORT_HOST": "http://passport.huize.com",
+            "REDIS_SESSION_PREFIX": "nodejs_sess:"
+        }
+    }]
+}

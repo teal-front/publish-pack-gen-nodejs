@@ -1,0 +1,491 @@
+@charset "utf-8";
+
+
+/*
+ * 功能：huize.com - 结算支付页面
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+
+/*结算页面*/
+.confirm-order-page {
+  .confirm-order-product-table tr td,
+  .confirm-order-product-table tr th {
+    padding: 20px;
+    line-height: 38px;
+  }
+
+  .confirm-order-operate-list {
+    padding: 20px;
+    .confirm-order-operate-item {
+      padding-bottom: 5px;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+  .confirm-order-operate-table {
+    width: 100%;
+    &>tbody>tr>th,
+    &>tbody>tr>td {
+      border-top: none;
+      vertical-align: middle;
+    }
+  }
+  .confirm-order-operate-item .hz-table{
+    td,th {
+      vertical-align: middle;
+    }
+  }
+
+  .confirm-order-operate-input {
+    height: 20px;
+    padding: 4px;
+    vertical-align: middle;
+    width: 78px;
+  }
+
+
+  .confirm-order-product-table {
+    border: none;
+    width: 100%;
+  }
+
+  .confirm-order-product-table td,
+  .confirm-order-product-table th {
+    border-top: 1px solid #dde9fd;
+  }
+
+
+  .child-item td{
+    background: #fafcfe;
+    border-top: 1px solid #fff !important;
+    border-top: none;
+    line-height: 1 !important;
+  }
+
+  .confirm-order-product-head th {
+    border-bottom: 1px solid #dde9fd;
+    line-height: 1 !important;
+    border-top: none;
+  }
+
+  .confirm-order-product-title {
+    &:hover {
+      color: #2150a2;
+      text-decoration: none;
+    }
+  }
+
+
+
+// 红包金豆下拉
+  .bean-dropdown,
+  .redbag-dropdown {
+    width:590px;
+    *height:300px;
+    max-height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+    .hz-table {
+      border: none;
+    }
+  }
+
+
+  .redbag-dropdown {
+    .hz-table th {
+      background: #fafcfe;
+      padding: 20px 10px;
+    }
+  }
+
+  //金豆下拉
+  .bean-dropdown {
+    width:350px;
+    *height: 280px;
+    max-height: 280px;
+  }
+
+  .target-red-button {
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+  }
+
+  .confirm-order-product-foot {
+    &> tbody > tr > td {
+      padding: 20px 30px;
+    }
+    .button-pay {
+      padding: 0 60px;
+    }
+  }
+
+  //营销方案
+  .marketing-plan-table {
+    tr th  {
+      background: #f6f9fe;
+      padding: 11px 20px;
+    }
+
+    table td {
+      border-color: #f0f0f0;
+      padding-left: 0 !important;
+    }
+    .first-row td {
+      border-top: none;
+    }
+
+    .marketing-plan-td {
+      padding: 0 0 0 20px;
+      border-top: none;
+    }
+  }
+}
+
+
+.order-checkout-page {
+  .order-checkout-meta {
+    font-family: $font-yahei;
+  }
+  
+  .order-product-info {
+    padding: 30px 30px 20px;
+  }
+
+}
+
+
+.mailing-address-dialog {
+  padding: 30px 60px;
+  .address-area {
+    height: 60px;
+    width: 96%;
+    padding:5px;
+    border: 1px solid #ddd;
+  }
+  .input-text {
+    width: 92%;
+  }
+  .input-select-text {
+    height: 32px;
+    line-height: 32px;
+  }
+}
+
+
+/*收银台*/
+.order-checkout-page {
+
+  .pay-tab-menu {
+    background: #f0f0f0;
+    .hz-tab-menu-item a {
+      color: #333;
+    }
+  }
+
+  
+  .more-pay {
+    font-size: 16px;
+    color: #2150a2;
+    .iconfont {
+      font-size: 12px;
+      @include inlineBlock;
+      vertical-align: text-bottom;
+    }
+    &:hover {
+      color: #f6ab1a;
+      text-decoration: none;
+    }
+  }
+
+  .button-pay {
+    padding: 0 60px;
+  }
+
+  .checkout-info {
+    line-height: 30px;
+    .primary-color {
+      line-height: 24px;
+    }
+  }
+
+  .checkout-product {
+    border-top: 1px solid #f0f0f0;
+    padding: 13px 30px 30px 0;
+    .checkout-product-dropdown {
+      margin: 15px 0 0 320px;
+      .hz-table {
+        border-color: #dde9fd;
+      }
+    }
+
+
+
+    .target-dropdown-link .iconfont{
+      @include inlineBlock;
+      vertical-align: middle;
+      -webkit-transition: all, 0.25s, linear 0.25s;
+      -moz-transition: all, 0.25s, linear 0.25s;
+      -ms-transition: all, 0.25s, linear 0.25s;
+      -o-transition: all, 0.25s, linear 0.25s;
+      transition: all, 0.25s, linear 0.25s;
+    }
+    .target-dropdown-link:hover{
+      text-decoration: none;
+      color: #f6ab1a;
+      .iconfont {
+        color: #f6ab1a;
+      }
+    }
+
+    .show-detail {
+      .iconfont {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+
+    .hz-table  {
+      th{
+        padding: 15px 10px;
+        background:#f6f9fe;
+        border-top-color: #dde9fd;
+      }
+      td {
+        padding: 20px 10px;
+      }
+
+    }
+  }
+
+  .pay-list {
+    .hz-radio-item {
+      padding: 14px;
+      width: 194px;
+      border: 1px solid #eee;
+      margin: 0 0 -1px -4px;
+    }
+  }
+
+
+  .bankcard-table {
+    th {
+      border-bottom: 1px solid #f0f0f0;
+      padding: 10px 0;
+      text-align: left;
+    }
+    td {
+      padding: 10px 0;
+    }
+    .last-item {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .first-row {
+      padding-left: 60px;
+
+    }
+  }
+
+
+
+}
+
+.pay-dialog {
+  .button-status {
+    @include inlineBlock;
+    vertical-align: middle;
+    background: #f9f9f9;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .complete-tip {
+    .iconfont {
+      @include inlineBlock;
+      margin-top: -5px;
+      line-height: 1;
+      color: #f6ab1a;
+    }
+  }
+  .error-tip {
+    .iconfont {
+      @include inlineBlock;
+      margin-top: -5px;
+      line-height: 1;
+      color: #f00;
+    }
+  }
+  .pay-faq {
+    margin-top: 5px;
+    padding: 10px 30px;
+    background: #fbfbfb;
+    line-height: 2;
+    .help-link {
+      &:hover {
+        color: #f6ab1a;
+        text-decoration: none;
+        .iconfont {
+          @include inlineBlock;
+          @include transition(all,.25s,linear .25s);
+          color: #f6ab1a;
+        }
+      }
+    }
+
+    .show-detail {
+      .iconfont {
+        @include transform(rotate(180deg));
+      }
+    }
+  }
+}
+
+
+/*支付成功*/
+.order-pay-success-page {
+  .pay-success-share-item {
+
+    a {
+      display: block;
+      padding:  0 20px 5px;
+      border-bottom: 3px solid #fbfbfb;
+    }
+  }
+
+  .pay-success-share-divide {
+    height: 16px;
+    margin: 8px 15px 0;
+    border-left: 1px dotted #bfbfbf;
+  }
+
+  .pay-success-share-menu {
+    .pay-success-share-item a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .active a {
+      border-bottom-color: #2150a2;
+      font-weight: bold;
+    }
+    .sina-item .iconfont {
+      color: #ff6d62;
+    }
+    .wx-item .iconfont {
+      color: #96e36a;
+    }
+
+    .qzoom-item .iconfont {
+      color: #ffc04d;
+    }
+
+    .tx-item .iconfont {
+      color: #4ed0f0;
+    }
+  }
+
+  .pay-success-others {
+    padding: 30px 35px 30px 75px;
+    border-left: 1px solid #ddd;
+  }
+
+  .pay-success-info .hz-media-pic .iconfont {
+    font-size: 60px;
+    color:#f6ab1a;
+  }
+
+  .pay-success-info .success-icon {
+    color:#f6ab1a;
+  }
+
+  .gift-list-item {
+    padding-right: 60px;
+    border-right:1px solid #ddd;
+    &.last-item {
+      border-right: none;
+    }
+  }
+
+
+  .pay-success-service-box {
+    .success-server-item {
+      width: 33.33%;
+      .hz-media-pic {
+        width: 58px;
+        height: 58px;
+        line-height: 58px;
+        background: #fff;
+        border: 2px solid #f0f0f0;
+        border-radius: 5px;
+        color: #cbdbf5;
+        text-align: center;
+      }
+
+      .iconfont {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .pay-success-share-body {
+    .share-others-content {
+      border: 1px solid #ddd;
+      background: #fff;
+      padding: 10px 15px;
+      box-shadow: 0 1px 2px #ddd inset;
+    }
+
+    .share-link {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .pay-success-share-area {
+    width: 100%;
+    border: none;
+    line-height: 1.7;
+    height: 70px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  .pay-success-share-pic {
+    display: table-cell;
+    *display: inline-block;
+    vertical-align: middle;
+    width: 55px;
+    height: 55px;
+    padding: 2px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background: #fff;
+    margin-right: 8px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .pay-success-share-pic-selected{
+    padding: 1px;
+    border: 2px solid #ffcc00;
+    cursor: default;
+  }
+}
+
+.pay-success-share-foot {
+  .button-share {
+    padding: 0 50px;
+  }
+}

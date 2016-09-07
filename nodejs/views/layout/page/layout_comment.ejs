@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <%include ../_meta%>
+    <%locals.stylesheets=[
+      cssPath+'detail.css'
+    ]%>
+    <% include ../_stylesheets %>
+</head>
+<body>
+<div class="hz-header-wrap clearfix">
+    <div class="hz-header layout">
+        <%include ../header/_logo%>
+    </div><!--hz-headeflr end-->
+</div>
+    <%- body %>
+    <%include ../footer/_footer2%>
+    <%include ../scripts/_scripts%>
+</body>
+</html>

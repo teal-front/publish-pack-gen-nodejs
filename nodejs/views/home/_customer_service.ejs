@@ -1,0 +1,55 @@
+<%
+
+var d = new Date();
+var customer;
+var week = d.getDay();
+
+        switch (week){
+            case 6:
+                customer = homeData.customer[0].list || [];
+                break;
+            case 0:
+                customer = homeData.customer[1].list || [];
+                break;
+            default:
+                customer = homeData.customer[2].list || [] ;
+                break;
+        }
+
+%>
+<div class="columns-box bgf7">
+	<div class="layout">
+		<div class="columns-header tac">
+			<h3 class="f28"><strong>10</strong> 年家庭保险服务经验顾问团，已服务 <strong>30</strong> 万家庭</h3>
+			<p class="f16 mt20 fc9">我们根据您的实际需求依靠十年家庭保障风险数据从海量产品库中选择最适合您的保障！</p>
+		</div>
+		<div class="columns-body">
+			<ul class="adviser-list clearfix">
+				<%customer.forEach(function(item){%>
+				<li class="adviser-item fl">
+					<div class="adviser-pic tac mt10">
+						<img width="118" height="118" src="<%=item.imgUrl%>" alt="<%=item.name%>" title="<%=item.name%>"/>
+					</div>
+					<div class="adviser-info mt20 tac">
+						<div class="f18"><%=item.name%></div>
+						<p class="fc9 f12"><%=item.year%></p>
+					</div>
+					<div class="f14 fc6 mt15">
+						“ <%=item.des%>”
+					</div>
+					<div class="book-box">
+						<div class="qcode-box">
+							<span class="arrow1" ></span>
+							<span class="arrow2" ></span>
+							<img width="130" height="130" src="<%=item.qrCode%>" alt="扫二维码即可预约">
+							<p>扫二维码即可预约</p>
+						</div>
+						<a class="hz-button hz-button-block button-view" href="javascript:;">预约TA</a>
+					</div>
+				</li>
+				<%});%>
+			</ul>
+		</div>
+		<!--news-body end-->
+	</div>
+</div>

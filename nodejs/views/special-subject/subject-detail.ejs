@@ -1,0 +1,123 @@
+<%
+	var subject = locals.data || {};
+	var riskPoints = subject.riskPoint || [];
+	var suggestions = subject.insureSuggestions || [];
+	var relatedSubjects = subject.relatedSpecial || [];
+	var products = subject.products || [];
+%>
+<!-- banner图 -->
+<div class="pt20 bgf0">
+    <div class="layout ovh">
+        <div class="hz-breadcrumb mb20">
+			<a href="<%= locals.mainHost %>" title="慧择保险网">慧择保险网</a>
+			<i class="arrow-right">&gt;</i>
+            <a href="/zhuanti/" title="保险专题">保险专题</a>
+			<!--
+            <i class="arrow-right">&gt;</i>
+            <a href="/zhuanti/<%= subject.url || '' %>">少儿险</a>-->
+            <i class="arrow-right">&gt;</i>
+            <h1 class="hz-breadcrumb-active"><%= subject.title || '专题详情' %></h1>
+        </div>
+        <div class="special-br">
+			<img src="<%= subject.bigCover || '' %>" alt="<%= subject.title %>">
+			<div class="pos-r">
+				<h4 class="f30"><%= subject.title || '' %></h4>
+				<p class="f14"><%= subject.specialDescription || '' %></p>
+			</div>
+        </div>
+    </div>
+</div>
+<div class="special pb30 product-list-page">
+    <div class="layout clearfix">
+        <!-- 主体内容 -->
+        <div class="special-main">
+			<% if (0 < riskPoints.length) { %>
+				<h3 class="pt30 pb20 f18">风险提示</h3>
+				<div class="special-tip">
+					<% riskPoints.forEach(function (riskPoint) { %>
+						<div class="clearfix">
+							<div class="ovh">
+								<% if (riskPoint.title && 0 !== riskPoint.title.length) { %>
+									<h4 class="f16"><%= riskPoint.title || '' %></h4>
+								<% } %>
+								<% if (riskPoint.desc && 0 !== riskPoint.desc.length) { %>
+									<p class="special-txto"><%= riskPoint.desc || '' %></p>
+								<% } %>
+							</div>
+						</div>
+					<% }) %>
+				</div>
+			<% } %>
+
+			<% if (0 < suggestions.length) { %>
+				<h3 class="pt30 pb20 f18">投保建议</h3>
+				<ul class="clearfix">
+					<% for(var i = 0, length = suggestions.length; i < length; i++) {
+						if (i !== length - 1) { %>
+							<li class="special-txtw-<%= i + 1 %> mr20">
+								<p><%= suggestions[i] || '' %></p>
+							</li>
+						<% } else { %>
+							<li class="special-txtw-3">
+								<p><%= suggestions[i] || '' %></p>
+							</li>
+						<% } %>
+					<% } %>
+				</ul>
+			<% } %>
+
+			<h3 class="pt30 pb20 f18">推荐方案</h3>
+			<div class="clearfix bdeee">
+				<div class="special-project">
+					<img src="//img.huizecdn.com/hz/www/page/special/bg.png" alt="背景层" class="special-project-img3">
+					<img src="<%= subject.image || '' %>" alt="推荐方案" class="special-project-img">
+					<h4 class="f18 fcw mt15"><%= subject.recommendedTitle || '' %></h4>
+					<div class="primary-color f18">
+						<%= subject.recommendedPrice || '' %>
+					</div>
+					<img src="//img.huizecdn.com/hz/www/page/special/logo.png" alt="慧择LOGO" class="mt122">
+				</div>
+				<div class="special-project-con">
+					<p class="pb10 bdbeee"><img src="//img.huizecdn.com/hz/www/page/special/icon-left.jpg" alt="" class="special-project-img2">推荐理由</p>
+					<%
+						var programRecommandReason = subject.recommendedReason || [];
+						programRecommandReason.forEach(function (reason) {
+					%>
+						<div class="clearfix mt15">
+							<i class="special-icon2 iconfont">&#xe746;</i>
+							<p class="ovh">
+								<%= reason.title || '' %>：<span class="fc9"><%= reason.desc || ''%></span>
+							</p>
+						</div>
+					<%
+						})
+					%>
+					<a href="<%= subject.link || '' %>" title="<%= subject.recommendedTitle || '' %>" target="_blank" class="hz-button hz-button-primary button-view special-bn">点击详情</a>
+				</div>
+			</div>
+
+			<% if (0 < products.length) { %>
+				<h3 class="pt20 pb10 f18">更多适合的产品</h3>
+				<%- subject.productsHtml || '' %>
+			<% } %>
+        </div>
+        <!-- 主体内容 end -->
+        <!-- 侧边栏 -->
+		<% if (0 < relatedSubjects.length) { %>
+			<div class="special-siderbar">
+				<h3 class="pt30 pb20 f18">相关专题</h3>
+				<ul class="special-list">
+					<% relatedSubjects.forEach(function (record) { %>
+						<li>
+							<img src="<%= record.smallCover || '' %>" alt="<%= record.title || '' %>" height="150" class="fl">
+							<div class="special-txtv">
+								<a href="/zhuanti/<%= record.publishAddress || '' %>/" class="special-bn2" target="_blank"><%= record.name || '' %></a>
+							</div>
+						</li>
+					<% }) %>
+				</ul>
+			</div>
+		<% }%>
+		<!-- 侧边栏 end-->
+    </div>
+</div>

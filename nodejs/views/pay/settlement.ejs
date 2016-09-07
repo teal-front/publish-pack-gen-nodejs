@@ -1,0 +1,497 @@
+<!--页面标识-->
+<%
+data = data || {};
+data.showShipAddress = false; //是否显示配送地址
+;
+//   测试数据结束
+var
+    availableRedEnvelopes = ((data.accountBalanceInfo || {}).accountRedEnvelopeInfo || {}).availableRedEnvelopes || [],
+    frozenRedEnvelopes = ((data.accountBalanceInfo || {}).accountRedEnvelopeInfo || {}).frozenRedEnvelopes || [],
+    paymentCombinationVerificationResult = data.paymentCombinationVerificationResult || {},
+    bestRedEnvelope = (paymentCombinationVerificationResult.bestRedEnvelope || {}).voucherSerialNo || "",
+//    discountRedEnvelope = (availableRedEnvelopes[0] || {}).voucherSerialNo === bestRedEnvelope ? (availableRedEnvelopes[0] || {}).amount : 0,
+    discountRedEnvelope = (availableRedEnvelopes.find(function(item){return item.voucherSerialNo === bestRedEnvelope}) || {}).amount || 0,
+    haveRedEnvelope =  (availableRedEnvelopes || []).length + (frozenRedEnvelopes || []).length !== 0,
+    canBean = false,
+    canRedEnvelope = false,
+    canBalance = false,
+    beanTotalPayment = paymentCombinationVerificationResult.maxGolderBeanAmount || 0,
+    balanceTotalPayment = paymentCombinationVerificationResult.maxBalanceAmount || 0;
+    data.discountRedEnvelope = discountRedEnvelope;
+;(data.payWayList || []).forEach(function(item){
+    var pay = item.toLowerCase();
+    if(pay == "goldbean_pay"){
+        canBean = true;
+    }
+    else if(pay == "redenvelope_pay"){
+        canRedEnvelope = true;
+    }
+    else if(pay == "balance"){
+        canBalance = true;
+    }
+});
+function formatDate(strTime,showHours){
+    if(!strTime){
+        return  "";
+    }
+    var
+        reg = /(\d{4}(?:-\d{2}){2})(?=T([\d\:]+)\.)/,
+        matchTime = reg.exec(strTime);
+    return matchTime[1] + (showHours ? " " + matchTime[2] : "");
+}
+%>
+<div class="confirm-order-page pb20 bgf0" id="insureList">
+    <div class="layout  clearfix pt25 pb40">
+        <div class="confirm-order-product-list">
+            <table class="confirm-order-product-head confirm-order-product-table bgfw">
+                <col width="10%"/>
+                <col width="45%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+                <caption class="tal bgfw pt20 fb pl30 f14">订单信息</caption>
+                <thead>
+                    <tr class="tal">
+                        <th class="tal"></th>
+                        <th class="tal">产品名称</th>
+                        <th class="tal">起保日期</th>
+                        <th class="tal">保单形式</th>
+                        <th class="tal">保费（元）</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <% (data.cartItemGroups || []).forEach(function(v){%>
+                <table class="hz-table confirm-order-product-table bgfw">
+                    <colgroup>
+                        <col width="10%"/>
+                        <col width="45%"/>
+                        <col width="15%"/>
+                        <col width="15%"/>
+                        <col width="15%"/>
+                    </colgroup>
+                    <tbody>
+                    <% if(!!v.salePromotion) { %>
+                        <tr>
+                            <th class="tal" colspan="5" style="background-color: #f6f9fe">
+                                <span class="hz-badge hz-badge-primary hz-radius ml10"><%= v.salePromotion.typeName %></span>
+                                <span class="fb fc6 ml5 inline-block"><%= v.salePromotion.activityName %></span>
+                            </th>
+                        </tr>
+                    <% } v.cartItems.forEach(function(vv){%>
+                         <tr data-insureNum = "<%= vv.insureNum%>" data-planId="<%= vv.planPlatformId%>">
+                             <td>
+                                 <a class="ml10" href="http://www.huize.com/brand/detail/<%= vv.companyId%>" target="_blank">
+                                     <img src="<%= vv.companyLogoUrl%>" width="75">
+                                 </a>
+                             </td>
+                             <td>
+                                 <a class="confirm-order-product-title f14" href="http://www.huize.com/product/detail-<%= vv.productPlatformId%>.html<%= vv.planPlatformId != undefined ? '?DProtectPlanId=' + vv.planPlatformId : '' %>" target="_blank"><%= vv.productName || "" %>&nbsp;<%= vv.productPlanName || ""%></a>
+                             </td>
+                             <td>
+                                 <span class="f14 pr5"><%= formatDate(vv.startDate) || (vv.productEffectiveDate || {}).fixedEffectiveContent %></span>
+                             </td>
+                             <td>
+                                 <%if(vv.sendType !== undefined && (vv.sendType.toString()).length !== 1){%>
+                                     <div class="hz-dropdown bd-cate-dropdown" >
+                                         <div class="input-select send-type-select" >
+                                             <% if((vv.sendType + "").indexOf("1") > -1){
+                                             %>
+                                             <span type="text" class="input-select-text" data-policy-selected = "1" style="width: 60px;">电子保单</span>
+                                             <%}else{ data.showShipAddress = true;var curSendType = (vv.sendType + "").substr(0,1);%>
+                                             <span type="text" class="input-select-text" data-policy-selected = "<%= curSendType%>" style="width: 60px;"><%= curSendType == 2 ? "纸质保单" : "保险卡"%></span>
+                                             <%}%>
+                                             <b class="iconfont">&#xe70b;</b>
+                                         </div>
+                                         <div class="hz-dropdown-content">
+                                             <ul class="hz-dropdown-menu">
+                                                 <% if((vv.sendType || "").toString().indexOf(1) > -1) { %>
+                                                    <li class="hz-select-option" data-policy-value="1">电子保单</li>
+                                                 <% } %>
+                                                 <% if((vv.sendType || "").toString().indexOf(2) > -1) { %>
+                                                 <li class="hz-select-option" data-policy-value="2">纸质保单</li>
+                                                 <% } %>
+                                                 <% if((vv.sendType || "").toString().indexOf(3) > -1) { %>
+                                                 <li class="hz-select-option" data-policy-value="3">保险卡</li>
+                                                 <% } %>
+                                             </ul>
+                                         </div>
+                                     </div>
+                                 <%}else if(vv.sendType && vv.sendType != 0){vv.sendType != 1 && (data.showShipAddress = true);%>
+                                       <span style="width: 60px;" data-policy-selected = "<%= vv.sendType%>"><%= vv.sendType == 1 ? "电子保单" : (vv.sendType == 2 ? "纸质保单" : "保险卡") %></span>
+                                 <%} else {%>
+                                      <span style="width: 60px;" data-policy-selected = "1" style="width: 90px;">电子保单</span>
+                                 <% } %>
+                             </td>
+                             <td>
+                                 <span class="fb primary-color"><%= (vv.premium / 100).toFixed(2)%></span>
+                             </td>
+                         </tr>
+                        <%});%>
+                    </tbody>
+                </table>
+            <% });%>
+
+            <% var shipAddress = data.shipAddress || {};
+               shipAddressIsEmpty = true;
+               for(i in shipAddress){
+                    if(shipAddress[i] && i != "id" && i != "orderId" && i != "userId" && i!= "deleted"){
+                        shipAddressIsEmpty = false;
+                    }
+               }
+            %>
+
+            <table class="hz-table confirm-order-product-table bgfw mt10" id="sendMessage" style="display: none">
+                <col width="10%"/>
+                <col width="90%"/>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong class="ml10">寄送地址</strong>
+                        </td>
+
+                        <td class="f14">
+                            <span class="send-add" style="display: <%= shipAddressIsEmpty ? "none" : "inline" %>;"><%= shipAddress.address%></span>
+                            <span class="ml10 send-user" style="display: <%= shipAddressIsEmpty ? "none" : "inline" %>;"><%= shipAddress.name%></span>
+                            <span class="ml10 mr10 send-tel" style="display: <%= shipAddressIsEmpty ? "none" : "inline" %>;"><%= shipAddress.mobileNo%></span>
+                            <a class="primary-link" href="javascript:;" id="editAddress"><%= shipAddressIsEmpty ? "添加地址" : "修改"%></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="hz-table confirm-order-operate-table bgfw mt10">
+                <col width="82%"/>
+                <col width="18%"/>
+                <tbody>
+                <tr>
+                    <td colspan="2" class="">
+
+                        <ul class="confirm-order-operate-list ">
+                            <%if(canBean){%><li class="confirm-order-operate-item bean-amount-pay">
+                                <div class="hz-check-item inline-block mr10" id="beanPay">
+                                    <i class="hz-check-icon" rel="prompt" data-prompt-html="<span class='f14'>您账户暂无可用金豆</span>"></i><span class="hz-check-text fc6">使用金豆</span>
+                                </div>
+
+                                <div class="confirm-order-operate-content inline-block" >
+
+                                    <!--未登陆开始 -->
+                                    <!--<p>请<a href="javascript:;" class="ml5 primary-link">登录</a></p>-->
+                                    <!--未登陆结束 -->
+
+                                    <!--金豆为0 开始-->
+                                    <p class="fn-hide none-value">当前可用金豆为 0</p>
+                                    <!--金豆为0 结束-->
+
+
+                                    <!--金豆有冻结 开始-->
+                                    <div class="opt-box  have-value">
+                                        <input class="input-text  confirm-order-operate-input discount-pay-input" style="display: none" type="text" id="beanPaymentInput"/>
+                                    </div>
+                                    <!--金豆有冻结 结束-->
+
+
+                                    <!--金豆使用开始-->
+                                    <div class="opt-box fn-hide">
+                                        <input class="input-text" type="text"/>
+                                                <span class="pl5 pr5">
+                                                    当前可用金豆<strong class="primary-color pl5 pr5">100</strong>个，
+                                                    <span class="secondary-color">本单最多可用金豆100</span>
+                                                </span>
+                                    </div>
+                                    <!--金豆使用开始-->
+                                </div>
+                            </li><%}%>
+
+                            <%if(canRedEnvelope){%><li class="confirm-order-operate-item red-envelope-pay">
+                                <div class="hz-check-item inline-block mr10 <%if (bestRedEnvelope !== ""){%>hz-check-item-checked<%}%> " id="redEnvelopePay">
+                                    <i class="hz-check-icon" rel="prompt" data-prompt-html="<span class='f14'>您账户暂无可用红包</span>"></i><span class="hz-check-text fc6">使用红包</span>
+                                </div>
+                                    <div class="confirm-order-operate-content inline-block mr10" id="redEnvelope"  style="visibility: <%= !haveRedEnvelope || bestRedEnvelope !== "" ? "visible" :"hidden"%>">
+                                    <% if(haveRedEnvelope){ %>
+                                     <div class="hz-dropdown ">
+                                        <div class="input-select">
+                                            <span class="input-select-text"><% if(discountRedEnvelope){ %><%= "-¥" + (discountRedEnvelope / 100).toFixed(2)%><% }else{ %>请选择<% } %></span>
+                                            <b class="iconfont">&#xe70b;</b>
+                                        </div>
+                                        <div class="hz-dropdown-content" style="width:590px;height:205px;overflow: hidden;overflow-y: auto; display: none">
+                                            <table class="hz-table f12">
+                                                <colgroup>
+                                                    <col width="5%">
+                                                    <col width="21%">
+                                                    <col width="21%">
+                                                    <col width="21%">
+                                                    <col width="21%">
+                                                    <col width="11%">
+                                                </colgroup><thead>
+
+                                               <% if(haveRedEnvelope > 0){%>
+                                                   <tr class="fc6">
+                                                       <th></th>
+                                                       <th>红包金额</th>
+                                                       <th>红包有效期</th>
+                                                       <th>红包使用范围</th>
+                                                       <th>红包状态</th>
+                                                       <th>操作</th>
+                                                   </tr>
+                                                <% } %>
+                                                </thead>
+
+                                                <tbody>
+
+                                                <!--有红包-->
+                                                <% if(haveRedEnvelope > 0) { availableRedEnvelopes.forEach(function(item,i){ %>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="tar pl10">
+                                                                <img src="//img.huizecdn.com/hz/www/page/red-bag.png" alt="">
+                                                            </div>
+                                                        </td>
+                                                        <td><%= (item.amount / 100).toFixed(2)%></td>
+                                                        <td><%= formatDate(item.expiredDate)%></td>
+                                                        <td>满<%= (item.thresholdAmount / 100).toFixed(2)%>减<%= (item.amount / 100).toFixed(2)%></td>
+                                                        <td><% if(item.voucherSerialNo === bestRedEnvelope){ %><span>已冻结</span><%}else{%><span>未使用</span><%}%></td>
+                                                        <td  data-discount-redenvelope = "<%= item.amount%>" data-oucher-num="<%= item.voucherSerialNo%>"><% if(item.voucherSerialNo === bestRedEnvelope){ %><span class="using-red-Envelope">√</span><%} else { %><a class="primary-link use-redEnvelope-btn" href="javascript:;" >使用</a><% } %></td>
+                                                    </tr>
+                                               <% }); %>
+                                                <% frozenRedEnvelopes.forEach(function(item,i){ %>
+                                                <tr>
+                                                    <td>
+                                                        <div class="tar">
+                                                            <img src="//img.huizecdn.com/hz/www/page/red-bag.png" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td><%= (item.amount / 100).toFixed(2)%></td>
+                                                    <td><%= formatDate(item.expiredDate)%></td>
+                                                    <td>满<%= (item.thresholdAmount / 100).toFixed(2)%>减<%= (item.amount / 100).toFixed(2)%></td>
+                                                    <td>冻结</td>
+                                                    <td data-discountRedEnvelope = "<%= item.amount%>" data-oucher-num="<%= item.voucherSerialNo%>" data-order-num="<%= item.orderNum%>"><a href="javascript:;" class="primary-link un-frozen-account">解冻</a></td>
+                                                </tr>
+                                                <% }); }%>
+                                                <!--没有红包-->
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <p>
+                                                            <a class="hz-button hz-button-small target-red-button ml20 fb" href="javascript:;">激活新红包</a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <% } else{%>
+                                        <!--<div class="inline-block">-->
+                                            <!--<span>您账户没有满足本单可用条件的红包</span>-->
+                                            <!--<a class="hz-button hz-button-small target-red-button ml10 fb" href="javascript:;">激活新红包</a>-->
+                                        <!--</div>-->
+                                    <% } %>
+                                </div>
+                            </li>
+                            <%}%>
+                            <%if(canBalance){%><li class="confirm-order-operate-item balance-amount-pay" >
+                                <div class="hz-check-item inline-block mr10" id="balancePay">
+                                    <i class="hz-check-icon" rel="prompt" data-prompt-html="<span class='f14'>您账户暂无可用余额</span>"></i><span class="hz-check-text fc6">使用余额</span>
+                                </div>
+
+
+                                <div class="confirm-order-operate-content inline-block">
+                                    <!--余额为0 开始-->
+                                    <!--<p class="fn-hide">当前可用余额为 0</p>-->
+                                    <!--余额为0 结束-->
+                                    <!--余额使用有冻结-->
+                                    <div class="opt-box  have-value">
+                                        <input class="input-text  confirm-order-operate-input discount-pay-input" style="display: none" type="text" id="balancePaymentInput" />
+                                    </div>
+                                    <!--余额使用结束-->
+
+
+                                    <!--余额使用开始-->
+                                    <!--<div class="opt-box">-->
+                                        <!--<input class="confirm-order-operate-input" type="text"/>-->
+                                            <!--<span class="pl5 pr5">-->
+                                                <!--当前可用余额<strong class="primary-color pl5 pr5">1000</strong>个，-->
+                                                <!--<span class="secondary-color">本单最多可用余额100</span>-->
+                                            <!--</span>-->
+                                    <!--</div>-->
+                                    <!--余额使用结束-->
+
+                                </div>
+                            </li><%}%>
+                        </ul>
+                        <!--confirm-order-operate-list end-->
+
+                    </td>
+                </tr>
+
+                <tr class="tar">
+                    <td>
+                        <span class="fc6">保费总额</span>
+                    </td>
+                    <td>
+                        <span class="mr40">￥<%= ((data.totalPremium || 0) / 100).toFixed(2)%></span>
+                    </td>
+                </tr>
+                <tr class="tar <%= beanTotalPayment > 0 ? '' : 'fn-hide'%>" id="beanTotalPayment">
+                    <td>
+                        <span class="fc6">金豆</span>
+                    </td>
+                    <td>
+                        <span class="mr40 total-value">-￥<%= (beanTotalPayment / 100).toFixed(2)%></span>
+                    </td>
+                </tr>
+                <tr class="tar <%= discountRedEnvelope > 0 ? '' : 'fn-hide'%>" id="redEnvelopeTotalPayment">
+                    <td>
+                        <span class="fc6">红包</span>
+                    </td>
+                    <td>
+                        <span class="mr40 total-value">-￥<%= (discountRedEnvelope / 100).toFixed(2)%></span>
+                    </td>
+                </tr>
+                <tr class="tar <%= balanceTotalPayment > 0 ? '' : 'fn-hide'%>" id="balanceTotalPayment">
+                    <td>
+                        <span class="fc6">余额</span>
+                    </td>
+                    <td>
+                        <span class="mr40 total-value">-￥<%= (balanceTotalPayment / 100).toFixed(2)%></span>
+                    </td>
+                </tr>
+                <% if(data.totalDiscount > 0 ){ %>
+                <tr class="tar">
+                    <td>
+                        <span class="fc6">活动优惠</span>
+                    </td>
+                    <td>
+                        <span class="mr40 total-value">-<%= (data.totalDiscount / 100).toFixed(2)%></span>
+                    </td>
+                </tr>
+                <% } %>
+                <tr class="tar" id="shipPayment" style="display: none;">
+                    <td>
+                        <span class="fc6">保单寄送费</span>
+                    </td>
+                    <td>
+                        <span class="mr40">15.00</span>
+                    </td>
+                </tr>
+                <tr class="tar">
+                    <td>
+                        <span class="fc6" >应付总额</span>
+                    </td>
+                    <td>
+                        <p class="mr40 primary-color"><span class="f30" id="totalPayableAmount"></span>元</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="confirm-order-product-foot hz-table bgfw mt10">
+                <tbody>
+                <tr class="tar">
+                    <td>
+                        <%if(data.paymentType != 3) {
+                            var twoSelect = data.supportOnlinePay && data.supportOfflinePay;
+                        %>
+                            <div class="hz-dropdown" id="payTypeSelect">
+                                <%if(data.supportOfflinePay || data.supportOnlinePay){%>
+                                    <div class="input-select" style="cursor: <%= twoSelect ? 'pointer' : 'default'%>">
+                                        <span style="border: none;cursor: <%= twoSelect ? 'pointer' : 'default'%>" class="input-select-text"><%= data.supportOnlinePay ?  "在线支付" : "转账汇款"%></span>
+                                        <%if(twoSelect){%>
+                                        <b class="iconfont">&#xe70b;</b>
+                                        <%}%>
+                                    </div>
+                                <%}%>
+                                <%if(twoSelect){%>
+                                    <div class="hz-dropdown-content">
+                                        <ul class="hz-dropdown-menu">
+                                            <%if(data.supportOnlinePay){%><li class="hz-select-option">在线支付</li><%}%>
+                                            <%if(data.supportOfflinePay){%><li class="hz-select-option" id="bankTransfer">转账汇款</li><%}%>
+                                        </ul>
+                                    </div>
+                                <%}%>
+                            </div>
+                        <%}%>
+                        <a class="hz-button hz-button-primary button-pay ml25" href="javascript:;" id="submitPayment">立即支付</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><!--layout end-->
+
+</div><!--page end-->
+
+
+
+<!--寄送地址弹窗开始-->
+<div class="mailing-address-dialog" style="display: none" id="mailingAddressDialog">
+    <div>
+
+        <div>
+            <div class="hz-alert hz-alert-error mb10" style="display: none">
+
+                <span class="hz-alert-text">手机号已注册，您可以使用 短信验证码登录</span>
+            </div>
+            <div class="hz-dropdown mb20" id="provinceSelect">
+                <div class="input-select">
+                    <input type="text" style="width: 104px;" class="input-select-text" name="province"   msg="省份/自治区必填" value="省份/自治区" readonly="readonly">
+                    <b class="iconfont">&#xe70b;</b>
+                </div>
+                <div class="hz-dropdown-content" style="z-index: 1020;display: none">
+                    <ul class="hz-dropdown-menu">
+                        <li class="hz-select-option">省份/自治区</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hz-dropdown mb20" id="citySelect">
+                <div class="input-select">
+                    <input type="text" style="width: 104px;" class="input-select-text" name="city"  msg="城市/地区必填"  value="城市/地区" readonly="readonly">
+                    <b class="iconfont">&#xe70b;</b>
+                </div>
+                <div class="hz-dropdown-content" style="z-index: 1019;display: none">
+                    <ul class="hz-dropdown-menu">
+                        <li class="hz-select-option">城市/地区</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="hz-dropdown mb20 clearfix" style="display:block;" id="areaSelect">
+            <div class="input-select clearfix" style="display:block;">
+                <input type="text" style="width: 88%" class="input-select-text" value="区/县" msg="区/县必填"   name="district" readonly="readonly">
+                <b class="iconfont">&#xe70b;</b>
+            </div>
+            <div class="hz-dropdown-content" style="z-index: 1018;display: none">
+                <ul class="hz-dropdown-menu">
+                    <li class="hz-select-option">区/县</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mb20">
+            <textarea class="address-area full-address f14" name="fullAddress" verify = "/^.{3,}$/" msg="详细地址至少3个字" placeholder-text="详细地址"></textarea>
+        </div>
+
+        <div class="mb20">
+            <input class="input-text " name="addressee" msg="收件人姓名2-50字"  verify="/^[\w\s、\.\/\u4e00-\u9fa5]{2,50}$/" type="text" placeholder-text="收件人姓名"/>
+        </div>
+
+        <div class="mb20">
+            <input  class="input-text" name="phone" verify="/^(13|14|15|17|18)[\d]{9}$/" msg="手机号码输入不正确" type="text" placeholder-text="手机号"/>
+        </div>
+
+        <a class="hz-button hz-button-primary hz-button-block" href="javascript:;" id="saveAddressBtn">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</a>
+    </div>
+</div>
+<div class="dialog-new-red" style="width: 280px;padding: 30px 60px;display: none">
+    <div class="hz-alert  mb10" style="display: none;">
+        请输入要激活的红包编号
+    </div>
+    <div><input placeholder="输入红包编码" style="width: 96%" type="text" class="input-text voucher-serial-input"></div>
+
+    <p class="mt40">
+        <a class="hz-button hz-button-primary hz-button-block" href="javascript:;" id="activateRedEnvelope">激活新红包</a>
+    </p>
+</div>
+<script>
+    var userData = <%- JSON.stringify(data)%>;
+</script>

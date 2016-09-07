@@ -1,0 +1,242 @@
+<input type="hidden" class="page-id" value="<%=pageId%>">
+<!-- 需要变更的产品ID，多个ID用,逗号分开 -->
+<input type="hidden" class="change-id" value="" />
+<input type="hidden" class="change-date" data-id="" data-unit="" value="" />
+
+<div class="fixed-plan">
+<div class="detail-tab-wrap">
+        <div class="layout">
+
+            <% include _fixed-head %>
+
+        </div>
+        <!--layout end-->
+    </div>
+    <div class="fix-plan-top">
+        <div class="layout">
+            <h3 class="f30 fl" id="planName" data-title="<%=planName%>"><%=planName%>
+              <span class="f18 primary-color">￥</span>
+              <span class="primary-color plan-top-price">149.00</span><span class="f18 primary-color">起</span></h3>
+              <a href="javascript:;" class="hz-button hz-button-primary fr pl40 pr40 add-cart-btn add-cart-top">加入购物车</a>
+              <a href="http://www.huize.com/baoxianyuyue?oppName=<%=planName%>" target="_blank" class="fix-plan-bn">预约顾问</a>
+          </div>
+        </div>
+</div>
+
+
+
+<div class="top-location layout programs-content">
+                <div class="plan-banner plan-b10 fcp1">
+                        <div class="f36  fb mb5">给爸妈一份贴心守护</div>
+                        <ul class="plan-listo">
+                                <li><span class="mr5">&bull;</span>可承保至74周岁</li>
+                                <li><span class="mr5">&bull;</span>高达8万意外医疗</li>
+                                <li><span class="mr5">&bull;</span>骨密度检测津贴100元/次</li>
+                                <li><span class="mr5">&bull;</span>特含意外骨折疗养津贴</li>
+                        </ul>
+                </div>
+                <div class="plan-introduce">
+                        <div class="plan-icon1"><i class="iconfont">&#xe753;</i></div>
+                        <p class="ovh lh22 f14 ti2em"><%=planDesc%></p>
+                </div>
+                    <!-- 推荐计划 -->
+                <ul class="plan-list-com plan-list-c1"><!-- 三种方案 -->
+                        <li data-planid="1101" class="bdC4E8D6">
+                                <h3>初级计划</h3>
+                                <div class="pl30 pr30">
+
+                                           <div class="plan-list-item clearfix">
+                                                <span class="fl">意外身故 /伤残</span>
+                                                <p class="fr fb">4万元</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">意外医疗</span>
+                                                <p class="fr fb">1万元（意外骨折医疗2万元）</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">骨密度检测津贴</span>
+                                                <p class="fr fb">100元/次</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">意外住院津贴</span>
+                                                <p class="fr fb w158">30元/天（意外骨折住院50元/天）</p>
+                                           </div>
+                                           <div class="plan-list-item clearfix">
+                                                <span class="fl">意外骨折疗养津贴</span>
+                                                <p class="fr fb w158">10元 /天</p>
+                                           </div>
+                                </div>
+                                <h4 class="mt10">价格<span class="fb ml10 plan-price">149.00元</span></h4>
+                                <p  class="plan-triangle">
+                                    <span class="triangle-a"></span>
+                                    <i class="iconfont">&#xe72f;</i>
+                                </p>
+                        </li>
+                         <li data-planid="1102" class="bdF3FDFF ml30 mr30">
+                                <h3>升级计划</h3>
+                                <div class="pl30 pr30">
+                                         <div class="plan-list-item clearfix">
+                                                <span class="fl">意外身故 /伤残</span>
+                                                <p class="fr fb">9万元</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">意外医疗</span>
+                                                <p class="fr fb">2万元（意外骨折医疗4万元）</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">骨密度检测津贴</span>
+                                                <p class="fr fb">200元/次</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">意外住院津贴</span>
+                                                <p class="fr fb w158">50元/天（意外骨折住院90元/天）</p>
+                                           </div>
+                                           <div class="plan-list-item clearfix">
+                                                <span class="fl">意外骨折疗养津贴</span>
+                                                <p class="fr fb w158">20元 /天</p>
+                                           </div>
+                                </div>
+                                <h4 class="mt10">价格<span class="fb ml10 plan-price">298.00元</span></h4>
+                                 <p  class="plan-triangle">
+                                    <span class="triangle-a"></span>
+                                    <i class="iconfont">&#xe72f;</i>
+                                </p>
+                        </li>
+                        <li data-planid="1103" class="bdDECFE8">
+                                <h3>至尊计划</h3>
+                                <div class="pl30 pr30">
+                                         <div class="plan-list-item clearfix">
+                                                <span class="fl">意外身故 /伤残</span>
+                                                <p class="fr fb">26万元</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">意外医疗</span>
+                                                <p class="fr fb">5万元（意外骨折医疗8万元）</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">骨密度检测津贴</span>
+                                                <p class="fr fb">300元/次</p>
+                                           </div>
+                                            <div class="plan-list-item clearfix">
+                                                <span class="fl">意外住院津贴</span>
+                                                <p class="fr fb w158">100元/天（意外骨折住院160元/天）</p>
+                                           </div>
+                                           <div class="plan-list-item clearfix">
+                                                <span class="fl">意外骨折疗养津贴</span>
+                                                <p class="fr fb w158">30元 /天</p>
+                                           </div>
+                                </div>
+                                <h4 class="mt10">价格<span class="fb ml10 plan-price">625.00元</span></h4>
+                                 <p  class="plan-triangle">
+                                    <span class="triangle-a"></span>
+                                    <i class="iconfont">&#xe72f;</i>
+                                </p>
+                        </li>
+                </ul>
+
+                  <a href="javascript:;" class="hz-button hz-button-primary plan-bn add-cart-btn">加入购物车</a>
+
+
+</div>
+<!-- 风险解读 -->
+<div class="top-location plan-reading plan-reading-5">
+    <div class="layout">
+          <h3 class="f48  mb20">风险解读 </h3>
+          <p class="lh22">骨质疏松，是老年人意外受伤的根本原因。根据健康医疗机构调查，老年人跌倒10次就会有一次造成严重的伤害，尤其是髋部骨折最为常见。而60岁以上老人发生髋部骨折后，死亡率高达50%。相关数据统计显示，老年人发生的意外概率比其他年龄层高出4至10倍，医疗费用比其他年龄高出3至5倍！</p>
+          <ul class="plan-listw">
+                  <li class="plan-listw-li">
+                           <h4 class="f18"><span class="f60 fb">4-10</span>倍</h4>
+                          <p>老年人发生意外的比例是平均水平的4至10倍</p>
+                  </li>
+                   <li class="plan-listw-li">
+                          <h4 class="f18"><span class="f60 fb">3-5</span>倍</h4>
+                          <p>意外医疗费用比其他年龄层高出3至5倍</p>
+                  </li>
+                   <li>
+                          <h4 class="f18"><span class="f60 fb">50</span>%</h4>
+                          <p>60岁以上老人发生髋部骨折后，死亡率高达50%</p>
+                  </li>
+          </ul>
+    </div>
+</div>
+<!-- 方案优势 -->
+<div class="top-location plan-advantage-com plan-advantage-5 plan-advantage">
+    <div class="layout">
+            <div class="plan-advantage-box">
+                    <h2 class="f48 pt45 mb20">方案优势</h2>
+                    <p class="f16 fc6">“享安康”老人基础保障方案是一款侧重于意外医疗保障，额外提供骨密度检测津贴和骨折疗养津贴等多项骨折专属保障的老人基础保障方案。可有效减少中老年人因一点小意外造成的医疗费支出，利用较少保费解决中老人意外风险保障需求。</p>
+                    <ul class="plan-listh">
+                            <li class="plan-listh-1 mb35">
+                                    <h3 class="plan-advantage-tt">承保年龄高至74周岁</h3>
+                                    <p class="f14 fc9 pl25">一般意外险仅可保至60周岁，而该方案承保年龄至74周岁</p>
+                            </li>
+                            <li class="plan-listh-2 mb35">
+                                    <h3 class="plan-advantage-tt">全面的意外保障</h3>
+                                    <p class="f14 fc9 pl25">意外住院、门诊医疗都可保，额外附加住院津贴和骨折疗养津贴</p>
+                            </li>
+                            <li class="plan-listh-3">
+                                    <h3 class="plan-advantage-tt">多项骨折专属保障</h3>
+                                    <p class="f14 fc9 pl25">骨折意外额外提升赔付额度，另外附加有专项的骨密度检测津贴和骨折疗养津贴</p>
+                            </li>
+                    </ul>
+                </div>
+    </div>
+</div>
+
+<!-- 常见问题 -->
+<div class="top-location plan-question">
+        <div class="layout">
+                <h3 class="f48 mb25 tac">常见问题</h3>
+                <div class="pt35 pl30 pr30 bgfw">
+                        <h4 class="f18">Q : 该方案的产品组合是什么？</h4>
+                        <p class="f14 fc6 pb25"> A : 该方案的初级计划由以下2款产品组成，“泰康“老有福”意外骨折保险”，“慧择“年年无忧”综合意外险-黄金计划”；<br/>
+                        升级计划由以下2款产品组成，“泰康“老有福”意外骨折保险”，“慧择“年年无忧”综合意外险-白金计划”；<br/>
+                        至尊计划由以下2款产品组成，“泰康“老有福”意外骨折保险”，“慧择“年年无忧”综合意外险-钻石计划”；<br/>
+                        保障期限都为1年。</p>
+                        <h4 class="f18">Q : 如何给父母买保险？给父母买什么保险好？</h4>
+                        <p class="f14 fc6 pb25"> A :  老年人遭受意外伤害的概率高于其他年龄群体，特别是交通事故、意外跌伤等事故，意外发生后往往需要高额的医疗费用，因此意外险应该成为老年人购买保险的首要选择。目前市面上适合老年人购买的重疾险不多，且大多价格比较高，容易出现保费倒挂的现象，建议购买的时候要谨慎选择。 </p>
+                         <h4 class="f18">Q : 此保障方案都有哪些特色和保障？</h4>
+                        <p class="f14 fc6 pb25">A : 这是一款专门为中老年人定制的全面意外保障方案，除了普通的意外医疗保障外，特别针对中老年人比较多发的骨折意外，额外增加了住院津贴和骨密度检测补偿费用，性价比高。</p>
+                         <h4 class="f18">Q : 对医院和医药有什么要求吗？</h4>
+                        <p class="f14 fc6 pb25">A : 保险公司指定或者认可的医疗机构，包括保险公司指定的医疗机构，以及境内二级以上(含)的正规公立医院，同时需要符合当地学生儿童基本医疗保险规定的治疗和用药标准。</p>
+                         <h4 class="f18">Q :网上购买保险的电子保单有效吗？</h4>
+                        <p class="f14 fc6 pb25"> A :  在慧择网上购买保险的电子保单与传统保单是没有本质区别的，在理赔或满期给付时二者具有同样的法律效力。另外，在慧择网投保只要凭注册名或电子邮箱即可随时找回电子保单，方法简单、无需工本费。 </p>
+                        <h4 class="f18">Q :方案中多个保障产品需要分别申请理赔吗？</h4>
+                        <p class="f14 fc6 pb25"> A :  您可以直接拨打慧择网服务热线4006-366-366，由专人全程协助指引报案和申请理赔，或联系您在慧择网的专属顾问为您服务，节约您宝贵的时间。 </p>
+                </div>
+
+        </div>
+</div>
+<!-- 用户点评 -->
+<div class="top-location plan-review pt45 pb30">
+       <div class="layout">
+            <h2 class="f48 tac ">用户点评</h2>
+           <ul class="plan-listf">
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head1.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">ganke198**</h3>
+                           <p class="f14 pt10">家里的老人家年纪大了，总有这样那样的身体问题。想起可以给老人家买份保险，这几天天气都很潮湿，楼梯和街上都湿湿的，这款产品刚好适合我现在的购买意向。这款产品非常适合像我公公婆婆这样年纪大的老人。</p>
+                   </li>
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head2.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">zhanggu**</h3>
+                           <p class="f14 pt10">我爸爸是退休教师，现在和我妈妈都住在老家，我们都在外地工作。早就想给父母都买份保险了，都没时间去，还是在你们慧择网给二老买了两份，网上保险真方便啊！</p>
+                   </li>
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head3.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">王小***</h3>
+                           <p class="f14 pt10">老年人骨质容易流失，很容易骨折，想不到还真有针对老年人骨折的保险，给父母买这个保险，不只是钱的问题，是一颗孝心的体现。</p>
+                   </li>
+                   <li>
+                           <img src="//img.huizecdn.com/hz/www/page/plan/head4.png" alt="" class="plan-img-head">
+                           <h3 class="f18 mt25">王五</h3>
+                           <p class="f14 pt10">给老爸买的，老年人的保险不是很多，选了这个方案，对比了几家感觉性价比还是很高的，最主要的是用不上才好，买了多了些，份安心，愿天下所有的父母健康长寿！</p>
+                   </li>
+           </ul>
+          <div class="tac pb20">
+              <a href="http://www.huize.com/guihua/comment/p<%=pageId%>" target="_blank" class="f16" title="<%=planName%>用户评论">查看全部用户评论 ></a>
+          </div>
+       </div>
+</div>
+<!-- 精品方案 -->
+<% include ./_detail-foot %>

@@ -1,0 +1,56 @@
+<!--[if lt IE 9]>
+<script src="//static.huizecdn.com/js/plugins/json2/json2.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if IE 8]>
+<script src="//static.huizecdn.com/js/plugins/json2/json2-ie8.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="//static.huizecdn.com/js/plugins/es5-shim/es5-shim.min.js"></script>
+<![endif]-->
+<%
+var bastPath ='';
+var path = ''; //路径
+var version = ''; //版本号
+var time = new Date();
+var date = time.getDate();
+var _date = '';
+var env = locals.settings.env;
+
+if (env === 'development' || env === 'test') {
+	//开发、测试环境
+	bastPath = '/javascripts/src';
+	path = 'src';
+	version = time.getTime();
+} else {
+	//正式环境
+	bastPath=locals.jsBasePath || '//static.huizecdn.com/js/hz/www/build';
+	path = 'build';
+	if (date > 0 && date <= 5) {
+		_date = 0;
+	} else if (date > 5 && date <= 10) {
+		_date = 1;
+	} else if (date > 10 && date <= 15) {
+		_date = 2;
+	} else if (date > 15 && date <= 20) {
+		_date = 3;
+	} else if (date > 20 && date <= 25) {
+		_date = 4;
+	} else if (date > 25 && date <= 31) {
+		_date = 5;
+	}
+	version = time.getFullYear() + '' + time.getMonth() + '' + _date;
+	version = time.getTime();
+}
+%>
+<script src="//static.huizecdn.com/js/libs/require/2.1.11/require.min.js"></script>
+<script src="<%=bastPath%>/config/requirejs-config.js?v=<%=version%><%=locals.jsVersion%>"></script>
+<script>
+    requirejs(['main','<%=jsName%>'], function (main,index) {
+        if(index&&index.init){
+        	index.init();
+        }
+    });
+</script>
+<%include ../_ga%>
+
+

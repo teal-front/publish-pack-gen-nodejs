@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 慧择主站产品列表
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/03/15
+*/
+@import '../config';
+
+$productMetaWidth : 258px !default;
+
+.product-list-page {
+
+  .hz-product-item {
+    position:relative;
+    border: 1px solid #eee;
+    padding: 30px;
+    margin-top: 10px;
+    .button-view {
+      padding: 0 50px;
+    }
+  }
+  
+  .hz-product-head {
+    margin-bottom: 13px;
+    .company-logo {
+      margin-left: 20px;
+      img {
+        max-width: 100px;
+        max-height: 36px;
+        *height: 36px;
+      }
+    }
+  }
+
+  .hz-product-head .hz-badge {
+    margin-left: 10px;
+    vertical-align: 2px;
+  }
+
+  .hz-product-title {
+    a:hover {
+      color: #2150a2;
+      text-decoration: none;
+    }
+  }
+
+
+  .hz-product-info {
+    padding-right: $productMetaWidth;
+    @include minHeight(250px);
+  }
+
+  .hz-product-meta {
+    position: absolute;
+    top:0;
+    right:0;
+    width:$productMetaWidth;
+    height: 100%;
+    border-left:1px solid #eee;
+  }
+
+  .hz-product-body {
+    .post-tag {
+      max-width: 100px;
+      margin: 0 10px 0 0;
+      @include ell;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .product-item-content {
+      margin-top: 20px;
+      .hz-list-title {
+        @include ell;
+        width: 38%;
+        margin-right: 2%;
+      }
+      .hz-list-content {
+        @include ell;
+        width: 59%;
+      }
+
+      .impression-box {
+
+        .impression-item {
+          @include inlineBlock;
+          vertical-align: middle;
+          max-width: 142px;
+          @include ell;
+          margin-right: 17px;
+          &:before {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+//  搜索结果页
+  .product-rank-list-box,
+  .product-seach-list-box {
+    .hz-product-item {
+      border: none;
+      border-bottom: 1px solid #eee;
+      padding-right: 0;
+      padding-left: 0;
+      margin: 0 30px;
+    }
+    .hz-product-meta { right: -30px}
+  }
+  
+//  排行榜页面
+  
+  .product-rank-list-box {
+    .producct-empty {
+      padding: 200px 0;
+      text-align: center;
+    }
+    .rank-tab-menu {
+      background: none;
+      .hz-tab-menu-item a {
+        padding: 0 30px;
+      }
+    }
+    .hz-product-info {
+      padding-left: 50px;
+    }
+    .decimal {
+      float: left;
+      margin-top: 5px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 999em;
+      background: #ddd;
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+    }
+    .decimal-01 {
+      background: #f6ab1a;
+    }
+    .decimal-02 {
+      background: #2150a2;
+    }
+
+    .decimal-03 {
+      background: #0477b9;
+    }
+    
+    .sidebar-sort-list {
+      padding-top: 30px;
+      background: #fff;
+      text-align: center;
+      font-size: 16px;
+      li {
+        padding-bottom: 20px;
+      }
+
+
+      a {
+        display: block;
+        padding: 0 10px;
+        &:hover {
+          color: #f6ab1a;
+          text-decoration: none;
+        }
+      }
+
+
+      .active a {
+        color: #f6ab1a;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+

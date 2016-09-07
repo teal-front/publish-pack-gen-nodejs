@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* 功能：huize.com - 筛选 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.hz-dropdown { position: relative; line-height: 1; display: inline-block; *display: inline; *zoom: 1; }
+.hz-dropdown:focus { outline: none; }
+.hz-dropdown.disabled .input-select-text { background: #eee; color: #999; cursor: not-allowed; }
+.hz-dropdown .input-select-highlight .input-select-text { border: 2px solid #f6ab1a; }
+.hz-dropdown .input-select-highlight b { color: #f6ab1a; }
+.hz-dropdown .input-select .iconfont { display: inline-block; *display: inline; *zoom: 1; -webkit-transition: all, 0.25s, linear 0.25s; -moz-transition: all, 0.25s, linear 0.25s; -ms-transition: all, 0.25s, linear 0.25s; -o-transition: all, 0.25s, linear 0.25s; transition: all, 0.25s, linear 0.25s; }
+
+.hz-dropdown-hover .input-select .iconfont { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
+
+.hz-dropdown-content { position: absolute; top: 100%; left: 0; z-index: 1020; display: none; min-width: 98%; text-align: left; line-height: 1.5; font-size: 14px; background-color: #fff; border: 1px solid #dde9fd; border-radius: 0; -webkit-animation-duration: .15s; animation-duration: .15s; box-shadow: 2px 2px 4px rgba(10, 2, 4, 0.1); }
+.hz-dropdown-content .hz-dropdown-menu { max-height: 200px; overflow: hidden; overflow-y: auto; }
+.hz-dropdown-content .hz-select-option { line-height: 1.4; padding: 10px; cursor: pointer; }
+.hz-dropdown-content .hz-select-option:hover { background: #f6f9fe; }
+.hz-dropdown-content .hz-select-option-selected { cursor: default; background: #f6f9fe; }
+.hz-dropdown-content .others-content { border-top: 1px solid #dde9fd; margin: 0 10px 20px; padding-top: 10px; }
+.hz-dropdown-content::-webkit-scrollbar { width: 10px; }
+.hz-dropdown-content::-webkit-scrollbar-track { background-color: transparent; }
+.hz-dropdown-content::-webkit-scrollbar-thumb { background: #ccc; }
+
+/*# sourceMappingURL=dropdown.css.map */

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* 功能：huize.com - 一般情况用户产品保障项目 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+/** 
+*/
+.hz-list .hz-list-item { zoom: 1; }
+.hz-list .hz-list-item:before, .hz-list .hz-list-item:after { content: ""; display: table; }
+.hz-list .hz-list-item:after { clear: both; }
+.hz-list .hz-list-item .hz-list-content, .hz-list .hz-list-item .hz-list-title { float: left; }
+.hz-list .hz-list-item .hz-list-title { width: 60%; }
+.hz-list .hz-list-item .hz-list-content { width: 40%; }
+
+/*# sourceMappingURL=list.css.map */

@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+
+/*
+ * 功能：huize.com - 详情页面-常见问题
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+
+
+.detail-product-faq {
+  .detail-product-faq-meta {
+    padding: 24px 30px;
+    background: #f6f9fe;
+    border: 1px solid #dde9fd;
+    .hz-button {
+      padding: 0 50px;
+    }
+    .hz-button-primary {
+      padding: 0 28px;
+    }
+  }
+
+  .detail-product-faq-list {
+    line-height: 2;
+    .product-faq-reply {
+      margin: 6px 0 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dotted #c8c8c8;
+      .ico {
+        color: #f6ab1a;}
+    }
+
+    dd,dt {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .ico {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 24px;
+      color: #cbdbf5;
+      line-height: 1;
+      font-weight: normal;
+    }
+  }
+}

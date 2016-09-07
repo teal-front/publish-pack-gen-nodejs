@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 主站-定制（http://www.huize.com/baoxianyuyue）
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/06/15
+*/
+@import 'common/base';
+@import 'public/header';
+@import 'public/topnav';
+@import 'helper/layout';
+@import 'helper/iconfont';
+@import 'helper/buttons';
+@import 'helper/dropdown';
+@import 'helper/form';
+@import 'helper/share';
+@import 'public/footer';
+a:hover{
+    text-decoration: none;
+}
+.booking-banner{
+    background:  url('//img.huizecdn.com/hz/www/page/booking/banner.jpg') center 0 no-repeat;
+    height: 559px;
+    padding-top: 60px
+
+
+}
+.booking-txt1{
+    line-height: 30px;
+    opacity: 0.6;
+    font-size: 16px;
+    width: 695px;
+    margin: 15px 0 30px 0;
+
+}
+.booking-txt2{
+    width: 297px;
+    height: 93px;
+    background-color: rgba(255,255,255,0.1);
+    font-size: 24px;
+    line-height: 40px;
+    text-indent: 20px;
+    overflow: hidden;
+
+}
+.booking-banner-list{
+    overflow: hidden;
+    width: 565px;
+    height: 86px;
+    background-color: #21A367;
+    margin: 15px 0;
+    padding-left: 20px;
+    font-size: 0;
+    &:before{
+        display: inline-block;
+        content:'';
+        height: 100%;
+        vertical-align: middle;
+    }
+    div{
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        margin:0  19px;
+    }
+
+}
+.booking-banner-arrow{
+opacity:0.6;
+font-size: 20px
+}
+.booking-message{
+    width: 300px;
+    height: 449px;
+    background:  url('//img.huizecdn.com/hz/www/page/booking/bg2.png') 0 0 repeat-y;
+    float: right;
+    padding: 30px 50px 0;
+
+    .input-select-text{
+        width: 254px;
+        border: 1px solid #E3E3E3;
+        background-color: #fff;
+        line-height: 44px!important;
+        height: 44px!important;
+        padding: 0 33px 0 10px!important;
+    }
+    .error-msg{
+        color:#ff0000;
+        float: left;
+    }
+    .hz-button{
+        margin-top: 12px;
+        line-height: 50px;
+        font-weight: bold;
+        height: 50px;
+        font-size: 20px;
+    }
+
+}
+.booking-input{
+    border: 1px solid #E3E3E3;
+    background-color: #fff;
+    width: 298px;
+    height: 44px;
+    line-height: 44px;
+    text-indent: 9px;
+    font-size: 14px;
+
+}
+.booking-list{
+    width: 1221px;
+    overflow: hidden;
+    margin-top: 30px;
+    padding-bottom: 98px;
+    li{
+        width: 377px;
+        float: left;
+        margin-right: 30px;
+
+    }
+    h3{
+        font-size: 20px;
+        line-height: 56px;
+        border-bottom: 1px solid #E6E6E6;
+    }
+}
+.booking-case{
+    background:  url('//img.huizecdn.com/hz/www/page/booking/banner2.jpg') center 0 no-repeat;
+    height: 781px;
+    padding-top: 50px;
+
+}
+.booking-tab-con{
+    padding: 45px 0 0 120px;
+    overflow: hidden;
+}
+.booking-case-img{
+    text-align: center;
+    width: 262px - 95px - 60px;
+    height: 419px - 26px;
+    line-height: 30px;
+    font-size: 16px;
+    color:#D97070;
+    margin-bottom: 24px;
+    padding: 26px 95px 0 60px;
+}
+.booking-img1{
+    background:  url('//img.huizecdn.com/hz/www/page/booking/img4.jpg') 0 0 no-repeat;
+  color:#D97070;
+
+}
+.booking-img3{
+    background:  url('//img.huizecdn.com/hz/www/page/booking/img5.jpg') 0 0 no-repeat;
+  color:#42a9cf;
+
+}
+.booking-img4{
+    background:  url('//img.huizecdn.com/hz/www/page/booking/img6.jpg') 0 0 no-repeat;
+  color:#D97070;
+
+}
+.booking-tab-main{
+    float: left;
+    width: 519px;
+    border: 1px solid #E3DEDE;
+    border-bottom: none;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 100px;
+    position: relative;
+    height: 419px;
+    background-color: #FAFAFA;
+    padding-top: 53px;
+
+}
+.booking-img2{
+    position: absolute;
+    right: -17px;
+    top: 4px;
+}
+.booking-case-con{
+    background-color: #fff;
+    height: 100%;
+}
+.booking-case-con-p{
+    padding: 30px  0 0 0;
+    overflow: hidden;
+    padding-left: 142px;
+    text-align: left;
+}
+.booking-icon{
+    width: 51px;
+    border-radius: 50%;
+    text-align: center;
+    color:#fff;
+    line-height: 51px;
+    font-size: 30px;
+    display: inline-block;
+    background-color: #63BE94;
+    margin-right: 20px;
+    float: left;
+
+}
+.bookimg-txt3{
+    font-size: 19px;
+    color:#21a367;
+    line-height: 29px;
+}
+.booking-tab{
+    overflow: hidden;
+    background: url('//img.huizecdn.com/hz/www/page/booking/img7.jpg') 0 0 no-repeat;
+    li{
+        width: 396px;
+        float: left;
+        text-align: center;
+        color:#fff;
+        font-size: 18px;
+        line-height: 88px;
+        position: relative;
+        height: 88px;
+        font-weight: bold;
+        cursor: pointer;
+        &:before{
+            position: absolute;
+            top:0;
+            display: inline-block;
+            content:'';
+            left: 50%;
+            margin-left: -10px;
+
+            border-bottom:0 none;
+            border-left:10px solid transparent;
+            border-right:10px solid transparent;
+            _color:#fff;
+            _filter:chroma(color=#fff);
+        }
+
+        &.active{
+            background-image: url('//img.huizecdn.com/hz/www/page/booking/bgg.png');
+
+
+        }
+        &.active:before{
+            border-top:12px solid #FFFFFF;
+        }
+    }
+}
+.bookimg-txt4{
+    font-size: 18px;
+    padding:10px 0 0 50px;
+}
+.input-text-error{
+    border-color: #f00000;
+}
+.placeholder-text{
+    color:#999!important
+}

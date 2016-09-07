@@ -1,0 +1,90 @@
+<div class="insure-step-page pt20 pb20 f14 bgf0">
+
+
+    <div class="layout clearfix pt30 pb30">
+
+        <div class="insure-step-primary">
+            <div class="insure-step-container">
+                <div class="insure-write-tip">
+                    <i class="hz-bgpic-sprite hz-bgpic-11"></i>
+                    为了保障您的权益，请填写真实有效的信息。您填写的内容仅供投保使用，对于您的信息我们会严格保密。
+                </div>
+                <div class="insure-step-body p30 bgfw" id="healbody">
+                    <%- data.temlate || '' %>
+                </div>
+            </div>
+        </div><!--insure-step-primary end-->
+
+        <div class="insure-step-secondary" style="display: none">
+            <div class="secondary-hot-product bgfw">
+
+                <div class="secondary-hot-product-head">
+                    <a class="company-logo" href="<%= locals.mainHost %>brand/detail/69">
+                        <img src="" id="companyLogoUrl" height="45">
+                    </a>
+                    <h2 class="hot-product-title mt35 f18"><a href="javascript:;" target="_blank" id="productName"></a></h2>
+                </div>
+
+                <div class="secondary-hot-product-body">
+                    <div class="protect-item">
+                        <h4 class="fc6 f14 fb mb5" for="paymentType" style="display: none;">缴费方式</h4>
+                        <p class="f12 fc6 mb15" id="paymentType"></p>
+                        <h4 class="fc6 f14 fb mb5">保障期限</h4>
+                        <p class="f12 fc6 mb15" id="protectYear">1年</p>
+
+
+                        <h4 class="fc6 f14 fb mb5">保障权益</h4>
+
+
+                        <div class="protect-list-box">
+                            <ul class="hz-list f12 fc6 lh20" id="protectList"></ul>
+                        </div>
+                    </div>
+                    <!--protect-item end-->
+
+                </div>
+                <!--secondary-hot-product-body end-->
+
+                <div class="secondary-hot-product-foot">
+
+                    <div class="hz-list lh20">
+                        <div class="hz-list-item">
+                            <span class="hz-list-title">价格</span>
+                            <p class="hz-list-content tar">
+                                ¥<span id="price"></span>
+                            </p>
+                        </div>
+
+
+                        <div class="hz-list-item">
+                            <span class="hz-list-title">份数</span>
+                            <p class="hz-list-content tar" id="count">1</p>
+                        </div>
+
+                    </div>
+
+                    <div class="mt15 hot-product-price">
+                        <p class="primary-color fr">
+                            ¥<span class="f36" id="totalPrice"></span>
+                        </p>
+                        <span>合计</span>
+                    </div>
+                    <!--hot-product-price end-->
+
+                </div>
+                <!--secondary-hot-product-foot end-->
+
+            </div>
+            <!--secondary-hot-product end-->
+
+        </div>
+        <!--insure-step-secondary end-->
+
+
+    </div><!--layout end-->
+
+</div>
+<script>
+
+
+</script>

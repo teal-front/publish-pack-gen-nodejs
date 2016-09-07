@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* 功能：huize.com - button 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.hz-button { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; height: 40px; line-height: 40px; padding: 0 20px; color: #333; background: #fff; text-align: center; white-space: nowrap; font-size: 14px; cursor: pointer; user-select: none; border: 1px solid #ddd; box-sizing: border-box; font-family: "Microsoft YaHei"; border-radius: 2px; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
+.hz-button:focus, .hz-button.focus, .hz-button:active:focus, .hz-button:active.focus, .hz-button.active:focus, .hz-button.active.focus { border-color: #f6ab1a; }
+.hz-button.focus { text-decoration: none; }
+.hz-button:active, .hz-button.active { background-image: none; outline: 0; }
+.hz-button.disabled, .hz-button:disabled { cursor: not-allowed; border-color: #ccc; color: #fff; background: #ddd; border-width: 0; }
+.hz-button:hover { text-decoration: none; }
+
+.hz-button-large { height: 50px; line-height: 50px; font-size: 18px; font-family: 'Microsoft YaHei'; }
+
+.hz-button-small { height: 30px; line-height: 30px; font-size: 12px; }
+
+.hz-button-primary { color: #fff; background: #f6ab1a; border: 0; }
+.hz-button-primary:hover { background: #ffc555; }
+.hz-button-primary.disabled, .hz-button-primary:disabled { background: #ddd; border-width: 0; }
+
+.hz-button-secondary { color: #fff; background: #2150a2; border: 0; }
+.hz-button-secondary:hover { background: #3e6fc4; }
+.hz-button-secondary.disabled, .hz-button-secondary:disabled { background: #ddd; border-width: 0; }
+
+.hz-button-block { display: block; width: 100%; padding: 0; }
+
+.hz-button-block + .hz-button-block { margin-top: 5px; }
+
+input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block { width: 100%; }
+
+.hz-button-disabled, .hz-button-disabled:hover { cursor: not-allowed; border-color: #ccc; color: #fff; background: #ddd; border-width: 0; }
+
+.button-cancel { padding: 0 28px; border: 1px solid #ddd; background: #f8f8f8; color: #666; }
+.button-cancel:focus { border-color: #ddd !important; }
+
+.button-ok { padding: 0 28px; border-color: #f6ab1a; background: #f6ab1a; color: #fff; font-weight: bold; margin-left: 5px; }
+
+/*# sourceMappingURL=buttons.css.map */

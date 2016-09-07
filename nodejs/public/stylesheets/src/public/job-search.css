@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* 功能：huize.com - 产品对比 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+/*职业搜索*/
+.detail-job-search { background: #f0f0f0; }
+.detail-job-search .hz-breadcrumb, .detail-job-search .hz-breadcrumb a { color: #666; }
+.detail-job-search .hz-table tr td, .detail-job-search .hz-table tr th { vertical-align: middle; border-color: #f0f0f0; }
+.detail-job-search .hz-table tr th { background: #f9f9f9; }
+.detail-job-search .job-search-input { width: 380px; height: 22px; line-height: 22px; }
+.detail-job-search .job-search-button { padding: 0 28px; font-size: 16px; font-weight: bold; vertical-align: top; }
+.detail-job-search .product-title { font-family: "Microsoft YaHei"; }
+.detail-job-search .product-title a:hover { text-decoration: none; color: #2150a2; }
+.detail-job-search .highlight { color: #f6ab1a !important; }
+
+/*# sourceMappingURL=job-search.css.map */

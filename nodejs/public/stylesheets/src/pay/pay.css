@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/* 功能：huize.com - 结算支付页面 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+/*结算页面*/
+.confirm-order-page .confirm-order-product-table tr td, .confirm-order-page .confirm-order-product-table tr th { padding: 20px; line-height: 38px; }
+.confirm-order-page .confirm-order-operate-list { padding: 20px; }
+.confirm-order-page .confirm-order-operate-list .confirm-order-operate-item { padding-bottom: 5px; height: 30px; line-height: 30px; }
+.confirm-order-page .confirm-order-operate-table { width: 100%; }
+.confirm-order-page .confirm-order-operate-table > tbody > tr > th, .confirm-order-page .confirm-order-operate-table > tbody > tr > td { border-top: none; vertical-align: middle; }
+.confirm-order-page .confirm-order-operate-item .hz-table td, .confirm-order-page .confirm-order-operate-item .hz-table th { vertical-align: middle; }
+.confirm-order-page .confirm-order-operate-input { height: 20px; padding: 4px; vertical-align: middle; width: 78px; }
+.confirm-order-page .confirm-order-product-table { border: none; width: 100%; }
+.confirm-order-page .confirm-order-product-table td, .confirm-order-page .confirm-order-product-table th { border-top: 1px solid #dde9fd; }
+.confirm-order-page .child-item td { background: #fafcfe; border-top: 1px solid #fff !important; border-top: none; line-height: 1 !important; }
+.confirm-order-page .confirm-order-product-head th { border-bottom: 1px solid #dde9fd; line-height: 1 !important; border-top: none; }
+.confirm-order-page .confirm-order-product-title:hover { color: #2150a2; text-decoration: none; }
+.confirm-order-page .bean-dropdown, .confirm-order-page .redbag-dropdown { width: 590px; *height: 300px; max-height: 300px; overflow: hidden; overflow-y: auto; }
+.confirm-order-page .bean-dropdown .hz-table, .confirm-order-page .redbag-dropdown .hz-table { border: none; }
+.confirm-order-page .redbag-dropdown .hz-table th { background: #fafcfe; padding: 20px 10px; }
+.confirm-order-page .bean-dropdown { width: 350px; *height: 280px; max-height: 280px; }
+.confirm-order-page .target-red-button { border: 1px solid #ddd; background: #f8f8f8; }
+.confirm-order-page .confirm-order-product-foot > tbody > tr > td { padding: 20px 30px; }
+.confirm-order-page .confirm-order-product-foot .button-pay { padding: 0 60px; }
+.confirm-order-page .marketing-plan-table tr th { background: #f6f9fe; padding: 11px 20px; }
+.confirm-order-page .marketing-plan-table table td { border-color: #f0f0f0; padding-left: 0 !important; }
+.confirm-order-page .marketing-plan-table .first-row td { border-top: none; }
+.confirm-order-page .marketing-plan-table .marketing-plan-td { padding: 0 0 0 20px; border-top: none; }
+
+.order-checkout-page .order-checkout-meta { font-family: "Microsoft YaHei"; }
+.order-checkout-page .order-product-info { padding: 30px 30px 20px; }
+
+.mailing-address-dialog { padding: 30px 60px; }
+.mailing-address-dialog .address-area { height: 60px; width: 96%; padding: 5px; border: 1px solid #ddd; }
+.mailing-address-dialog .input-text { width: 92%; }
+.mailing-address-dialog .input-select-text { height: 32px; line-height: 32px; }
+
+/*收银台*/
+.order-checkout-page .pay-tab-menu { background: #f0f0f0; }
+.order-checkout-page .pay-tab-menu .hz-tab-menu-item a { color: #333; }
+.order-checkout-page .more-pay { font-size: 16px; color: #2150a2; }
+.order-checkout-page .more-pay .iconfont { font-size: 12px; display: inline-block; *display: inline; *zoom: 1; vertical-align: text-bottom; }
+.order-checkout-page .more-pay:hover { color: #f6ab1a; text-decoration: none; }
+.order-checkout-page .button-pay { padding: 0 60px; }
+.order-checkout-page .checkout-info { line-height: 30px; }
+.order-checkout-page .checkout-info .primary-color { line-height: 24px; }
+.order-checkout-page .checkout-product { border-top: 1px solid #f0f0f0; padding: 13px 30px 30px 0; }
+.order-checkout-page .checkout-product .checkout-product-dropdown { margin: 15px 0 0 320px; }
+.order-checkout-page .checkout-product .checkout-product-dropdown .hz-table { border-color: #dde9fd; }
+.order-checkout-page .checkout-product .target-dropdown-link .iconfont { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; -webkit-transition: all, 0.25s, linear 0.25s; -moz-transition: all, 0.25s, linear 0.25s; -ms-transition: all, 0.25s, linear 0.25s; -o-transition: all, 0.25s, linear 0.25s; transition: all, 0.25s, linear 0.25s; }
+.order-checkout-page .checkout-product .target-dropdown-link:hover { text-decoration: none; color: #f6ab1a; }
+.order-checkout-page .checkout-product .target-dropdown-link:hover .iconfont { color: #f6ab1a; }
+.order-checkout-page .checkout-product .show-detail .iconfont { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
+.order-checkout-page .checkout-product .hz-table th { padding: 15px 10px; background: #f6f9fe; border-top-color: #dde9fd; }
+.order-checkout-page .checkout-product .hz-table td { padding: 20px 10px; }
+.order-checkout-page .pay-list .hz-radio-item { padding: 14px; width: 194px; border: 1px solid #eee; margin: 0 0 -1px -4px; }
+.order-checkout-page .bankcard-table th { border-bottom: 1px solid #f0f0f0; padding: 10px 0; text-align: left; }
+.order-checkout-page .bankcard-table td { padding: 10px 0; }
+.order-checkout-page .bankcard-table .last-item { border-bottom: 1px solid #f0f0f0; }
+.order-checkout-page .bankcard-table .first-row { padding-left: 60px; }
+
+.pay-dialog .button-status { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; background: #f9f9f9; padding: 0 10px; border: 1px solid #ddd; }
+.pay-dialog .button-status:hover { text-decoration: none; }
+.pay-dialog .complete-tip .iconfont { display: inline-block; *display: inline; *zoom: 1; margin-top: -5px; line-height: 1; color: #f6ab1a; }
+.pay-dialog .error-tip .iconfont { display: inline-block; *display: inline; *zoom: 1; margin-top: -5px; line-height: 1; color: #f00; }
+.pay-dialog .pay-faq { margin-top: 5px; padding: 10px 30px; background: #fbfbfb; line-height: 2; }
+.pay-dialog .pay-faq .help-link:hover { color: #f6ab1a; text-decoration: none; }
+.pay-dialog .pay-faq .help-link:hover .iconfont { display: inline-block; *display: inline; *zoom: 1; -webkit-transition: all, 0.25s, linear 0.25s; -moz-transition: all, 0.25s, linear 0.25s; -ms-transition: all, 0.25s, linear 0.25s; -o-transition: all, 0.25s, linear 0.25s; transition: all, 0.25s, linear 0.25s; color: #f6ab1a; }
+.pay-dialog .pay-faq .show-detail .iconfont { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
+
+/*支付成功*/
+.order-pay-success-page .pay-success-share-item a { display: block; padding: 0 20px 5px; border-bottom: 3px solid #fbfbfb; }
+.order-pay-success-page .pay-success-share-divide { height: 16px; margin: 8px 15px 0; border-left: 1px dotted #bfbfbf; }
+.order-pay-success-page .pay-success-share-menu .pay-success-share-item a:hover { text-decoration: none; }
+.order-pay-success-page .pay-success-share-menu .active a { border-bottom-color: #2150a2; font-weight: bold; }
+.order-pay-success-page .pay-success-share-menu .sina-item .iconfont { color: #ff6d62; }
+.order-pay-success-page .pay-success-share-menu .wx-item .iconfont { color: #96e36a; }
+.order-pay-success-page .pay-success-share-menu .qzoom-item .iconfont { color: #ffc04d; }
+.order-pay-success-page .pay-success-share-menu .tx-item .iconfont { color: #4ed0f0; }
+.order-pay-success-page .pay-success-others { padding: 30px 35px 30px 75px; border-left: 1px solid #ddd; }
+.order-pay-success-page .pay-success-info .hz-media-pic .iconfont { font-size: 60px; color: #f6ab1a; }
+.order-pay-success-page .pay-success-info .success-icon { color: #f6ab1a; }
+.order-pay-success-page .gift-list-item { padding-right: 60px; border-right: 1px solid #ddd; }
+.order-pay-success-page .gift-list-item.last-item { border-right: none; }
+.order-pay-success-page .pay-success-service-box .success-server-item { width: 33.33%; }
+.order-pay-success-page .pay-success-service-box .success-server-item .hz-media-pic { width: 58px; height: 58px; line-height: 58px; background: #fff; border: 2px solid #f0f0f0; border-radius: 5px; color: #cbdbf5; text-align: center; }
+.order-pay-success-page .pay-success-service-box .success-server-item .iconfont { font-size: 36px; }
+.order-pay-success-page .pay-success-share-body .share-others-content { border: 1px solid #ddd; background: #fff; padding: 10px 15px; box-shadow: 0 1px 2px #ddd inset; }
+.order-pay-success-page .pay-success-share-body .share-link:hover { text-decoration: none; }
+.order-pay-success-page .pay-success-share-area { width: 100%; border: none; line-height: 1.7; height: 70px; overflow-x: hidden; overflow-y: auto; font-size: 14px; }
+.order-pay-success-page .pay-success-share-pic { display: table-cell; *display: inline-block; vertical-align: middle; width: 55px; height: 55px; padding: 2px; border: 1px solid #ddd; cursor: pointer; background: #fff; margin-right: 8px; }
+.order-pay-success-page .pay-success-share-pic img { width: 100%; }
+.order-pay-success-page .pay-success-share-pic-selected { padding: 1px; border: 2px solid #ffcc00; cursor: default; }
+
+.pay-success-share-foot .button-share { padding: 0 50px; }
+
+/*# sourceMappingURL=pay.css.map */

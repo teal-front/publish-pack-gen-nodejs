@@ -1,0 +1,26 @@
+<%
+var comList = homeData.com||[];
+%>
+<div class="columns-box bgfw">
+	<div class="layout">
+		<div class="columns-header tac">
+			<h3 class="f28"><strong>80+</strong> 保险公司， <strong>1000+</strong> 保险产品</h3>
+			<p class="f16 mt20 fc9">去除保险销售的中间环节，帮你省去传统保险销售中的中介费用，击穿行业底价！</p>
+		</div>
+		<div class="columns-body">
+			<ul class="company-list clearfix">
+				<%comList.forEach(function(item){%>
+				<li class="company-item fl">
+					<a href="<%=item.href%>" title="<%=item.name%>" target="_blank">
+						<img  src="<%=item.imgUrl%>" alt="<%=item.name%>" />
+					</a>
+				</li>
+				<%});%>
+			</ul>
+		</div>
+		<!--news-body end-->
+		<div class="columns-footer mt45 tac f16">
+			<a class="more-link" href="http://www.huize.com/brand/list/" target="_blank" title="保险公司列表">查看全部保险公司 <i class="iconfont f12">&#xe707;</i></a>
+		</div>
+	</div>
+</div>

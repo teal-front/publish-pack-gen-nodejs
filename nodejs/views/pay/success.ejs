@@ -1,0 +1,215 @@
+<%
+var
+    paymentGiveInfo = data.paymentGiveInfos || [],
+    beanGiveAmount = 0,
+    redEnvelopeGiveInfo = [],
+    growthValue = 0,
+    firstProduct = data.insuranceInfos[0] || {},
+    fistProductName = (firstProduct.insureCompanyName || "" ) + (firstProduct.productPlatformName || "") + (firstProduct.planPlatformName || ""),
+    needPaper1 = false,
+    needPaper2 = false,
+    needPaperType = 1;//1电子保单，2纸质保单，3既有纸质保单又有电子保单
+(data.insuranceInfos || []).forEach(function(item){
+   if(!needPaper2 && item.needPaper){
+       needPaper2 = true;
+   }
+   else if(!needPaper1 && !item.needPaper){
+       needPaper1 = true;
+   }
+});
+needPaperType = needPaper1 && needPaper2 ? 3 : (!needPaper1 && needPaper2 ? 2 : 1);
+paymentGiveInfo.forEach(function(item){
+    if(item.currencyId === 1003){
+        beanGiveAmount += item.amount;
+    }
+    else if(item.currencyId == -127){
+        growthValue += item.amount;
+    }
+    else if(item.currencyId === 1001){
+        redEnvelopeGiveInfo.push(item);
+    }
+});
+%>
+<div class="order-pay-success-page pb20 bgf0" data-product-title="<%= fistProductName%>"><!--支付成功页面标识-->
+    <div class="layout pb30 clearfix pt25 pb30">
+
+        <div class="pay-success-box p30 bgfw clearfix">
+
+            <div class="pay-success-others fr">
+                <div class="tac">
+                    <img src="//images.hzins.com/short/www/seo/fhz.png" width="120" alt="">
+                    <p class="mt15 f14">扫一扫,随时掌握投保进度</p>
+                </div>
+            </div>
+
+                <div class="pay-success-info hz-media-box ml40 mt10">
+                <div class="hz-media-pic mr30">
+                    <i class="iconfont success-icon">&#xe716;</i>
+                </div>
+                <%if(data.paymentType == 3){%>
+                    <div class="hz-media-box-content pt10">
+                        <strong>您的订单已提交，保险公司正在核保</strong>
+                        <p class="mt10">我们已将您的订单提交给保险公司核保，大概需要1-3个工作日；</p>
+                        <p class="mt10">核保通过后，保险公司将通知银行立即扣款，并为您出单。</p>
+                        <p class="mt10">请保持手机畅通，我们将短信通知您核保结果，并将保单发送到您的邮箱。</p>
+                        <p class="mt10">如您有任何疑问，请拨打客服热线4006-366-366 或联系 <a class="primary-link" id="kfLink" href="javascript:;">在线客服</a></p>
+                    </div>
+                <%}else{%>
+                    <div class="hz-media-box-content pt10">
+                    <p class="f14 fb">您已成功付款 <strong class="primary-color"> <%= (data.paymentAmount / 100).toFixed(2)%> </strong> 元</p>
+                    <p class="mt10">
+                        <%=needPaperType === 1 ? "您的保单将在30分钟内发送至您的邮箱，请登录邮箱或我的保险箱查询下载！" : (needPaperType === 2 ? "您选择了纸质保单，我们将在一个工作日内通知保险公司安排寄送，请您留意查收!" : "您的电子保单（或承保确认函）将在30分钟内发送至您邮箱，请登录邮箱或我的保险箱查询下载！"
+                            + "若您选择了纸质保单，我们将在一个工作日内通知保险公司安排寄送，请您留意查收")%>
+                    </p>
+                    <div class="mt20">
+                        <% if(paymentGiveInfo.length !== 0){ %>
+                        <p class="fc6"><strong>本单获赠</strong></p>
+                        <ul class="gift-list lh20 mb25 mt20">
+                            <% if(beanGiveAmount !== 0){ %>
+                            <li class="gift-list-item inline-block mr10">
+                                <p>金豆</p>
+                                <p><%= beanGiveAmount %><a class="primary-link ml10" href="http://www.huize.com/jindoushangcheng/" target="_blank">金豆商城</a></p>
+                            </li>
+                            <% } %>
+                            <% if( redEnvelopeGiveInfo.length !== 0){ %>
+                            <li class="gift-list-item inline-block mr10">
+                                <p>红包</p>
+                                <% redEnvelopeGiveInfo.forEach(function(item){ %>%>
+                                <p>满<%= (item.thresholdAmount / 100).toFixed(2) %>减去<%= (item.amount / 100).toFixed(2) %>元</p>
+                                <% });%>
+                            </li>
+                            <% } %>
+                            <% if(growthValue !== 0){ %>
+                            <li class="gift-list-item last-item inline-block mr10">
+                                <p>成长值</p>
+                                <p><%= growthValue%><a class="primary-link ml10" href="http://i.huize.com/MySafe/Member" target="_blank">查看详情</a></p>
+                            </li>
+                            <% } %>
+                        </ul>
+                        <% } %>
+                        <p>
+                            <a href="http://i.huize.com/Order/Detail?orderNum=<%= data.orderNum%>" class="primary-link" target="_blank">查看订单详情</a>
+                            <!--<span class="pr5 pl5">|</span>-->
+                            <!--<a href="http://is.huize.com/Questionnaire/index?type=2&insCode=<%= data.insureSurveyId%>" class="primary-link" target="_blank">参与投保体验调研</a>-->
+                        </p>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+
+        </div>
+        <!--pay-success-box end-->
+
+        <div class="pay-success-footer p30 bgfb">
+
+            <%if(data.paymentType != 3){%>
+              <div class="pay-success-service-box">
+                <h3 class="pb15 fb f14 fc6 bor-bottom">您可免费享有以下服务</h3>
+
+                <ul class="success-server-list mt30 mb30 clearfix">
+                    <li class="success-server-item fl hz-media-box">
+                        <div class="hz-media-pic mr20">
+                            <i class="iconfont">&#xe73c;</i>
+                        </div>
+                        <dl class="hz-media-box-content">
+                            <dt class="f14">理赔无忧</dt>
+                            <dd class="lh20 f12 mt10 fc6">
+                                <p>支持在线、微信、邮件等多种报案方式</p>
+                                <p>提醒保险公司优先立案</p>
+                                <p>协助整理理赔资料</p>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li class="success-server-item fl hz-media-box">
+                        <div class="hz-media-pic mr20">
+                            <i class="iconfont">&#xe73b;</i>
+                        </div>
+                        <dl class="hz-media-box-content">
+                            <dt class="f14">
+                                保单到期提醒
+                            </dt>
+                            <dd class="lh20 f12 mt10 fc6">
+                                <p>保单到期邮件自动提醒</p>
+                                <p>智能服务更贴心</p>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="success-server-item fl hz-media-box">
+                        <div class="hz-media-pic mr20">
+                            <i class="iconfont">&#xe73d;</i>
+                        </div>
+                        <dl class="hz-media-box-content">
+                            <dt class="f14">
+                                专属顾问服务
+                            </dt>
+                            <dd class="lh20 f12 mt10 fc6">
+                                <p>资深顾问综合考虑您的情况及保险诉求</p>
+                                <p>为您量身定制保障方案</p>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <%}%>
+            <div class="pay-success-share-box">
+                <h3 class="pb15 fb f14 fc6 bor-bottom">觉得慧择网不错，想让更多人知道？</h3>
+
+                <div class="pay-success-share-content mt25">
+                    <ul class="pay-success-share-menu clearfix">
+                        <li class="pay-success-share-item fl pt10 pr35 mr45">分享到</li>
+                        <li class="pay-success-share-item sina-item fl  active"><a href="javascript:;"><i class="iconfont f20 mr10">&#xe72c;</i> 微博</a></li>
+                        <li class="pay-success-share-divide fl"></li>
+                        <li class="pay-success-share-item wx-item fl"><a href="javascript:;"><i class="iconfont f20 mr10">&#xe72e;</i> 微信</a></li>
+                        <li class="pay-success-share-divide fl"></li>
+                        <li class="pay-success-share-item qzoom-item fl"><a href="javascript:;"><i class="iconfont f20 mr10">&#xe72b;</i> 空间</a></li>
+                        <li class="pay-success-share-divide fl"></li>
+                        <li class="pay-success-share-item tx-item fl"><a href="javascript:;"><i class="iconfont f20 mr10">&#xe72d;</i> 微博</a></li>
+                    </ul>
+                    <div class="pay-success-share-body bgfw">
+                        <div class="share-others-content">
+                            <textarea class="pay-success-share-area">我刚在@慧择保险网 买了一款保险：<%= (firstProduct.productPlatformName + firstProduct.planPlatformName)%>。免费提供专业保险顾问，还有24小时贴心客服，出险全程协助理赔！很棒的产品和服务哦！推荐给大家，快来@慧择保险网 给自己和家人添一份保障吧~</textarea>
+                            <a class="share-link fcc f18" href="<%=mainHost%>product/detail-<%= firstProduct.productPlatformId%>.html" target="_blank"><%=mainHost%>product/detail-<%= firstProduct.productPlatformId%>.html</a>
+                        </div>
+
+                        <div class="share-wx-content p5" style="display: none;">
+                            <p class="fl mr10"><img width="95" height="95" src=" /api/products/<%= firstProduct.productPlatformId%>/qrcode"></p>
+                            <p class="lh20 fc6 pt15">
+                                我刚在@慧择保险网&nbsp;买了一款保险：<%= (firstProduct.productPlatformName + firstProduct.planPlatformName)%>。<br>
+                                免费提供专业保险顾问，还有24小时贴心客服，出险全程协助理赔！很棒的产品和服务哦！<br>
+                                推荐给大家，快来@慧择保险网 给自己和家人添一份保障吧~
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="pay-success-share-foot mt15 mb20 clearfix">
+                        <li class="fl mr10">
+                            <div class="pay-success-share-pic pay-success-share-pic-selected">
+                                <img src="//img.huizecdn.com/hz/www/page/payview/share/slogo.png" >
+                            </div>
+                        </li>
+                        <!--<li class="fl">-->
+                            <!--<p class="pt20">已选择<span class="share-pic-selected">3</span>张，还可以选择<span class="share-pic-left">0</span>张</p>-->
+                        <!--</li>-->
+
+
+                        <li class="fr">
+                            <a class="hz-button hz-button-primary button-share mt10" href="javascript:;" id="share">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;享</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--pay-success-share-box end-->
+
+        </div>
+
+
+
+    </div><!--layout end-->
+
+</div>
+<!--page end-->
+<script>
+    var pageData = <%- JSON.stringify(data)%>;
+</script>

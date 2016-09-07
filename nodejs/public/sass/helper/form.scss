@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 表单
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+@import '../config';
+
+.input-text {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+  box-shadow: 0 1px 1px 0 #DDDDDD inset;
+  &:focus {
+    border-color: #dde9fd;
+    background-color: #f6f9fe !important;
+  }
+  &:disabled {
+    background: #eee;
+    color: #555;
+    cursor: not-allowed;
+  }
+}
+
+.input-text-error {
+  border-color: #ff0000 !important;
+  background-color: #fff;
+
+  .input-select-text {
+    border-color: #ff0000 !important;
+    background-color: #fff;
+  }
+}
+
+
+
+
+
+//下拉模拟
+.input-select {
+  @include inlineBlock;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+
+  .input-select-text {
+    float: left;
+    border: 1px solid #ccc;
+    padding: 0 24px 0 8px;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    box-shadow: 0 0 0;
+    cursor: pointer;
+    overflow: hidden;
+    min-width: 25px;
+  }
+
+  b {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -7px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.5;
+  }
+
+}
+
+
+
+//产品数量加减
+.product-amount-wrap {
+  @include clearfix;
+  @include inlineBlock;
+  vertical-align: middle;
+
+  text-align: center;
+  line-height: 28px;
+  .product-amount-input,
+  .product-amount-increase,
+  .product-amount-decrease {
+    float: left;
+  }
+
+  .product-amount-increase,
+  .product-amount-decrease {
+    width: 28px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    color: #999;
+    cursor: pointer;
+    @include userSelect;
+    &:hover {
+      background: #f6f9fe;
+      border-color: #dde9fd;
+    }
+  }
+
+  .product-amount-input {
+    width: 54px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 2px;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  .disabled {
+    color:#ccc;
+    cursor: not-allowed;
+  }
+}
+
+
+/*表单组*/
+
+
+
+/*toast*/
+.layui-layer-loading .layui-layer-loading1 {
+  width: 400px !important;
+  background: rgba(0,0,0,0.6) !important;
+  border-radius: 8px;
+  height: 60px !important;
+  line-height: 60px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+

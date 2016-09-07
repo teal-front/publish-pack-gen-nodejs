@@ -1,0 +1,79 @@
+<col width="16%">
+<col width="21%">
+<col width="21%">
+<col width="21%">
+<col width="21%">
+<area>
+<!--产品信息-->
+<tr class="first-row">
+    <th class="tar">产品名称</th>
+    <% for(var i=0;i<4;i++){
+       var item=datas[i];
+      var vipPrice="";
+    %>
+    <td>
+        <% if(item){
+             vipPrice=item.restrictRuleOperList[0].trialPrice&&item.restrictRuleOperList[0].trialPrice.vipPrice;
+        %>
+        <p class="company-pic pb10">
+            <a target="_blank" href="http://www.huize.com/brand/detail/<%=item.companyId%>">
+                <img src="<%=item.bigLogoImg%>" height="45">
+            </a>
+        </p>
+
+        <h2 class="product-title lh15  f14 fb"><a href="//www.huize.com/product/detail-<%=item.operProductId%>.html?DProtectPlanId=<%=item.operPlanId%>" target="_blank"><%=item.operProductName%> <%=item.operPlanName%></a></h2>
+        <p class="price-item mt15 mb15 planHeader" planId="<%=item.operPlanId%>">¥<%=(vipPrice?(vipPrice/100).toFixed(2):"-")%></p>
+        <div class="product-meta">
+            <a class="hz-button hz-button-small" href="/product/detail-<%=item.operProductId%>.html?DProtectPlanId=<%=item.operPlanId%>" target="_blank">查看详情</a><% if(item.supportShoppingCart){%>
+            <span class="ml10"><i class="iconfont f20 mr5">&#xe728;</i><a href="javascript:;" class="f12" planId="<%=item.operPlanId%>" addToShop="true">加入购物车</a></span>
+            <%}%>
+        </div>
+        <%}%>
+    </td>
+    <%}%>
+</tr>
+<area>
+<!--表格头部-->
+<table class="hz-table hz-table-bordered">
+    <colgroup>
+        <col width="16%">
+        <col width="21%">
+        <col width="21%">
+        <col width="21%">
+        <col width="21%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="toggle-head" colspan="5">
+                <a class="fr" href="javascript:;"><i class="iconfont f18 fc9">&#xe712;</i></a>
+                <span class="fc6"><%=datas.title%></span>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody id="protectType<%=datas.index%>">
+    </tbody>
+</table>
+
+<area>
+<!--下拉选择框-->
+<div class="hz-dropdown pt5 pb5" key="<%=datas.key%>" control="<%=datas.controlType%>" protectItemId="<%=datas.protectItemId%>" defaultValue="<%=datas.defaultValue%>" optValue="<%=datas.defaultValue%>" planId="<%=datas.planId%>"  lastValue="<%=datas.defaultValue%>" isProtect="<%=datas.isProtect%>">
+    <div class="input-select">
+        <span class="input-select-text more-tag no-select"><%=datas.defaultText%></span>
+        <b class="iconfont">&#xe70b;</b>
+    </div>
+    <div class="hz-dropdown-content" style=" display: none;">
+        <ul class="hz-dropdown-menu">
+            <% _.each(datas.dictionaryList,function(item,index){%>
+            <li class="hz-select-option"  selectValue="<%=item.value%>" planId="<%=datas.planId%>" key="<%=datas.key%>" protectItemId="<%=datas.protectItemId%>"><%=(item.byname||item.value)%></li>
+            <%})%>
+        </ul>
+    </div>
+</div>
+
+<area>
+<!--文本输入框-->
+<input type='text' <%=datas.enabled%> planId='<%=datas.planId%>' class='<%=datas.className%>' dict='<%=datas.dict%>' isProtect='<%=datas.isProtect%>' key='<%=datas.key%>' optValue='<%=datas.defaultValue%>' protectItemId='<%=datas.protectItemId%>' defaultValue="<%=datas.defaultValue%>" lastValue="<%=datas.defaultValue%>" value='<%=datas.optValue%>'/>
+<area>
+<!--纯文本-->
+<span planId='<%=datas.planId%>' class='<%=datas.className%>' dict='<%=datas.dict%>' isProtect='<%=datas.isProtect%>' key='<%=datas.key%>' optValue='<%=datas.defaultValue%>' protectItemId='<%=datas.protectItemId%>' defaultValue="<%=datas.defaultValue%>" lastValue="<%=datas.defaultValue%>" value='<%=datas.optValue%>'><%=datas.optValue%></span>

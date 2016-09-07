@@ -1,0 +1,8 @@
+/**
+ ** 
+ ** www.huize.com; 
+ ** Version:0.1.0;
+ ** Last Updated:2016-08-09; 
+ **
+ **/
+define(["jquery","layer","jquery-plugins","jquery-placeholder"],function($,a){var b={init:function(){this.placeholder(),this.nav(),this.friend(),this.viewHtml()},nav:function(){function a(){var a=f.offset();f.addClass("main-menu-link-hover"),g.css({left:a.left-160,top:a.top+f.outerHeight()}).show()}function b(){f.removeClass("main-menu-link-hover"),g.hide()}function c(a){"productCategoriges"!==$(a.target).data("dropdown")&&b()}var d,e,f=$("#productCategoriges"),g=$('[data-dropdown-item="productCategoriges"]');g.css({position:"absolute"}),$("body").on("click",c),f.on("mouseenter",function(){e=setTimeout(function(){a()},300)}).on("mouseleave",function(){clearTimeout(e),d=setTimeout(b,300)}),g.on("mouseenter",function(){clearTimeout(d)}).on("mouseleave",function(){d=setTimeout(b,300)}),requirejs(["fixed-tool-float","sub-menu","top-menu"],function(a,b,c){new b,new c})},viewHtml:function(){$(".dialog-view-html").on("click",function(){a.open({type:1,title:"提示信息",area:["600px","400px"],content:'<div class="p20">'+$(this).data("html")+"</div>",btn:["关闭"]})})},placeholder:function(){$(".placeholder-item").placeholder({wrapTagName:!1})},friend:function(){$(".friend-link-tab-list").on("mouseenter",".friend-link-tab-item",function(){var a=$(this).data("tab");$(".friend-link-tab-item").removeClass("active"),$(this).addClass("active"),$(".friend-link-tab-pane").addClass("fn-hide"),$('.friend-link-tab-pane[data-tab="'+a+'"]').removeClass("fn-hide")})}};b.init()});

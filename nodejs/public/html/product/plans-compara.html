@@ -1,0 +1,83 @@
+
+<div class="diolog-plan pl20 pr20 pb20 pr5" id="tabgen">
+    <dl class="mt20 mb10 hz-media-box">
+        <dt class="hz-media-pic lh28 f14">请选择需要对比的计划：</dt>
+        <dd class="hz-media-content pt10" id="planList">
+            <% _.each(plans,function(item,index){%>
+            <div planId="<%=item.planId%>" class="hz-check-item inline-block mb10 mr20 <%if(index<4){%>hz-check-item-checked<%}%>">
+                <i class="hz-check-icon"></i><span class="hz-check-text fc6"><%=item.planName%></span>
+            </div>
+            <%})%>
+        </dd>
+    </dl>
+    <table class="hz-table plan-head" id="planHead">
+        <colgroup>
+            <% if(plans.length>3) {%>
+                <col width="160px">
+                <% _.each(plans,function(item,index){%>
+                    <col width="160px" planId="<%=item.planId%>" class="<%if(index>=4){%>fn-hide<%}%>">
+                <%})%>
+
+            <%}else{%>
+
+                <col width="<%=100/(plans.length+1)+'%'%>">
+                <% _.each(plans,function(item,index){%>
+                <col width="<%=100/(plans.length+1)+'%'%>" planId="<%=item.planId%>" class="<%if(index>=4){%>fn-hide<%}%>">
+                <%})%>
+            <%}%>
+        </colgroup>
+        <thead>
+            <tr>
+                <th></th>
+                <% _.each(plans,function(item,index){%>
+                <th planId="<%=item.planId%>" class="<%if(index>=4){%>fn-hide<%}%>">
+                    <div class="ell"><%=item.planName%></div>
+                </th>
+                <%})%>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="hz-table plan-table f14">
+        <colgroup>
+            <% if(plans.length>3) {%>
+                <col width="160px">
+                <% _.each(plans,function(item,index){%>
+                <col width="160px" planId="<%=item.planId%>" class="<%if(index>=4){%>fn-hide<%}%>">
+                <%})%>
+
+            <%}else{%>
+
+                <col width="<%=100/(plans.length+1)+'%'%>">
+                <% _.each(plans,function(item,index){%>
+                <col width="<%=100/(plans.length+1)+'%'%>" planId="<%=item.planId%>" class="<%if(index>4){%>fn-hide<%}%>">
+                <%})%>
+            <%}%>
+        </colgroup>
+        <tbody>
+            <tr class="first-row">
+                <th class="tar">保费</th>
+                <% _.each(gens,function(pitem,index){
+                    var price=pitem.restrictRuleOperList[0].trialPrice&&pitem.restrictRuleOperList[0].trialPrice.vipPrice/100;
+                %>
+                <td  planId="<%=plans[index].planId%>"  class="<%if(index>=4){%>fn-hide<%}%>"><%=price&&price.toFixed(2)+"起"||"-"%></td>
+                <%})%>
+            </tr>
+    <%
+        _.each(keyList,function(item,index){
+            %>
+        <tr class="<% if(index==keyList.length-1){%>last-row<%}%>">
+            <th class="tar" ><%=item.t%></th>
+            <% _.each(plans,function(pitem,index){%>
+                <td  planId="<%=pitem.planId%>"  class="<%if(index>=4){%>fn-hide<%}%>">
+                    <div class="ell"><% if(item[pitem.planId]){%><%=item[pitem.planId]%><%}%></div>
+                </td>
+            <%})%>
+        </tr>
+    <%
+
+        })
+    %>
+    </tbody>
+    </table>
+</div>

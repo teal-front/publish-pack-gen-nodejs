@@ -1,0 +1,324 @@
+<input type="hidden" class="page-id" value="<%=pageId%>">
+<!-- 需要变更的产品ID，多个ID用,逗号分开 -->
+<input type="hidden" class="change-id" value="1519,727" />
+<input type="hidden" class="change-date" data-id="" data-unit="" value="" />
+
+<div class="fixed-plan">
+  <div class="detail-tab-wrap">
+          <div class="layout">
+              
+          <% include _fixed-head %>
+
+          </div>
+          <!--layout end-->
+      </div>
+  <div class="fix-plan-top">
+    <div class="layout">
+      <h3 class="f30 fl" id="planName" data-title="<%=planName%>"><%=planName%>
+          <span class="f18 primary-color">￥</span>
+          <span class="primary-color plan-top-price">7820.00</span><span class="f18 primary-color">起</span></h3>
+          <a href="javascript:;" class="hz-button hz-button-primary fr pl40 pr40 add-cart-btn add-cart-top">加入购物车</a>
+          <a href="http://www.huize.com/baoxianyuyue?oppName=<%=planName%>" target="_blank" class="fix-plan-bn">预约顾问</a>
+      </div>
+    </div>
+</div>
+
+
+
+  <div class="top-location layout programs-content">
+                  <div class="plan-banner plan-b4">
+                          <div class="f36 fcw fb mb5">一款方案给孩子全面保障</div>
+                          <ul class="plan-listo fcw">
+                                  <li><span class="mr5">&bull;</span>3.6万住院医疗保障</li>
+                                  <li><span class="mr5">&bull;</span>20万重疾保障</li>
+                                  <li><span class="mr5">&bull;</span>1.5万意外医疗补偿</li>
+                                  <li><span class="mr5">&bull;</span>自由规划教育金</li>
+                          </ul>
+                  </div>
+                  <div class="plan-introduce">
+                          <div class="plan-icon1"><i class="iconfont">&#xe753;</i></div>
+                          <p class="ovh lh22 f14 ti2em"><%=planDesc%></p>
+                  </div>
+                      <!-- 推荐计划 -->
+
+        <ul class="plan-list-com plan-list-c1"><!-- 三种方案 -->
+          <li data-planid="1041" class="bdC4E8D6">
+                  <h3>初级计划</h3>
+                  <div class="pl30 pr30">
+                          <div class="plan-list-item clearfix">
+                                  <label class="fl" for="calendar-demo1">出生日期</label>
+                                  <p class="fr">
+                                          <input class="Wdate" type="text" data-max="8" data-maxunit="year" data-min="30" data-minunit="day" data-val="31" data-valunit="day" data-key="insurantDate" id="calendar-demo1">
+                                  </p>
+                          </div>
+                           <div class="plan-list-item clearfix">
+                                  <label class="fl" for="sex">性别</label>
+                                  <div class="plan-radio-wrap" data-val="男" data-key="sex">
+                                      <div class="plan-radio active fl" data-val="男">男<p><span>&bull;</span></p></div>
+                                      <div class="plan-radio fr" data-val="女">女<p><span>&bull;</span></p></div>
+                                  </div>
+
+                           </div>
+                             <div class="plan-list-item clearfix">
+                                  <span class="fl">意外身故/伤残</span>
+                                  <p class="fr fb">12万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                  <span class="fl">意外医疗</span>
+                                  <p class="fr fb">1.5万元/年</p>
+                             </div>
+                            <div class="plan-list-item clearfix">
+                                <span class="fl">住院医疗</span>
+                                <p class="fr fb">3.6万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">意外住院津贴</span>
+                                <p class="fr fb">50元/天</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">重疾/身故保险金</span>
+                                <p class="fr fb">10万元</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">白血病保障</span>
+                                <p class="fr fb">10万元</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">大学教育金</span>
+                                <p class="fr fb">1万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">保费豁免</span>
+                                <p class="fr fb">是</p>
+                           </div>
+                  </div>
+                  <h4 class="mt10">价格<span class="fb ml10 plan-price">7820.00元</span></h4>
+                  <p  class="plan-triangle">
+                      <span class="triangle-a"></span>
+                      <i class="iconfont">&#xe72f;</i>
+                  </p>
+          </li>
+           <li data-planid="1042" class="bdF3FDFF ml30 mr30">
+                  <h3>升级计划</h3>
+                  <div class="pl30 pr30">
+                          <div class="plan-list-item clearfix">
+                                  <label class="fl" for="calendar-demo1">出生日期</label>
+                                  <p class="fr">
+                                          <input class="Wdate" type="text" data-max="5" data-maxunit="year" data-min="30" data-minunit="day" data-val="31" data-valunit="day" data-key="insurantDate" id="calendar-demo2">
+                                  </p>
+                          </div>
+                           <div class="plan-list-item clearfix">
+                                <label class="fl" for="sex">性别</label>
+                                <div class="plan-radio-wrap" data-val="男" data-key="sex">
+                                  <div class="plan-radio active fl" data-val="男">男<p><span>&bull;</span></p></div>
+                                  <div class="plan-radio fr" data-val="女">女<p><span>&bull;</span></p></div>
+                                </div>
+                           </div>
+                            <div class="plan-list-item clearfix">
+                                  <span class="fl">意外身故/伤残</span>
+                                  <p class="fr fb">12万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                  <span class="fl">意外医疗</span>
+                                  <p class="fr fb">1.5万元/年</p>
+                             </div>
+                            <div class="plan-list-item clearfix">
+                                <span class="fl">住院医疗</span>
+                                <p class="fr fb">3.6万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">意外住院津贴</span>
+                                <p class="fr fb">50元/天</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">重疾/身故保险金</span>
+                                <p class="fr fb">15万元</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">白血病保障</span>
+                                <p class="fr fb">20万元</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">高中教育金</span>
+                                <p class="fr fb">5000元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">大学教育金</span>
+                                <p class="fr fb">1.5万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">保费豁免</span>
+                                <p class="fr fb">是</p>
+                           </div>
+                  </div>
+                  <h4 class="mt10">价格<span class="fb ml10 plan-price">11190.00元</span></h4>
+                   <p  class="plan-triangle">
+                      <span class="triangle-a"></span>
+                      <i class="iconfont">&#xe72f;</i>
+                  </p>
+          </li>
+          <li data-planid="1043" class="bdDECFE8">
+                  <h3>至尊计划</h3>
+                  <div class="pl30 pr30">
+                          <div class="plan-list-item clearfix">
+                                  <label class="fl" for="calendar-demo1">出生日期</label>
+                                  <p class="fr">
+                                          <input class="Wdate" type="text" data-max="2" data-maxunit="year" data-min="30" data-minunit="day" data-val="31" data-valunit="day" data-key="insurantDate" id="calendar-demo3">
+                                  </p>
+                          </div>
+                           <div class="plan-list-item clearfix">
+                              <label class="fl" for="sex">性别</label>
+                              <div class="plan-radio-wrap" data-val="男" data-key="sex">
+                                <div class="plan-radio active fl" data-val="男">男<p><span>&bull;</span></p></div>
+                                <div class="plan-radio fr" data-val="女">女<p><span>&bull;</span></p></div>
+                              </div>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                  <span class="fl">意外身故/伤残</span>
+                                  <p class="fr fb">12万元</p>
+                             </div>
+                              <div class="plan-list-item clearfix">
+                                  <span class="fl">意外医疗</span>
+                                  <p class="fr fb">1.5万元/年</p>
+                             </div>
+                            <div class="plan-list-item clearfix">
+                                <span class="fl">住院医疗</span>
+                                <p class="fr fb">3.6万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">意外住院津贴</span>
+                                <p class="fr fb">50元/天</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">重疾/身故保险金</span>
+                                <p class="fr fb">20万元</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">白血病保障</span>
+                                <p class="fr fb">30万元</p>
+                           </div>
+                            <div class="plan-list-item clearfix">
+                                <span class="fl">初中教育金</span>
+                                <p class="fr fb">5000元/年</p>
+                           </div>
+                            <div class="plan-list-item clearfix">
+                                <span class="fl">高中教育金</span>
+                                <p class="fr fb">1万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">大学教育金</span>
+                                <p class="fr fb">2万元/年</p>
+                           </div>
+                           <div class="plan-list-item clearfix">
+                                <span class="fl">保费豁免</span>
+                                <p class="fr fb">是</p>
+                           </div>
+                  </div>
+                  <h4 class="mt10">价格<span class="fb ml10 plan-price">15920.00元</span></h4>
+                   <p  class="plan-triangle">
+                      <span class="triangle-a"></span>
+                      <i class="iconfont">&#xe72f;</i>
+                  </p>
+          </li>
+        </ul>
+          <a href="javascript:;" class="hz-button hz-button-primary plan-bn add-cart-btn">加入购物车</a>
+  </div>
+  <!-- 风险解读 -->
+  <div class="top-location plan-reading plan-reading-4">
+      <div class="layout">
+            <h3 class="f48  mb20">风险解读 </h3>
+            <p class="lh22">孩子无论从身体抵抗力还是抗风险能力都属于弱势群体，据统计，0～18周岁孩子意外和疾病医疗理赔占少儿保险理赔的70%以上，常见意外医疗理赔包括被狗咬伤、热水烫伤、骨折等。我国每年少儿白血病患者大约在200万人左右，一旦患病治疗花费至少10万元，每年约有33.3%的重病儿童因治疗费用不足而放弃治疗。现在小孩在国内读到大学毕业，不包括生活费，学费在15万元左右，预计未来10年还将以每年3.5%的速度增长；83.4％以上的家长感到抚养孩子的经济压力很大。</p>
+            <ul class="plan-listw">
+                    <li class="plan-listw-li">
+                             <h4 class="f24"><span class="f60 fb">20</span>万</h4>
+                            <p>0-14周岁儿童每年意外致死人数超过20万</p>
+                    </li>
+                     <li class="plan-listw-li">
+                            <h4 class="f24"><span class="f60 fb">33.3</span>%</h4>
+                            <p>每年约有33.3%的重病儿童因医疗费用不足而放弃治疗</p>
+                    </li>
+                     <li>
+                            <h4 class="f24"><span class="f60 fb">83.4</span>%</h4>
+                            <p>83.4%以上的家长表示孩子的教育费用支出有一定的经济压力</p>
+                    </li>
+            </ul>
+      </div>
+  </div>
+  <!-- 方案优势 -->
+  <div class="top-location plan-advantage-com plan-advantage-4">
+      <div class="layout">
+              <div class="plan-advantage-box">
+                      <h2 class="f48 pt45 mb20">方案优势</h2>
+                      <p class="f16 fc6">“乐成长”儿童全面保障方案包含少儿重疾、普通住院、意外医疗补偿，同时精选优质的教育金保障，可根据家庭收入自由选择为孩子未来的教育提前储蓄。一款方案可全方位解决少儿意外、疾病住院医疗及未来教育费用的问题。</p>
+                      <ul class="plan-listh">
+                              <li class="plan-listh-1 mb35">
+                                      <h3 class="plan-advantage-tt">全面医疗 全部覆盖</h3>
+                                      <p class="f14 fc9 pl25">1.5万意外医疗（含门诊费用）、3.6万住院医疗、最高40万重大病医疗全部覆盖</p>
+                              </li>
+                              <li class="plan-listh-2 mb35">
+                                     <h3 class="plan-advantage-tt">重疾保额翻倍 无理赔可返还</h3>
+                                     <p class="f14 fc9 pl25">30种重疾的全面保障，确诊给付，第二年保障翻倍、最高50万，满期100%返还保费。</p>
+                              </li>
+                              <li class="plan-listh-3">
+                                      <h3 class="plan-advantage-tt">灵活规划孩子的教育金</h3>
+                                      <p class="f14 fc9 pl25">根据家庭收入，选择1万、2万、3万的初中、高中、大学教育保障和婚嫁创业金。</p>
+
+                              </li>
+                      </ul>
+                  </div>
+      </div>
+  </div>
+  <!-- 常见问题 -->
+  <div class="top-location plan-question">
+          <div class="layout">
+                  <h3 class="f48 mb25 tac">常见问题</h3>
+                  <div class="pt35 pl30 pr30 bgfw">
+                          <h4 class="f18">Q : 该方案的产品组合是什么？</h4>
+                          <p class="f14 fc6 pb25">A :  该方案的每个计划都由以下4款产品组成，“慧择安心保少儿疾病住院医疗保障” （保障期限为1年），“慧择无忧少儿综合意外保障计划”（保障期限为1年），“太平E宝贝少儿重大疾病保障计划” （保障期限为25周岁，年缴费为10年），“阳光旅程教育金保障计划（分红型）”（保障期限为30周岁，年缴费为10年）；初级计划投保年龄为出生满30天-8周岁，升级计划投保年龄为出生满30天-5周岁，至尊计划投保年龄为出生满30天-2周岁。</p>
+                          <h4 class="f18">Q : 想问下这教育金保险是一定要考上了才能有吗？考不上了这钱咋办？</h4>
+                          <p class="f14 fc6 pb25"> A :  教育金保险只是父母为孩子为了的教育支出提前做的规划和强制储蓄，跟孩子是否考上无关。当孩子达到每个阶段的领取年龄，均可领取该阶段事先双方约定好的保额。所获得的保额现金可自由支配，不限定仅作为学费支出。 </p>
+                           <h4 class="f18">Q : 已经为孩子购买过此类保险（其他保险公司），这款方案还能购买么？购买的话是能和其他保险公司的同时享受理赔么？</h4>
+                          <p class="f14 fc6 pb25">A : 可以购买，但是要注意理赔时，意外医疗不能重复报销，若买了多个保险公司的产品，只能先在其中一家报销，若还有剩余部分未能报销可以在另外一家报销，作为补充。</p>
+                           <h4 class="f18">Q : 保险一年到期，我怎么选择续保，使我的保障不间断呢？</h4>
+                          <p class="f14 fc6 pb25">A : 我们会在保单到期前以邮件、短信等方式提示您续保，请一定留意这些讯息，以免错过续保时间。</p>
+                           <h4 class="f18">Q :网上购买保险的电子保单有效吗？</h4>
+                          <p class="f14 fc6 pb25"> A :在慧择网上购买保险的电子保单与传统保单是没有本质区别的，在理赔或满期给付时二者具有同样的法律效力。另外，在慧择网投保只要凭注册名或电子邮箱即可随时找回电子保单，方法简单、无需工本费。</p>
+                           <h4 class="f18">Q : 方案中多个保障产品需要分别申请理赔吗？</h4>
+                          <p class="f14 fc6 pb25"> A :您可以直接拨打慧择网服务热线4006-366-366，由专人全程协助指引报案和申请理赔，或联系您在慧择网的专属顾问为您服务，节约您宝贵的时间。 </p>
+                  </div>
+
+          </div>
+  </div>
+  <!-- 用户点评 -->
+  <div class="top-location plan-review pt45 pb30">
+         <div class="layout">
+              <h2 class="f48 tac ">用户点评</h2>
+             <ul class="plan-listf">
+                     <li>
+                             <img src="//img.huizecdn.com/hz/www/page/plan/head1.png" alt="" class="plan-img-head">
+                             <h3 class="f18 mt25">159***</h3>
+                             <p class="f14 pt10">孩子刚出生1个多月，之前就了解到保险越早买越便宜，所以就各方了解了一下。直到看到这个全面方案，感觉真的是可以通过一个方案解决到很多方面的风险问题，一年的投入1万多，还是可以接受的，给孩子可不敢省钱。</p>
+                     </li>
+                     <li>
+                             <img src="//img.huizecdn.com/hz/www/page/plan/head2.png" alt="" class="plan-img-head">
+                             <h3 class="f18 mt25">chenhda***</h3>
+                             <p class="f14 pt10">非常实用的保险，教育金到时可以直接取出来给孩子读书用，这个重疾保的内容我查了确实是孩子最常见的重疾种类，这么全面费用也不算高，每个月就拿出几百块买衣服的钱给孩子买份安心，先生也觉得这个买的好。</p>
+                     </li>
+                     <li>
+                             <img src="//img.huizecdn.com/hz/www/page/plan/head3.png" alt="" class="plan-img-head">
+                             <h3 class="f18 mt25">徐爱***</h3>
+                             <p class="f14 pt10">宝贝今年上幼儿园了，和宝妈们一起聊天，他们都给孩子买了教育金，我比较了下这个方案的保障比较全面，不仅有教育金还多了一份重疾保障，价格不贵，一年就几千，积少成多，到孩子读大学时候的基本的学费开支就都够了。</p>
+                     </li>
+                     <li>
+                             <img src="//img.huizecdn.com/hz/www/page/plan/head4.png" alt="" class="plan-img-head">
+                             <h3 class="f18 mt25">wudan***</h3>
+                             <p class="f14 pt10">同事推荐的，看到价格合适就买了，在网上买要实惠很多，我也有朋友做保险，佣金蛮高的，不像网上价格透明，不吃亏不上当。钱都花在刀刃上。现在有这个条件,就想给孩子准备一份全面的保障，健康啊教育金都能考虑上。</p>
+                     </li>
+             </ul>
+            <div class="tac pb20">
+                <a href="http://www.huize.com/guihua/comment/p<%=pageId%>" target="_blank" class="f16" title="<%=planName%>用户评论">查看全部用户评论 ></a>
+            </div>
+         </div>
+  </div>
+  <!-- 精品方案 -->
+  <% include ./_detail-foot %>

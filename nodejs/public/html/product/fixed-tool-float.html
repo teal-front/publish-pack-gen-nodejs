@@ -1,0 +1,385 @@
+<div class="fixed-side-tool" id="fixedsidetool">
+
+    <!--侧边导航-->
+    <div class="side-tool-control">
+        <div class="side-tool-function">
+
+            <!--鼠标移上或点击加上 side-tool-current-->
+
+           <div class="wrap-tool-menu" id="wrapToolMenu">
+               <!--在线客服 跳转-->
+               <div class="mb5 tool-function-item" id="kefu">
+                   <a href="javascript:;"  class="side-tool-icon side-tool-serveic iconfont">&#xe729;</a>
+                   <!--<i class="arrow"></i> -->
+                   <!--<p class="side-hover-title side-hover-serveic">在线客服</p>-->
+                   <div class="side-tool-serveic-txt">在线客服</div>
+               </div>
+
+
+               <!--购物车 展开-->
+               <div class="pt10 pb10 tool-function-item tool-function-cart" id="showCarBtn">
+                   <a href="javascript:;" class="side-tool-icon side-tool-cart iconfont">&#xe728;</a>
+                   <div class="side-tool-cart-txt">购物车 <span class="num-txt" id="carItemCount">0</span></div>
+                   <div class="side-tool-cart-border"></div>
+               </div>
+
+
+           </div>
+
+
+            <!--产品对比 展开-->
+            <div class=" pb5 tool-function-item" id="showProductBtn">
+                <a href="javascript:;" class="side-tool-icon side-tool-comparer pt5 iconfont">&#xe727;</a>
+                <div class="side-tool-comparer-txt2">产品对比</div>
+                <div class="side-tool-comparer-txt" id="compareCount">0/4</div>
+                <!--<p class="side-hover-title side-hover-comparer">
+                    产品对比
+                </p>-->
+            </div>
+
+            <a class="view168-link" target="_blank" href="http://activities.huize.com/activities/2016huodong/10years_lhb/"></a>
+        </div>
+
+        <div class="side-tool-other">
+
+
+            <!--二维码 鼠标移上去tool-function-item加上 side-tool-current-->
+            <div class="tool-function-item " id="QRcode">
+                <a href="javascript:;" class="side-tool-icon side-tool-qdcode iconfont">&#xe72a;</a>
+
+                <div class="side-hover-title side-hover-qdcode p20">
+                    <div class="side-tool-qdcode-hd">
+                        <img  src="//img.huizecdn.com/hz/www/page/hzapp.jpg">
+                    </div>
+                    <div class="side-tool-qdcode-bd">
+                        <p class="pt10 f16"><strong>扫码下载慧择APP</strong></p>
+                        <p class="f12">领取价值<strong class="f14" style="color:#f60">99元</strong>大礼包</p>
+                    </div>
+                    <div class="side-tool-qdcode-arrow">◆</div>
+                </div>
+
+            </div>
+
+
+            <!--意见反馈 跳转-->
+            <div class="tool-function-item" id="feedBtn">
+                <a href="javascript:;" class="side-tool-icon side-tool-feedback iconfont">
+                    &#xe726;
+                </a>
+                <p class="side-hover-title side-hover-feedback">
+                    意见反馈
+                </p>
+
+            </div>
+
+
+            <!--回到顶部-->
+            <div class="tool-function-item">
+                <a href="javascript:window.scrollTo(0,0);" class="side-tool-icon side-tool-top iconfont">&#xe71f;</a>
+                <p class="side-hover-title side-hover-top">
+                    返回顶部
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--侧边导航-展开的面板-->
+    <div class="side-tool-cont-wrap side-tool-history" id="toolPanel" style="display: none; width: 285px;">
+
+
+        <div class="side-tool-cont-hd">
+            <h3 class="title" id="panelTitle">
+                产品对比
+            </h3>
+            <a href="javascript:;" title="收起" class="side-tool-back"> &gt;&gt; </a>
+        </div>
+
+        <div class="side-tool-cont-m">
+
+            <div class="side-tool-feedback-content fn-hide" id="feedCallback">
+                <p>您对当前的页面满意吗？</p>
+                <div class="mt15 mb15">
+                    <div class="hz-radio-item hz-radio-item-checked inline-block" satfix="1">
+                        <i class="hz-radio-icon"></i><span class="hz-radio-text">满意</span>
+                    </div>
+
+                    <div class="hz-radio-item inline-block ml30" satfix="2">
+                        <i class="hz-radio-icon"></i><span class="hz-radio-text">不满意</span>
+                    </div>
+                </div>
+                <div class="feedback-area-wrap">
+
+                    <textarea id="feedback-area" class="side-tool-feedback-area placeholder-item" placeholder-text="您留下的每个建议都是慧择改进的动力！产品和保险咨询请移步在线客服或拨打4006-366-366。" placeholder-top="7px" placeholder-width="246"  placeholder-height="1.5"  placeholder-color="#c6c6c6" placeholder-size="13"  placeholder-zindex="5"></textarea>
+                </div>
+                <div class="hz-alert hz-alert-error pr15  pt10 pb10">
+                </div>
+                <!--错误提示 end-->
+
+
+                <p><span id="charCount">0</span><span class="fc6">/500</span></p>
+
+                <a class="hz-button hz-button-block hz-button-primary mt15" href="javascript:;" id="feedCall">提交</a>
+                <!--意见反馈结束-->
+            </div>
+
+            <div class="side-tool-item-list">
+
+
+                <!--未登录-->
+                <div class="site-warn-info car-item" id="loginBtn">
+                    还没有登录，登录后商品将被保存<a class="hz-button hz-button-primary hz-button-small ml10" href="javascript:;">登录</a>
+                </div>
+
+
+
+                <div class="side-tool-tips-no-list tac car-item items-empty fn-hide">您的购物车还是空的~</div>
+                <div class="side-tool-tips-no-list tac comparer-item items-empty fn-hide">您还没有添加对比产品~</div>
+
+                <!--有对比产品的时候-->
+                <div class="comparer-product-box comparer-item fn-hide">
+                    <h3 id="comparerItemTip" class="fc6 pb10 pl20">最多可选 <span class="primary-color">4</span> 款产品</h3>
+                    <div id="comparePanel">
+
+                    </div>
+
+                    <div class="tac"><a href="javascript:;" class="delete-all" id="deleteAll">清空产品</a></div>
+                </div>
+
+                <!--购物车有产品的时候-->
+                <div class="cart-product-box car-item">
+                    <ul class=" product-list lh20" id="shopcarList">
+                        <div class="hz-loading-wrap">
+                            <img src="http://img.huizecdn.com/hz/www/page/loading_40.gif">
+                            <span class="hz-loading-text"><span class="f14">正在加载，请稍后...</span></span>
+                        </div>
+                    </ul>
+
+                    <div class="mt10 fn-hide">
+                        <h3 class="fc6 pb10 pl20">失效产品（<span id="failCount"></span>）</h3>
+                        <ul class="product-list fail-product-list lh20" id="failList">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="site-tool-item-footer">
+            <div class="site-warn-info comparer-item secondary-color" id="compareTips">
+                请选择要对比的产品
+            </div>
+
+            <div class="tool-item-footer-meta pb10 pt10 pl15 pr15 bgfw car-item">
+                <p class="fr">共计：<span class="num-item">¥<span id="totalPrice">0.00</span></span></p>
+                <p><span class="num-item" id="productCount">0</span>个有效产品</p>
+            </div>
+
+            <div class="action-box pl15 pr15">
+                <a class="hz-button hz-button-block  button-large disabled fn-hide" href="javascript:;">开始对比</a>
+                <a class="hz-button hz-button-block  button-large disabled fn-hide" href="javascript:;">去购物车结算</a>
+                <a class="hz-button hz-button-block hz-button-primary button-large car-item" href="javascript:;" id="toPay">去购物车结算</a>
+                <a class="hz-button hz-button-block hz-button-primary button-large disabled comparer-item" href="javascript:;"  id="startCompara">开始对比</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script  type="text/template" id="comparehtml">
+    <ul class="product-list comparer-product-list">
+        <% _.each(datas,function(item){%>
+        <li class="product-item comparer-product-item">
+            <div class="fl mr10">
+                <div class="hz-check-item" planId="<%=item.planId%>">
+                    <i class="hz-check-icon"></i>
+                </div>
+            </div>
+            <div class="product-content">
+                <a class="product-title comparer-product-title"  href="http://www.huize.com/product/detail-<%=item.productId%>.html?DProtectPlanId=<%=item.planId%>" target="_blank" ><%=item.productName%> <%=item.planName%></a>
+
+                <div class="fcc mt10">
+                    <span class="fr">¥<%=(item.price/100).toFixed(2)%></span>
+                    <span><%=item.simpleCompanyName%></span>
+                </div>
+            </div>
+            <a class="iconfont hz-close" planId="<%=item.planId%>" href="javascript:;">&#xe70a;</a>
+        </li>
+        <%});%>
+    </ul>
+</script>
+
+
+<script  type="text/template" id="shopcarhtml">
+    <% _.each(datas,function(dataItem){%>
+    <% if (dataItem.cartProjectPlans && dataItem.cartProjectPlans.length > 0) { %>
+    
+    <% _.each(dataItem.cartProjectPlans, function(plan, idx) { %>
+        <%  var totalPremiun = 0;
+            var originalPrice = 0; 
+            var projectInsuranceGroup = ''; // 标识
+            var isOver = false;         // 是否失效
+            var productOnline = true;   // 是否上线
+            var percentComplete = 0;    // 完成百分比
+            _.each(dataItem.cartItems,function(item,index) {
+                totalPremiun += item.premium;
+                originalPrice += item.originalPrice;
+                percentComplete += item.percentComplete;
+                // 下架判断
+                if (!item.productOnline) {
+                    productOnline = false;
+                }
+                if (item.isOver) {
+                    isOver = true;
+                }
+                // 规划标识
+                if (index == 0) {
+                    projectInsuranceGroup = item.projectInsuranceGroup;
+                }
+            }) 
+        %>
+        <% if(productOnline && !isOver){%>
+        <li class="product-item" data-type="plan" data-group="<%=projectInsuranceGroup%>">
+            <div class="fl mr15">
+                <a class="pic-item" target="_blank" href="http://www.huize.com/guihua/<%=plan.projectId%>">
+                    <img src="//img.huizecdn.com/hz/www/page/pl-logo.png" width="80">
+                </a>
+            </div>
+            <div class="product-content">
+                <a href="http://www.huize.com/guihua/<%=plan.projectId%>" target="_blank" class="product-title "><%=plan.projectName%> - <%=plan.projectPlanName%></a>
+                <div class="product-price">
+                    <strong class="primary-color"><% if(totalPremiun!==-1){%>¥<%=(totalPremiun/100).toFixed(2)%><%}else{%>-<%}%></strong>
+                    <% if(totalPremiun!==originalPrice&&totalPremiun!==-1){%>
+                    <span class="fr fcc">原价：<del >¥<%=(originalPrice/100).toFixed(2)%></del></span>
+                    <%}%>
+                </div>
+            </div>
+            <a class="iconfont hz-close delbtn" href="javascript:;" data-type="plan" data-group="<%=projectInsuranceGroup%>">&#xe70a;</a>
+            <% _.each(dataItem.cartItems, function(item,index) { %>
+            <input type="hidden" class="plan-hidden" insureNum="<%=item.insureNum%>" premium="<%=item.premium%>" />
+            <% }) %>
+        </li>
+        <% } %>
+
+    <% }) %>
+
+    <% } else { %>
+
+    <% _.each(dataItem.cartItems,function(item){%>
+        <% if(item.productOnline&&!item.isOver){%>
+        <li class="product-item" insureNum="<%=item.insureNum%>" premium="<%=item.premium%>">
+            <div class="fl mr15">
+                <a class="pic-item" target="_blank" href="http://www.huize.com/brand/detail/<%=item.companyId%>">
+                    <img src="<%=item.companyLogoUrl%>" width="80">
+                </a>
+            </div>
+
+            <div class="product-content">
+                <a href="http://www.huize.com/product/detail-<%=item.productId%>.html?DProtectPlanId=<%=item.productPlanId%>" target="_blank" class="product-title "><%=item.productName%> <%=item.productPlanName%></a>
+                <div class="product-price">
+                    <strong class="primary-color"><% if(item.premium!==-1){%>¥<%=(item.premium/100).toFixed(2)%><%}else{%>-<%}%></strong>
+                    <% if(item.premium!==item.originalPrice&&item.premium!==-1){%>
+                    <span class="fr fcc">原价：<del >¥<%=(item.originalPrice/100).toFixed(2)%></del></span>
+                    <%}%>
+                </div>
+            </div>
+            <a class="iconfont hz-close delbtn" href="javascript:;" pid="<%=item.insureNum%>">&#xe70a;</a>
+        </li>
+        <%}%>
+    <%});%>
+
+    <%}%>
+    
+    <%})%>
+
+</script>
+
+<script type="text/template" id="failItems">
+    <% _.each(datas,function(dataItem){%>
+    
+    <% if (dataItem.cartProjectPlans && dataItem.cartProjectPlans.length > 0) { %>
+
+    <% _.each(dataItem.cartProjectPlans, function(plan, idx) { %>
+        <%  var totalPremiun = 0;
+            var originalPrice = 0; 
+            var projectInsuranceGroup = ''; // 标识
+            var isOver = false;         // 是否失效
+            var productOnline = true;   // 是否上线
+            var percentComplete = 0;    // 完成百分比
+            _.each(dataItem.cartItems,function(item,index) {
+                totalPremiun += item.premium;
+                originalPrice += item.originalPrice;
+                percentComplete += item.percentComplete;
+                // 下架判断
+                if (!item.productOnline) {
+                    productOnline = false;
+                }
+                if (item.isOver) {
+                    isOver = true;
+                }
+                // 规划标识
+                if (index == 0) {
+                    projectInsuranceGroup = item.projectInsuranceGroup;
+                }
+            }) 
+        %>
+        <% if(!productOnline || isOver){%>
+        <li class="product-item <% if(!productOnline){%>invalid-product-item<%}%>">
+            <div class="fl mr15">
+                <a class="pic-item" target="_blank" href="http://www.huize.com/guihua/<%=plan.projectId%>">
+                    <img src="//img.huizecdn.com/hz/www/page/pl-logo.png" width="80">
+                </a>
+                <% if(!productOnline){%>
+                <p class="mt10 tac"><span class="hz-badge hz-badge-secondary hz-radius">下架</span></p>
+                <%}%>
+            </div>
+            <div class="product-content">
+                <span class="product-title"><%=plan.projectName%> - <%=plan.projectPlanName%></span>
+                <div class="product-price">
+                    <strong class="fcc"><% if(totalPremiun!==-1){%>¥<%=(totalPremiun/100).toFixed(2)%><%}else{%>-<%}%></strong>
+                    <% if(totalPremiun!==originalPrice&&totalPremiun!==-1){%>
+                    <span class="fr fcc">原价：<del >¥<%=(originalPrice/100).toFixed(2)%></del></span>
+                    <%}%>
+                </div>
+            </div>
+            <a class="iconfont hz-close delbtn" title="删除" href="javascript:;"  data-type="plan" data-group="<%=projectInsuranceGroup%>">&#xe70a;</a>
+            <% _.each(dataItem.cartItems, function(item,index) { %>
+            <input type="hidden" class="plan-hidden" insureNum="<%=item.insureNum%>" premium="<%=item.premium%>" />
+            <% }) %>
+        </li>
+        <%}%>
+
+    <% }) %>
+
+    <% } else { %>
+    
+    <% _.each(dataItem.cartItems,function(item){%>
+    <% if(!item.productOnline||item.isOver){%>
+        <li class="product-item <% if(!item.productOnline){%>invalid-product-item<%}%>">
+            <div class="fl mr15">
+                <a class="pic-item" target="_blank" href="http://www.huize.com/brand/detail/<%=item.companyId%>">
+                    <img src="/api/tools/images/grayscale?url=<%=encodeURIComponent(item.companyLogoUrl)%>" width="80">
+                </a>
+                <% if(!item.productOnline){%>
+                <p class="mt10 tac"><span class="hz-badge hz-badge-secondary hz-radius">下架</span></p>
+                <%}%>
+            </div>
+            <div class="product-content">
+                <a href="http://www.huize.com/product/detail-<%=item.productId%>.html?DProtectPlanId=<%=item.productPlanId%>" target="_blank" class="product-title "><%=item.productName%> <%=item.productPlanName%></a>
+                <div class="product-price">
+                    <strong class="fcc"><% if(item.premium!==-1){%>¥<%=(item.premium/100).toFixed(2)%><%}else{%>-<%}%></strong>
+                    <% if(item.premium!==item.originalPrice&&item.premium!==-1){%>
+                    <span class="fr fcc">原价：<del >¥<%=(item.originalPrice/100).toFixed(2)%></del></span>
+                    <%}%>
+                </div>
+            </div>
+            <a class="iconfont hz-close delbtn" title="删除" href="javascript:;" pid="<%=item.insureNum%>">&#xe70a;</a>
+        </li>
+    <%}%>
+    <%})%>
+    
+    <% } %>
+
+    <%})%>
+</script>

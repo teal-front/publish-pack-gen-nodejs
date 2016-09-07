@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;;;AASA,SAAU,GACR,KAAK,EAAE,IAAI,EACX,MAAM,EAAE,iBAAiB;AACzB,4KAKc,GACZ,OAAO,EAAE,GAAG,EACZ,WAAW,EAAE,GAAG,EAChB,cAAc,EAAE,GAAG,EACnB,UAAU,EAAE,iBAAiB;;AAQjC,kBAAmB,GACjB,MAAM,EAAE,iBAAiB,EACzB,WAAW,EAAE,IAAI;AACjB,kOAKc,GACZ,WAAW,EAAE,iBAAiB",
+"sources": ["../../../sass/helper/table.scss"],
+"names": [],
+"file": "table.css"
+}

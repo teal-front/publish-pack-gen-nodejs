@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html  lang="zh-cn">
+	<head>
+		<% include ../_meta %>
+		<%locals.stylesheets=[
+        cssPath+'order.css',
+		jsHost+'js/plugins/my-calendar/stylesheets/calendar.css'
+		]%>
+		<% include ../_stylesheets %>		 
+	</head>
+	<body>
+		<% include ../header/_header-insure %>
+		<%- body %>
+		<% include ../footer/_footer %>
+		<%include ../scripts/_scripts%>
+	</body>
+</html>

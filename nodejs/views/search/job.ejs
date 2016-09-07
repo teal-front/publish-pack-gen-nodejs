@@ -1,0 +1,138 @@
+<!--职业查询页面标识-->
+<%
+//计算每一个大类应该占据多少行
+var
+		jobs = data.jobs || [],
+		product = data.product || {},
+		isThreeCol = false;
+jobs.forEach(function(v){
+	v.length = 0;
+	v.childList.forEach(function(vv){
+		vv.length = vv.childList.length;
+		v.length += vv.length;
+		if(vv.childList.length !== 0){
+			isThreeCol = true;
+		}
+	});
+});
+
+%>
+<div class="detail-job-search pt20 pb20 f14 bgf0">
+	<style>
+		.complete-item-current{background-color: #efefef}
+	</style>
+	<div class="layout pb40 clearfix">
+		<div class="hz-breadcrumb mb20">
+			<a href="/">慧择保险网</a>
+			<i class="arrow-right">&gt;</i>
+			<a href="/product/ins-<%= product.parentCategoryId%>-0-0"><%= product.parentCategoryName%></a>
+			<i class="arrow-right">&gt;</i>
+			<a href="/product/ins-<%= product.categoryId%>-0-0"><%= product.categoryName%></a>
+			<i class="arrow-right">&gt;</i>
+			<a href="/brand/detail/<%= product.companyId%>"><%= product.companySimpleName%></a>
+			<i class="arrow-right">&gt;</i>
+			<h1 class="hz-breadcrumb-active"><%= product.productName + " "%></h1>
+
+		</div><!--breadcrumb end-->
+			<div class="job-search-content p30 bgfw">
+				<div class="job-search-head">
+					<div class="fr"><img src="<%= product.companyLogo%>" height="45"></div>
+					<h2 class="f30 product-title"><a href="http://www.huize.com/product/detail-<%= product.productId%>.html" target="_blank"><%= product.productName%></a></h2>
+				</div>
+				<div class="pt25 pb20 bor-bottom">
+					<h3 class="fb">职业类别</h3>
+				</div>
+
+				<div class="job-search-form mb30 mt20">
+					<input placeholder="快速查看我的职业是否可承保" type="text" class="job-search-input input-text" id="searchJob"/>
+					<a class="job-search-button hz-button hz-button-primary " href="javascript:;" id="jobSearchBtn">搜索</a>
+				</div>
+				<h3 class="mt10 mb10" id="searchTipTitle">本产品职业类目标如下：</h3>
+				<p class="fc6 f12 mb20" style="display: none" id="searchTotal">
+					共查询到<span class="jobs-count" id="searchNum">0</span>个与<strong  class="highlight" id="searchKeywords"></strong>相关的职业，见下表黄色文字部分
+				</p>
+				<p class="fc6 f12" style="margin-bottom: 20px;display: none" id="searchEmpty">
+					对不起，没有找到与<strong class="highlight search-keywords"></strong>相关的职业
+				</p>
+				<%if(isThreeCol){%>
+					<table class="hz-table hz-table-bordered" id="jobDetails">
+						<thead>
+						<tr>
+							<th class="tal">职业大类</th>
+							<th class="tal">职业小类</th>
+							<th class="tal">职业名称</th>
+							<th>风险级别</th>
+							<th>是否承保</th>
+						</tr>
+						</thead>
+						<tbody>
+					<% jobs.forEach(function(v,i){
+					v.childList.forEach(function(vv,ii){
+					if(vv.childList.length === 0){%>
+					<tr>
+						<td><%= v.name%></td>
+						<td></td>
+						<td><%= vv.name%></td>
+						<td style="text-align: center"><%= vv.level%></td>
+						<td style="text-align: center"><%= vv.isInsure%></td>
+					</tr>
+					<%}
+					else{
+					vv.childList.forEach(function(vvv,iii){;
+					if(iii === 0 && ii === 0){%>
+					<tr>
+						<td rowspan="<%= v.length%>"><%= v.name%></td>
+						<td rowspan="<%= vv.length%>"><%= vv.name%></td>
+						<td><%= vvv.name%></td>
+						<td style="text-align: center"><%= vvv.level%></td>
+						<td style="text-align: center"><%= vvv.isInsure%></td>
+					</tr>
+					<% } else{
+					if(iii === 0 && ii !== 0){%>
+					<tr>
+						<td rowspan="<%= vv.length%>"><%= vv.name%></td>
+						<td><%= vvv.name%></td>
+						<td style="text-align: center"><%= vvv.level%></td>
+						<td style="text-align: center"><%= vvv.isInsure%></td>
+					</tr>
+					<% } else { %>
+					<tr>
+						<td><%= vvv.name%></td>
+						<td style="text-align: center"><%= vvv.level%></td>
+						<td style="text-align: center"><%= vvv.isInsure || "是" %></td>
+					</tr>
+					<%}
+					}
+					})
+					}
+					})
+					})%>
+					<%}else{%>
+					<table class="hz-table hz-table-bordered" id="jobDetails">
+						<thead>
+						<tr>
+							<th class="tal">职业分类</th>
+							<th class="tal">职业名称</th>
+							<th>风险级别</th>
+							<th>是否承保</th>
+						</tr>
+						</thead>
+						<tbody>
+					<%jobs.forEach(function(v,i){v.childList.forEach(function(vv,ii){
+					if(vv.childList.length === 0){%>
+					<tr>
+						<td><%= v.name%></td>
+						<td><%= vv.name%></td>
+						<td style="text-align: center"><%= vv.level%></td>
+						<td style="text-align: center"><%= vv.isInsure%></td>
+					</tr>
+					<%}%>
+					<%})})}%>
+					</tbody>
+				</table>
+			</div>
+			</div><!--layout end-->
+</div><!--detail-page end-->
+
+<script>
+</script>

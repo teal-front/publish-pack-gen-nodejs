@@ -1,0 +1,106 @@
+<div class="insure-cart-page bgf0"><!--详情页面标识-->
+
+    <div class="layout pt45 pb45" id="shopCartLoading">
+        <% include ../layout/_loading %>
+    </div>
+
+    <div class="product-empty-page pt20 pb20 f14 bgf0 fn-hide" id="notLoginEmpty">
+        <div class="layout  clearfix pb40 pt35 mt35">
+            <div class="product-empty-body pb40">
+                <table width="100%">
+                    <tbody><tr>
+                        <td>
+                            <p class="mr20"><img src="//img.huizecdn.com/hz/www/page/product-empty.png" alt=""></p>
+                        </td>
+
+                        <td>
+                            <p class="f18" id="logintips">购物车里还是空的，登录后将显示之前加入的产品！</p>
+
+
+                            <div class="button-box mt20">
+                                <a href="javascript:;" class="hz-button hz-button-large hz-button-primary fn-hide" id="toLogin">立即登录</a>
+                                <a href="<%= locals.mainHost %>demandanalysis/home" class="hz-button hz-button-large hz-button-primary fn-hide" id="pingce">风险评测</a>
+                                <a href="<%= locals.mainHost %>" class="hz-button hz-button-large hz-button-secondary ml15">去挑选产品</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody></table>
+            </div>
+        </div><!--layout end-->
+    </div>
+
+    <div class="layout clearfix pt25 pb20 fn-hide" id="shopCarList">
+
+        <div class="insure-cart-meta">
+            <div class="fr fn-hide" id="tiplogin">
+                <span class="fc6 mr5">您还没有登录，登录后购物车产品永久保存</span>
+                <a href="javascript:;" id="loginBtn">登录</a>
+                <span class="ml5 mr5 fc6">|</span>
+                <a href="javascript:;" id="registerBtn">注册</a>
+            </div>
+            <h2 class="pb15 f18">购物车</h2>
+        </div>
+        <ul class="insure-cart-head clearfix bgfw mb10">
+            <li class="insure-cart-item insure-cart-item01">
+                <div class="hz-check-item pl30"  id="checkAllCom">
+                    <i class="hz-check-icon"></i>
+                </div>
+            </li>
+            <li class="insure-cart-item insure-cart-item02">
+                <span class="ml45 pl45">产品名称</span>
+            </li>
+            <li class="insure-cart-item insure-cart-item03">投保信息</li>
+            <li class="insure-cart-item insure-cart-item04">起保日期</li>
+            <li class="insure-cart-item insure-cart-item05">保费（元）</li>
+            <li class="insure-cart-item insure-cart-item06">操作</li>
+        </ul><!--insure-cart-head end-->
+
+
+
+        <div id="carItemList">
+
+        </div>
+
+
+        <!--滚动置顶 添加class fixed-insure-cart-foot-->
+        <ul class="insure-cart-foot mt20" id="bottombar">
+            <li class="clearfix">
+                <div class="f14 fl pl30">
+                    <a class="compare-link" href="javascript:;" id="toCompare">对比选中产品</a>
+                </div>
+
+
+                <div class="fr">
+                    <span class="f14">已选中<span id="checked">0</span>个产品，合计</span>
+                    <span class="total-num"><i class="f30" id="totalMoney">0</i>元</span>
+                    <span class="ml5 f14">已节省¥<span id="saveMoney">0</span></span>
+                    <a href="javascript:;" class="hz-button hz-button-primary go-button" id="toPayAll">去结算</a>
+                </div>
+            </li>
+        </ul><!--insure-cart-head end-->
+    </div>
+
+    <!--历史浏览-->
+    <div class="layout pb30 clearfix">
+        <div class="view-history f14" id="historyData">
+        <h3 class="fb mb20 fc6">最近浏览</h3>
+
+        <div class="view-history-scroll bgfw">
+            <div id="historyPanel">
+                <a class="view-history-scroll-item view-history-scroll-prev " href="javascript:;" id="prevBtn">
+                    <i class="iconfont f20">&#xe706;</i>
+                </a>
+                <a class="view-history-scroll-item view-history-scroll-next" href="javascript:;" id="nextBtn">
+                    <i class="iconfont f20">&#xe707;</i>
+                </a>
+                <div class="view-history-scroll-box" id="viewContainer"><div class="mt35"><% include ../layout/_loading %></div></div>
+            </div>
+            <div class="tac pt40 pb40" id="emptyData" style="display:none">
+                暂无浏览记录
+            </div>
+        </div>
+
+    </div><!--view-history end-->
+    </div>
+
+</div><!--layout end-->

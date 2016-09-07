@@ -1,0 +1,22 @@
+<%
+ var marketData = (data || {}).marketData || {};
+  %>
+<div class="show-number">
+	<div class="layout">
+		<ul class="number-list clearfix">
+			<li class="number-item fl">
+				<p class="f36 fcw"><span id="number1" data-value="<%=marketData.planBaseNum || ''%>"><%=marketData.planBaseNum || ''%></span></p>
+				<h3 class="f16 fcw">定制保险方案</h3>
+			</li>
+			<li class="number-item  fl">
+				<p class="f36 fcw"><span id="number2" data-value="<%=marketData.insuredBaseNum || ''%>"><%=marketData.insuredBaseNum || ''%></span></p>
+				<h3 class="f16 fcw">累计发出保单</h3>
+			</li>
+			<li class="number-item  fl">
+
+				<p class="f36 fcw"><span id="number3" data-value="98">98</span>%</p>
+				<h3 class="f16 fcw">用户好评</h3>
+			</li>
+		</ul>
+	</div>
+</div>

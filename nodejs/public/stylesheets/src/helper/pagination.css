@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* 功能：huize.com - 分页 备注：使用inline-block 方便设置左中右 作者：huangyongsheng@hzins.com 时间：2016/02/26
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+/*.hz-pagination { line-height:28px; font-size:0; text-align:center; letter-spacing:-0.307em; letter-spacing:normal; word-spacing:-1px; word-wrap:normal; white-space:nowrap;
+ .hz-page-item { @include inlineBlock; vertical-align:top; margin: 0 5px; padding:0 12px; border:1px solid #ddd; font-size:14px; letter-spacing:normal; word-spacing:normal; -webkit-transition:background-color 0.3s; -moz-transition:background-color 0.3s; -ms-transition:background-color 0.3s; transition:background-color 0.3s; }
+ .hz-pageprv{ margin-left:0; }
+ .hz-pagenxt{ margin-right:0; }
+ .hz-dot-item { border: none; }
+ a, a:hover{ text-decoration:none; color:#333; }
+ .hz-page-item-disabled, .hz-page-item-disabled:hover, .hz-page-item-disabled:active { cursor:default; color:#ccc; border: 1px solid #eee; }
+ .hz-page-item-active { border: 2px solid #f6ab1a; padding: 0 11px; line-height: 26px; }
+}*/
+#kkpager { text-align: center; }
+#kkpager .pageBtnWrap { float: none !important; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; }
+#kkpager .pageBtnWrap span { border-radius: 0 !important; }
+#kkpager .pageBtnWrap a { margin-right: 10px; border-color: #ddd; color: #333; border-radius: 0; }
+#kkpager .pageBtnWrap a:hover { padding: 2px 9px; background: #fff; border: 2px solid #f6ab1a; color: #333; }
+#kkpager .pageBtnWrap span.curr { padding: 2px 9px; border: 2px solid #f6ab1a; background: #fff; color: initial; }
+
+/*# sourceMappingURL=pagination.css.map */

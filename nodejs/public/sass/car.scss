@@ -1,0 +1,363 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 主站-保险专题 （http://www.huize.com/product/car/）
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/06/15
+*/
+@import 'common/base';
+@import 'public/header';
+@import 'public/topnav';
+@import 'helper/iconfont';
+@import 'helper/layout';
+
+@import 'public/footer';
+
+.car-br{
+  background:  url('//img.huizecdn.com/hz/www/page/car/br.jpg') center 0 no-repeat;
+  height: 760px;
+  .layout{
+    padding-top: 264px;
+    text-align: center;
+    height: 760px;
+    position: relative;
+  }
+  a{
+    width: 240px;
+    line-height: 60px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 40px;
+    font-size: 28px;
+
+
+  }
+}
+.car-br-txt{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 70px;
+  -webkit-animation:.8s slideInLeft;
+  animation:.8s slideInLeft;
+
+}
+@-webkit-keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+
+.car-br-bn1{
+  background-color: #FFBA00;
+  color:#682f00;
+  margin: 0 20px;
+  position: relative;
+    z-index: 1;
+
+}
+.car-br-bn2{
+  background-color: #2866B7;
+  color:rgba(255,255,255,0.6)
+
+}
+.car-process{
+  padding-top: 94px;
+
+
+}
+.car-tt{
+  font-size: 32px;
+  color:#000;
+  padding: 118px 0 72px 0;
+  span{
+    color:#999;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+}
+.car-process-con{
+  float: left;
+  margin-left: 64px;
+  width: 718px;
+
+
+}
+.lista{
+  overflow: hidden;
+
+  margin-top: 84px;
+
+  li{
+    float: left;
+    width: 235px;
+    text-align: center;
+    margin-right:4px;
+  }
+
+
+}
+
+.car-lipei-process{
+  overflow: hidden;
+  background:  url('//img.huizecdn.com/hz/www/page/car/pic3.gif') right bottom no-repeat;
+  height: 600px - 143px;
+  padding-top: 143px;
+
+}
+.mt80{
+  margin-top: 80px;
+}
+.car-listb{
+  font-size: 20px;
+  color:#666;
+  overflow: hidden;
+  li{
+    float: left;
+    margin-right: 46px;
+    line-height: 60px;
+  }
+}
+.car-calling{
+  font-size: 18px;
+  text-decoration: underline!important;
+  color:#3d86e0;
+  padding-left: 15px;
+}
+.car-know{
+  height: 622px;
+  margin-bottom: 68px;
+  background:  url('//img.huizecdn.com/hz/www/page/car/bg.jpg') center 0 no-repeat;
+  width: 1190px;
+  position: relative;
+  li{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    cursor: pointer;
+    &:hover .car-know-con{
+      display: block;
+    }
+    &:hover .car-img3{
+      display: block;
+    }
+
+
+
+  }
+  .car-img3{
+  position: absolute;
+  top: -32px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
+  width: 29px;
+  height: 20px;
+
+
+  }
+  .box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+.car-know1{
+  left: 55px;
+  bottom: 130px;
+
+}
+.car-know2{
+  left: 206px;
+  bottom: 306px;
+}
+.car-know3{
+    left: 255px;
+  bottom: 28px
+}
+.car-know4{
+  left: 372px;
+  bottom:447px;
+
+}
+.car-know4 .car-img3,.car-know6 .car-img3,.car-know8 .car-img3,.car-know9 .car-img3{
+  top: 144px;
+}
+.car-know4 .car-know-con,.car-know6 .car-know-con,.car-know8 .car-know-con,.car-know9 .car-know-con{
+  top: 164px;
+}
+.car-know5{
+  left: 487px;
+  bottom:0px;
+  .car-know-con{
+    left: -200px!important;
+  }
+
+}
+.car-know6{
+  left: 637px;
+  bottom:491px;
+  .car-know-con{
+    left: -339px;
+  }
+
+}
+.car-know7{
+  left: 742px;
+  bottom:8px;
+}
+.car-know8{
+  left: 853px;
+  bottom:487px;
+
+}
+.car-know9{
+  left: 977px;
+  bottom:312px;
+}
+.car-know10{
+  left: 980px;
+  bottom:105px
+}
+.car-know7,.car-know8,.car-know9,.car-know10{
+  .car-know-con{
+    left: -700px!important;
+  }
+}
+.car-know-con {
+  border: 5px solid #2b9aed;
+  background-color: #fff;
+  width: 800px;
+  height: 288px - 20px - 44px;
+  padding-top: 44px;
+
+  font-size: 20px;
+  color:#666;
+  line-height: 28px;
+  position: absolute;
+  top:-310px;
+  display: none;
+  left: -66px;
+  h3{
+    font-weight: bold;
+    color:#333;
+  }
+  p{
+    font-size: 16px;
+    color:#666
+  }
+
+  .left{
+    float: left;
+    width:217px;
+    margin: 0 47px 0 15px;
+
+  }
+  .center{
+    float: left;
+    width: 239px;
+    padding-right: 26px;
+     font-size: 16px;
+    span{
+      font-weight: bold;margin-right: 5px;
+    }
+  }
+  .right{
+    float: left;
+    width: 238px;
+  }
+  .wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+
+}
+.car-listc{
+  overflow: hidden;
+  width: 1213px;
+  li {
+      border: 1px #E9E9E9 solid;
+    background: #FFFFFF;
+    width: 278px;
+    height: 144px;
+    text-align: center;
+    padding-top: 44px;
+    font-size: 18px;
+    position: relative;
+    float: left;
+    margin-right: 23px;
+    margin-bottom: 20px;
+
+    &:hover a{
+  display: block\9;
+      opacity:1
+    }
+  }
+  a{
+    position: absolute;
+    background:  url('//img.huizecdn.com/hz/www/page/car/bg2.png') 0 0 no-repeat;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    line-height: 188px;
+    color:#fff;
+    left: 0;
+    top: 0;
+    display: none\9;
+    opacity: 0;
+      transition: all .2s ease-in-out .1s;
+
+  }
+
+}
+.fcr{
+  color:#ff0d0d
+}
+.car-company{
+  padding-bottom: 100px;
+}
+.car-calling-content{
+
+  text-align: center;
+  h3{
+     line-height: 66px;
+  font-size: 18px;
+  color:#000;
+  }
+  .con{
+    display: inline-block;
+    text-align: left;
+    font-family: 宋体;
+  }
+}
+.ovh{
+  overflow: hidden;
+}

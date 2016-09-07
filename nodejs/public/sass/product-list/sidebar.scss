@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 慧择主站产品列表-侧边栏
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/03/15
+*/
+
+@import '../config';
+
+.product-list-page {
+
+//  列表页侧边栏 faq文章 列表
+  .insurance-faq {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+    li {
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      a {
+        &:hover {
+          color: #2150A2;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+
+
+  //  列表页侧边栏 推荐阅读 文章列表
+  .hz-tab-menu .hz-tab-menu-item a {
+    padding: 0 13px;
+    color: #666;
+  }
+
+  .hz-tab-style02 .active a {
+    font-weight: normal;
+    border-bottom-color: #2150a2;
+  }
+
+  .tab-ranking {
+    margin: 10px 0 25px;
+  }
+
+  .recommend-list li,
+  .ranking-container li {
+    i {
+      font-style: normal;
+      float: left;
+      padding: 0 5px;
+      line-height: 18PX;
+      border: 1px solid #fff;
+      font-family: Arial,sans-serif;
+    }
+
+    .dot {
+      padding-left: 0;
+      font-size: 24px;
+      color: #4a94f5;
+    }
+    .decimal-selected {
+      border: 1px solid #dde9fd;
+      font-weight: bold;
+      background: #f6f9fe;
+    }
+    a {
+      display: block;
+      padding-left: 35px;
+    }
+  }
+
+  .recommend-list li a {
+    padding-left: 20px;
+  }
+
+  .ranking-container,
+  .recommend-list {
+    li {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    a:hover {
+      color: #2150a2;
+      text-decoration: none;
+    }
+  }
+
+
+
+//  保险公司产品列表
+  .sidebar-company-category {
+    border: 1px solid #f0f0f0;
+    
+    dl {
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 20px;
+      margin: 20px;
+      &.last-item {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+    
+    dt {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    dd {
+      text-indent: 2em;
+      a {
+        display: block;
+        line-height: 2;
+        font-size: 14px;
+        color: #666;
+        &:hover {
+          color: #2150a2;
+          text-decoration: none;
+        }
+      }
+
+    }
+    .item-selected { color: #f6ab1a}
+  }
+
+
+  .others-company-box {
+    border: 1px solid #f0f0f0;
+    a {
+      @include inlineBlock;
+      vertical-align: top;
+      margin-left: 20px;
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+      &:hover {
+        color: #2150a2;
+        text-decoration: none;
+      }
+    }
+    .item-selected {
+      color: #f6ab1a;
+    }
+  }
+
+}
+
+
+
+
+
+

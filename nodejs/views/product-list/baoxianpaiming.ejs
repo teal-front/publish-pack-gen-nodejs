@@ -1,0 +1,93 @@
+<%
+    var
+        data = data || [],
+        categoryId = data.categoryId,
+        categories = data.categories || [],
+        currentItem = (categories.find(function(item){
+            return item.id == categoryId;
+        }) || {}),
+        currentChildren = currentItem.childrenList || [],
+        categoryName = currentItem.name || "",
+        parentId = categoryId,
+        parentName = categoryName,
+        currentSiblings = [];
+    if(currentChildren.length === 0){
+        categories.forEach(function(item){
+            item.childrenList.forEach(function(item2){
+                if(item2.id == categoryId){
+                    currentSiblings = item.childrenList;
+                    parentId = item.id;
+                    categoryName = item2.name;
+                    parentName = item.name;
+                    return;
+                }
+            });
+        });
+    }
+%>
+<div class="product-list-page  bgf7">
+    <div class="product-rank-list-box layout clearfix  pt20 pb30">
+        <div class="hz-breadcrumb pb15">
+            <a href="www.huize.com">慧择保险网</a>
+            <i class="arrow-right">&gt;</i>
+            <a href="/baoxianpaiming/">产品排行</a>
+            <i class="arrow-right">&gt;</i>
+            <%if(currentSiblings.length !== 0){%>
+                <a href="/baoxianpaiming/<%= parentId%>-0-1"><%= parentName%></a>
+                <i class="arrow-right">&gt;</i>
+            <%}%>
+            <h1 class="hz-breadcrumb-active"><%= categoryName || "全部"%></h1>
+        </div>
+        <div class="layout-primary">
+            <div class="layout-inner-primary">
+                <ul class="hz-tab-menu hz-tab-style01 rank-tab-menu">
+                    <%if(currentChildren.length !== 0 || categoryId === null){%>
+                         <li class="hz-tab-menu-item active"><a href="javascript:;">全部</a></li>
+                    <%}else{%>
+                         <li class="hz-tab-menu-item"><a href="/baoxianpaiming/<%= parentId%>-0-1">全部</a></li>
+                    <%}%>
+                    <%currentChildren.forEach(function(item,i){%>
+                        <%if(item.id == categoryId){%>
+                             <li class="hz-tab-menu-item active"><a href="javascript:;"><%=item.name%></a></li>
+                        <%}else{%>
+                             <li class="hz-tab-menu-item"><a href="/baoxianpaiming/<%= item.id%>-0-1"><%=item.name%></a></li>
+                        <%}%>
+                    <%})%>
+                    <%currentSiblings.forEach(function(item,i){%>
+                        <%if(item.id == categoryId){%>
+                            <li class="hz-tab-menu-item active"><a href="javascript:;"><%=item.name%></a></li>
+                        <%}else{%>
+                            <li class="hz-tab-menu-item"><a href="/baoxianpaiming/<%= item.id%>-0-1"><%=item.name%></a></li>
+                        <%}%>
+                    <%})%>
+                </ul>
+
+                <div class="js-rank-list">
+                    <div class="tab-pane" data-tab="tab-1">
+                        <%if(!data.productListHtml){%>
+                            <div class="empty"></div>
+                        <%}else{%>
+                            <div class="hz-product-list bgfw">
+                                <%- data.productListHtml%>
+                            </div>
+                        <%}%>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--detail-primary-->
+
+        <div class="layout-sidebar">
+            <div class="layout-inner-sidebar">
+                <ul class="sidebar-sort-list">
+                    <li class="<%= categoryId === null ? 'active' : ''%>"><a href="/baoxianpaiming/">全部</a></li>
+                    <%categories.forEach(function(item){ %>
+                        <li class="<%= item.id == categoryId || item.id == parentId ? 'active' : ''%>"><a href="/baoxianpaiming/<%= item.id%>-0-1"><%=item.name%></a></li>
+                    <%});%>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

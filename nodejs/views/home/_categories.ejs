@@ -1,0 +1,21 @@
+<%
+var categories = homeData.categories||[];
+%>
+<div class="hot-guide pt40 pb40 bgf7">
+	<div class="layout">
+		<ul class="hot-guide-list clearfix">
+			<%categories.forEach(function(item){%>
+			<li class="hot-guide-item fl">
+				<a href="<%=item.href%>" target="_blank">
+					<span class="title"><%=item.name%></span>
+					<div class="top">
+						<div class="f18 bor-bottom  pb15 mb15"><%=item.name%></div>
+						<p class="f14"><%=item.des%></p>
+					</div>
+					<img width="295" height="280" src="<%=item.imgUrl%>" alt="<%=item.imgAlt%>"/>
+				</a>
+			</li>
+			<%});%>
+		</ul>
+	</div>
+</div>

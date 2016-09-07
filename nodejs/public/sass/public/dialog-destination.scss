@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 弹窗-常用联系人
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/29
+*/
+@import 'config';
+
+
+//目的地  航班城市
+.layui-layer .destination-wrap {
+  padding: 5px 20px 20px;
+}
+
+
+.country-item {
+  float: left;
+  width: 30%;
+  margin-right: 2%;
+  height: 24px;
+  line-height: 24px;
+  @include ell;
+  margin-bottom: 8px;
+}
+
+.country-item .insure-label {
+  display: inline;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.country-item:hover {
+  background-color: #f7f7f7
+}
+
+.country-alphabet {
+  padding: 15px 0px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.country-alphabet dt,.country-alphabet dd,.country-alphabet span {
+  //height: 26px;
+  line-height: 26px
+}
+
+.country-alphabet dt {
+  float: left
+}
+
+.country-alphabet dd {
+  float: left
+}
+
+.country-alphabet span {
+  @include inlineBlock;
+  vertical-align: middle;
+  padding: 0 20px 0 0;
+  cursor: pointer
+}
+
+.country-alphabet .current {
+  font-weight: bold;
+  color: #f6ab1a
+}
+
+.country-box {
+  height: 140px;
+  margin-top: 10px;
+  overflow-x: hidden;
+  overflow-y: auto
+}
+
+.max-country {
+  color: #666666;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 3px;
+}
+
+.destination {
+  @include inlineBlock;
+  vertical-align: middle;
+  width: 98px;
+  height: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #2150a2;
+}
+
+.destination:hover {
+  background-position: 0 -22px
+}
+
+.country-select-box li.mouse-enter {
+  border-color: #f5320d
+}
+
+.country-select-box li.mouse-enter .del-country {
+  display: block
+}
+
+.country-select-box li {
+  position: relative;
+  float: left;
+  white-space: nowrap;
+  margin-right: 10px;
+  margin-top: 5px;
+  height: 18px;
+  line-height: 18px;
+  border: 1px solid #cccccc;
+  padding: 1px 8px 1px 4px;
+  background-color: #fff;
+  color: #666
+}
+
+.country-select-box .del-country {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  cursor: pointer;
+  background: url(http://images.hzins.com/short/www/2012new/images/mud/ku8.jpg) no-repeat 0 0
+}
+
+.clear-country {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 75px;
+  color: #2150a2;
+  overflow: hidden;
+  cursor: pointer
+}
+
+.clear-country:hover {
+  background-position: 0 -23px
+}
+
+.country-select-area {
+  background: #f6f9fe;
+  padding: 8px 0;
+  position: relative
+}
+
+.country-select-area dt {
+  width: 85px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center
+}
+
+.country-select-area dt,.country-select-area dd {
+  float: left
+}
+
+.country-select-area dd {
+  width: 600px
+}
+
+
+.search-country {
+  position: absolute;
+  right: 20px;
+  top: 7px;
+  height: 32px;
+  background-color: #fff
+}
+
+.search-country input {
+  width: 237px;
+  height: 20px;
+  line-height: 20px;
+  background-color: transparent;
+  padding: 5px
+}
+
+.search-country .search-country-btn {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  background: #2150a2;
+  cursor: pointer
+}
+
+.search-country .search-country-btn:hover {
+  background-position: 0 -20px
+}
+
+.search-country input,.search-country .search-country-btn {
+  display: inline-block;
+  vertical-align: middle
+}
+
+
+.no-accept-country-data {
+  text-align: center;
+  padding: 40px;
+  color: #666
+}
+
+.no-accept-country {
+  height: 260px;
+  overflow-y: auto;
+  overflow-x: hidden
+}
+
+.no-accept-country dl {
+  margin-bottom: 20px
+}
+
+.no-accept-country dt {
+  height: 27px;
+  line-height: 27px;
+  border-bottom: dashed 1px #c5c5c5;
+  font-weight: bold;
+  color: #333
+}
+
+.no-accept-country li {
+  width: 33%;
+  height: 26px;
+  line-height: 26px;
+  float: left;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden
+}
+
+.fight-city-wrap {
+  .country-box {
+    @include minHeight(180px);
+  }
+  .country-alphabet {
+    padding-top: 0;
+  }
+}

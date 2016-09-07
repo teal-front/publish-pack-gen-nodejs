@@ -1,0 +1,253 @@
+<input type="hidden" class="page-id" value="<%=pageId%>">
+<!-- 需要变更的产品ID，多个ID用,逗号分开 -->
+<input type="hidden" class="change-id" value="" />
+<input type="hidden" class="change-date" data-id="" data-unit="" value="" />
+
+<div class="fixed-plan">
+    <div class="detail-tab-wrap">
+            <div class="layout">
+
+                <% include _fixed-head %>
+
+            </div>
+            <!--layout end-->
+        </div>
+        <div class="fix-plan-top">
+          <div class="layout">
+              <h3 class="f30 fl" id="planName" data-title="<%=planName%>"><%=planName%>
+                <span class="f18 primary-color">￥</span>
+                <span class="primary-color plan-top-price">15000.00</span><span class="f18 primary-color">起</span></h3>
+                <a href="javascript:;" class="hz-button hz-button-primary fr pl40 pr40 add-cart-btn add-cart-top">加入购物车</a>
+                <a href="http://www.huize.com/baoxianyuyue?oppName=<%=planName%>" target="_blank" class="fix-plan-bn">预约顾问</a>
+            </div>
+          </div>
+</div>
+
+
+
+    <div class="top-location layout programs-content">
+                    <div class="plan-banner plan-b8">
+                            <div class="f36 fcw fb mb5">丰厚回报，养老不愁</div>
+                            <ul class="plan-listo fcw">
+                                    <li><span class="mr5">&bull;</span>稳健增值收益高</li>
+                                    <li><span class="mr5">&bull;</span>灵活领取更方便</li>
+                                    <li><span class="mr5">&bull;</span>年金万能双重收益</li>
+                                    <li><span class="mr5">&bull;</span>生存多久领多久</li>
+                            </ul>
+                    </div>
+                    <div class="plan-introduce">
+                            <div class="plan-icon1"><i class="iconfont">&#xe753;</i></div>
+                            <p class="ovh lh22 f14 ti2em"><%=planDesc%></p>
+                    </div>
+                        <!-- 推荐计划 -->
+                    <ul class="plan-list-com plan-list-c1"><!-- 三种方案 -->
+                            <li data-planid="1081" class="bdC4E8D6">
+                                    <h3>初级计划</h3>
+                                    <div class="pl30 pr30">
+
+                                               <div class="plan-list-item clearfix">
+                                                    <span class="fl">适用人群</span>
+                                                    <p class="fr fb">出生满28天至60周岁（含)</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">生效当日领取</span>
+                                                    <p class="fr fb">3840元</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">按年终身领取返还金</span>
+                                                    <p class="fr fb">3840元/年</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">身故/全残保险金</span>
+                                                    <p class="fr fb w158">已交保费和保单现金价值的较大者</p>
+                                               </div>
+                                    </div>
+                                    <h4 class="mt10">价格<span class="fb ml10 plan-price">15000.00元</span></h4>
+                                    <p  class="plan-triangle">
+                                        <span class="triangle-a"></span>
+                                        <i class="iconfont">&#xe72f;</i>
+                                    </p>
+                            </li>
+                             <li data-planid="1082" class="bdF3FDFF ml30 mr30">
+                                    <h3>升级计划</h3>
+                                    <div class="pl30 pr30">
+                                            <div class="plan-list-item clearfix">
+                                                    <span class="fl">适用人群</span>
+                                                    <p class="fr fb">出生满28天至60周岁（含)</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">生效当日领取</span>
+                                                    <p class="fr fb">7680元</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">按年终身领取返还金</span>
+                                                    <p class="fr fb">7680元/年</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">身故/全残保险金</span>
+                                                    <p class="fr fb w158">已交保费和保单现金价值的较大者</p>
+                                               </div>
+                                    </div>
+                                    <h4 class="mt10">价格<span class="fb ml10 plan-price">30000.00元</span></h4>
+                                     <p  class="plan-triangle">
+                                        <span class="triangle-a"></span>
+                                        <i class="iconfont">&#xe72f;</i>
+                                    </p>
+                            </li>
+                            <li data-planid="1083" class="bdDECFE8">
+                                    <h3>至尊计划</h3>
+                                    <div class="pl30 pr30">
+                                            <div class="plan-list-item clearfix">
+                                                    <span class="fl">适用人群</span>
+                                                    <p class="fr fb">出生满28天至60周岁（含)</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">生效当日领取</span>
+                                                    <p class="fr fb">12800元</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">按年终身领取返还金</span>
+                                                    <p class="fr fb">12800元/年</p>
+                                               </div>
+                                                <div class="plan-list-item clearfix">
+                                                    <span class="fl">身故/全残保险金</span>
+                                                    <p class="fr fb w158">已交保费和保单现金价值的较大者</p>
+                                               </div>
+                                    </div>
+                                    <h4 class="mt10">价格<span class="fb ml10 plan-price">50000.00元</span></h4>
+                                     <p  class="plan-triangle">
+                                        <span class="triangle-a"></span>
+                                        <i class="iconfont">&#xe72f;</i>
+                                    </p>
+                            </li>
+                    </ul>
+
+                      <a href="javascript:;" class="hz-button hz-button-primary plan-bn add-cart-btn">加入购物车</a>
+
+
+    </div>
+    <!-- 风险解读 -->
+    <div class="top-location plan-reading plan-reading-7">
+        <div class="layout">
+              <h3 class="f48  mb20">风险解读 </h3>
+              <p class="lh22">我国正在快速步入老龄化社会，截至2014年底，全国60岁及以上老年人口已达到占总人口的15.5%。随着独生子女一代的双亲衰老，越来越多的“4+2+1”模式家庭，面临经济上、时间上等诸多的养老问题，并且将来的养老要比现在的老人难得多，自问未来我们靠什么养老？中国养老保险体系发展不大平衡，养老金缺口大，2015年中国养老保险亏空超过3000亿元。面对巨大的经济压力和严峻的养老形式，未来的老年生活依靠谁？唯一靠自己，趁年轻早早规划理财储备未来生活。</p>
+              <ul class="plan-listw">
+                      <li class="plan-listw-li">
+                               <h4 class="f18"><span class="f60 fb">15.5</span>%</h4>
+                              <p>全国60岁及以上老年人口已达到占总人口的15.5%</p>
+                      </li>
+                       <li class="plan-listw-li">
+                              <h4 class="f18"><span class="f60 fb">4+2+1</span></h4>
+                              <p>独生子女的双亲衰老，“4+2+1”模式家庭开启</p>
+                      </li>
+                       <li>
+                              <h4 class="f18"><span class="f60 fb">3000亿</span>元</h4>
+                              <p>2015年中国养老保险亏空超过3000亿元</p>
+                      </li>
+              </ul>
+        </div>
+    </div>
+    <!-- 方案优势 -->
+    <div class="top-location plan-advantage-com plan-advantage-9">
+        <div class="layout">
+                <div class="plan-advantage-box">
+                        <h2 class="f48 pt45 mb20">方案优势</h2>
+                        <p class="f16 fc6">“悦人生”成人养老理财保障方案是一款可以灵活领取，并能获取长期稳定收益的理财计划，适合风险偏好低，追求中长期的稳健投资的人士。</p>
+                        <ul class="plan-listh">
+                                <li class="plan-listh-1 mb35">
+                                        <h3 class="plan-advantage-tt">双重账户 稳健增值收益高</h3>
+                                        <p class="f14 fc9 pl25">万能金账户保底收益2.5%，目前结算利率4.8%</p>
+                                </li>
+                                <li class="plan-listh-2 mb35">
+                                        <h3 class="plan-advantage-tt">马上领取无门槛</h3>
+                                        <p class="f14 fc9 pl25">生效当日即可领取100%保额</p>
+                                </li>
+                                <li class="plan-listh-3">
+                                        <h3 class="plan-advantage-tt">灵活领取无限制</h3>
+                                        <p class="f14 fc9 pl25">可以根据您自身的需要灵活设置领取计划</p>
+                                </li>
+                        </ul>
+                    </div>
+        </div>
+    </div>
+    <!-- 投保案例 -->
+    <div class="layout pt40 pb40">
+            <h3 class="f48 tac mb20 pt5">投保案例 </h3>
+            <div class="clearfix pt30 pl40 pb30">
+                    <div class="plan-case-con plan-case-1 ml40">
+                            <div class="plan-case-img"><img src="//img.huizecdn.com/hz/www/page/plan/case1.jpg" alt=""></div>
+                            <h3 class="plan-txt">陈先生30岁时</h3>
+                            <ul>
+                                    <li ><span class="fl  fc6">每年交保费</span><strong>10  万元</strong></li>
+                                    <li ><span class="fl  fc6">连续交费</span><strong>10  年</strong></li>
+                                    <li class="bdn"><span class="fl  fc6">合计投入</span><strong>100 万元</strong></li>
+                            </ul>
+                    </div>
+                    <img src="//img.huizecdn.com/hz/www/page/plan/case3.png" alt="" class="plan-case-img2">
+                    <div class="plan-case-con plan-case-2">
+                            <div class="plan-case-img"><img src="//img.huizecdn.com/hz/www/page/plan/case2.jpg" alt=""></div>
+                            <h3 class="plan-txt">自从60岁退休后</h3>
+                            <ul>
+                                    <li ><span class="fl  fc6">每年领取养老金</span><strong>5 万元</strong></li>
+                                    <li ><span class="fl  fc6">领到100岁合计领</span><strong>205 万元</strong></li>
+                                    <li class="bdn"><span class="fl  fc6">最后，账户里还剩下</span><strong>138.3 万元</strong></li>
+                            </ul>
+                    </div>
+            </div>
+            <p class="f16 pt30 tac">100周岁时身故还可获得100万元（主险身故保险金）+138.3万（万能账户价值）即<strong class="f24 fc21a367 "> 238.3</strong>万元  可将这笔财富传承给后代</p>
+            <p class="f16 pt30 tac pb30">以上案例以中档年化收益4.5%计算，万能险账户收益具有不确定性，实际收益情况以官方公布数据为准</p>
+    </div>
+    <!-- 常见问题 -->
+    <div class="top-location plan-question">
+            <div class="layout">
+                    <h3 class="f48 mb25 tac">常见问题</h3>
+                    <div class="pt35 pl30 pr30 bgfw">
+                            <h4 class="f18">Q : 该方案的产品组合是什么？</h4>
+                            <p class="f14 fc6 pb25"> A :  该方案的每个计划都为“马上赢年金保险”产品（保障期限终身），由于是理财型产品基本计划购买份数为10份，升级计划购买份数为30份，至尊计划购买份数为50份。由于反洗钱规定，单张保单金额不得超过20万元人民币，所以本方案拆分成多单进行购买。</p>
+                            <h4 class="f18">Q : 在慧择网购买保险，我的资金安全吗？</h4>
+                            <p class="f14 fc6 pb25"> A :  慧择网是一家经中国保监会审批成立的保险经纪公司，各种经营活动和资金安全都是受到中国保监会监督管理的，在慧择网投保购买的保险费都是由对应的保险公司收取并由该保险公司直接出具的保险合同，同时还可以通过保险公司的热线服务电话查证保单，所以您在慧择网上购买保险是绝对安全可靠的。 </p>
+                             <h4 class="f18">Q : 在慧择网购买保险有什么优势？</h4>
+                            <p class="f14 fc6 pb25">A : 慧择网是一家国内最大的第三方保险经纪网，汇集了几十家保险公司的众多优势保险产品，客户足不出户就能一站式轻松选择到符合自己需求的保险。在慧择保险网上投保的客户既可以享受保险公司应有的各种服务外，同时还能享受我们慧择网不断推出的各种后续增值服务。</p>
+                             <h4 class="f18">Q : 此方案有犹豫期吗</h4>
+                            <p class="f14 fc6 pb25">A : 购买成功后有10天的犹豫期，在此期间，请认真审视本合同，如果认为本合同与您的需求不相符，可以在此期间提出解除本合同，保险公司将向您无息退还所交纳的保险费。</p>
+                             <h4 class="f18">Q :网上购买保险的电子保单有效吗？</h4>
+                            <p class="f14 fc6 pb25"> A :  在慧择网上购买保险的电子保单与传统保单是没有本质区别的，在理赔或满期给付时二者具有同样的法律效力。另外，在慧择网投保只要凭注册名或电子邮箱即可随时找回电子保单，方法简单、无需工本费。 </p>
+                            <h4 class="f18">Q :投保后出险该如何理赔？</h4>
+                            <p class="f14 fc6 pb25"> A :  您可以直接拨打慧择网服务热线4006-366-366，由专人全程协助指引报案和申请理赔，或联系您在慧择网的专属顾问为您服务，节约您宝贵的时间。 </p>
+                    </div>
+
+            </div>
+    </div>
+    <!-- 用户点评 -->
+    <div class="top-location plan-review pt45 pb30">
+           <div class="layout">
+                <h2 class="f48 tac ">用户点评</h2>
+               <ul class="plan-listf">
+                       <li>
+                               <img src="//img.huizecdn.com/hz/www/page/plan/head1.png" alt="" class="plan-img-head">
+                               <h3 class="f18 mt25">刘研***</h3>
+                               <p class="f14 pt10">感谢我的保险顾问万家健，推荐养老储蓄方案，对比了其他的，还是这款符合些，对自己以后有保障，也算是强制储蓄。以前工资全花了，也没干什么，现在规划也不迟。</p>
+                       </li>
+                       <li>
+                               <img src="//img.huizecdn.com/hz/www/page/plan/head2.png" alt="" class="plan-img-head">
+                               <h3 class="f18 mt25">莫言****</h3>
+                               <p class="f14 pt10">通过对比几家的寿险，最后购买了这款承保当日即刻领取年金的方案，生存多久领多久，传承福及三代产品，性价比较高。真心希望慧泽网越办越好，还会来的，谢谢！</p>
+                       </li>
+                       <li>
+                               <img src="//img.huizecdn.com/hz/www/page/plan/head3.png" alt="" class="plan-img-head">
+                               <h3 class="f18 mt25">飞飞***</h3>
+                               <p class="f14 pt10">一开始只是想购买一份孩子的重疾险，在看方案的时候看到这个方案，作为一个比较稳健的理财手段还是不错的。打算先作为孩子的教育金，如果等孩子上学的时候不需要动用这笔钱就继续放在里面，等有需要的时候提取出来。</p>
+                       </li>
+                       <li>
+                               <img src="//img.huizecdn.com/hz/www/page/plan/head4.png" alt="" class="plan-img-head">
+                               <h3 class="f18 mt25">642***</h3>
+                               <p class="f14 pt10">这款方案其实就相当于一个定期存款，在现有利率水平下，能够一直持有个十年八年的话，感觉收益还是可以的，所以说如果有闲钱的话投资一下还是不错的，当然优惠更好点。</p>
+                       </li>
+               </ul>
+              <div class="tac pb20">
+                  <a href="http://www.huize.com/guihua/comment/p<%=pageId%>" target="_blank" class="f16" title="<%=planName%>用户评论">查看全部用户评论 ></a>
+              </div>
+           </div>
+    </div>
+    <!-- 精品方案 -->
+    <% include ./_detail-foot %>

@@ -1,0 +1,17 @@
+ 
+<script src="//static.huizecdn.com/js/libs/require/2.1.11/require.min.js"></script>
+<script src="//static.huizecdn.com/js/hz/www/build/config/requirejs-config.js?v=<%=version%><%=locals.jsVersion%>"></script>
+<script>
+    requirejs(['main','<%=jsName%>'], function (main,index) {
+        if(index&&index.init){
+        	index.init();
+        }
+    });
+</script>
+<script>
+	try{
+		var loginCallback = top.loginCallback || function(){};
+		loginCallback();
+	}catch(ev){
+	}
+</script>

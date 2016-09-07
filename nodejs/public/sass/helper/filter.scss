@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 筛选
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+@import '../config';
+
+.filter-tag {
+  @include inlineBlock;
+  vertical-align: middle;
+  line-height: 28px;
+  padding: 0 15px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  color: #333;
+  cursor: pointer;
+  @include userSelect;
+  &:hover {
+    padding: 0 14px;
+    line-height: 26px;
+    border: 2px solid #f6ab1a;
+    text-decoration: none;
+  }
+
+  &.disabled {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #ddd;
+    &:hover {
+      border: 2px solid #ddd;
+      background: #eee;
+    }
+  }
+}
+
+
+.filter-large-tag {
+  line-height: 38px;
+  padding: 0 30px;
+  &:hover {
+    background: #F6F9FE;
+    border-color: #DDE9FD;
+  }
+}
+.filter-large-avtive-tag {
+  padding: 0 28px;
+  line-height: 36px;
+  border: 2px solid #f6ab1a;
+  &:hover {
+    border: 2px solid #f6ab1a;
+    background: #fff;
+  }
+}
+.filter-active-tag {
+  padding: 0 14px;
+  line-height: 26px;
+  border: 2px solid #f6ab1a;
+  cursor: default;
+  &:hover {
+    border: 2px solid #f6ab1a;
+  }
+  &.hz-dropdown {
+    padding: 0;
+    border: none;
+    .input-select-text {
+      border: 2px solid #f6ab1a;
+    }
+
+  }
+}
+
+.filter-tag-text {
+  border-color: #fff;
+  cursor: default;
+  padding: 0;
+  &:hover {
+    padding: 0;
+    border-color: #fff;
+    text-decoration: none;
+  }
+}
+
+.filter-disabled-tag {
+  border-color: #eee;
+  color: #ccc;
+  cursor: not-allowed;
+  &:hover {
+    background: #fff;
+    border-color: #eee;
+  }
+}

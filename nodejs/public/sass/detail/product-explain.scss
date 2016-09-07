@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+
+/*
+ * 功能：huize.com - 详情页面-产品解读
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+
+
+.detail-product-explain {
+  font-size: 12px;
+  line-height: 2;
+
+  .clear {
+    clear: both;
+  }
+
+  .margin_2 {
+    margin-top: 15px;
+  }
+
+  .a_banner{ height:157px;background:url(http://images.hzins.com/short/www/2012new/images/Public/uploads/proimg/a_banner_bg.jpg) no-repeat;margin-top:10px; margin-bottom:10px;}
+  .a_banner p{width:330px; line-height:20px; padding:30px 20px 15px 20px;text-indent:2em;float:left;color: #363636;font-family:\5B8B\4F53;font-size:12px;}
+  .a_banner_img{ vertical-align:2px; float:right; padding:1px 2px 0 0;*float:right;}
+
+  .six_reasons_tt p{ line-height:35px; font-size:1.8em; font-weight:500; color:#017b30; font-family:\5FAE\8F6F\96C5\9ED1,\9ED1\4F53;}
+  .six_reasons_tt span{ font-size:1.5em; font-weight:bold; color:#017b30; font-family:Arial, Helvetica, sans-serif;}
+  .six_reasons_box{
+      float: left;
+      width:360px; height:73px; padding:10px 20px 0 35px; border:1px solid #d8d8d8;  font-family:\5FAE\8F6F\96C5\9ED1,\9ED1\4F53; text-align:center; background:url(http://images.hzins.com/short/www/2012new/images/health/health_bg.gif) 0 -1109px repeat-x;}
+  .srb_f1{ font-size:1.5em; font-weight:500; color:#000; line-height:120%; padding-top:6px;}
+  .srb_f2{ font-size:20px; font-weight:bold; color:#000; line-height:160%;}
+  .srb_f3{ color:#ff0000;}
+  .six_reasons_box span.icon{ float:left; padding-right:15px;}
+  .srb_p{ margin-left:16px;}
+  .srb_p2{ margin-top:16px;}
+
+  .sf_interest{border:1px solid #d8d8d8; border-left:none;}
+  .sf_project_tt{ line-height:36px; padding-left:20px; font-size:1.4em; font-weight:bold; color:#333; border-left:1px solid #d8d8d8; background:#f6f6f6;}
+  .sf_tab_b{background:#f6f6f6;}
+  .sf_project_ttab td{ line-height:20px;color:#363636; border-top:1px solid #d8d8d8; border-left:1px solid #d8d8d8; padding:5px 10px; font-family:\5B8B\4F53;}
+
+
+}

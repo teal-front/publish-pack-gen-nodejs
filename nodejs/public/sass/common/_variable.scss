@@ -1,0 +1,58 @@
+﻿@charset "urf-8";
+
+$imghost:"//img.huizecdn.com/hz/www/page/";
+$fonthost:"//static.huizecdn.com/css/hz/www/fonts/";
+
+$font-size-root: 12px !default;
+$font-yahei: 'Microsoft YaHei';
+$color: #333 #666;
+$breadcrumb-color: #666;
+$cursor-disabled:  not-allowed !default;
+$btn-line-height: 50px !default;
+$input-btn-border-width: 1px;
+
+$primary-color:#f6ab1a !default;
+
+$page-width: 1190px;
+$body-bg: #fff !default;
+$body-color: nth($color, 1) !default;
+$global-font: #{$font-size-root}/1.5  "Microsoft YaHei","Helvetica Neue",Helvetica, Arial,sans-serif;
+$color-default: nth($color,1);
+
+$ieHack: "*";
+
+
+// Buttons
+
+
+$btn-line-height:                1.25 !default;
+$btn-font-weight:                normal !default;
+$btn-box-shadow:                 inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075) !default;
+$btn-active-box-shadow:          inset 0 3px 5px rgba(0,0,0,.125) !default;
+
+
+$btn-large-size:                 50px !default;
+$btn-middle-size:                40px !default;
+$btn-default-size:               40px !default;
+$btn-small-size:                 30px !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border-width:       1px !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 #f6ab1a !default;
+$btn-primary-hover-bg:           #ffc555 !default;
+
+
+$btn-secondary-color:            #fff !default;
+$btn-secondary-bg:               #2150a2 !default;
+$btn-secondary-hover-bg:         #3e6fc4 !default;
+
+
+
+
+
+
+
+

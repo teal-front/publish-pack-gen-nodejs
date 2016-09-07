@@ -1,0 +1,235 @@
+<%
+    var data = data || [];
+    var searchData = data.searchData || {};
+    var insuranceTypes = searchData.insuranceTypes || {};
+    var insuranceCompanys = searchData.insuranceCompanys || {};
+    var searchParams = searchData.searchParams || {};
+    var SP = searchParams;
+    var
+            sort = searchParams.sort || 0,
+            companyId = searchParams.companyId || 0,
+            categoryId = searchParams.categoryId,
+            categoryItem = insuranceTypes.find(function(item){return item.id == categoryId;}) || {},
+            companyItem = insuranceCompanys.find(function(item){return item.companyId == companyId;}) || {},
+            categoryName = categoryItem.name || (insuranceTypes[0] || {}).name;
+    var isEmptyObject = function(obj){
+        var name;
+        for ( name in obj ) {
+            return false;
+        }
+        return true;
+    }
+    var
+        rankListData = data.rankListData || [],
+        shellListData = data.shellListData || [],
+        commentListData = data.commentListData || [],
+        recommendListData = data.recommendListData || [];
+%>
+<div class="product-list-page  bgf0"><!--详情页面标识-->
+
+    <div class=" pb10">
+        <div class="layout">
+            <div class="hz-breadcrumb pt10">
+                <a href="<%= locals.mainHost %>" target="_blank">慧择保险网</a>
+                <i class="arrow-right">&gt;</i>
+                <h1 class="hz-breadcrumb-active">关键词“<%= SP.productQuery || ""%>”的搜索结果</h1>
+            </div>
+            <!--hz-breadcrumb end-->
+        </div>
+        <!--layout end-->
+    </div>
+
+
+    <div class="product-seach-list-box layout clearfix  pb30">
+        <div class="layout-primary">
+            <div class="layout-inner-primary" style="width: 870px;">
+                <%if((searchData.simpleProducts || []).length !== 0){%>
+                <div class="select-box bgfb" >
+                    <%if(SP.productQuery){%>
+                    <div class="bor-bottom f14 pl30 pr30 pt10 pb10 mb20">
+                        您搜索的“<%= SP.productQuery || ""%>”相关结果如下
+                    </div>
+                    <%}%>
+                    <div class="ml30  f14 fc6 pb5">
+                        <span class="mr30"> <strong >产品筛选</strong> 共<span class="search-count"><%=searchData.totalCount || 0%></span>款产品</span>
+                        <%if(!isEmptyObject(categoryItem)){%>
+                            <span class="select-tag">
+                               <%= categoryItem.name%> <a href="<%='/p-1-' + SP.productQuery +'-0-' + SP.sort  + '-' + SP.sortflag + (SP.companyId ? '-' + SP.companyId : '') %>" class="select-close-btn iconfont pl10 f12">&#xe70a;</a>
+                            </span>
+                        <%}%>
+                        <%if(!isEmptyObject(companyItem)){%>
+                            <span class="select-tag">
+                               <%= companyItem.companySimpName%> <a href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-'  + SP.sort + '-' + SP.sortflag + '-0' %>" class="select-close-btn iconfont pl10 f12">&#xe70a;</a>
+                            </span>
+                        <%}%>
+                    </div>
+                    <%if(isEmptyObject(categoryItem)){%>
+                        <div class="select-column mt10">
+                            <span class="select-label">
+                                险&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;种：
+                            </span>
+                            <div class="select-list">
+                                <div class="js-select-content">
+                                    <%insuranceTypes.forEach(function(item){%>
+                                         <%if(item.name){%>
+                                               <a class="select-item <%= item.id == categoryId ? "select-item-active" : ""%>" href="<%='/p-1-' + SP.productQuery +'-' + item.id +  '-' + SP.sort  + '-' + SP.sortflag + (SP.companyId ? '-' + SP.companyId : '') %>" data-typeId="<%=item.id%>"><%=item.name%></a>
+                                         <%}%>
+                                    <%});%>
+                                </div>
+                            </div>
+                        </div>
+                    <%}%>
+                    <%if(isEmptyObject(companyItem)){%>
+                        <div class="select-column mt10">
+                            <span class="select-label">
+                                保险品牌：
+                            </span>
+                            <div class="select-list">
+                                <div class="js-select-content">
+                                    <%insuranceCompanys.forEach(function(item){%>
+                                         <a class="select-item  <%= item.companyId == companyId ? "select-item-active" : ""%>" href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-'  + SP.sort + '-' + SP.sortflag + '-' + item.companyId %>" data-companyId="<%=item.id%>"><%=item.companySimpName%></a>
+                                    <%});%>
+                                </div>
+                            </div>
+                        </div>
+                    <%}%>
+
+                    <div class="sort-bar clearfix">
+                        <span class="fl fc6 f14 ml30 mr10">综合排序：</span>
+
+                        <div class="fl">
+                            <a class="sort-link <%= SP.sort == 0 ? 'sort-link-selected ' : ''%><%= SP.sortflag == 0 ? 'sort-link-up' : 'sort-link-down'%>" href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-0' + '-' + (SP.sortflag == 0 ? 1 : '0') + (SP.companyId ? '-' + SP.companyId : '') %>" >默认</a>
+                            <a class="sort-link <%= SP.sort == 1 ? 'sort-link-selected ' : ''%><%= SP.sortflag == 0 ? 'sort-link-up' : 'sort-link-down'%>" href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-1' + '-' + (SP.sortflag == 0 ? 1 : '0') + (SP.companyId ? '-' + SP.companyId : '') %>">销量<i class="arrow-icon  iconfont"><%- SP.sortflag == 0 ? '&#xe766;' : '&#xe767;'%></i></a>
+                            <a class="sort-link <%= SP.sort == 2 ? 'sort-link-selected ' : ''%><%= SP.sortflag == 0 ? 'sort-link-up' : 'sort-link-down'%>" href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-2' + '-' + (SP.sortflag == 0 ? 1 : '0') + (SP.companyId ? '-' + SP.companyId : '') %>">价格<i class="arrow-icon  iconfont"><%- SP.sortflag == 0 ? '&#xe766;' : '&#xe767;'%></i></a>
+                            <a class="sort-link <%= SP.sort == 4 ? 'sort-link-selected ' : ''%><%= SP.sortflag == 0 ? 'sort-link-up' : 'sort-link-down'%>" href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-4' + '-' + (SP.sortflag == 0 ? 1 : '0') + (SP.companyId ? '-' + SP.companyId : '') %>">评分<i class="arrow-icon  iconfont"><%- SP.sortflag == 0 ? '&#xe766;' : '&#xe767;'%></i></a>
+                            <a class="sort-link <%= SP.sort == 3 ? 'sort-link-selected ' : ''%><%= SP.sortflag == 0 ? 'sort-link-up' : 'sort-link-down'%>" href="<%='/p-1-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-3' + '-' + (SP.sortflag == 0 ? 1 : '0') + (SP.companyId ? '-' + SP.companyId : '') %>">上架时间<i class="arrow-icon  iconfont"><%- SP.sortflag == 0 ? '&#xe766;' : '&#xe767;'%></i></a>
+                        </div>
+
+
+                        <div class="fr mr20 select-page">
+                            <% var pageCount = Math.ceil(searchData.totalCount / 10);%>
+                            <%if(pageCount > 1){%>
+                                <span class="mr5"><%= +SP.pageNo + 1%>/<%= pageCount%></span>
+                            <%if(SP.pageNo <= 0){%>
+                                <a class="select-page-pre select-page-disabled" href="javascript:;"><i class="iconfont">&#xe706;</i></a>
+                            <%}else{%>
+                                <a class="select-page-pre" href="<%='/p-'+ (SP.pageNo) + '-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-' + SP.sort  + '-' + SP.sortflag + (SP.companyId ? '-' + (SP.companyId ? '-' + SP.companyId : '') : '') %>"><i class="iconfont">&#xe706;</i></a>
+                            <%}%>
+                            <%if(SP.pageNo < pageCount - 1){%>
+                                <a class="select-page-next" href="<%='/p-'+ (+SP.pageNo + 2) + '-' + SP.productQuery +'-' + (SP.categoryId || 0) + '-' + SP.sort  + '-' + SP.sortflag + (SP.companyId ? '-' + (SP.companyId ? '-' + SP.companyId : '') : '') %>"><i class="iconfont">&#xe707;</i></a>
+                            <%}else{%>
+                                <a class="select-page-next select-page-disabled" href="javascript:;"><i class="iconfont">&#xe707;</i></a>
+                            <%}%>
+                            <%}else{%>
+                            <span class="mr5">共1页</span>
+                            <%}%>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="hz-product-list bgfw">
+                     <%if(searchData.productListHtml){%>
+                        <%- searchData.productListHtml%>
+                     <%}else{%>
+                        <div class="empty"></div>
+                     <%}%>
+                </div>
+
+                <div class="hz-pagination mt15" id="kkpager"></div>
+                <%}else{%>
+                <div class="bgfb pl30 pt15 pb15 f14 fc6" >为您找到 0 个相关产品</div>
+                <div class="empty tac" style="margin-top: 100px;">
+                    <img src="//img.huizecdn.com/hz/www/page/search-empty.png" alt=""/>
+                    <p class="f18 mt20">抱歉！暂未找到与“<%= SP.productQuery%>”相关的产品。</p>
+                    <p class="fc9">欢迎联系<span class="fc3"><a class="primary-link" href="javascript:;" target="_blank" id="kfLink">在线客服</a></span>将您想找的产品告知我们。</p>
+                </div>
+
+
+                <%}%>
+            </div>
+
+        </div>
+        <!--detail-primary-->
+
+
+        <div class="layout-sidebar">
+            <div class="layout-inner-sidebar">
+
+                <div class="bgfw bor-bottom p20">
+                    <h3 class="f18">为您推荐</h3>
+
+                    <div class="mt10">
+                        <a href="http://activities.huize.com/activities/2016ppc/gaoehangkongyixian/" target="_blank"><img width="100%" src="http://img.huizecdn.com/hz/www/upload/2016/0706/zhuanti_2.jpg" alt="500万保额全程护驾，航空意外不再怕"></a>
+                    </div>
+                    <div class="mt10">
+                        <a href="http://activities.huize.com/activities/2015ppc_shaoerzj" target="_blank"><img width="100%" src="http://img.huizecdn.com/hz/www/upload/2016/0706/zhuanti_1.jpg" alt="孩子量身定制重疾、意外、医疗保障。花最少钱，获得最全面的保障"></a>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-ranking-box bgfw bor-bottom p20">
+                    <h3 class="f18"><%= categoryName%>排行</h3>
+                    <ul class="hz-tab-menu hz-tab-style02 tab-ranking">
+                        <li class="hz-tab-menu-item active"><a href="javascript:;">购买更多</a></li>
+                        <li class="hz-tab-menu-item"><a href="javascript:;">浏览更多</a></li>
+                        <li class="hz-tab-menu-item"><a href="javascript:;">评论最多</a></li>
+                    </ul>
+
+                    <div class="ranking-container">
+                        <div class="tab-pane fn-hide fn-show js-rank-list">
+                            <ul>
+                                <% shellListData.forEach(function(item,i){%>
+                                <li>
+                                    <i class='decimal <%= i < 3 ? "decimal-selected" : ""%>'><%= i + 1%></i>
+                                    <a href="http://www.huize.com/product/detail-<%=item.proProductId%>.html?DProtectPlanId=<%=item.proProductPlanId%>" target="_blank"><%= item.productName + item.planName%></a>
+                                </li>
+                                <%});%>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fn-hide  js-rank-list">
+                            <ul>
+                                <% rankListData.forEach(function(item,i){%>
+                                <li>
+                                    <i class='decimal <%= i < 3 ? "decimal-selected" : ""%>'><%= i + 1%></i>
+                                    <a href="http://www.huize.com/product/detail-<%=item.proProductId%>.html?DProtectPlanId=<%=item.proProductPlanId%>" target="_blank"><%= item.productName + item.planName%></a>
+                                </li>
+                                <%});%>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fn-hide js-rank-list">
+                            <ul>
+                                <% commentListData.forEach(function(item,i){%>
+                                <li>
+                                    <i class='decimal <%= i < 3 ? "decimal-selected" : ""%>'><%= i + 1%></i>
+                                    <a href="http://www.huize.com/product/detail-<%=item.productId%>.html" target="_blank"><%= item.productName%></a>
+                                </li>
+                                <%});%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <%if(recommendListData.length !== 0){%>
+                <div class="bgfw bor-bottom p20">
+                    <h3 class="mb20 f18">推荐阅读</h3>
+                    <ul class="recommend-list">
+                        <% recommendListData.forEach(function(item,i){%>
+                        <li>
+                            <i class="dot">•</i>
+                            <a target="_blank" href="http://xuexi.huize.com/study/detal-<%=item.Study_ID%>.html"><%= item.title%></a>
+                        </li>
+                        <%});%>
+                    </ul>
+                </div>
+                <%}%>
+            </div>
+
+        </div>
+        <!--detail-sidebar end-->
+
+    </div><!--layout end-->
+    <div class="fn-hide">
+        <input type="hidden" id="pageNo" value="<%=(searchParams || {}).pageNo || 0%>">
+        <input type="hidden" id="totalCount" value="<%=searchData.totalCount || 0%>">
+    </div>
+</div>

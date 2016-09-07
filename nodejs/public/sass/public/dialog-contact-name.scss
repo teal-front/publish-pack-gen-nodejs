@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 弹窗-常用联系人
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/29
+*/
+@import 'config';
+.general-contact-dialog {
+
+  padding: 30px 20px;
+}
+
+.general-contact-name {
+  @include inlineBlock;
+  width: 148px;
+  line-height: 58px;
+  margin: 0 0 10px;
+  padding-left: 12px;
+  border: 1px solid #fff;
+  font-size: 14px;
+  @include ell;
+  vertical-align: top;
+  
+  .iconfont {
+    color: #ddd;
+    font-size: 22px;
+    margin-right: 17px;
+  }
+
+  &:hover {
+    border-color: #dde9fd;
+    background: #f6f9fe;
+    text-decoration: none;
+    .iconfont {
+      color: #dde9fd;
+    }
+  }
+  &.active {
+    border: 2px solid #f6ab1a;
+    width: 146px;
+    line-height: 56px;
+    .iconfont {
+      color: #f6ab1a;
+    }
+  }
+
+  &:before {
+    //修复ie ellipse 和图标之间的编码冲突
+    content: '';
+  }
+}
+

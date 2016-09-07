@@ -1,0 +1,8 @@
+<h5 class='prompt-title tac'>微信扫一扫分享到好友和朋友圈</h5>
+<div class='prompt-content share-prompt' id="sharePanel">
+    <p class='tac'><img src='http://images.hzins.com/short/www/2015huodong/gzwxlj10yzn/activity_1.png' width='120'>
+    </p>
+    <% _.each(datas, function (item) { %>
+      <a target="_blank" href="<%=item.apiurl%>?url=<%=shareUrl%>&sourceUrl=<%=shareUrl%>&title=<%=item.summary%>&content=utf-8&searchPic=false&<%=item.pic%>=<%=item.picture%>&appkey=3813649018"><%=item.text%></a>
+    <% }); %>
+</div>

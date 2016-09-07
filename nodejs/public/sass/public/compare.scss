@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+
+/*
+ * 功能：huize.com - 产品对比
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/02/26
+*/
+
+@import '../config';
+
+
+
+/*产品对比*/
+.comparer-page {
+
+  .insure-area {
+    @include ell;
+    width: 150px;
+  }
+
+  .insure-area-open {
+    white-space:normal;
+    width: auto;
+  }
+  .product-title {
+    height: 42px;
+    overflow: hidden;
+  }
+  .product-title  {
+    a:hover {
+      color: #2150A2;
+      text-decoration: none;
+    }
+
+  }
+
+  .product-meta  {
+    .iconfont { color: #2150a2;}
+    a:hover {
+      text-decoration: none;
+      color: #2150a2;
+    }
+    .hz-button:hover {
+      color: #333;
+      border-color: #f6ab1a;
+    }
+  }
+
+  .input-select .input-select-text {
+    height: 25px;
+    line-height: 25px;
+    min-width: 146px;
+    font-size: 12px;
+  }
+  .input-text {
+    height: 16px;
+    line-height: 16px;
+  }
+  .hz-table  th,
+  .hz-table td {
+    vertical-align: middle;
+    padding: 10px 20px;
+    line-height: 22px;
+    border-color: #f0f0f0;
+  }
+
+
+  th.toggle-head {
+    background: #f6f9fe;
+    text-align: left;
+    font-weight: bold;
+    line-height: 24px;
+    border-bottom: 1px solid #dde9fd;
+    a{
+      text-decoration: none;
+      .iconfont {
+        font-weight: normal;
+      }
+      &:hover .iconfont {
+        color: #F6AB1A;
+      }
+    }
+  }
+
+  .fixed-top-table {
+    width:1190px;
+    background: #f6f9fe;
+    position: fixed;
+    border-bottom: 2px solid #dde9fd !important;
+    z-index: 1050;
+    top: 0;
+    .company-pic{
+      display: none;
+    }
+    .product-title {
+      padding-top: 10px;
+    }
+  }
+
+  .fixed-top-table thead>tr>th,
+  .fixed-top-table thead>tr>td {
+    position: relative;
+    //    vertical-align: top;
+    border-left: 1px solid #f0f0f0;
+
+  }
+
+  .first-row th,
+  .first-row td {
+    border-bottom: 2px solid #dde9fd;
+    border-top: none;
+  }
+
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    &:hover {
+      text-decoration: none;
+      color: #f6ab1a;
+    }
+  }
+  .price-item {
+    color: #f6ab1a
+  }
+  .others-info td{
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .comparer-page-content .company-logo {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .input-select-highlight {
+    .input-select-text {
+      height: 23px;
+      line-height: 23px;
+      border: 2px solid #f6ab1a;
+      min-width: 144px;
+    }
+  }
+
+
+  .comparer-area {
+    height: 70px;
+    overflow: hidden;
+  }
+
+  .Wdate {
+    width: 174px;
+  }
+
+}

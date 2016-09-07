@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* 功能：huize.com - 信息条 作者：huangyongsheng@hzins.com 时间：2016/03/07
+*/
+/* 功能：huize.com - 全局通用样式 作者：huangyongsheng@hzins.com 时间：2016/04/28
+*/
+.hz-alert .iconfont { color: #ddd; font-size: 18px; }
+
+.hz-alert-info { background: #fbfbfb; color: #666; }
+
+.hz-alert-warning { background: #fff9ee; }
+
+.hz-alert-error .iconfont, .hz-alert-error { color: #ff0000; }
+
+/*# sourceMappingURL=alert.css.map */

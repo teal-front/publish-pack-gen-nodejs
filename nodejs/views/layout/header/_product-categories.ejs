@@ -1,0 +1,106 @@
+<div class="hz-category-box hidden"  data-dropdown-item="productCategoriges">
+    <span class="arrow1" style="left: 200px"></span>
+    <span class="arrow2" style="left: 200px"></span>
+
+        <%
+            // var data = locals.data;
+            var cateGories= (locals.categories) || [];
+            var cateGoriesNew = [];   //提取有子分类的项
+
+            cateGories.forEach(function(item, i) {
+                if (item.children != null && (item.children).length > 0) {
+                    cateGoriesNew.push(item);
+                }
+            });
+
+            //右边box所需展示的个数
+            var leftCount = Math.ceil((cateGoriesNew.length) / 2);
+        %>
+
+        <dl class="hz-category-list  hz-category-list-01">
+            <%
+                cateGoriesNew.forEach(function (categoryItem, i) {
+                    var childCateGories = categoryItem.children;
+                    if(i < leftCount) { %>
+                        <dt class="hz-category-title">
+                            <a target="_blank" class="hz-category-link" title="<%= categoryItem.text %>" href="http://www.huize.com/product/<%= 'ins-' + categoryItem.id + '-0-0' %>">
+                                <%= categoryItem.text %>
+                            </a>
+                        </dt>
+
+                        <dd class="hz-category-item  hz-category-item-0<%=i+1%> ">
+                            <% childCateGories.forEach(function (childItem) { %>
+                            <a href="http://www.huize.com/product/ins-<%= childItem.id %>-0-0%>" title="<%= categoryItem.text+'-'+childItem.text %>" class="hz-category-link" target="_blank">
+                                <%= childItem.text %>
+                            </a>
+                            <% }) %>
+
+                            <% if (categoryItem.id === '2072') {%>
+                                <a href="http://www.huize.com/product/ins-2079-0-1279_11178" title="<%= categoryItem.text + '-' %> + 申根签证" class="hz-category-link" target="_blank">
+                                    申根签证
+                                </a>
+                            <% } %>
+                        </dd>
+                    <% }
+                 })         
+            %>
+
+            <dt class="hz-category-title">
+                <a target="_blank" class="hz-category-link" href="http://www.baoyuntong.com/" title="企业保险">
+                    企业保险
+                </a>
+            </dt>
+            <dd class="hz-category-item last-category-item">
+                <a href="http://www.baoyuntong.com/cargo/" title="货运险" class="hz-category-link" target="_blank">货运险</a>
+                <a href="http://www.baoyuntong.com/group/" title="团意险" class="hz-category-link" target="_blank">团意险</a>
+            </dd>
+        </dl>
+
+        <dl class="hz-category-list  hz-category-list-02">
+            <%
+                cateGoriesNew.forEach(function (categoryItem, i) {
+                    var childCateGories = categoryItem.children;
+                    if(i > leftCount - 1) { %>
+                        <dt class="hz-category-title">
+                            <a target="_blank" class="hz-category-link" title="<%= categoryItem.text %>" href="http://www.huize.com/product/<%= 'ins-' + categoryItem.id + '-0-0' %>">
+                                <%= categoryItem.text %>
+                            </a>
+                        </dt>
+                        <dd class="hz-category-item  hz-category-item-0<%=i+1%>">
+                            <% childCateGories.forEach(function (childItem) { %>
+                                <a href="http://www.huize.com/product/ins-<%= childItem.id %>-0-0%>" title="<%= categoryItem.text+'-'+childItem.text %>" class="hz-category-link" target="_blank">
+                                    <%= childItem.text %>
+                                </a>
+                            <% }) %>
+
+                            <% if (categoryItem.id === '2072') { %>
+                                <a href="http://www.huize.com/product/ins-2079-0-1279_11178" title="<%= categoryItem.text + '-' %>申根签证" class="hz-category-link" target="_blank">
+                                    申根签证
+                                </a>
+                            <% } %>
+                        </dd>
+                    <% }
+                 })         
+            %>
+            <dt class="hz-category-title">
+                <a target="_blank" class="hz-category-link" href="http://www.huize.com/product/ins-2101-0-0" title="投资理财">
+                    投资理财
+                </a>
+            </dt>
+            <dd class="hz-category-item">
+                <a href="http://www.huize.com/product/ins-2101-0-1323_11106" title="投资理财-稳健收益" class="hz-category-link" target="_blank">稳健收益</a>
+            </dd>
+
+            <dt class="hz-category-title">
+                <a target="_blank" class="hz-category-link" href="http://www.huize.com/product/car/" title="汽车保险">
+                    汽车保险
+                </a>
+            </dt>
+            <dd class="hz-category-item last-category-item">
+                <a href="http://www.huize.com/product/car/" title="汽车保险-平安车险" class="hz-category-link" target="_blank">平安车险</a>
+                <a href="http://www.huize.com/product/car/" title="汽车保险-阳光车险" class="hz-category-link" target="_blank">阳光车险</a>
+                <a href="http://www.huize.com/product/car/" title="汽车保险-大地车险" class="hz-category-link" target="_blank">大地车险</a>
+                <a href="http://www.huize.com/product/car/" title="汽车保险-中华联合车险" class="hz-category-link" target="_blank">中华联合车险</a>
+            </dd>
+        </dl>
+</div>

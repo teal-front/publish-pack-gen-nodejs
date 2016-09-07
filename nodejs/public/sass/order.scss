@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/*
+ * 功能：huize.com - 慧择主站投保流程
+ * 作者：huangyongsheng@hzins.com
+ * 时间：2016/03/15
+*/
+
+@import 'common/base';
+
+@import 'helper/buttons';
+@import 'helper/layout';
+@import 'helper/table';
+@import 'helper/dropdown';
+@import 'helper/form';
+@import 'helper/iconfont';
+@import 'helper/calendar';
+@import 'helper/popover';
+@import 'helper/checked';
+@import 'helper/badge';
+@import 'helper/tab';
+@import 'helper/alert';
+@import 'helper/share';
+@import 'helper/list';
+@import 'helper/media';
+
+@import 'public/topnav';
+@import 'public/dialog-login';
+@import 'public/health';
+@import 'public/shopping-cart';
+@import 'public/step';
+@import 'public/dialog-contact-name';
+@import 'public/dialog-destination';
+
+@import 'pay/pay';
+
+@import 'insure/header-insure';
+@import 'insure/form-insure';
+@import 'insure/sidebar';
+
+@import 'public/footer';
+
+
+
+.error-field {
+  border-color: #ff0000 !important;
+}
+
+
+/*投保流程*/
+
+.jq-prompt .insure-cart-protect {
+  padding: 2px 10px;
+  line-height: 2;
+  dt,dd {
+    @include inlineBlock;
+    vertical-align: top;
+    color: #666;
+  }
+
+  dt {
+    width: 145px;
+    margin-right: 10px;
+  }
+  dd { width: 150px;}
+}
+
+
+#beneficiary-dialog {
+  .input-text-error {
+    background-color: transparent !important;
+  }
+
+}
+
+
+
+

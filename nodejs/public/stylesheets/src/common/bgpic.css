@@ -1,0 +1,25 @@
+.hz-step .hz-step-list .dot, .hz-comment-avatar-empty, .hz-bgpic-sprite { display: inline-block; *display: inline; *zoom: 1; background-image: url("//img.huizecdn.com/hz/www/page/bgpic.png"); background-repeat: no-repeat; }
+
+.hz-bgpic-1 { background-position: 0 0; height: 14px; width: 301px; }
+
+.hz-bgpic-10 { background-position: 0 -14px; height: 13px; width: 14px; }
+
+.hz-bgpic-11 { background-position: 0 -27px; height: 19px; width: 15px; }
+
+.hz-bgpic-12 { background-position: 0 -46px; height: 9px; width: 15px; }
+
+.hz-bgpic-2 { background-position: 0 -55px; height: 80px; width: 80px; }
+
+.hz-comment-avatar-empty, .hz-bgpic-3 { background-position: 0 -135px; height: 80px; width: 80px; }
+
+.hz-bgpic-5 { background-position: 0 -215px; height: 41px; width: 40px; }
+
+.hz-bgpic-6 { background-position: 0 -256px; height: 48px; width: 24px; }
+
+.hz-bgpic-7 { background-position: 0 -304px; height: 25px; width: 25px; }
+
+.hz-bgpic-8 { background-position: 0 -329px; height: 18px; width: 18px; }
+
+.hz-bgpic-9 { background-position: 0 -347px; height: 17px; width: 19px; }
+
+/*# sourceMappingURL=bgpic.css.map */

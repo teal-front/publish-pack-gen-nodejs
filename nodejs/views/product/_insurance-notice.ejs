@@ -1,0 +1,68 @@
+<!--须知-->
+<%if(locals.defaultPlanItem.insuranceInstruction){
+data.security.planList.forEach(function(planItem,i){%>
+<div class="detail-ensure-notice" style="<% if(locals.defaultPlanItem.planId!==planItem.planId){%>display:none<%}%>" noticePlanId="<%=planItem.planId%>">
+	<h3 class="f14 pb20 pt20 fc6 fb">投保须知</h3>
+	<div class="notice-content clearfix">
+		<ol class="f12">
+			<li>
+				投保前请您仔细阅读：
+				<% if(planItem.masterProvision){%>
+				<strong>
+				<a target="_blank" href="//www.huize.com/product/dialog/clause-<%=data.security.productId%>-<%=planItem.planId%>.html">&nbsp;产品条款&nbsp;</a>
+				</strong>
+				<%}%>
+				<% if(planItem.claimsRatio&&planItem.claimsRatio>0){%>
+				<strong>
+				<a target="_blank" href="//www.huize.com/product/dialog/scale-<%=data.security.productId%>-<%=planItem.planId%>.html">&nbsp;保险金赔付比例&nbsp;</a>
+				</strong>
+				<%}%>
+				<% if(planItem.claimId &&planItem.claimId !=0){%>
+				<strong>
+				<a target="_blank" href="//www.huize.com/product/dialog/claim-<%=data.security.productId%>-<%=planItem.planId%>.html">&nbsp;赔偿方式&nbsp;</a>
+				</strong>
+				<%}%>
+				<% if(planItem.pictureNotify&&planItem.pictureNotify.indexOf("NoPicture.gif")===-1){%>
+				<strong>
+				<a target="_blank" href="<%=planItem.pictureNotify%>">&nbsp;客户告知书&nbsp;</a>
+				</strong>
+				<%}else{%>
+				<strong>
+				<a target="_blank" href="//images.hzins.com/web/客户告知书.pdf">&nbsp;客户告知书&nbsp;</a>
+				</strong>
+				<%}%>
+				<% if(planItem.picturePolicy&&planItem.picturePolicy.indexOf("NoPicture.gif")===-1){%>
+				<strong>
+				<a target="_blank" href="<%=planItem.picturePolicy%>">&nbsp;保单样本&nbsp;</a>
+				</strong>
+				<%}%>
+				<%if(planItem.pictureRateTable&&planItem.pictureRateTable.indexOf("NoPicture.gif")===-1){%>
+				<strong>
+				<a target="_blank" href="<%=planItem.pictureRateTable%>">&nbsp;查看费率表&nbsp;</a>
+				</strong>
+				<%}%>
+				<% if(planItem.specialAgreement&&planItem.specialAgreement.indexOf("NoPicture.gif")===-1){%>
+
+				<strong>
+				
+				    <a  target="_blank" href="//www.huize.com/product/dialog/memo-<%=data.security.productId%>-<%=planItem.planId%>.html">&nbsp;特别约定&nbsp;</a>
+				</strong>
+				<!-- <strong><%=planItem.specialAgreement%>
+				<a target="_blank" href="<%=planItem.specialAgreement%>">&nbsp;特别约定&nbsp;</a>
+				</strong> -->
+				<%}%>
+				<%if(planItem.cashValue){%>
+					<strong>
+						<a target="_blank"  href="<%=planItem.cashValue%>">&nbsp;现金价值&nbsp;</a>
+					</strong>
+				<%}%>
+			</li>
+			<% planItem.insuranceInstruction.forEach(function(item,index){%>
+			<li class="lh22 entry-notice-content"><%-item%></li>
+			<%})%>
+		</ol>
+	</div>
+	<!--notice-content end-->
+</div>
+<%})}%>
+<!--detail-ensure-notice end-->

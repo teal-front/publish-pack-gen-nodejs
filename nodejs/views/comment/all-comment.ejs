@@ -1,0 +1,130 @@
+<div class="all-comment-page pt15 pb20 f14 bgf0">
+
+
+    <div class="layout pb40 clearfix">
+        <div class="hz-breadcrumb pb20">
+            <a href="/">慧择保险网</a>
+            <i class="arrow-right">&gt;</i>
+            <a href="/product/ins-<%=data.parentCategoryId%>-0-0"><%= data.parentCategoryName%></a>
+            <i class="arrow-right">&gt;</i>
+            <a href="/product/ins-<%= data.categoryId%>-0-0"><%= data.categoryName%></a>
+            <i class="arrow-right">&gt;</i>
+            <a href="/brand/detail/<%= data.companyId%>"><%= data.companySimpleName%></a>
+            <i class="arrow-right">&gt;</i>
+            <a href="//www.huize.com/product/detail-<%= data.productId%>.html"><%=data.productName%></a>
+            <i class="arrow-right">&gt;</i>
+            <h1 class="hz-breadcrumb-active">所有评论</h1>
+        </div>
+        <!--breadcrumb end-->
+
+
+        <div class="all-comment-page p30 bgfw">
+            <div class="all-comment-head">
+                <div class="fr"><a href="/brand/detail/<%= data.companyId%>"><img src="<%=data.companyLogo%>" height="45"></a></div>
+                <h2 class="f30 product-title"><a href="http://www.huize.com/product/detail-<%=data.productId%>.html" target="_blank"><%=data.productName%> <!--  <%=data.planList[0].planName%> --></a></h2>
+            </div>
+            <input type="hidden" id="productId" value="<%=data.productId%>"/>
+            <input type="hidden" id="pageIndex" value="<%=data.comments.pageIndex%>"/>
+            <input type="hidden" id="pageTotal" value="<%=data.comments.total%>"/>
+            <div class="detail-product-comment">
+
+                <div class="comment-tag-box  mb20 mt30 clearfix">
+                    <div class="comment-tag-left tac">
+                        <p class="score"><%=data.feedback.satisfaction%></p>
+                        <p>满意度</p>
+                    </div>
+
+                    <div class="comment-tag-content">
+
+                        <!--已评论状态-->
+                        <% (data.feedback.impressionList||[]).forEach(function(item,i){%>
+                        <span class="post-tag"><%=item.title%>（<%=item.num%>）</span>
+                        <%});%>
+                        <%if(!data.feedback.impressionList.length){%>                            
+                            <div class="tac fc9 f14 pt45 mt20">暂无买家印象~</div>
+                        <%}%>
+                        
+
+                    </div>
+
+
+                </div>
+
+                <div class="product-comment-tab">
+                    <ul class="product-comment-tab-menu hz-tab-menu hz-tab-style02 mb30">
+                        <li class="hz-tab-menu-item <% if(data.comments.type===0){%>active<%}%>" data-count="<%=data.allCount.allCount%>"><a href="/product/prodreview/showlist<%=data.productId%>-1.html?type=0">全部评论 <span><%=data.allCount.allCount%></span></a></li>
+                        <li class="hz-tab-menu-item <% if(data.comments.type===1){%>active<%}%>" data-count="<%=data.allCount.productCount%>"><a href="/product/prodreview/showlist<%=data.productId%>-1.html?type=1">产品评论 <span><%=data.allCount.productCount%></span></a></li>
+                        <li class="hz-tab-menu-item <% if(data.comments.type===2){%>active<%}%>" data-count="<%=data.allCount.feedbackCount%>"><a href="/product/prodreview/showlist<%=data.productId%>-1.html?type=2">理赔反馈 <span><%=data.allCount.feedbackCount%></span></a></li>
+                    </ul>
+                </div>
+                <!--product-comment-tab-->
+
+                <div class="product-comment-tab-container">
+                    <div class="comment-tab-pane">
+                        <ul class="hz-comments-list">
+                            <%(data.comments.data||[]).forEach(function(item){%>
+                            <li class="hz-comment"> <!-- 评论容器 -->
+                                    <span class="hz-comment-avatar <%if(!item.userImg){%>hz-comment-avatar-empty<%}%>">
+                                        <i class="bg hz-bgpic-sprite hz-bgpic-2"></i>
+                                        <img src="<%=item.userImg%>"> <!-- 评论者头像 -->
+                                    </span>
+
+                                <div class="hz-comment-main"> <!-- 评论内容容器 -->
+                                    <div class="hz-comment-head">
+
+                                        <div class="hz-comment-meta"> <!-- 评论元数据 -->
+                                            <span class="hz-comment-author"><%=item.name%></span> <!-- 评论者 -->
+
+                                            <div class="ml5 mr5 hz-star inline-block">
+                                                <% for(var i=1;i<6;i++){%>
+                                                     <% if(i<=item.averageLevel){%>
+                                                         <i class="hz-star-icon hz-star-icon-selected iconfont">&#xe703;</i>
+                                                     <%}else{%>
+                                                         <i class="hz-star-icon iconfont">&#xe703;</i>
+                                                    <%}%>
+                                                <%}%>
+                                            </div>
+                                            <span class="ml10 mr10 pkg-star-<%=item.averageLevel%>"></span>
+                                            <span class="fc6 f12"><%=item.createtime.split("T")[0]%></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hz-comment-body">
+                                        <div class="hz-comment-content"><%-item.content%></div>
+                                        <% if(item.answer){%>
+                                        <div class="hz-comment-reply popover bottom">
+                                            <div class="popover-content">
+                                                <%=item.answer%>
+                                            </div>
+                                            <div class="arrow"></div>
+                                            <div class="arrow2"></div>
+                                        </div>
+                                        <%}%>
+
+                                    </div> <!-- 评论内容 -->
+                                </div>
+                            </li>
+                            <%})%>
+                        </ul><!--hz-comment-list end-->
+                    </div>
+
+                    <div class="comment-tab-pane">
+
+                    </div>
+
+                    <div class="comment-tab-pane">
+
+                    </div>
+                </div><!--product-comment-tab-container-->
+
+                <div class="hz-pagination" id="kkpager">
+
+                </div>
+                <!--pagination end-->
+            </div><!--detail-product-comment end-->
+        </div>
+
+
+    </div><!--layout end-->
+
+</div>

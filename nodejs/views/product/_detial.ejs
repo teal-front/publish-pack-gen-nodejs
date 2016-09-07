@@ -1,0 +1,216 @@
+<%
+	var restrictRules = data.restrictRules||[];
+	var security = data.security || {};// 基本信息;
+	var planList = security.planList || [];// 计划;
+	var salePromotion = security.salePromotion || []//促销信息;
+	salePromotion = salePromotion.length ? salePromotion : ['涵盖65种重大疾病','全网首款轻症也有赔','节假日加赔100万'];
+	var planStyle='';
+	if(planList.length<=1){
+	planStyle='hidden';
+	}
+
+	if(planId){
+			data.security.planList.forEach(function(item){
+			if(item.planId===~~planId){
+				locals.defaultPlanItem=item;
+			}
+		})
+	}
+	if(!locals.defaultPlanItem){
+		 locals.defaultPlanItem=data.security.planList[0]
+	}
+%>
+<%if(locals.dev){%>
+<script>
+//开发用
+var data =<%-JSON.stringify(data)%>||{};
+</script>
+<%}%>
+
+<!--保障详情-->
+
+
+<div class="detail-ensure-info  clearfix">
+	<div class="detail-ensure-body">
+
+
+
+			<!--选项操作-->
+			<div id="trialWrap">
+                <div class="trial-area">
+                    <div class="detail-ensure-head pt10 pr30 mb15">
+                        <a class="company-logo fr" target="_blank" href="<%= locals.mainHost %>brand/detail/<%=security.companyId%>">
+                            <img src="<%=security.companyLogo%>" title="<%=security.companyName%>" alt="<%=security.companyName%>" height="45">
+                        </a>
+                        <h2 class="product-title f30">
+                            <%=security.productName%>&nbsp;&nbsp;<span id="productPlanName"><%=locals.defaultPlanItem.planName%></span>
+                            <% if(security.productStatus===2){%>
+                            <span class="f16 fc6">（产品已下架）</span>
+                            <%}%>
+                        </h2>
+                    </div>
+
+                    <%planList.forEach(function(item,i){%>
+                    <%
+                        var labelList = item.labelList||[];
+                        var style='hidden';
+                        if(planId){//如果有计划ID
+                            if(item.planId===+planId){
+                                style='';
+                            }
+                        }else{//否则显示第一个
+                            if(!i){
+                                style='';
+                            }
+                        }
+                    %>
+                    <ul class="detail-ensure-support pr30 fc6 <%=style%>" data-salepromotion="<%=item.planId%>">
+                        <%labelList.forEach(function(item){%>
+                        <li class="ensure-support-item"><i class="iconfont f20 mr10">&#xe71e;</i><%-item%></li>
+                        <%});%>
+                    </ul>
+                    <%});%>
+
+                    <div class="detail-ensure-opt mt40 mb10">
+
+                        <dl class="ensure-opt-item pr30 mb20 <%=planStyle%>">
+                            <dt class="ensure-opt-title fl "><strong>方案选择</strong></dt>
+                            <dd class="ensure-opt-content " id="planIdBox">
+                            <% planList.forEach(function(item,i){%>
+                            <%
+                                var style='';
+                                if(planId){//如果有计划ID
+                                    if(item.planId===+planId){
+                                        style='filter-active-tag';
+                                    }
+                                }else{//否则显示第一个
+                                    if(!i){
+                                        style='filter-active-tag';
+                                    }
+                                }
+
+                            %>
+                            <a class="filter-tag <%=style%>" data-baseproductid="<%=security.baseProductId%>" data-baseplanid="<%=item.basePlanId%>" data-productplanid="<%=item.planId%>" data-productplanname="<%=item.planName%>" tabindex_="0" href="/product/detail-<%=security.productId%>.html?DProtectPlanId=<%=item.planId%>"><%=item.planName%></a>
+                            <%});%>
+                            <a href="javascript:;" class="plan-link primary-link" id="plansCompara">计划对比</a>
+                            </dd>
+                        </dl>
+
+                        <div id="trialAreas">
+                            <%-locals.restrictRuleHTML%>
+                        </div>
+                        <div class="ensure-opt-action clearfix">
+                            <%
+                            locals.pcStatus=security.productStatus===1||security.productStatus===3
+                             if((security.pcBuyType!==3)&&locals.pcStatus){
+                                locals.supportBuyType=""
+                            }else if((security.pcBuyType===23||security.pcBuyType===3)&&locals.pcStatus){
+                                 locals.supportBuyType="fn-hide"
+                            }else {
+                                locals.supportBuyType="hz-button-disabled"
+                            }%>
+
+                            <a class="hz-button hz-button-primary hz-button-large <%=locals.supportBuyType%>" href="javascript:;" insuredstart>立即投保</a>
+                            <%if(security.supportShoppingCart&&(locals.pcStatus)){%>
+                            <a class="hz-button hz-button-secondary hz-button-large " href="javascript:;" addtoShopCar>加入购物车</a>
+                            <%}else{%>
+                            <a class="hz-button hz-button-secondary hz-button-large <% if(!locals.pcStatus){%> hz-button-disabled<%}else{%>fn-hide<%}%>" href="javascript:;" addtoShopCar>加入购物车</a>
+                            <%}%>
+                            <% if((security.pcBuyType+"").indexOf("3")>-1){%>
+                            <a class="primary-link inline-block" href="http://www.huize.com/baoxianyuyue?planId=<%=planId || locals.defaultPlanItem.planId%>&oppName=产品详情页预约"  target="_blank">预约顾问</a>
+                            <%}%>
+                        </div>
+                    </div>
+
+                </div>
+				<div id="protectArea">
+					<%-locals.renderProtectHTML%>	
+				</div>
+
+				<!--ensure-opt-action end-->
+			</div>
+			<!--detail-ensure-opt end-->
+
+		 
+		<!--救援服务-->
+		<% if(data.rescueList&&data.rescueList.length>0){%>
+		<div class="detail-ensure-rescue">
+			<h3 class="f14 pb20 pt20 mb20 fb fc6 bor-bottom">救援服务</h3>
+			<ul class="rescue-service-list clearfix">
+				<% data.rescueList.forEach(function(item,index){%>
+				<li class="rescue-service-item">
+                    <%if(item.icon){%>
+                    <div class="img-item"><img src="<%=item.icon%>"  alt="<%=item.title%>" /></div>
+                    <%}else{%>
+                    <i class="iconfont icon-item f32">&#xe702;</i>
+                    <%}%>
+					<dl>
+						<dt>
+						<%=item.title%>
+						</dt>
+						<dd class="f12 mt10 fc6">
+						<%=item.describe%>
+						</dd>
+					</dl>
+				</li>
+				<%});%>
+			</ul>
+			<!--rescue-service-list end-->
+		</div>
+		<%}%>
+		<!--detail-ensure-rescue end-->
+		<!--权利-->
+		<% var benefitList = locals.defaultPlanItem.benefitList ||[];
+		if(benefitList.length>0){
+		%>
+		<div class="detail-ensure-right">
+			<h3 class="f14 pb20 pt20 mb20 fc6 bor-bottom fb">您拥有的权利</h3>
+			<ul class="right-service-list clearfix">
+				<%
+				benefitList.forEach(function(item){
+				%>
+				<li class="rescue-service-item">
+                    <%if(item.icon){%>
+                    <div class="img-item"><img src="<%=item.icon%>"  alt="<%=item.title%>" /></div>
+                    <%}else{%>
+                    <i class="iconfont icon-item f32">&#xe702;</i>
+                    <%}%>
+					<dl>
+						<dt>
+						<%=item.title%>
+						</dt>
+						<dd class="f12 mt10 fc6">
+						<%=item.describe%>
+						</dd>
+					</dl>
+				</li>
+				<%});%>
+			</ul>
+		</div>
+		<%}%>
+		<!--detail-ensure-right end-->
+		<% include _insurance-notice %>
+        <div class="user-comments">
+            <h3 class="f14 pb20 pt20 fb fc6">用户评论</h3>
+            <% showComments = 3;%>
+            <% include _review %>
+        </div>
+
+	</div>
+	<!--detail-ensure-body end-->
+
+</div>
+<!--detail-ensure-info end-->
+<!--运营层、基础层产品ID，计划ID Start-->
+<input type="hidden" name="" id="productId" value="<%=security.productId%>" />
+<input type="hidden" name="" id="planId" value="<%=locals.defaultPlanItem.planId%>" />
+<input type="hidden" name="" id="baseProductId" value="<%=security.baseProductId%>" />
+<input type="hidden" name="" id="basePlanId" value="<%=locals.defaultPlanItem.basePlanId%>" />
+<input type="hidden" name="" id="categoryId" value="<%= security.categoryId%>" />
+<!--购买类型，保险公司购买路径,替换产品ID-->
+<input type="hidden" name="" id="pcProductStatus" value="<%=security.productStatus%>" />
+<input type="hidden" name="" id="pcBuyType" value="<%=security.pcBuyType%>" />
+<input type="hidden" name="" id="companyBuyUrl" value="<%=security.companyBuyUrl%>" />
+<input type="hidden" name="" id="pcReplaceId" value="<%=security.productReplaceId%>" />
+<!--运营层、基础层产品ID，计划ID End-->
+<input type="hidden" name="" id="productName" value="<%=security.productName%>" />
