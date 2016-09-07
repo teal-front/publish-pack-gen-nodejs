@@ -1,0 +1,96 @@
+﻿@import 'compass/reset';
+@import 'mixin';
+@import 'width';
+@import 'margin-padding';
+
+/*
+** ========== 浮动 ==========
+*/
+.clearfix {
+	@include clearfix;
+}
+
+.clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	overflow: hidden;
+}
+
+.fl {
+	@include float(left);
+}
+
+.fr {
+	@include float(right);
+}
+
+/*
+** ========== 对齐 ==========
+*/
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.ell {
+	@include ell;
+}
+
+.of-x-hidden {
+	overflow-x: hidden;
+}
+
+.of-x-auto {
+	overflow-x: auto;
+}
+
+.of-y-hidden {
+	overflow-x: hidden;
+}
+
+.of-y-auto {
+	overflow-y: auto;
+}
+
+.no-resize {
+	resize: none;
+}
+
+.inline-block {
+	@include inlineBlock;
+}
+
+.user-select {
+	@include userSelect;
+}
+
+/*
+** ========== Font ==========
+*/
+.fz-px-12 {
+	font-size: 12px;
+}
+
+.fz-px-14 {
+	font-size: 14px;
+}
+
+.fz-px-16 {
+	font-size: 16px;
+}
+
+.fz-px-18 {
+	font-size: 18px;
+}
+
+.fz-px-20 {
+	font-size: 20px;
+}
