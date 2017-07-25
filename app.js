@@ -134,7 +134,7 @@ app.use('/get-repo-config', (req, res, next) => {
 app.use('/git-push', (req, res, next) => {
     childProcess.exec('git pull && pm2 reload svn-package')
 
-    console.log('git-push ok')
+    console.log('git-push ok.')
 
     res.end('ok')
 })
