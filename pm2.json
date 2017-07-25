@@ -12,7 +12,9 @@
       "merge_logs" : true,
       "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
 
-      "watch": true,
+      "max_restarts": 20,
+
+      "watch": false,
       "ignore_watch": [
           "package-export",
           "node_modules",
