@@ -131,10 +131,10 @@ app.use('/get-repo-config', (req, res, next) => {
 })
 
 
-app.use('/git_push', (req, res, next) => {
-    const TOKEN = 'sudkfo39242n43*(#()34l90s902343lksdflk2903439*J2394j*('
+app.use('/git-push', (req, res, next) => {
+    childProcess.exec('git pull && pm2 reload svn-package')
 
-    //console.log(req.body)
+    console.log('git-push ok')
 
-    res.end(JSON.stringify(req.body))
+    res.end('ok')
 })
