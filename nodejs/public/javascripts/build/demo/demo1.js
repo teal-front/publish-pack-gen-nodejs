@@ -1,1 +1,0 @@
-/*! www.huize.com - v0.0.0 - 2016-06-15 */define(["jquery"],function(a){a(function(){var b=a("#test"),c=0;setTimeout(function(){c++,b.text(c)},100)})});

@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";;;;;AAYA,SAAU,GCqCT,OAAO,EAAE,YAAY,EACrB,QAAiB,EAAE,MAAM,EACtB,KAAc,EAAE,CAAC,EDrCnB,cAAc,EAAE,MAAM,EACtB,WAAW,EAAE,IAAI,EACjB,OAAO,EAAE,MAAM,EACf,MAAM,EAAE,MAAM,EAEd,YAAY,EAAE,GAAG,EACjB,MAAM,EAAE,cAAc,EACtB,KAAK,EAAE,IAAI,EACX,SAAS,EAAE,IAAI,EACf,UAAU,EAAE,oCAAoC",
-"sources": ["../../../sass/helper/tag.scss","../../../sass/common/_mixin.scss"],
-"names": [],
-"file": "tag.css"
-}

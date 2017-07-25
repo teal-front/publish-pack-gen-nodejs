@@ -1,8 +1,0 @@
-/**
- ** 
- ** www.huize.com; 
- ** Version:0.1.0;
- ** Last Updated:2016-08-09; 
- **
- **/
-define(["SuperSlide","require","helper"],function(a,b,c){var d={init:function(){this.render(),this.initEvents()},data:{stepSelected:{step1:{text:"成人",type:1},step2:{text:""}},goUrl:"http://www.huize.com/guihua/106"},render:function(){var a=c.url.getUrlVar("step2"),e=c.cookie.getCookie("programStepSift")||0;$(".plan-slider").slide({mainCell:".plan-slider-wrap ul",defaultIndex:(3>a?0:e)||(a>3?a-3:0),autoPage:!0,effect:"left",vis:3,easing:"swing",prevCell:"#planSliderPre",nextCell:"#planSliderNex",pnLoop:"false"}),b(["fixed-tool-float"],function(a){d.toolFloat=new a})},initEvents:function(){this.data;$(".js-start-planning").click(function(){$(".js-plan-index").hide(),$(".plan-box .plan-step:eq(0)").removeClass("fn-hide")}),$(".plan-slider #planSliderPre").click(function(){var a=c.cookie.getCookie("programStepSift")||0;a--,c.cookie.setCookie("programStepSift",0>a?0:a)}),$(".plan-slider #planSliderNex").click(function(){var a=c.cookie.getCookie("programStepSift")||0,b=$(".plan-step-list:visible li").length;a++,c.cookie.setCookie("programStepSift",a>b-3?b-3:a)}),$(".plan-step-list li").click(function(){var a=$(this).index(),b=c.url.getUrlVar("step1");window.location.href="?step1="+b+"&step2="+(a+1)}),$(".js-ensure-object li").click(function(){var a=$(this).index();window.location.href="?step1="+(a+1)}),$("#next").click(function(){var a=c.url.getUrlVar("step1");return window.location.href="http://www.huize.com/guihua/?step1="+a+"&step2="+(3==a?1:2),!1}),$("#submit").click(function(){var a=$(".plan-step-list li.active:visible").data("url");return a?(window.location.href=a,!1):void 0})}};return d});

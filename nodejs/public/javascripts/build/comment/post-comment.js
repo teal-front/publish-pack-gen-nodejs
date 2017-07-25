@@ -1,8 +1,0 @@
-/**
- ** 
- ** www.huize.com; 
- ** Version:0.1.0;
- ** Last Updated:2016-08-09; 
- **
- **/
-define(["jquery","layer","helper","message"],function($,a,b,c){var c=new Message,d={init:function(){d.initActions(),requirejs(["fixed-tool-float"],function(a){var b=new a;window.toolFloat=b})},initActions:function(){var d;$("#ratestar div.hz-star").data("count",5),$("#ratestar").on("click","i",function(){d=$(this).parent(),$(this).nextAll("i").removeClass("hz-star-icon-selected"),$(this).prevAll("i").addClass("hz-star-icon-selected"),$(this).addClass("hz-star-icon-selected"),d.data("count",$(".hz-star-icon-selected",d).length)}).on("mouseover","i",function(){$(this).nextAll("i").removeClass("hz-star-icon-selected"),$(this).prevAll("i").addClass("hz-star-icon-selected"),$(this).addClass("hz-star-icon-selected")}).on("mouseleave","div.hz-star",function(){var a,b=$(this).data("count");$("i",this).each(function(c){a=$(this),b>=c+1?a.addClass("hz-star-icon-selected"):a.removeClass("hz-star-icon-selected")})}),$("#postcomment").bind("click",function(){var d=$.trim($("#commentText").val());if(!d)return void a.msg("请填写评论内容");if(d.length<5||d.length>500)return void a.msg("请填写5到500个字的评论");var e={};e.ProductId=$("#productId").val(),e.PlanId=$("#planId").val(),e.AttitudeLevel=$("#server .hz-star-icon-selected").length,e.SpeedLevel=$("#speed .hz-star-icon-selected").length,e.DescLevel=$("#descri .hz-star-icon-selected").length,e.Content=d,e.InsureNum=$("#insureNum").val(),e.CommentType=1,c.show("正在提交...","loading"),b.request.postData2({url:"/api/products/comments",data:e},function(b){b.result?a.msg("感谢您对产品的评价！"):a.msg(b.message),c.hide()},function(b){c.hide(),a.msg(b.message)})})}};return d});
