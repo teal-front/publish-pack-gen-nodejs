@@ -8,7 +8,7 @@
       "exec_mode": "cluster_mode",
       "max_memory_restart": "500M",
       "error_file" : "/var/log/pm2/svn-package/svn-package-err.log",
-      "out_file"   : "/var/log/pm2/svn-package/svn-package-out.log",
+      "log_file"   : "/var/log/pm2/svn-package/svn-package-out.log",
       "merge_logs" : true,
       "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
 
