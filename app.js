@@ -130,7 +130,7 @@ app.use('/get-repo-config', (req, res, next) => {
     res.json(repoNames);
 })
 
-
+// http://techdoc.oa.com/teal/svnPackage/hooks上设置的commit webhook
 app.use('/git-push', (req, res, next) => {
     childProcess.exec('git pull && pm2 reload svn-package')
 
