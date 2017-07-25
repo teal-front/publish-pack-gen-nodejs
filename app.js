@@ -131,7 +131,7 @@ app.use('/get-repo-config', (req, res, next) => {
 })
 
 
-app.post('/git_push', (req, res, next) => {
+app.use('/git_push', (req, res, next) => {
     const TOKEN = 'sudkfo39242n43*(#()34l90s902343lksdflk2903439*J2394j*('
 
     //console.log(req.body)
