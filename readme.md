@@ -33,8 +33,11 @@ beginTime: 2016-12-21
     支持JS自动压缩   
 7. 2017-06-14
     在插件上加上了下载文件时的loading效果
-4. todo
-    文件路径可以选择
-    下载文件时，有进度条
-    createZip.sh里execFilePaths的文件路径，除去重复的路径
+8. 2017-07-26
+	把服务端代码托管到公司的gitlab上管理
+
+### todo
+- [ ] 文件路径可以选择
+- [x] 下载文件时，有进度条                     2017-06
+- [ ] createZip.sh里execFilePaths的文件路径，除去重复的路径
  
