@@ -8,7 +8,7 @@ exportPath=package-export
 dirName=$1    #201701122246
 repoUrl=$2      #"https://192.168.10.100/svn/jumi/trunk/node"
 zipPath=$3       #"jm/jumi-node"
-revision=($4)      #(27221 27222)
+revision=($4)      #(27222 27221)
 
 accessTime=$5
 ip=$6
@@ -27,9 +27,10 @@ do
         if [[ $file =~ ^http ]];then
             escapePath=`echo $file | sed "s|$repoUrl||g"`
             outfile="/home/teal/svnPackage/$exportPath/$dirName/$zipPath$escapePath"
-
+                
+            if [ -f $outfile ];then continue;fi
+            
             mkdir -p $(dirname $outfile)
-
             echo $file
             # --depth=empty: Include only the immediate target of the operation, not any of its file or directory children
             svn export -r $r --force --depth=empty $file $outfile
