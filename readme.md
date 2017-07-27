@@ -39,5 +39,5 @@ beginTime: 2016-12-21
 ### todo
 - [ ] 文件路径可以选择
 - [x] 下载文件时，有进度条                     2017-06
-- [x] createZip.sh里execFilePaths的文件路径，除去重复的路径
+- [x] createZip.sh里execFilePaths的文件路径，除去重复的路径 2017-07-27
  
