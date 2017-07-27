@@ -43,7 +43,7 @@ app.use('/down-zip', (req, res, next) => {
     // get file paths form revision
     let dirName = `${appName}--${moment(new Date()).format('YYYYMMDD_HHmmSS')}`;
     // 把小的版本放前面，使后面的可以覆盖掉： 26677 26699 => 26699 26677
-    revision = revision.split(/\s+/).map(v => +v).sort().join(' ')
+    //revision = revision.split(/\s+/).map(v => +v).sort().join(' ')
 
     let sqliteParams = [];
     sqliteParams.push(moment(new Date()).format('YYYY-MM-DD HH:mm:SS'));
