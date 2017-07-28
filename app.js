@@ -84,7 +84,7 @@ app.use('/get-revision-list', (req, res, next) => {
 
     console.log('--------search word:  ', author);
     // 拉取数量过多，下面的execFile可能会出现Error: stdout maxBuffer exceeded
-    let cmdParams = ['log', '-l', '15']
+    let cmdParams = ['log', '-l', '10']
         .concat(author == '' ? [] : ['--search', author])
         .concat(['-v', '--xml', repoUrl]);
 
