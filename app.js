@@ -77,6 +77,8 @@ app.use('/down-zip', (req, res, next) => {
 
 // 获取版本列表
 app.use('/get-revision-list', (req, res, next) => {
+    res.setTimeout(15000);
+
     let repoName = req.query.repoName || 'node',
         keyword = CONFIG.repoMap[repoName].keyword, // 用来过滤提交版本中的其他项目文件
         repoUrl = CONFIG.repoMap[repoName].url;
