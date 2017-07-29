@@ -1,8 +1,8 @@
-## summary
+## Summary
 author: teal
 beginTime: 2016-12-21
 
-## 目的
+## Use
 1. Web服务器
    操作流程：选中自己的提交版本 - 确认文件 - 生成对应的包下载
    对应的Server方法： 
@@ -13,7 +13,7 @@ beginTime: 2016-12-21
 	页面实时获取最新版本，也可手动刷新；选择提交版本；生成zip包
 
 
-## development log
+## Development log
 
 1. 2016-12-22
    在app.js中加了几个核心的方法，引用了native-zip & archiver的npm包，其中native-zip的包里有个svn-interface的npm包，是对svn-cli方法的包装，很方便使用；
@@ -36,7 +36,7 @@ beginTime: 2016-12-21
 8. 2017-07-26
 	把服务端代码托管到公司的gitlab上管理
 
-### todo
+### Todo
 - [ ] 文件路径可以选择
 - [x] 下载文件时，有进度条                     2017-06
 - [x] createZip.sh里execFilePaths的文件路径，除去重复的路径 2017-07-27
