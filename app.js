@@ -140,3 +140,7 @@ app.use('/git-push', (req, res, next) => {
 
     res.end('ok')
 })
+
+app.use('/getversion', (req, res) => {
+   res.end(process.version)
+})
