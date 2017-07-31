@@ -13,7 +13,7 @@
       "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
 
       "max_restarts": 20,
-      "interpreter": "node@7.10.1",
+      "interpreter": "node@7.10.1",  
 
       "watch": false,
       "ignore_watch": [
