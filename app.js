@@ -52,7 +52,7 @@ app.use('/down-zip', (req, res, next) => {
     sqliteParams.push(comments);
 
     // spawn
-    let createZip = childProcess.spawn(`./bin/createZip.sh`, [dirName, repo.url, repo.dirPrefix, revision].concat(sqliteParams), {
+    let createZip = childProcess.spawn('/bin/bash', ['./bin/createZip.sh', dirName, repo.url, repo.dirPrefix, revision].concat(sqliteParams), {
         // todo 日志并没有写进pm2,换成spawnSync也不行，gulpfile.js里面的spawnSync就可以
         //stdio: [process.stdin, process.stdout, process.stderr]
         //stdio: 'pipe'
