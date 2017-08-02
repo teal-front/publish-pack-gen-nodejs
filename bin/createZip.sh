@@ -50,7 +50,7 @@ gulp --filepaths=$execFilePaths
 zip -r $dirName.zip ./*
 mv $dirName.zip ../$dirName.zip
 
-# numeric argument required , exit的参数只能是整数
+# numeric argument required, exit的参数只能是整数
 #exit "/home/teal/svnPackage/package-export/$dirName.zip"
 
 exit 0
