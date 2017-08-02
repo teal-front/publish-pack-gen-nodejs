@@ -1,5 +1,5 @@
 #
-# from :http://stackoverflow.com/questions/9631205/svn-export-modified-files-of-revisions-committed-with-specific-comment
+# from: http://stackoverflow.com/questions/9631205/svn-export-modified-files-of-revisions-committed-with-specific-comment
 #
 
 #!/usr/bin/env bash
