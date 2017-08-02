@@ -1,8 +1,9 @@
+#!/usr/bin/env bash
+
+
 #
 # from: http://stackoverflow.com/questions/9631205/svn-export-modified-files-of-revisions-committed-with-specific-comment
 #
-
-#!/usr/bin/env bash
 
 exportPath=package-export
 dirName=$1    #201701122246
