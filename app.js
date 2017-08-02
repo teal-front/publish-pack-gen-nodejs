@@ -135,6 +135,7 @@ app.use('/get-repo-config', (req, res, next) => {
 
 // http://techdoc.oa.com/teal/svnPackage/hooks上设置的commit webhook
 app.use('/git-push', (req, res, next) => {
+    // since `pm2 reload`, this request response nothing!!!
     childProcess.exec('git pull && pm2 reload svn-package', (err, stdout, stderr) => {
         if (err) {
             console.log(`git-push hook failed, due to ${err}`)
