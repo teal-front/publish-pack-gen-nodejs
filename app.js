@@ -135,11 +135,15 @@ app.use('/get-repo-config', (req, res, next) => {
 
 // http://techdoc.oa.com/teal/svnPackage/hooks上设置的commit webhook
 app.use('/git-push', (req, res, next) => {
-    childProcess.exec('git pull && pm2 reload svn-package')
-
-    console.log('git-push ok.')
-
-    res.end('ok')
+    childProcess.exec('git pull && pm2 reload svn-package', (err, stdout, stderr) => {
+        if (err) {
+            console.log(`git-push hook failed, due to ${err}`)
+            return res.status(500).end('fail')
+        }
+        
+        console.log('git-push ok')
+        res.end('ok')
+    })
 })
 
 app.use('/getversion', (req, res) => {
