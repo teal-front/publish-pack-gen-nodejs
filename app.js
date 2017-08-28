@@ -35,7 +35,7 @@ app.use('/', (req, res, next) => {
 
 // 下载zip文件
 app.use('/down-zip', (req, res, next) => {
-    res.setTimeout(20000);
+    res.setTimeout(40000);
 
     let revision = req.query.revision,   // 版本号
         appName = req.query.repo || 'node',
