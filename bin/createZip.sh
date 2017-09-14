@@ -7,8 +7,8 @@
 
 exportPath=package-export
 dirName=$1    #201701122246
-repoUrl=$2      #"https://192.168.10.100/svn/jumi/trunk/node"
-zipPath=$3       #"jm/jumi-node"
+repoUrl=$2      #"https://svn-url"
+zipPath=$3       #"namespace/appName"
 revision=($4)      #(27222 27221)
 
 accessTime=$5
