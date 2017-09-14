@@ -23,7 +23,7 @@ app.listen(5200, () => {
 });
 
 // add websocket server
-const wsPromise = require('./lib/websocket-server.js');
+require('./lib/websocket-server.js');
 
 app.use('/', (req, res, next) => {
     const WHITE_LIST = new Set(['chrome-extension://ecgacdaclhkkmfjijkpaphjjfidpnloh', // chrome store repo
@@ -38,7 +38,10 @@ app.use('/', (req, res, next) => {
     next()
 })
 
-// 下载zip文件
+/**
+ * 下载zip文件
+ * @deprecated 已转为websocket推送下载链接，这个是老版本使用的
+ */
 app.use('/down-zip', (req, res, next) => {
     res.setTimeout(40000);
 
