@@ -10,19 +10,24 @@ let parseString = require('xml2js').parseString;
 let moment = require('moment')
 
 let path = require('path');
+let fs = require('fs')
 let childProcess = require('child_process');
 
 const CONFIG = require('./config/config');
 
 app.listen(5200, () => {
+    console.log('Express app listen on port 5200')
     process.on('uncaughtException', (err) => {
         console.log('Caught exception: ', err);
     });
 });
 
+// add websocket server
+const wsPromise = require('./lib/websocket-server.js');
+
 app.use('/', (req, res, next) => {
     const WHITE_LIST = new Set(['chrome-extension://ecgacdaclhkkmfjijkpaphjjfidpnloh', // chrome store repo
-        'chrome-extension://mmgmllafceeanpjdleekmcipmjdfjeea'                       // local repo
+        'chrome-extension://bbhfhjdpidicepidikpejfdkepeblaom',                       // local
     ]);
     let reqOrigin = req.header('Origin');
 
@@ -89,7 +94,7 @@ app.use('/get-revision-list', (req, res, next) => {
 
     console.log('--------search word:  ', author);
     // 拉取数量过多，下面的execFile可能会出现Error: stdout maxBuffer exceeded
-    let cmdParams = ['log', '-l', '20']
+    let cmdParams = ['log', '-l', '7']
         .concat(author == '' ? [] : ['--search', author])
         .concat(['-v', '--xml', repoUrl]);
 
@@ -134,6 +139,19 @@ app.use('/get-repo-config', (req, res, next) => {
 
     res.json(repoNames);
 })
+
+// download zip
+app.use('/package-export/:id.zip', (req, res, next) => {
+    let filename = `./package-export/${req.params.id}.zip`
+    console.log('the file tobe downloda: ', filename);
+
+    if (!fs.existsSync(filename)) {
+        res.end('file not exist');
+    }
+
+    res.download(filename);
+})
+
 
 // http://techdoc.oa.com/teal/svnPackage/hooks上设置的commit webhook
 app.use('/git-push', (req, res, next) => {

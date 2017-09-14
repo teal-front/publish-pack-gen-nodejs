@@ -12,6 +12,7 @@
     "moment": "^2.17.1",
     "xml2js": "^0.4.17",
     "nodejs-websocket": "^1.7.1",
+    "websocket": "^1.0.24",
 
     "minimist": "^1.2.0",
     "gulp": "^3.9.1",
