@@ -1,27 +1,26 @@
 {
-  "apps": [
-    {
-      "name": "svn-package",
-      "cwd": "/home/teal/svnPackage/",
-      "script": "app.js",
-      "instances": 4,
-      "exec_mode": "cluster_mode",
-      "max_memory_restart": "500M",
-      "error_file" : "/var/log/pm2/svn-package/svn-package-err.log",
-      "log_file"   : "/var/log/pm2/svn-package/svn-package-out.log",
-      "merge_logs" : true,
-      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+    "apps": [
+        {
+            "name": "svn-package",
+            "cwd": "/home/teal/svnPackage/",
+            "script": "./app.js",
+            "instances": 1,
+            "exec_mode": "fork_mode",
+            "max_memory_restart": "500M",
+            "error_file" : "/var/log/pm2/svn-package/err.log",
+            "log_file"   : "/var/log/pm2/svn-package/out.log",
+            "merge_logs" : true,
+            "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
 
-      "max_restarts": 20,
-      "interpreter": "node@7.10.1",  
+            "max_restarts": 5,
 
-      "watch": false,
-      "ignore_watch": [
-          "package-export",
-          "node_modules",
-          "bin",
-          "db"
-      ]
-    }
-  ]
+            "watch": true,
+            "ignore_watch": [
+                "package-export",
+                "node_modules",
+                "bin",
+                "db"
+            ]
+        }
+    ]
 }
