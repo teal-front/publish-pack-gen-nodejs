@@ -14,7 +14,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence');
 var argv = require('minimist')(process.argv);
 
-const gulpConfig = require('./config/gulp-config');
+const gulpConfig = require('/etc/svn-package/config/gulp-config');
 
 gulp.task('default', function () {
     var filepaths = argv.filepaths.split(',').filter(v => v != '');
