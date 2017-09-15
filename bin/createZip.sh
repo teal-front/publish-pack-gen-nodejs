@@ -44,7 +44,10 @@ done
 # 2017-07-07 09:34:00|192.168.10.104|xx-node|2393|活动添加背景音乐需求
 sqlite3 /home/teal/svnPackage/db/main.sqlite3 "insert into access_log values (NULL, '$accessTime', '$ip', '$appName', '$revision', '$comments')"
 
-cd /home/teal/svnPackage/$exportPath/$dirName
+srcDir=/home/teal/svnPackage/$exportPath/$dirName
+if [ ! -d $srcDir ]; then exit 1; fi
+
+cd $srcDir
 
 gulp --filepaths=$execFilePaths
 
