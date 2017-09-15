@@ -13,6 +13,7 @@ let path = require('path');
 let fs = require('fs')
 let childProcess = require('child_process');
 
+// demo中为./config/config
 const CONFIG = require('/etc/svn-package/config/config');
 
 app.listen(5200, () => {

@@ -14,7 +14,7 @@
 
             "max_restarts": 5,
 
-            "watch": true,
+            "watch": false,
             "ignore_watch": [
                 "package-export",
                 "node_modules",
