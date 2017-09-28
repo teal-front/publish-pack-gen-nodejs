@@ -98,11 +98,11 @@ app.use('/get-revision-list', (req, res, next) => {
 
     console.log('--------search word:  ', author);
     // 拉取数量过多，下面的execFile可能会出现Error: stdout maxBuffer exceeded
-    let cmdParams = ['log', '-l', '7']
+    let cmdParams = ['log', '-l', '20']
         .concat(author == '' ? [] : ['--search', author])
         .concat(['-v', '--xml', repoUrl]);
 
-    childProcess.execFile('svn', cmdParams, {maxBuffer: 102400}, (err, stdout, stderr) => {
+    childProcess.execFile('svn', cmdParams, {maxBuffer: 100 * 1024}, (err, stdout, stderr) => {
         if (!err) {
             // stdout 为xml格式，转为json format
             parseString(stdout, (err, summary) => {
