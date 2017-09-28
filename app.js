@@ -102,7 +102,7 @@ app.use('/get-revision-list', (req, res, next) => {
         .concat(author == '' ? [] : ['--search', author])
         .concat(['-v', '--xml', repoUrl]);
 
-    childProcess.execFile('svn', cmdParams, {maxBuffer: 102400}, (err, stdout, stderr) => {
+    childProcess.execFile('svn', cmdParams, {maxBuffer: 100 * 1024}, (err, stdout, stderr) => {
         if (!err) {
             // stdout 为xml格式，转为json format
             parseString(stdout, (err, summary) => {
