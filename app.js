@@ -39,54 +39,6 @@ app.use('/', (req, res, next) => {
     next()
 })
 
-/**
- * 下载zip文件
- * @deprecated 已转为websocket推送下载链接，这个是老版本使用的
- */
-app.use('/down-zip', (req, res, next) => {
-    res.setTimeout(40000);
-
-    let revision = req.query.revision,   // 版本号
-        appName = req.query.repo || 'node',
-        comments = '', // req.body.comments,  todo
-        repo = CONFIG.repoMap[appName];
-
-    // get file paths form revision
-    let dirName = `${appName}--${moment(new Date()).format('YYYYMMDD_HHmmSS')}`;
-    // 把小的版本放前面，使后面的可以覆盖掉： 26677 26699 => 26699 26677
-    //revision = revision.split(/\s+/).map(v => +v).sort().join(' ')
-
-    let sqliteParams = [];
-    sqliteParams.push(moment(new Date()).format('YYYY-MM-DD HH:mm:SS'));
-    sqliteParams.push(req.ip);
-    sqliteParams.push(appName);
-    sqliteParams.push(comments);
-
-    // spawn
-    // `/bin/bash ./bin/createZip.sh`  than `./bin/createZip.sh`, avoid to set `createZip.sh` executable due to `git pull` will overwrite filemode default
-    let createZip = childProcess.spawn('/bin/bash', ['./bin/createZip.sh', dirName, repo.url, repo.dirPrefix, revision].concat(sqliteParams), {
-        // todo 日志并没有写进pm2,换成spawnSync也不行，gulpfile.js里面的spawnSync就可以
-        //stdio: [process.stdin, process.stdout, process.stderr]
-        //stdio: 'pipe'
-    })
-    createZip.stdout.on('data', (data) => {
-        console.log(data.toString('utf8'));
-    })
-    createZip.stderr.on('data', (data) => {
-        console.log(`createZip.sh error: ${data.toString('utf8')}`)
-    })
-    createZip.on('close', (code) => {
-        if (code !== 0) {
-            return console.log(`createZip.sh exit with error code ${code}`)
-        }
-        // todo 下载路径可以由shell脚本输出
-        res.download(`/home/teal/svnPackage/package-export/${dirName}.zip`, (err) => {
-            console.log(err ? `file download fail ${err}` : `${dirName} download success.`)
-        })
-
-    })
-})
-
 // 获取版本列表
 app.use('/get-revision-list', (req, res, next) => {
     res.setTimeout(20000);
