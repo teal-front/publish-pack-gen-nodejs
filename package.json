@@ -1,6 +1,6 @@
 {
   "name": "pack-from-svn",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "auto create upload package from svn ",
   "main": "app.js",
   "scripts": {
@@ -9,21 +9,21 @@
   "dependencies": {
     "ejs": "^2.5.5",
     "express": "^4.15.3",
-    "moment": "^2.17.1",
-    "xml2js": "^0.4.17",
-    "nodejs-websocket": "^1.7.1",
-    "websocket": "^1.0.24",
-
-    "minimist": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-watch": "^4.3.9",
     "gulp-uglifycss": "^1.0.8",
-    "run-sequence": "^1.2.2"
+    "gulp-watch": "^4.3.9",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "minimist": "^1.2.0",
+    "moment": "^2.17.1",
+    "nodejs-websocket": "^1.7.1",
+    "run-sequence": "^1.2.2",
+    "websocket": "^1.0.24",
+    "xml2js": "^0.4.17"
   },
   "author": "teal",
   "license": "ISC"
 }
-

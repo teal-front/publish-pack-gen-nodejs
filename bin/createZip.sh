@@ -25,7 +25,7 @@ do
 
     for file in $(svn diff --summarize -r$r:$(($r - 1)) $repoUrl)
     do
-		# 过滤掉非版本库文件，scss文件
+        # 过滤掉非版本库文件，scss文件
         if [[ $file =~ ^http && ! $file =~ \.scss$ ]];then
             escapePath=`echo $file | sed "s|$repoUrl||g"`
             outfile="/home/teal/svnPackage/$exportPath/$dirName/$zipPath$escapePath"
