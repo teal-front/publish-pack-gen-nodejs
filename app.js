@@ -1,6 +1,6 @@
 'use strict';
 /**
- * web server: download package.zip for odmspay.oa.com
+ * web server: download package.zip for Release System
  */
 
 const Koa = require('koa');
