@@ -1,14 +1,22 @@
 {
-  "name": "pack-from-svn",
-  "version": "2.0.0",
-  "description": "auto create upload package from svn ",
+  "name": "pack-from-git",
+  "version": "2.0.1",
+  "description": "auto create upload package from git ",
   "main": "app.js",
+  "keywords": [
+	"package",
+	"git",
+	"depoly",
+	"ci"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+	"type": "git",
+    "url": "git@github.com:teal-front/publish-pack-gen-nodejs.git"
+  },
   "dependencies": {
-    "ejs": "^2.5.5",
-    "express": "^4.15.3",
     "gulp": "^3.9.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
@@ -19,10 +27,14 @@
     "koa-router": "^7.3.0",
     "minimist": "^1.2.0",
     "moment": "^2.17.1",
-    "nodejs-websocket": "^1.7.1",
     "run-sequence": "^1.2.2",
-    "websocket": "^1.0.24",
-    "xml2js": "^0.4.17"
+    "websocket": "^1.0.24"
+  },
+  "peerDepenencies": {
+	"git-package-chrome-extension": "1.x"
+  },
+  "engines": {
+	"node": ">=7.6.0"
   },
   "author": "teal",
   "license": "ISC"

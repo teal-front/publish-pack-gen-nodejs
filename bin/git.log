@@ -1,0 +1,36 @@
+//// git cli 收集
+
+>　https://git-scm.com/docs/git-log
+>　https://gist.github.com/varemenos/e95c2e098e657c7688fd
+
+
+远程服务器上clone git 仓库，然后切换到相应git仓库，再执行相应git cli
+> https://stackoverflow.com/questions/1178389/browse-and-display-files-in-a-git-repo-without-cloning
+
+1. git log refs
+git log --pretty=format:'{"subject": "%s", "author":  "%an", "date": "%ad"},'
+
+var format = '{%n  "commit": "%H",%n  "abbreviated_commit": "%h",%n  "tree": "%T",%n  "abbreviated_tree": "%t",%n  "parent": "%P",%n  "abbreviated_parent": "%p",%n  "refs": "%D",%n  "encoding": "%e",%n  "subject": "%s",%n  "sanitized_subject_line": "%f",%n  "body": "%b",%n  "commit_notes": "%N",%n  "verification_flag": "%G?",%n  "signer": "%GS",%n  "signer_key": "%GK",%n  "author": {%n    "name": "%aN",%n    "email": "%aE",%n    "date": "%aD"%n  },%n  "commiter": {%n    "name": "%cN",%n    "email": "%cE",%n    "date": "%cD"%n  }%n},';
+
+var commits = [];
+
+new BufferedProcess({
+    command: 'git',
+    args: [
+        'log',
+        '--pretty=format:' + format
+    ],
+    stdout: function (chunk) { commits += chunk },
+    exit: function (code) {
+        if (code === 0) {
+            var result = JSON.parse('[' + commits.slice(0, -1) + ']');
+
+            console.log(result); // valid JSON array
+        }
+    }
+});
+
+2. download zip form refs
+git show 358db20f8821146ad614539796658e32645d0ac4 --name-only --pretty=""
+
+git archive --remote=ssh://git@repo.we.com/web/t8t-scm-ewc.git HEAD package.json

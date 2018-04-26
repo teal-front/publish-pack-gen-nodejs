@@ -2,3 +2,5 @@
 /db
 /package-export
 package-lock.json
+.idea
+.vscode
